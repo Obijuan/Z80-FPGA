@@ -1852,7 +1852,7 @@
           "type": "basic.constant",
           "data": {
             "name": "",
-            "value": "\"rom.list\"",
+            "value": "\"roms/01-port-leds.list\"",
             "local": false
           },
           "position": {
