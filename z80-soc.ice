@@ -921,8 +921,8 @@
             "oldBlockColor": "fuchsia"
           },
           "position": {
-            "x": 2008,
-            "y": 768
+            "x": 2192,
+            "y": 784
           }
         },
         {
@@ -1123,6 +1123,26 @@
           }
         },
         {
+          "id": "cc9d6e00-3173-497e-b3b8-b6235f5401b6",
+          "type": "basic.outputLabel",
+          "data": {
+            "blockColor": "fuchsia",
+            "name": "wr_n",
+            "pins": [
+              {
+                "index": "0",
+                "name": "",
+                "value": ""
+              }
+            ],
+            "virtual": true
+          },
+          "position": {
+            "x": 112,
+            "y": 936
+          }
+        },
+        {
           "id": "c3da86cb-5aa7-4825-bafe-4036ad157afc",
           "type": "basic.outputLabel",
           "data": {
@@ -1214,28 +1234,8 @@
             "blockColor": "fuchsia"
           },
           "position": {
-            "x": 1312,
-            "y": 920
-          }
-        },
-        {
-          "id": "cc9d6e00-3173-497e-b3b8-b6235f5401b6",
-          "type": "basic.outputLabel",
-          "data": {
-            "blockColor": "fuchsia",
-            "name": "wr_n",
-            "pins": [
-              {
-                "index": "0",
-                "name": "",
-                "value": ""
-              }
-            ],
-            "virtual": true
-          },
-          "position": {
-            "x": 112,
-            "y": 936
+            "x": 1032,
+            "y": 984
           }
         },
         {
@@ -1350,8 +1350,8 @@
             "virtual": true
           },
           "position": {
-            "x": 1312,
-            "y": 1040
+            "x": 1680,
+            "y": 1112
           }
         },
         {
@@ -1405,86 +1405,8 @@
             "virtual": false
           },
           "position": {
-            "x": 2024,
-            "y": 1064
-          }
-        },
-        {
-          "id": "762630b1-b9bb-4a6d-8ff0-1bb929966444",
-          "type": "basic.outputLabel",
-          "data": {
-            "blockColor": "fuchsia",
-            "name": "DOBUS",
-            "range": "[7:0]",
-            "pins": [
-              {
-                "index": "7",
-                "name": "",
-                "value": ""
-              },
-              {
-                "index": "6",
-                "name": "",
-                "value": ""
-              },
-              {
-                "index": "5",
-                "name": "",
-                "value": ""
-              },
-              {
-                "index": "4",
-                "name": "",
-                "value": ""
-              },
-              {
-                "index": "3",
-                "name": "",
-                "value": ""
-              },
-              {
-                "index": "2",
-                "name": "",
-                "value": ""
-              },
-              {
-                "index": "1",
-                "name": "",
-                "value": ""
-              },
-              {
-                "index": "0",
-                "name": "",
-                "value": ""
-              }
-            ],
-            "virtual": true,
-            "oldBlockColor": "fuchsia"
-          },
-          "position": {
-            "x": 1312,
+            "x": 2392,
             "y": 1136
-          }
-        },
-        {
-          "id": "a63d5fad-7e85-44f9-9759-f90765445d1a",
-          "type": "basic.outputLabel",
-          "data": {
-            "blockColor": "fuchsia",
-            "name": "port_cs_n",
-            "pins": [
-              {
-                "index": "0",
-                "name": "",
-                "value": ""
-              }
-            ],
-            "virtual": true,
-            "oldBlockColor": "fuchsia"
-          },
-          "position": {
-            "x": 1200,
-            "y": 1176
           }
         },
         {
@@ -1544,6 +1466,63 @@
           }
         },
         {
+          "id": "762630b1-b9bb-4a6d-8ff0-1bb929966444",
+          "type": "basic.outputLabel",
+          "data": {
+            "blockColor": "fuchsia",
+            "name": "DOBUS",
+            "range": "[7:0]",
+            "pins": [
+              {
+                "index": "7",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "6",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "5",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "4",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "3",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "2",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "1",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "0",
+                "name": "",
+                "value": ""
+              }
+            ],
+            "virtual": true,
+            "oldBlockColor": "fuchsia"
+          },
+          "position": {
+            "x": 1680,
+            "y": 1208
+          }
+        },
+        {
           "id": "1fcaa707-1137-4ba7-b88d-f6f199734b05",
           "type": "basic.inputLabel",
           "data": {
@@ -1596,27 +1575,6 @@
           },
           "position": {
             "x": 744,
-            "y": 1216
-          }
-        },
-        {
-          "id": "b164d418-4970-439b-85a0-63600653aa60",
-          "type": "basic.outputLabel",
-          "data": {
-            "blockColor": "fuchsia",
-            "name": "rd_n",
-            "pins": [
-              {
-                "index": "0",
-                "name": "",
-                "value": ""
-              }
-            ],
-            "virtual": true,
-            "oldBlockColor": "fuchsia"
-          },
-          "position": {
-            "x": 1312,
             "y": 1216
           }
         },
@@ -1678,11 +1636,11 @@
           }
         },
         {
-          "id": "d8fe4ad5-d92e-4b3f-8f1e-f8f43be1f1b2",
+          "id": "a63d5fad-7e85-44f9-9759-f90765445d1a",
           "type": "basic.outputLabel",
           "data": {
             "blockColor": "fuchsia",
-            "name": "wr_n",
+            "name": "port_cs_n",
             "pins": [
               {
                 "index": "0",
@@ -1690,11 +1648,33 @@
                 "value": ""
               }
             ],
-            "virtual": true
+            "virtual": true,
+            "oldBlockColor": "fuchsia"
           },
           "position": {
-            "x": 1200,
-            "y": 1264
+            "x": 1568,
+            "y": 1248
+          }
+        },
+        {
+          "id": "b164d418-4970-439b-85a0-63600653aa60",
+          "type": "basic.outputLabel",
+          "data": {
+            "blockColor": "fuchsia",
+            "name": "rd_n",
+            "pins": [
+              {
+                "index": "0",
+                "name": "",
+                "value": ""
+              }
+            ],
+            "virtual": true,
+            "oldBlockColor": "fuchsia"
+          },
+          "position": {
+            "x": 1680,
+            "y": 1288
           }
         },
         {
@@ -1716,6 +1696,46 @@
           "position": {
             "x": 168,
             "y": 1296
+          }
+        },
+        {
+          "id": "d8fe4ad5-d92e-4b3f-8f1e-f8f43be1f1b2",
+          "type": "basic.outputLabel",
+          "data": {
+            "blockColor": "fuchsia",
+            "name": "wr_n",
+            "pins": [
+              {
+                "index": "0",
+                "name": "",
+                "value": ""
+              }
+            ],
+            "virtual": true
+          },
+          "position": {
+            "x": 1568,
+            "y": 1336
+          }
+        },
+        {
+          "id": "b89f98bd-a286-4233-80bc-dfd565abac2b",
+          "type": "basic.outputLabel",
+          "data": {
+            "blockColor": "fuchsia",
+            "name": "rom_cs_n",
+            "pins": [
+              {
+                "index": "0",
+                "name": "",
+                "value": ""
+              }
+            ],
+            "virtual": true
+          },
+          "position": {
+            "x": 168,
+            "y": 1360
           }
         },
         {
@@ -1810,28 +1830,8 @@
             "blockColor": "fuchsia"
           },
           "position": {
-            "x": 1336,
-            "y": 1352
-          }
-        },
-        {
-          "id": "b89f98bd-a286-4233-80bc-dfd565abac2b",
-          "type": "basic.outputLabel",
-          "data": {
-            "blockColor": "fuchsia",
-            "name": "rom_cs_n",
-            "pins": [
-              {
-                "index": "0",
-                "name": "",
-                "value": ""
-              }
-            ],
-            "virtual": true
-          },
-          "position": {
-            "x": 168,
-            "y": 1360
+            "x": 1704,
+            "y": 1424
           }
         },
         {
@@ -1856,8 +1856,8 @@
             "local": false
           },
           "position": {
-            "x": 1648,
-            "y": 528
+            "x": 1712,
+            "y": 520
           }
         },
         {
@@ -1898,62 +1898,6 @@
           "size": {
             "width": 120,
             "height": 40
-          }
-        },
-        {
-          "id": "fc1af1b1-dbc0-47a8-8599-3898e252d0ad",
-          "type": "basic.code",
-          "data": {
-            "code": "// @include membram.v\nlocalparam ROM_WIDTH = 13;\n\n\tmembram #(ROM_WIDTH, ROMF, 1) rom\n\t(\n    \t.clk\t\t(clk),\n    \t.reset_n\t(reset_n),\n    \t.data_out\t(data_out),\n    \t.data_in\t(),\n    \t.cs_n\t\t(cs_n),\n    \t.rd_n\t\t(rd_n),\n    \t.wr_n\t\t(wr_n),\n    \t.addr\t\t(addr[ROM_WIDTH-1:0])\n\t);",
-            "params": [
-              {
-                "name": "ROMF"
-              }
-            ],
-            "ports": {
-              "in": [
-                {
-                  "name": "clk"
-                },
-                {
-                  "name": "reset_n"
-                },
-                {
-                  "name": "data_in",
-                  "range": "[7:0]",
-                  "size": 8
-                },
-                {
-                  "name": "cs_n"
-                },
-                {
-                  "name": "rd_n"
-                },
-                {
-                  "name": "wr_n"
-                },
-                {
-                  "name": "addr",
-                  "range": "[15:0]",
-                  "size": 16
-                }
-              ],
-              "out": [
-                {
-                  "name": "data_out",
-                  "range": "[7:0]",
-                  "size": 8
-                }
-              ]
-            }
-          },
-          "position": {
-            "x": 1512,
-            "y": 648
-          },
-          "size": {
-            "width": 368,
-            "height": 304
           }
         },
         {
@@ -2097,8 +2041,8 @@
             }
           },
           "position": {
-            "x": 1528,
-            "y": 1056
+            "x": 1896,
+            "y": 1128
           },
           "size": {
             "width": 368,
@@ -2146,8 +2090,8 @@
             "readonly": true
           },
           "position": {
-            "x": 1640,
-            "y": 1008
+            "x": 2008,
+            "y": 1080
           },
           "size": {
             "width": 224,
@@ -2207,7 +2151,7 @@
           "id": "ddd5d822-8fb7-43a5-b17c-362f6b4cb7e5",
           "type": "basic.code",
           "data": {
-            "code": "localparam RAM_WIDTH = 13;\nmembram #(RAM_WIDTH)  ram\n\t\t(\n\t\t\t.clk\t\t(clk),\n\t\t\t.reset_n\t(reset_n),\n\t\t\t.data_out\t(data_out),\n\t\t\t.data_in\t(data_in),\n\t\t\t.cs_n\t\t(cs_n),\n\t\t\t.rd_n\t\t(rd_n),\n\t\t\t.wr_n\t\t(wr_n),\n\t\t\t.addr\t\t(addr[RAM_WIDTH-1:0])\n\t\t);",
+            "code": "// @include membram.v\nlocalparam RAM_WIDTH = 13;\nmembram #(RAM_WIDTH)  ram\n\t\t(\n\t\t\t.clk\t\t(clk),\n\t\t\t.reset_n\t(reset_n),\n\t\t\t.data_out\t(data_out),\n\t\t\t.data_in\t(data_in),\n\t\t\t.cs_n\t\t(cs_n),\n\t\t\t.rd_n\t\t(rd_n),\n\t\t\t.wr_n\t\t(wr_n),\n\t\t\t.addr\t\t(addr[RAM_WIDTH-1:0])\n\t\t);",
             "params": [],
             "ports": {
               "in": [
@@ -2337,6 +2281,99 @@
           "size": {
             "width": 208,
             "height": 40
+          }
+        },
+        {
+          "id": "fc1af1b1-dbc0-47a8-8599-3898e252d0ad",
+          "type": "basic.code",
+          "data": {
+            "code": "localparam ADDR_WIDTH = 13;\n\nwire read_sel = !cs_n & !rd_n & wr_n;\nwire write_sel = !cs_n & rd_n & !wr_n;\n\nassign data_out = (read_sel) ? mem_8[addr] : 8'bz;\n\nreg [7:0] mem_8 [0:(1 << ADDR_WIDTH)-1];\ninitial begin\n  if (ROMF)\n    $readmemh(ROMF, mem_8, 0, (1 << ADDR_WIDTH)-1);\nend\n\nalways @(posedge clk)\nbegin\n    if (write_sel) begin\n        mem_8[addr] <= data_in;\n    end\nend",
+            "params": [
+              {
+                "name": "ROMF"
+              }
+            ],
+            "ports": {
+              "in": [
+                {
+                  "name": "clk"
+                },
+                {
+                  "name": "reset_n"
+                },
+                {
+                  "name": "data_in",
+                  "range": "[7:0]",
+                  "size": 8
+                },
+                {
+                  "name": "cs_n"
+                },
+                {
+                  "name": "rd_n"
+                },
+                {
+                  "name": "wr_n"
+                },
+                {
+                  "name": "addr",
+                  "range": "[12:0]",
+                  "size": 13
+                }
+              ],
+              "out": [
+                {
+                  "name": "data_out",
+                  "range": "[7:0]",
+                  "size": 8
+                }
+              ]
+            }
+          },
+          "position": {
+            "x": 1512,
+            "y": 648
+          },
+          "size": {
+            "width": 488,
+            "height": 328
+          }
+        },
+        {
+          "id": "30dd3510-c563-4643-9c6b-eff8e230ffb4",
+          "type": "basic.code",
+          "data": {
+            "code": "assign o0 = i[12:0];",
+            "params": [],
+            "ports": {
+              "in": [
+                {
+                  "name": "i",
+                  "range": "[15:0]",
+                  "size": 16
+                }
+              ],
+              "out": [
+                {
+                  "name": "o1",
+                  "range": "[15:13]",
+                  "size": 3
+                },
+                {
+                  "name": "o0",
+                  "range": "[12:0]",
+                  "size": 13
+                }
+              ]
+            }
+          },
+          "position": {
+            "x": 1192,
+            "y": 976
+          },
+          "size": {
+            "width": 240,
+            "height": 72
           }
         }
       ],
@@ -2468,17 +2505,6 @@
             "block": "fc1af1b1-dbc0-47a8-8599-3898e252d0ad",
             "port": "wr_n"
           }
-        },
-        {
-          "source": {
-            "block": "c3da86cb-5aa7-4825-bafe-4036ad157afc",
-            "port": "outlabel"
-          },
-          "target": {
-            "block": "fc1af1b1-dbc0-47a8-8599-3898e252d0ad",
-            "port": "addr"
-          },
-          "size": 16
         },
         {
           "source": {
@@ -2931,6 +2957,28 @@
             "port": "inlabel"
           },
           "size": 8
+        },
+        {
+          "source": {
+            "block": "30dd3510-c563-4643-9c6b-eff8e230ffb4",
+            "port": "o0"
+          },
+          "target": {
+            "block": "fc1af1b1-dbc0-47a8-8599-3898e252d0ad",
+            "port": "addr"
+          },
+          "size": 13
+        },
+        {
+          "source": {
+            "block": "c3da86cb-5aa7-4825-bafe-4036ad157afc",
+            "port": "outlabel"
+          },
+          "target": {
+            "block": "30dd3510-c563-4643-9c6b-eff8e230ffb4",
+            "port": "i"
+          },
+          "size": 16
         }
       ]
     }
