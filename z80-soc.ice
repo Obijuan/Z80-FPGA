@@ -1864,7 +1864,7 @@
           "id": "be4a1c49-dc2c-4ef6-959d-47c1796cb90f",
           "type": "basic.code",
           "data": {
-            "code": "tv80s cpu\n\t(\n\t\t.m1_n\t\t(m1_n),\n\t\t.mreq_n\t\t(mreq_n),\n\t\t.iorq_n\t\t(iorq_n),\n\t\t.rd_n\t\t(rd_n),\n\t\t.wr_n\t\t(wr_n),\n\t\t.rfsh_n\t\t(rfsh_n),\n\t\t.halt_n\t\t(halt_n),\n\t\t.busak_n\t(busak_n),\n\t\t.A\t\t\t(A),\n\t\t.do\t\t\t(do),\n\t\t.reset_n\t(reset_n),\n\t\t.clk\t\t(clk),\n\t\t.wait_n\t\t(wait_n),\n\t\t.int_n\t\t(int_n),\n\t\t.nmi_n\t\t(nmi_n),\n\t\t.busrq_n\t(busrq_n),\n\t\t.di\t\t\t(di)\n\t);\n\t\n\tdefparam cpu.Mode = 0; // 0 => Z80, 1 => Fast Z80, 2 => 8080, 3 => GB\n\tdefparam cpu.T2Write = 1; // 0 => wr_n active in T3, /=0 => wr_n active in T2\n\tdefparam cpu.IOWait = 1; // 0 => Single cycle I/O, 1 => Std I/O cycle\n\t",
+            "code": "// @include tv80s.v\n// @include tv80_core.v\n// @include tv80_mcode.v\n// @include tv80_alu.v\n// @include tv80_reg.v\n\ntv80s cpu\n\t(\n\t\t.m1_n\t\t(m1_n),\n\t\t.mreq_n\t\t(mreq_n),\n\t\t.iorq_n\t\t(iorq_n),\n\t\t.rd_n\t\t(rd_n),\n\t\t.wr_n\t\t(wr_n),\n\t\t.rfsh_n\t\t(rfsh_n),\n\t\t.halt_n\t\t(halt_n),\n\t\t.busak_n\t(busak_n),\n\t\t.A\t\t\t(A),\n\t\t.do\t\t\t(do),\n\t\t.reset_n\t(reset_n),\n\t\t.clk\t\t(clk),\n\t\t.wait_n\t\t(wait_n),\n\t\t.int_n\t\t(int_n),\n\t\t.nmi_n\t\t(nmi_n),\n\t\t.busrq_n\t(busrq_n),\n\t\t.di\t\t\t(di)\n\t);\n\t\n\tdefparam cpu.Mode = 0; // 0 => Z80, 1 => Fast Z80, 2 => 8080, 3 => GB\n\tdefparam cpu.T2Write = 1; // 0 => wr_n active in T3, /=0 => wr_n active in T2\n\tdefparam cpu.IOWait = 1; // 0 => Single cycle I/O, 1 => Std I/O cycle\n\t",
             "params": [],
             "ports": {
               "in": [
@@ -1983,7 +1983,7 @@
           "id": "fc1af1b1-dbc0-47a8-8599-3898e252d0ad",
           "type": "basic.code",
           "data": {
-            "code": "localparam ROM_WIDTH = 13;\n\n\tmembram #(ROM_WIDTH, ROMF, 1) rom\n\t(\n    \t.clk\t\t(clk),\n    \t.reset_n\t(reset_n),\n    \t.data_out\t(data_out),\n    \t.data_in\t(),\n    \t.cs_n\t\t(cs_n),\n    \t.rd_n\t\t(rd_n),\n    \t.wr_n\t\t(wr_n),\n    \t.addr\t\t(addr[ROM_WIDTH-1:0])\n\t);",
+            "code": "// @include membram.v\nlocalparam ROM_WIDTH = 13;\n\n\tmembram #(ROM_WIDTH, ROMF, 1) rom\n\t(\n    \t.clk\t\t(clk),\n    \t.reset_n\t(reset_n),\n    \t.data_out\t(data_out),\n    \t.data_in\t(),\n    \t.cs_n\t\t(cs_n),\n    \t.rd_n\t\t(rd_n),\n    \t.wr_n\t\t(wr_n),\n    \t.addr\t\t(addr[ROM_WIDTH-1:0])\n\t);",
             "params": [
               {
                 "name": "ROMF"
@@ -2136,7 +2136,7 @@
           "id": "0dd6059d-d1a1-42c1-b6c3-803a6c3e726c",
           "type": "basic.code",
           "data": {
-            "code": "\tsimpleio ioporta\n\t(\n\t\t.clk\t\t(clk),\n\t\t.reset_n\t(reset_n),\n\t\t.data_in\t(data_in),\n\t\t.cs_n\t\t(cs_n),\n\t\t.rd_n\t\t(rd_n),\n\t\t.wr_n\t\t(wr_n),\n\t\t.addr\t\t(addr[1:0]),\n\t\t.P1_out\t\t(P1_out)\n\t);",
+            "code": "\t// @include simpleio.v\n\tsimpleio ioporta\n\t(\n\t\t.clk\t\t(clk),\n\t\t.reset_n\t(reset_n),\n\t\t.data_in\t(data_in),\n\t\t.cs_n\t\t(cs_n),\n\t\t.rd_n\t\t(rd_n),\n\t\t.wr_n\t\t(wr_n),\n\t\t.addr\t\t(addr[1:0]),\n\t\t.P1_out\t\t(P1_out)\n\t);",
             "params": [],
             "ports": {
               "in": [
@@ -2359,26 +2359,6 @@
           }
         },
         {
-          "id": "83f63a39-637e-46cf-9b7f-39a53fb31a6d",
-          "type": "basic.code",
-          "data": {
-            "code": "// @include tv80s.v\n// @include tv80_core.v\n// @include tv80_mcode.v\n// @include tv80_alu.v\n// @include tv80_reg.v\n// @include membram.v\n// @include simpleio.v\n",
-            "params": [],
-            "ports": {
-              "in": [],
-              "out": []
-            }
-          },
-          "position": {
-            "x": 2296,
-            "y": 152
-          },
-          "size": {
-            "width": 264,
-            "height": 144
-          }
-        },
-        {
           "id": "11cf817d-194d-44c1-9e17-c7171e35405c",
           "type": "basic.info",
           "data": {
@@ -2408,22 +2388,6 @@
           "size": {
             "width": 400,
             "height": 48
-          }
-        },
-        {
-          "id": "6dda3384-2fd6-4287-bf17-a63e99925e8c",
-          "type": "basic.info",
-          "data": {
-            "info": "**DEPENDENCIAS DE FICHEROS VERILOG**",
-            "readonly": true
-          },
-          "position": {
-            "x": 2312,
-            "y": 96
-          },
-          "size": {
-            "width": 336,
-            "height": 40
           }
         }
       ],
