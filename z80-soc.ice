@@ -1852,7 +1852,7 @@
           "type": "basic.constant",
           "data": {
             "name": "",
-            "value": "\"roms/02-ram-var.list\"",
+            "value": "\"bench_asm/00-all.list\"",
             "local": false
           },
           "position": {
