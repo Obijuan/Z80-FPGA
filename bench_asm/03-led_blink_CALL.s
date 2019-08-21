@@ -7,6 +7,9 @@
 ; El programa arranca en la dirección 0 de la ROM
 org 0x0000
 
+;-- Configurar la pila
+ld sp, 0x9FFF
+
 ; Sacamos un 1 por el puerto 0x40 para encender el led0 de la Alhambra-II
 ENCENDIDO:  ld	A, 0x01
             out (0x40),A
@@ -26,6 +29,3 @@ J2:         djnz J2
             dec E
             jr nz,J1
 RET ; END TIMER500ms
-
-
-
