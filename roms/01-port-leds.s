@@ -4,6 +4,8 @@
 PORT_LEDS: equ 0x40  ;--Direccion del puerto de los LEDs
 VALOR: equ 0xAA  ;-- Valor a sacar en los LEDs
 
+    ;-- Al arrancar, el Z80 lee la instruccion de la
+    ;-- direccion 0
     org 0x0000
 
     ;-- Cargar el valor en el registro A
