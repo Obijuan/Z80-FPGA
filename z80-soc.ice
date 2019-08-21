@@ -394,8 +394,8 @@
             "pins": [
               {
                 "index": "0",
-                "name": "D0",
-                "value": "2"
+                "name": "D1",
+                "value": "1"
               }
             ],
             "virtual": false
@@ -1852,7 +1852,7 @@
           "type": "basic.constant",
           "data": {
             "name": "",
-            "value": "\"bench_asm/00-all.list\"",
+            "value": "\"bench_asm/03-led_blink_CALL.list\"",
             "local": false
           },
           "position": {
