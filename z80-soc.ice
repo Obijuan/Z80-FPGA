@@ -2001,7 +2001,7 @@
           "id": "0dd6059d-d1a1-42c1-b6c3-803a6c3e726c",
           "type": "basic.code",
           "data": {
-            "code": "\nwire write_sel = !cs_n & rd_n & !wr_n;\n\nreg[7:0] out_1;\nreg[7:0] read_data;\n\nassign P1_out = out_1;\n\nalways @(posedge clk)\nbegin\n    if ( write_sel )\n         out_1 <= data_in;\nend\n\n\n\n\n/*\n\tsimpleio ioporta\n\t(\n\t\t.clk\t\t(clk),\n\t\t.reset_n\t(reset_n),\n\t\t.data_in\t(data_in),\n\t\t.cs_n\t\t(cs_n),\n\t\t.rd_n\t\t(rd_n),\n\t\t.wr_n\t\t(wr_n),\n\t\t.addr\t\t(addr[1:0]),\n\t\t.P1_out\t\t(P1_out)\n\t);\n*/",
+            "code": "\nwire write_sel = !cs_n & rd_n & !wr_n;\n\nreg[7:0] out_1;\nreg[7:0] read_data;\n\nassign P1_out = out_1;\n\nalways @(posedge clk)\nbegin\n    if ( write_sel )\n         out_1 <= data_in;\nend\n\n\n/*\n\tsimpleio ioporta\n\t(\n\t\t.clk\t\t(clk),\n\t\t.reset_n\t(reset_n),\n\t\t.data_in\t(data_in),\n\t\t.cs_n\t\t(cs_n),\n\t\t.rd_n\t\t(rd_n),\n\t\t.wr_n\t\t(wr_n),\n\t\t.addr\t\t(addr[1:0]),\n\t\t.P1_out\t\t(P1_out)\n\t);\n*/",
             "params": [],
             "ports": {
               "in": [
