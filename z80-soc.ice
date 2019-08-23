@@ -232,7 +232,7 @@
           "type": "basic.outputLabel",
           "data": {
             "blockColor": "fuchsia",
-            "name": "rom_cs_n",
+            "name": "rom_cs",
             "pins": [
               {
                 "index": "0",
@@ -240,7 +240,8 @@
                 "value": ""
               }
             ],
-            "virtual": true
+            "virtual": true,
+            "oldBlockColor": "fuchsia"
           },
           "position": {
             "x": 1696,
@@ -272,7 +273,7 @@
           "type": "basic.inputLabel",
           "data": {
             "blockColor": "fuchsia",
-            "name": "rom_cs_n",
+            "name": "rom_cs",
             "pins": [
               {
                 "index": "0",
@@ -280,10 +281,11 @@
                 "value": ""
               }
             ],
-            "virtual": true
+            "virtual": true,
+            "oldBlockColor": "fuchsia"
           },
           "position": {
-            "x": 2848,
+            "x": 2680,
             "y": 160
           }
         },
@@ -435,8 +437,8 @@
             "pins": [
               {
                 "index": "0",
-                "name": "D0",
-                "value": "2"
+                "name": "D1",
+                "value": "1"
               }
             ],
             "virtual": false
@@ -1004,7 +1006,7 @@
           "type": "basic.outputLabel",
           "data": {
             "blockColor": "fuchsia",
-            "name": "ram_cs_n",
+            "name": "ram_cs",
             "pins": [
               {
                 "index": "0",
@@ -1081,7 +1083,7 @@
           "type": "basic.inputLabel",
           "data": {
             "blockColor": "fuchsia",
-            "name": "ram_cs_n",
+            "name": "ram_cs",
             "pins": [
               {
                 "index": "0",
@@ -1093,7 +1095,7 @@
             "oldBlockColor": "fuchsia"
           },
           "position": {
-            "x": 3240,
+            "x": 3112,
             "y": 632
           }
         },
@@ -1334,7 +1336,7 @@
           "type": "basic.outputLabel",
           "data": {
             "blockColor": "fuchsia",
-            "name": "ram_cs_n",
+            "name": "ram_cs",
             "pins": [
               {
                 "index": "0",
@@ -1346,7 +1348,7 @@
             "oldBlockColor": "fuchsia"
           },
           "position": {
-            "x": 632,
+            "x": 768,
             "y": 752
           }
         },
@@ -1451,7 +1453,7 @@
           "type": "basic.outputLabel",
           "data": {
             "blockColor": "fuchsia",
-            "name": "rom_cs_n",
+            "name": "rom_cs",
             "pins": [
               {
                 "index": "0",
@@ -1459,11 +1461,12 @@
                 "value": ""
               }
             ],
-            "virtual": true
+            "virtual": true,
+            "oldBlockColor": "fuchsia"
           },
           "position": {
-            "x": 632,
-            "y": 848
+            "x": 768,
+            "y": 816
           }
         },
         {
@@ -2057,30 +2060,6 @@
           }
         },
         {
-          "id": "f2ce67cc-7ed0-4b21-b939-16f15280be3f",
-          "type": "35f267d0df6ffcb7fc33753bc9df9cf083642cca",
-          "position": {
-            "x": 760,
-            "y": 752
-          },
-          "size": {
-            "width": 96,
-            "height": 64
-          }
-        },
-        {
-          "id": "7e060da8-6c9a-4ea4-9be8-5ac5d80de2e3",
-          "type": "35f267d0df6ffcb7fc33753bc9df9cf083642cca",
-          "position": {
-            "x": 768,
-            "y": 848
-          },
-          "size": {
-            "width": 96,
-            "height": 64
-          }
-        },
-        {
           "id": "6c092bc2-baeb-4bdc-ba98-d6ce8fcdf85e",
           "type": "35f267d0df6ffcb7fc33753bc9df9cf083642cca",
           "position": {
@@ -2241,18 +2220,6 @@
           }
         },
         {
-          "id": "2e9dad36-b2c4-41f4-b309-035a305c4268",
-          "type": "35f267d0df6ffcb7fc33753bc9df9cf083642cca",
-          "position": {
-            "x": 2688,
-            "y": 160
-          },
-          "size": {
-            "width": 96,
-            "height": 64
-          }
-        },
-        {
           "id": "25dfba5b-123a-4f1c-9830-d85bc256cbd3",
           "type": "basic.info",
           "data": {
@@ -2321,18 +2288,6 @@
           "type": "b2090f68ef94fd3c5c0eaea93eb6ba7e80aff0b6",
           "position": {
             "x": 2984,
-            "y": 632
-          },
-          "size": {
-            "width": 96,
-            "height": 64
-          }
-        },
-        {
-          "id": "9e4b7095-9f40-4cd1-b128-660e9f130694",
-          "type": "35f267d0df6ffcb7fc33753bc9df9cf083642cca",
-          "position": {
-            "x": 3112,
             "y": 632
           },
           "size": {
@@ -2520,7 +2475,7 @@
           "id": "b408438f-ed44-475c-a3d3-4c3f7165576d",
           "type": "basic.info",
           "data": {
-            "info": "Se activa (1) cuando el z80 quiere  \nrealizar cualquier acceso a memoria",
+            "info": "Se activa (1) cuando el z80 quiere  \nrealizar un acceso a memoria",
             "readonly": true
           },
           "position": {
@@ -2529,6 +2484,38 @@
           },
           "size": {
             "width": 288,
+            "height": 56
+          }
+        },
+        {
+          "id": "36f1c49e-5fdb-4737-af4f-c19b41dd6daa",
+          "type": "basic.info",
+          "data": {
+            "info": "Se activa (1) cuando el z80 quiere  \nrealizar un acceso a un puerto I/O",
+            "readonly": true
+          },
+          "position": {
+            "x": 1424,
+            "y": 0
+          },
+          "size": {
+            "width": 288,
+            "height": 56
+          }
+        },
+        {
+          "id": "408c5a76-f5fa-4cbd-9506-8d1e3f4fb0ab",
+          "type": "basic.info",
+          "data": {
+            "info": "Decodificador  \nde 2 a 1",
+            "readonly": true
+          },
+          "position": {
+            "x": 920,
+            "y": 840
+          },
+          "size": {
+            "width": 128,
             "height": 56
           }
         }
@@ -2877,46 +2864,6 @@
         },
         {
           "source": {
-            "block": "f2ce67cc-7ed0-4b21-b939-16f15280be3f",
-            "port": "664caf9e-5f40-4df4-800a-b626af702e62"
-          },
-          "target": {
-            "block": "46b306a5-43a8-4dae-8ab2-b30d1ae449fc",
-            "port": "894c456e-8ee0-40e0-96dd-4e5fb5d12322"
-          }
-        },
-        {
-          "source": {
-            "block": "7e060da8-6c9a-4ea4-9be8-5ac5d80de2e3",
-            "port": "664caf9e-5f40-4df4-800a-b626af702e62"
-          },
-          "target": {
-            "block": "46b306a5-43a8-4dae-8ab2-b30d1ae449fc",
-            "port": "e18ee7de-0f42-4efe-ab00-b9e7e4295fa1"
-          }
-        },
-        {
-          "source": {
-            "block": "acb4f447-a25d-436d-8e05-c9a5f3159d01",
-            "port": "outlabel"
-          },
-          "target": {
-            "block": "f2ce67cc-7ed0-4b21-b939-16f15280be3f",
-            "port": "18c2ebc7-5152-439c-9b3f-851c59bac834"
-          }
-        },
-        {
-          "source": {
-            "block": "b89f98bd-a286-4233-80bc-dfd565abac2b",
-            "port": "outlabel"
-          },
-          "target": {
-            "block": "7e060da8-6c9a-4ea4-9be8-5ac5d80de2e3",
-            "port": "18c2ebc7-5152-439c-9b3f-851c59bac834"
-          }
-        },
-        {
-          "source": {
             "block": "1d1e3de5-5330-452e-bf33-cf9cfd3a738c",
             "port": "b488f5a2-c63e-4dfa-ba98-946d88d9005d"
           },
@@ -3063,26 +3010,6 @@
         },
         {
           "source": {
-            "block": "23f4241e-44cf-4c25-a00c-0cb0857a3d9d",
-            "port": "664caf9e-5f40-4df4-800a-b626af702e62"
-          },
-          "target": {
-            "block": "2e9dad36-b2c4-41f4-b309-035a305c4268",
-            "port": "18c2ebc7-5152-439c-9b3f-851c59bac834"
-          }
-        },
-        {
-          "source": {
-            "block": "2e9dad36-b2c4-41f4-b309-035a305c4268",
-            "port": "664caf9e-5f40-4df4-800a-b626af702e62"
-          },
-          "target": {
-            "block": "4b1df720-1381-4ae3-9f6d-b5b1cbc176de",
-            "port": "inlabel"
-          }
-        },
-        {
-          "source": {
             "block": "b82b2115-0c46-48ea-85a8-69333dfc7531",
             "port": "constant-out"
           },
@@ -3165,28 +3092,6 @@
             "block": "a5ce64fd-829b-4d41-9437-fcfcfdd49e24",
             "port": "97b51945-d716-4b6c-9db9-970d08541249"
           }
-        },
-        {
-          "source": {
-            "block": "9e4b7095-9f40-4cd1-b128-660e9f130694",
-            "port": "664caf9e-5f40-4df4-800a-b626af702e62"
-          },
-          "target": {
-            "block": "a4d57c1e-8779-4967-b971-4f0d8fd00fd7",
-            "port": "inlabel"
-          },
-          "vertices": []
-        },
-        {
-          "source": {
-            "block": "d6482cc8-8e55-4755-b4db-3b5a6d8921b8",
-            "port": "664caf9e-5f40-4df4-800a-b626af702e62"
-          },
-          "target": {
-            "block": "9e4b7095-9f40-4cd1-b128-660e9f130694",
-            "port": "18c2ebc7-5152-439c-9b3f-851c59bac834"
-          },
-          "vertices": []
         },
         {
           "source": {
@@ -3353,6 +3258,46 @@
           "target": {
             "block": "b7a77dc1-2eee-4e20-875b-7baff0c36543",
             "port": "97b51945-d716-4b6c-9db9-970d08541249"
+          }
+        },
+        {
+          "source": {
+            "block": "23f4241e-44cf-4c25-a00c-0cb0857a3d9d",
+            "port": "664caf9e-5f40-4df4-800a-b626af702e62"
+          },
+          "target": {
+            "block": "4b1df720-1381-4ae3-9f6d-b5b1cbc176de",
+            "port": "inlabel"
+          }
+        },
+        {
+          "source": {
+            "block": "d6482cc8-8e55-4755-b4db-3b5a6d8921b8",
+            "port": "664caf9e-5f40-4df4-800a-b626af702e62"
+          },
+          "target": {
+            "block": "a4d57c1e-8779-4967-b971-4f0d8fd00fd7",
+            "port": "inlabel"
+          }
+        },
+        {
+          "source": {
+            "block": "acb4f447-a25d-436d-8e05-c9a5f3159d01",
+            "port": "outlabel"
+          },
+          "target": {
+            "block": "46b306a5-43a8-4dae-8ab2-b30d1ae449fc",
+            "port": "894c456e-8ee0-40e0-96dd-4e5fb5d12322"
+          }
+        },
+        {
+          "source": {
+            "block": "b89f98bd-a286-4233-80bc-dfd565abac2b",
+            "port": "outlabel"
+          },
+          "target": {
+            "block": "46b306a5-43a8-4dae-8ab2-b30d1ae449fc",
+            "port": "e18ee7de-0f42-4efe-ab00-b9e7e4295fa1"
           }
         }
       ]
@@ -5744,8 +5689,9 @@
               "id": "44329203-f622-4c25-8b35-34bbd09fa4fe",
               "type": "basic.input",
               "data": {
-                "name": "cs_n",
-                "clock": false
+                "name": "cs",
+                "clock": false,
+                "virtual": false
               },
               "position": {
                 "x": 120,
@@ -5820,7 +5766,7 @@
               "id": "8ff8f437-2938-4450-a9cb-e05d255c1871",
               "type": "basic.code",
               "data": {
-                "code": "localparam ADDR_WIDTH = 13;\n\nwire read_sel = !cs_n & !rd_n & wr_n;\nwire write_sel = !cs_n & rd_n & !wr_n;\n\nassign data_out = (read_sel) ? mem_8[addr] : 8'b00;\n\nreg [7:0] mem_8 [0:(1 << ADDR_WIDTH)-1];\ninitial begin\n  if (ROMF)\n    $readmemh(ROMF, mem_8, 0, (1 << ADDR_WIDTH)-1);\nend\n\nalways @(posedge clk)\nbegin\n    if (write_sel) begin\n        mem_8[addr] <= data_in;\n    end\nend",
+                "code": "localparam ADDR_WIDTH = 13;\n\nwire read_sel = cs & !rd_n & wr_n;\nwire write_sel = cs & rd_n & !wr_n;\n\nassign data_out = (read_sel) ? mem_8[addr] : 8'b00;\n\nreg [7:0] mem_8 [0:(1 << ADDR_WIDTH)-1];\ninitial begin\n  if (ROMF)\n    $readmemh(ROMF, mem_8, 0, (1 << ADDR_WIDTH)-1);\nend\n\nalways @(posedge clk)\nbegin\n    if (write_sel) begin\n        mem_8[addr] <= data_in;\n    end\nend",
                 "params": [
                   {
                     "name": "ROMF"
@@ -5837,7 +5783,7 @@
                       "size": 8
                     },
                     {
-                      "name": "cs_n"
+                      "name": "cs"
                     },
                     {
                       "name": "rd_n"
@@ -5905,16 +5851,6 @@
             },
             {
               "source": {
-                "block": "44329203-f622-4c25-8b35-34bbd09fa4fe",
-                "port": "out"
-              },
-              "target": {
-                "block": "8ff8f437-2938-4450-a9cb-e05d255c1871",
-                "port": "cs_n"
-              }
-            },
-            {
-              "source": {
                 "block": "66b5de25-438f-48ee-a374-0e283c580659",
                 "port": "out"
               },
@@ -5952,6 +5888,16 @@
               "target": {
                 "block": "8ff8f437-2938-4450-a9cb-e05d255c1871",
                 "port": "clk"
+              }
+            },
+            {
+              "source": {
+                "block": "44329203-f622-4c25-8b35-34bbd09fa4fe",
+                "port": "out"
+              },
+              "target": {
+                "block": "8ff8f437-2938-4450-a9cb-e05d255c1871",
+                "port": "cs"
               }
             }
           ]
