@@ -2372,30 +2372,6 @@
           }
         },
         {
-          "id": "a892ff43-0d2b-479f-9a90-0c6f5cc986b9",
-          "type": "19c39cef925949ef4cc0d5e93869a0f74b72a0d0",
-          "position": {
-            "x": 2040,
-            "y": 104
-          },
-          "size": {
-            "width": 96,
-            "height": 192
-          }
-        },
-        {
-          "id": "763f6e24-9803-49da-98f3-df03405424db",
-          "type": "19c39cef925949ef4cc0d5e93869a0f74b72a0d0",
-          "position": {
-            "x": 1896,
-            "y": 568
-          },
-          "size": {
-            "width": 96,
-            "height": 192
-          }
-        },
-        {
           "id": "bd4ac3e6-a52f-4e42-924d-979766e708b4",
           "type": "35f267d0df6ffcb7fc33753bc9df9cf083642cca",
           "position": {
@@ -2550,6 +2526,30 @@
             "width": 96,
             "height": 64
           }
+        },
+        {
+          "id": "8e0f3ee7-7be7-4563-8f0e-5eee25e31ba1",
+          "type": "7b7abb84585daee216aa879d54a745625c710462",
+          "position": {
+            "x": 2040,
+            "y": 104
+          },
+          "size": {
+            "width": 96,
+            "height": 192
+          }
+        },
+        {
+          "id": "1e9ffc5e-59e4-4b53-87e7-c638ffe14d5e",
+          "type": "7b7abb84585daee216aa879d54a745625c710462",
+          "position": {
+            "x": 1896,
+            "y": 568
+          },
+          "size": {
+            "width": 96,
+            "height": 192
+          }
         }
       ],
       "wires": [
@@ -2579,7 +2579,7 @@
             "port": "outlabel"
           },
           "target": {
-            "block": "a892ff43-0d2b-479f-9a90-0c6f5cc986b9",
+            "block": "8e0f3ee7-7be7-4563-8f0e-5eee25e31ba1",
             "port": "556d5191-0378-416e-a7e0-c4be13da2a89"
           },
           "size": 8
@@ -2590,7 +2590,7 @@
             "port": "outlabel"
           },
           "target": {
-            "block": "a892ff43-0d2b-479f-9a90-0c6f5cc986b9",
+            "block": "8e0f3ee7-7be7-4563-8f0e-5eee25e31ba1",
             "port": "44329203-f622-4c25-8b35-34bbd09fa4fe"
           },
           "vertices": [
@@ -2606,7 +2606,7 @@
             "port": "outlabel"
           },
           "target": {
-            "block": "a892ff43-0d2b-479f-9a90-0c6f5cc986b9",
+            "block": "8e0f3ee7-7be7-4563-8f0e-5eee25e31ba1",
             "port": "66b5de25-438f-48ee-a374-0e283c580659"
           }
         },
@@ -2616,7 +2616,7 @@
             "port": "outlabel"
           },
           "target": {
-            "block": "a892ff43-0d2b-479f-9a90-0c6f5cc986b9",
+            "block": "8e0f3ee7-7be7-4563-8f0e-5eee25e31ba1",
             "port": "c61902b3-38ce-45bf-98c9-322638c2264b"
           }
         },
@@ -2626,7 +2626,7 @@
             "port": "outlabel"
           },
           "target": {
-            "block": "763f6e24-9803-49da-98f3-df03405424db",
+            "block": "1e9ffc5e-59e4-4b53-87e7-c638ffe14d5e",
             "port": "556d5191-0378-416e-a7e0-c4be13da2a89"
           },
           "vertices": [],
@@ -2638,7 +2638,7 @@
             "port": "outlabel"
           },
           "target": {
-            "block": "763f6e24-9803-49da-98f3-df03405424db",
+            "block": "1e9ffc5e-59e4-4b53-87e7-c638ffe14d5e",
             "port": "44329203-f622-4c25-8b35-34bbd09fa4fe"
           },
           "vertices": [
@@ -2654,7 +2654,7 @@
             "port": "outlabel"
           },
           "target": {
-            "block": "763f6e24-9803-49da-98f3-df03405424db",
+            "block": "1e9ffc5e-59e4-4b53-87e7-c638ffe14d5e",
             "port": "66b5de25-438f-48ee-a374-0e283c580659"
           },
           "vertices": []
@@ -2665,14 +2665,14 @@
             "port": "outlabel"
           },
           "target": {
-            "block": "763f6e24-9803-49da-98f3-df03405424db",
+            "block": "1e9ffc5e-59e4-4b53-87e7-c638ffe14d5e",
             "port": "c61902b3-38ce-45bf-98c9-322638c2264b"
           },
           "vertices": []
         },
         {
           "source": {
-            "block": "763f6e24-9803-49da-98f3-df03405424db",
+            "block": "1e9ffc5e-59e4-4b53-87e7-c638ffe14d5e",
             "port": "d9ccd8eb-434c-40d1-b491-17e5d8378271"
           },
           "target": {
@@ -2683,7 +2683,7 @@
         },
         {
           "source": {
-            "block": "a892ff43-0d2b-479f-9a90-0c6f5cc986b9",
+            "block": "8e0f3ee7-7be7-4563-8f0e-5eee25e31ba1",
             "port": "d9ccd8eb-434c-40d1-b491-17e5d8378271"
           },
           "target": {
@@ -2848,7 +2848,7 @@
             "port": "2074d690-f32f-4208-9841-c5a6c79a40b3"
           },
           "target": {
-            "block": "a892ff43-0d2b-479f-9a90-0c6f5cc986b9",
+            "block": "8e0f3ee7-7be7-4563-8f0e-5eee25e31ba1",
             "port": "6cf014d5-f90f-4bb3-86a9-0a292f5ab1bb"
           },
           "size": 13
@@ -2870,7 +2870,7 @@
             "port": "constant-out"
           },
           "target": {
-            "block": "a892ff43-0d2b-479f-9a90-0c6f5cc986b9",
+            "block": "8e0f3ee7-7be7-4563-8f0e-5eee25e31ba1",
             "port": "d2a5b0d9-038e-4142-90da-a741e2e876ac"
           }
         },
@@ -2900,7 +2900,7 @@
             "port": "2074d690-f32f-4208-9841-c5a6c79a40b3"
           },
           "target": {
-            "block": "763f6e24-9803-49da-98f3-df03405424db",
+            "block": "1e9ffc5e-59e4-4b53-87e7-c638ffe14d5e",
             "port": "6cf014d5-f90f-4bb3-86a9-0a292f5ab1bb"
           },
           "size": 13
@@ -5690,7 +5690,7 @@
         }
       }
     },
-    "19c39cef925949ef4cc0d5e93869a0f74b72a0d0": {
+    "7b7abb84585daee216aa879d54a745625c710462": {
       "package": {
         "name": "Memory-8KB",
         "version": "1.0",
@@ -5732,8 +5732,7 @@
               "type": "basic.input",
               "data": {
                 "name": "cs",
-                "clock": false,
-                "virtual": false
+                "clock": false
               },
               "position": {
                 "x": 120,
@@ -5758,8 +5757,7 @@
               "type": "basic.input",
               "data": {
                 "name": "rd",
-                "clock": false,
-                "virtual": false
+                "clock": false
               },
               "position": {
                 "x": 120,
@@ -5771,8 +5769,7 @@
               "type": "basic.input",
               "data": {
                 "name": "wr",
-                "clock": false,
-                "virtual": false
+                "clock": false
               },
               "position": {
                 "x": 120,
