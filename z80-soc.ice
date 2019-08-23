@@ -2169,7 +2169,7 @@
           "id": "fd15da1a-2e15-4ec8-8365-b0228446c7c8",
           "type": "basic.info",
           "data": {
-            "info": "Se escribe en el registro cuando  \nel puerto está seleccionado  \n(port_cs = 1) y se solicita  \nuna escritura  (wr_n = 0)",
+            "info": "Se escribe en el registro cuando  \nel puerto está seleccionado  \n(port_cs = 1) y se solicita  \nuna escritura  (wr = 0)",
             "readonly": true
           },
           "position": {
