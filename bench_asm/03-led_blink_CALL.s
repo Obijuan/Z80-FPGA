@@ -8,7 +8,7 @@
 org 0x0000
 
 ;-- Configurar la pila
-ld sp, 0x9FFF
+ld sp, 0x3FFF
 
 ; Sacamos un 1 por el puerto 0x40 para encender el led0 de la Alhambra-II
 ENCENDIDO:  ld	A, 0x01

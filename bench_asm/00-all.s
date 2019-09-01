@@ -1,6 +1,6 @@
 ;-- Test global que chequea todos los opcodes .
 ;--
-;-- Tras cada operación a testar o grupo de operaciones se envía un número 
+;-- Tras cada operación a testar o grupo de operaciones se envía un número
 ;-- a los 7 leds de la alhambra, de forma que si alguno se interrumpe sabremos
 ;-- en qué punto fallo
 
@@ -31,7 +31,7 @@ TEST1:
 ;-- * Salto relativo con check si cero (es decir si A es igual al valor cargado)
 ;--
 
-TEST2: 
+TEST2:
     ;-- Cargar el valor en el registro A
     ld	A, (VALOR)
     ;-- Comprobamos que el en A está el valor adecuado
