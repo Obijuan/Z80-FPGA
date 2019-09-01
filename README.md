@@ -5,19 +5,19 @@ Z80 CPU for OpenFPGAs, with Icestudio
 
 ## Quick start
 
-* Assemble the firmware.s program
+* Open the z80-soc-16KB-Boot.ice file with Icestudio
+* Connect the Alhambra-II board (or compatible) and upload the design
+* After 2min aprox. the LEDs will show the value 0xAA
+* Let's upload a program test: open a terminal
+* Move to the roms folder
+* Execute the following line:
+```
+python3 z80-loader.py 05-counter.bin
+```
+* After 2 seconds you will see a binary counter running on the LEDs
+
+* If you want to assemble that example, execute the following comands:
 
 ```
-z80asm -o rom firmware.s
+z80asm -o 05-counter.bin 05-counter.s
 ```
-
-* Generate the verilog rom file:
-
-```
-srec_cat rom -Raw -o rom.list -VMem 8
-```
-
-* Open the z80-soc.ice file with Icestudio
-
-
-
