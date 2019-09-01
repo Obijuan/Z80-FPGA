@@ -14,7 +14,7 @@ VALOR: equ 0x18
   ;-- Situar la cima de la pila al final de la RAM
   ;-- La pila crece hacia direcciones bajas de memoria
   ;-- (sp se decrementa al introducir elementos)
-  ld	sp, 0x9FFF
+  ld	sp, 0x3FFF
 
   ;-- Llamar a la subrutina de test
   call test
