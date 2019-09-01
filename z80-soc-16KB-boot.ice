@@ -28,7 +28,7 @@
             "oldBlockColor": "red"
           },
           "position": {
-            "x": 824,
+            "x": 744,
             "y": -720
           }
         },
@@ -49,7 +49,7 @@
             "oldBlockColor": "fuchsia"
           },
           "position": {
-            "x": 824,
+            "x": 744,
             "y": -664
           }
         },
@@ -98,7 +98,7 @@
           "id": "181cbd5e-7501-4ee8-aad8-52177356957e",
           "type": "basic.inputLabel",
           "data": {
-            "blockColor": "fuchsia",
+            "blockColor": "red",
             "name": "wr",
             "pins": [
               {
@@ -107,10 +107,11 @@
                 "value": ""
               }
             ],
-            "virtual": true
+            "virtual": true,
+            "oldBlockColor": "fuchsia"
           },
           "position": {
-            "x": 840,
+            "x": 760,
             "y": -608
           }
         },
@@ -381,7 +382,7 @@
             "oldBlockColor": "fuchsia"
           },
           "position": {
-            "x": 848,
+            "x": 768,
             "y": -552
           }
         },
@@ -401,7 +402,7 @@
             "virtual": true
           },
           "position": {
-            "x": 488,
+            "x": 408,
             "y": -536
           }
         },
@@ -536,7 +537,7 @@
             "oldBlockColor": "fuchsia"
           },
           "position": {
-            "x": 840,
+            "x": 760,
             "y": -488
           }
         },
@@ -578,7 +579,7 @@
             "oldBlockColor": "fuchsia"
           },
           "position": {
-            "x": 288,
+            "x": 224,
             "y": -480
           }
         },
@@ -635,7 +636,7 @@
             "oldBlockColor": "slateblue"
           },
           "position": {
-            "x": 488,
+            "x": 408,
             "y": -472
           }
         },
@@ -674,8 +675,8 @@
             "virtual": false
           },
           "position": {
-            "x": 816,
-            "y": -424
+            "x": 704,
+            "y": -416
           }
         },
         {
@@ -1480,7 +1481,7 @@
           "id": "7c9deae9-2c28-4fc3-9d2c-d9b05351ca66",
           "type": "basic.constant",
           "data": {
-            "name": "",
+            "name": "Baudios",
             "value": "115200",
             "local": false
           },
@@ -1676,7 +1677,7 @@
           "id": "4086f6c3-a9b9-402c-bcec-11c59e137128",
           "type": "d5c3dd5472b755ba3a7de20fa59e202509e14f4c",
           "position": {
-            "x": 152,
+            "x": 96,
             "y": -496
           },
           "size": {
@@ -1704,8 +1705,8 @@
             "readonly": true
           },
           "position": {
-            "x": 808,
-            "y": -120
+            "x": 672,
+            "y": -32
           },
           "size": {
             "width": 176,
@@ -1784,7 +1785,7 @@
             "readonly": true
           },
           "position": {
-            "x": 496,
+            "x": 416,
             "y": -416
           },
           "size": {
@@ -1808,7 +1809,7 @@
           "id": "12aca8c5-0b2a-449a-b500-029d7df567d4",
           "type": "ee66cd2adfdf44593f0eb76194f978771686632f",
           "position": {
-            "x": 640,
+            "x": 560,
             "y": -600
           },
           "size": {
@@ -1888,7 +1889,7 @@
             "readonly": true
           },
           "position": {
-            "x": 504,
+            "x": 424,
             "y": -784
           },
           "size": {
@@ -1984,12 +1985,172 @@
             "readonly": true
           },
           "position": {
-            "x": 608,
-            "y": -288
+            "x": 568,
+            "y": -256
           },
           "size": {
             "width": 608,
             "height": 88
+          }
+        },
+        {
+          "id": "847ee578-a6b8-48c7-a876-99f3c3004daf",
+          "type": "basic.info",
+          "data": {
+            "info": "Reset del  \nprocesador",
+            "readonly": true
+          },
+          "position": {
+            "x": 224,
+            "y": -528
+          },
+          "size": {
+            "width": 112,
+            "height": 56
+          }
+        },
+        {
+          "id": "805df868-76b4-4f05-8c20-0c2105d6558e",
+          "type": "basic.info",
+          "data": {
+            "info": "Petición de acceso a memoria",
+            "readonly": true
+          },
+          "position": {
+            "x": 856,
+            "y": -704
+          },
+          "size": {
+            "width": 240,
+            "height": 40
+          }
+        },
+        {
+          "id": "ad4f8368-dbea-422e-b408-687cf591ec5d",
+          "type": "basic.info",
+          "data": {
+            "info": "Petición de acceso a puerto",
+            "readonly": true
+          },
+          "position": {
+            "x": 856,
+            "y": -648
+          },
+          "size": {
+            "width": 272,
+            "height": 40
+          }
+        },
+        {
+          "id": "9e384b7e-6e4f-4f3e-a100-7cdbf4789934",
+          "type": "basic.info",
+          "data": {
+            "info": "Petición de escritura",
+            "readonly": true
+          },
+          "position": {
+            "x": 872,
+            "y": -584
+          },
+          "size": {
+            "width": 192,
+            "height": 40
+          }
+        },
+        {
+          "id": "707f45d2-23ed-494a-96fe-1f0feffa18d9",
+          "type": "basic.info",
+          "data": {
+            "info": "**BUS de direcciones**",
+            "readonly": true
+          },
+          "position": {
+            "x": 880,
+            "y": -528
+          },
+          "size": {
+            "width": 176,
+            "height": 40
+          }
+        },
+        {
+          "id": "09f3431d-a15e-4db8-bc2b-ad2094cdb114",
+          "type": "basic.info",
+          "data": {
+            "info": "**Bus de Datos**  \n**de salida**",
+            "readonly": true
+          },
+          "position": {
+            "x": 872,
+            "y": -480
+          },
+          "size": {
+            "width": 160,
+            "height": 56
+          }
+        },
+        {
+          "id": "eb6e0368-7a2d-4ede-a672-25dd231eae65",
+          "type": "basic.info",
+          "data": {
+            "info": "El Z80 ha ejecutado  \nla instrcción HALT",
+            "readonly": true
+          },
+          "position": {
+            "x": 824,
+            "y": -408
+          },
+          "size": {
+            "width": 176,
+            "height": 48
+          }
+        },
+        {
+          "id": "12d667bf-60be-4f59-8b5b-ea82005dac46",
+          "type": "basic.info",
+          "data": {
+            "info": "Pasar a modo Bootloader",
+            "readonly": true
+          },
+          "position": {
+            "x": 1352,
+            "y": 0
+          },
+          "size": {
+            "width": 192,
+            "height": 40
+          }
+        },
+        {
+          "id": "69f0ff25-5eec-4c8d-bfbb-e636f15119d9",
+          "type": "basic.info",
+          "data": {
+            "info": "Abortar manualmente el  \nbootloader",
+            "readonly": true
+          },
+          "position": {
+            "x": 1352,
+            "y": -64
+          },
+          "size": {
+            "width": 192,
+            "height": 48
+          }
+        },
+        {
+          "id": "d7b0087f-e29c-42ab-be37-5d6c09316c7d",
+          "type": "basic.info",
+          "data": {
+            "info": "Bytes del puerto serie  \npara grabar en memoria  \nen el modo bootloader",
+            "readonly": true
+          },
+          "position": {
+            "x": 1360,
+            "y": -168
+          },
+          "size": {
+            "width": 232,
+            "height": 80
           }
         }
       ],
@@ -2549,7 +2710,7 @@
           },
           "vertices": [
             {
-              "x": 792,
+              "x": 712,
               "y": -592
             }
           ]
@@ -2585,7 +2746,7 @@
           },
           "vertices": [
             {
-              "x": 824,
+              "x": 744,
               "y": -552
             }
           ]
