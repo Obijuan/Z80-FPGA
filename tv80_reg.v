@@ -4,27 +4,27 @@
 //
 // Copyright (c) 2004 Guy Hutchison (ghutchis@opencores.org)
 //
-// Permission is hereby granted, free of charge, to any person obtaining a 
-// copy of this software and associated documentation files (the "Software"), 
-// to deal in the Software without restriction, including without limitation 
-// the rights to use, copy, modify, merge, publish, distribute, sublicense, 
-// and/or sell copies of the Software, and to permit persons to whom the 
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the "Software"),
+// to deal in the Software without restriction, including without limitation
+// the rights to use, copy, modify, merge, publish, distribute, sublicense,
+// and/or sell copies of the Software, and to permit persons to whom the
 // Software is furnished to do so, subject to the following conditions:
 //
-// The above copyright notice and this permission notice shall be included 
+// The above copyright notice and this permission notice shall be included
 // in all copies or substantial portions of the Software.
 //
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
-// EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF 
-// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
-// IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY 
-// CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
-// TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+// EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+// IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+// CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+// TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 // SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 module tv80_reg (/*AUTOARG*/
   // Outputs
-  DOBH, DOAL, DOCL, DOBL, DOCH, DOAH, 
+  DOBH, DOAL, DOCL, DOBL, DOCH, DOAH,
   // Inputs
   AddrC, AddrA, AddrB, DIH, DIL, clk, CEN, WEH, WEL
   );
@@ -52,7 +52,7 @@ module tv80_reg (/*AUTOARG*/
           if (WEL) RegsL[AddrA] <= DIL;
         end
     end
-          
+
   assign DOAH = RegsH[AddrA];
   assign DOAL = RegsL[AddrA];
   assign DOBH = RegsH[AddrB];
@@ -61,11 +61,17 @@ module tv80_reg (/*AUTOARG*/
   assign DOCL = RegsL[AddrC];
 
   // break out ram bits for waveform debug
+// synopsys translate_off
+  wire [7:0] B = RegsH[0];
+  wire [7:0] C = RegsL[0];
+  wire [7:0] D = RegsH[1];
+  wire [7:0] E = RegsL[1];
   wire [7:0] H = RegsH[2];
   wire [7:0] L = RegsL[2];
-  
-// synopsys dc_script_begin
-// set_attribute current_design "revision" "$Id: tv80_reg.v,v 1.1 2004/05/16 17:39:57 ghutchis Exp $" -type string -quiet
-// synopsys dc_script_end
+
+  wire [15:0] IX = { RegsH[3], RegsL[3] };
+  wire [15:0] IY = { RegsH[7], RegsL[7] };
+// synopsys translate_on
+
 endmodule
 
