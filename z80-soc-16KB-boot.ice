@@ -53,6 +53,26 @@
           }
         },
         {
+          "id": "c7d78a73-78fb-4f7b-a604-4a16c42c80ae",
+          "type": "basic.outputLabel",
+          "data": {
+            "blockColor": "yellow",
+            "name": "rst",
+            "pins": [
+              {
+                "index": "0",
+                "name": "",
+                "value": ""
+              }
+            ],
+            "virtual": true
+          },
+          "position": {
+            "x": 408,
+            "y": -568
+          }
+        },
+        {
           "id": "7af52f47-229e-4b26-8390-b29286f93531",
           "type": "basic.inputLabel",
           "data": {
@@ -248,26 +268,6 @@
           }
         },
         {
-          "id": "c7d78a73-78fb-4f7b-a604-4a16c42c80ae",
-          "type": "basic.outputLabel",
-          "data": {
-            "blockColor": "yellow",
-            "name": "rst",
-            "pins": [
-              {
-                "index": "0",
-                "name": "",
-                "value": ""
-              }
-            ],
-            "virtual": true
-          },
-          "position": {
-            "x": 464,
-            "y": -352
-          }
-        },
-        {
           "id": "f512c10e-b28d-42d7-aa54-69a20762d292",
           "type": "basic.inputLabel",
           "data": {
@@ -307,25 +307,6 @@
           "position": {
             "x": 1320,
             "y": -288
-          }
-        },
-        {
-          "id": "da72b0d9-dea2-4b85-b1b9-2821267a403d",
-          "type": "basic.output",
-          "data": {
-            "name": "HALT",
-            "pins": [
-              {
-                "index": "0",
-                "name": "D0",
-                "value": "2"
-              }
-            ],
-            "virtual": false
-          },
-          "position": {
-            "x": 1312,
-            "y": -144
           }
         },
         {
@@ -380,8 +361,27 @@
             "virtual": true
           },
           "position": {
-            "x": 584,
-            "y": -136
+            "x": 560,
+            "y": -160
+          }
+        },
+        {
+          "id": "da72b0d9-dea2-4b85-b1b9-2821267a403d",
+          "type": "basic.output",
+          "data": {
+            "name": "HALT",
+            "pins": [
+              {
+                "index": "0",
+                "name": "D0",
+                "value": "2"
+              }
+            ],
+            "virtual": false
+          },
+          "position": {
+            "x": 1312,
+            "y": -144
           }
         },
         {
@@ -1229,8 +1229,8 @@
           "id": "4da8a9de-970f-4e53-a73d-c0fbed8bc105",
           "type": "725b7e2cb9666b5ed3183537d9c898f096dab82a",
           "position": {
-            "x": 576,
-            "y": -240
+            "x": 568,
+            "y": -64
           },
           "size": {
             "width": 96,
@@ -1241,8 +1241,8 @@
           "id": "ac0ab929-3236-47f6-abfe-13cd1cd91337",
           "type": "35f267d0df6ffcb7fc33753bc9df9cf083642cca",
           "position": {
-            "x": 600,
-            "y": -352
+            "x": 544,
+            "y": -568
           },
           "size": {
             "width": 96,
@@ -1319,76 +1319,6 @@
           "size": {
             "width": 96,
             "height": 64
-          }
-        },
-        {
-          "id": "1f8226c7-1348-46de-b379-1fba2abcfcb3",
-          "type": "basic.code",
-          "data": {
-            "code": "// @include tv80s.v\n// @include tv80_core.v\n// @include tv80_mcode.v\n// @include tv80_alu.v\n// @include tv80_reg.v\n\n\ntv80s #(.Mode(0)) u_cpu (\n    .reset_n( rst_n      ),\n    .clk    ( clk        ),\n    .cen    ( 1'b1        ),\n    .wait_n ( wait_n     ),\n    .int_n  ( 1'b1      ),\n    .nmi_n  ( 1'b1     ),\n    .rd_n   ( rd_n       ),\n    .wr_n   ( wr_n       ),\n    .A      ( A          ),\n    .di     ( din        ),\n    .dout   ( dout       ),\n    .iorq_n ( iorq_n     ),\n    .m1_n   ( m1_n       ),\n    .mreq_n ( mreq_n     ),\n    .busrq_n( 1'b1   ),\n    .busak_n( busak_n    ),\n    .rfsh_n ( rfsh_n     ),\n    .halt_n ( halt_n     )\n);",
-            "params": [],
-            "ports": {
-              "in": [
-                {
-                  "name": "clk"
-                },
-                {
-                  "name": "rst_n"
-                },
-                {
-                  "name": "wait_n"
-                },
-                {
-                  "name": "din",
-                  "range": "[7:0]",
-                  "size": 8
-                }
-              ],
-              "out": [
-                {
-                  "name": "wr_n"
-                },
-                {
-                  "name": "rd_n"
-                },
-                {
-                  "name": "A",
-                  "range": "[15:0]",
-                  "size": 16
-                },
-                {
-                  "name": "dout",
-                  "range": "[7:0]",
-                  "size": 8
-                },
-                {
-                  "name": "iorq_n"
-                },
-                {
-                  "name": "m1_n"
-                },
-                {
-                  "name": "mreq_n"
-                },
-                {
-                  "name": "rfsh_n"
-                },
-                {
-                  "name": "halt_n"
-                },
-                {
-                  "name": "busak_n"
-                }
-              ]
-            }
-          },
-          "position": {
-            "x": 744,
-            "y": -480
-          },
-          "size": {
-            "width": 304,
-            "height": 432
           }
         },
         {
@@ -1598,6 +1528,100 @@
             "width": 168,
             "height": 64
           }
+        },
+        {
+          "id": "1f8226c7-1348-46de-b379-1fba2abcfcb3",
+          "type": "basic.code",
+          "data": {
+            "code": "// @include tv80s.v\n// @include tv80_core.v\n// @include tv80_mcode.v\n// @include tv80_alu.v\n// @include tv80_reg.v\n\n\ntv80s #(.Mode(0)) u_cpu (\n    .reset_n( rst_n      ),\n    .clk    ( clk        ),\n    .cen    ( cen        ),\n    .wait_n ( wait_n     ),\n    .int_n  ( int_n      ),\n    .nmi_n  ( nmi_n     ),\n    .rd_n   ( rd_n       ),\n    .wr_n   ( wr_n       ),\n    .A      ( A          ),\n    .di     ( din        ),\n    .dout   ( dout       ),\n    .iorq_n ( iorq_n     ),\n    .m1_n   ( m1_n       ),\n    .mreq_n ( mreq_n     ),\n    .busrq_n( busrq_n   ),\n    .busak_n( busak_n    ),\n    .rfsh_n ( rfsh_n     ),\n    .halt_n ( halt_n     )\n);",
+            "params": [],
+            "ports": {
+              "in": [
+                {
+                  "name": "clk"
+                },
+                {
+                  "name": "rst_n"
+                },
+                {
+                  "name": "int_n"
+                },
+                {
+                  "name": "nmi_n"
+                },
+                {
+                  "name": "busrq_n"
+                },
+                {
+                  "name": "wait_n"
+                },
+                {
+                  "name": "din",
+                  "range": "[7:0]",
+                  "size": 8
+                },
+                {
+                  "name": "cen"
+                }
+              ],
+              "out": [
+                {
+                  "name": "wr_n"
+                },
+                {
+                  "name": "rd_n"
+                },
+                {
+                  "name": "A",
+                  "range": "[15:0]",
+                  "size": 16
+                },
+                {
+                  "name": "dout",
+                  "range": "[7:0]",
+                  "size": 8
+                },
+                {
+                  "name": "iorq_n"
+                },
+                {
+                  "name": "m1_n"
+                },
+                {
+                  "name": "mreq_n"
+                },
+                {
+                  "name": "rfsh_n"
+                },
+                {
+                  "name": "halt_n"
+                },
+                {
+                  "name": "busak_n"
+                }
+              ]
+            }
+          },
+          "position": {
+            "x": 744,
+            "y": -480
+          },
+          "size": {
+            "width": 304,
+            "height": 432
+          }
+        },
+        {
+          "id": "e063349c-7a51-4bcb-8586-51066876e5e5",
+          "type": "725b7e2cb9666b5ed3183537d9c898f096dab82a",
+          "position": {
+            "x": 536,
+            "y": -376
+          },
+          "size": {
+            "width": 96,
+            "height": 64
+          }
         }
       ],
       "wires": [
@@ -1769,23 +1793,19 @@
         },
         {
           "source": {
-            "block": "4da8a9de-970f-4e53-a73d-c0fbed8bc105",
-            "port": "3d584b0a-29eb-47af-8c43-c0822282ef05"
-          },
-          "target": {
-            "block": "1f8226c7-1348-46de-b379-1fba2abcfcb3",
-            "port": "wait_n"
-          }
-        },
-        {
-          "source": {
             "block": "ac0ab929-3236-47f6-abfe-13cd1cd91337",
             "port": "664caf9e-5f40-4df4-800a-b626af702e62"
           },
           "target": {
             "block": "1f8226c7-1348-46de-b379-1fba2abcfcb3",
             "port": "rst_n"
-          }
+          },
+          "vertices": [
+            {
+              "x": 672,
+              "y": -488
+            }
+          ]
         },
         {
           "source": {
@@ -2198,6 +2218,62 @@
               "y": 184
             }
           ]
+        },
+        {
+          "source": {
+            "block": "4da8a9de-970f-4e53-a73d-c0fbed8bc105",
+            "port": "3d584b0a-29eb-47af-8c43-c0822282ef05"
+          },
+          "target": {
+            "block": "1f8226c7-1348-46de-b379-1fba2abcfcb3",
+            "port": "cen"
+          }
+        },
+        {
+          "source": {
+            "block": "e063349c-7a51-4bcb-8586-51066876e5e5",
+            "port": "3d584b0a-29eb-47af-8c43-c0822282ef05"
+          },
+          "target": {
+            "block": "1f8226c7-1348-46de-b379-1fba2abcfcb3",
+            "port": "int_n"
+          }
+        },
+        {
+          "source": {
+            "block": "e063349c-7a51-4bcb-8586-51066876e5e5",
+            "port": "3d584b0a-29eb-47af-8c43-c0822282ef05"
+          },
+          "target": {
+            "block": "1f8226c7-1348-46de-b379-1fba2abcfcb3",
+            "port": "nmi_n"
+          },
+          "vertices": [
+            {
+              "x": 680,
+              "y": -312
+            }
+          ]
+        },
+        {
+          "source": {
+            "block": "e063349c-7a51-4bcb-8586-51066876e5e5",
+            "port": "3d584b0a-29eb-47af-8c43-c0822282ef05"
+          },
+          "target": {
+            "block": "1f8226c7-1348-46de-b379-1fba2abcfcb3",
+            "port": "busrq_n"
+          }
+        },
+        {
+          "source": {
+            "block": "e063349c-7a51-4bcb-8586-51066876e5e5",
+            "port": "3d584b0a-29eb-47af-8c43-c0822282ef05"
+          },
+          "target": {
+            "block": "1f8226c7-1348-46de-b379-1fba2abcfcb3",
+            "port": "wait_n"
+          }
         }
       ]
     }
