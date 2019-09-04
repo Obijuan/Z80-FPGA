@@ -1,4 +1,4 @@
-;-- Ejemplo 10: Prueba de envio de un caracter por la UART, directamente
+;-- UART. Ejemplo 01: Prueba de envio de un caracter por la UART, directamente
 ;-- sin consultar el bit de Ready
 ;-- Al abrir el terminal serie se entrara en modo bootloader. Pulsar SW1 para
 ;-- hacer un reset, salir del bootloader y ejecutar el porgrama que se haya
