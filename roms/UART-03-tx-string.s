@@ -1,4 +1,3 @@
-
 ;-- UART. Ejemplo 03: Prueba de envio de una cadena al PC por el puerto serie
 
 ;-- PILA
