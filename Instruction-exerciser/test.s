@@ -389,8 +389,81 @@ lab5pe:
 	jp	po,lab6pe
 	jp  fail
 
-  ;-- Direccion: 0x02EF
+
+;-------- test conditional call, ret, jp, jr
+;-- FLAG: Zero: z, nz
+;-- Direccion: 0x02EF
 lab6pe:
+	ld	hl,040h
+	push	hl
+	pop	af         ;-- Poner Flag de zero a 1
+	call	z,lab1z
+	jp	fail
+
+  ;-- Direccion: 0x02FA
+lab1z:
+  pop	hl
+	ld	hl,97h
+	push	hl
+	pop	af         ;-- Poner flag de zero a 0
+	call	nz,lab2z
+	jp	fail
+
+  ;-- Direccion: 0x0306
+lab2z:
+	pop	hl
+	ld	hl,lab3z
+	push	hl
+	ld	hl,040h
+	push	hl
+	pop	af
+	ret	z
+	jp fail
+
+  ;-- Direccion: 0x314
+lab3z:
+  ld	hl,lab4z
+	push	hl
+	ld	hl,97h
+	push	hl
+	pop	af
+	ret	nz
+	jp fail
+
+  ;-- Direccion: 0x0321
+lab4z:
+	ld	hl,040h
+	push	hl
+	pop	af
+	jp	z,lab5z
+	jp fail
+
+  ;-- Direccion: 0x032C
+lab5z:
+  ld	hl,97h
+	push	hl
+	pop	af
+	jp	nz,lab6z
+	jp fail
+
+  ;-- Direccion: 0x0337
+lab6z:
+	ld	hl,040h
+	push	hl
+	pop	af
+	jr	z,lab7z
+	jp fail
+
+  ;-- Direccion: 0x0341
+lab7z:
+  ld	hl,97h
+	push	hl
+	pop	af
+	jr	nz,lab8z
+	jp fail
+
+  ;-- Direccion: 0x034B
+lab8z:
 
 
 ;-- All tests ok
