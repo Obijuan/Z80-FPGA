@@ -203,9 +203,109 @@ lab4:
 	cp 28h
 	jp nz, fail
 
+	;-- Direccion: 0x01F3
+	;---- test access to memory via (hl)
+	ld	hl,hlval
+	ld	a,(hl)
+	cp	0a5h
+	jp	nz, fail
+	ld	hl,hlval+1
+	ld	a,(hl)
+	cp	03ch
+	jp	nz, fail
+
+	;-- Direccion: 0x0205
+	;--------------  test unconditional return
+	ld	sp,stack
+
+	;-- Meter la direccion a la que se quiere saltar en la pila
+	ld	hl,reta
+	push	hl
+
+	;-- Saltar! Si todo ha ido bien, salta a reta
+	ret
+	jp	fail
+
+	;-- Direccion 0x0210
+	;------ test instructions needed for hex output
+reta:
+	ld	a,255
+	and	15
+	cp	15
+	jp	nz,fail
+
+	ld	a,05ah
+	and	15
+	cp	00ah
+	jp	nz, fail
+
+	;-- Direccion 0x0222
+	rrca
+	cp	005h
+	jp	nz,fail
+
+	;-- Direccion 0x0228
+	rrca
+	cp	082h
+	jp	nz,fail
+
+	;-- Direccion 0x022E
+	rrca
+	cp	041h
+	jp	nz,fail
+
+	;-- Direccion 0x0234
+	rrca
+	cp	0a0h
+	jp	nz,fail
+
+	;-- Direccion 0x023A
+	ld	hl,01234h
+	push	hl
+	pop	bc
+	ld	a,b
+	cp	012h
+	jp	nz,fail
+	ld	a,c
+	cp	034h
+	jp	nz,fail
+
+	;----- from now on we can report errors by displaying an address
+
+	;-------- test conditional call, ret, jp, jr
+	;-- Direccion 0X024B
+	ld	hl,1
+	push	hl
+	pop	af          ;-- Poner flag de carry a 1
+	call	c,lab1c
+	jp	fail
+
+	;-- Direccion 0x0256
+lab1c:
+		pop	hl        ;-- Recuperar dir retorno de la pila
+		ld	hl,0d6h
+		push	hl
+		pop	af        ;-- Poner flag de carry a 0
+		call	nc,lab2c
+		jp	fail
+
+	;-- Direccion: 0x0262
+lab2c:
+	  	pop	hl
+	  	ld	hl,lab3c ;-- Guardar en la pila direccion a donde saltar al hacer ret
+	  	push	hl
+	  	ld	hl,1
+	  	push	hl
+	  	pop	af     ;-- Poner flag de carry a 1
+	  	ret	c      ;-- Debe saltar a lab3c
+	   	jp fail
+
+  ;-- Direccion: 0x0270
+lab3c:
+
 ;-- All tests ok
 end:
-  ld a, 0x07
+  ld a, 0x7F
   out (LEDS), a
 	halt
 
@@ -216,3 +316,15 @@ regs1:
 regs2:
   DEFS	20
   DEFB 0
+
+hlval:
+  DEFB 0a5h, 03ch
+
+	; skip to next page boundary
+	ORG	(($+255)/256)*256
+
+hextab:
+	DEFM	'0123456789abcdef'
+	DEFS	240
+stack:
+	DEFB 0AAh
