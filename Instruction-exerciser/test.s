@@ -515,9 +515,32 @@ lab5m:	ld	hl,057h
 	jp	p,lab6m
 	jp fail
 
-  ;-- Direccion: 0x0393
+;------------ test indirect jumps
+;-- Direccion: 0x0393
 lab6m:
 
+	ld	hl,lab5
+	jp	(hl)
+	jp	fail
+
+;-- Direccion: 0x039A
+lab5:
+  ld	hl,lab6
+	push	hl
+	pop	ix
+	jp	(ix)
+	jp	fail
+
+;-- Direccio 0x03A5
+lab6:
+  ld	hl,lab7
+	push	hl
+	pop	iy
+	jp	(iy)
+	jp	fail
+
+;-- Direccion: 0x03B0
+lab7:
 
 ;-- All tests ok
 end:
