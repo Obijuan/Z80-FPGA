@@ -300,12 +300,54 @@ lab2c:
 	  	ret	c      ;-- Debe saltar a lab3c
 	   	jp fail
 
-  ;-- Direccion: 0x0270
+	;-- Direccion: 0x0270
 lab3c:
+	  	ld	hl,lab4c ;-- Guardar en la pila lab4c para que salte ahi con ret
+	  	push	hl
+	  	ld	hl,0d6h
+	  	push	hl
+	  	pop	af    ;-- Poner flag de carry a 0
+	  	ret	nc    ;-- Debe saltar a lab4c
+	  	jp fail
+
+  ;-- Direccion: 0x027D
+lab4c:
+	  	ld	hl,1
+	  	push	hl
+	  	pop	af
+	  	jp	c,lab5c
+	    jp fail
+
+	 ;-- Direccion: 0x0288
+lab5c:
+	  	ld	hl,0d6h
+	  	push	hl
+	  	pop	af
+	  	jp	nc,lab6c
+	  	jp fail
+
+		;-- Direccion: 0x0293
+lab6c:
+	  	ld	hl,1
+	  	push	hl
+	  	pop	af       ;-- Poner Flag de carry a 1
+	  	jr	c,lab7c
+	  	jp	fail
+
+		 ;-- Direccion 0x029D
+lab7c:
+	  	ld	hl,0d6h
+	  	push	hl
+	  	pop	af       ;-- Poner flag de carry a 0
+	  	jr	nc,lab8c
+	  	jp fail
+
+ 	  ;-- Direccion: 0x02A7
+lab8c:
 
 ;-- All tests ok
 end:
-  ld a, 0x7F
+  ld a, 0x1F
   out (LEDS), a
 	halt
 

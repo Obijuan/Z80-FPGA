@@ -260,6 +260,7 @@ reta:
   ;----- from now on we can report errors by displaying an address
 
   ;-------- test conditional call, ret, jp, jr
+  ;-- FLAG: Acarreo: c, nc
   ;-- Direccion 0X024B
 	ld	hl,1
   push	hl
@@ -289,39 +290,48 @@ lab2c:
 
   ;-- Direccion: 0x0270
 lab3c:
-  nop
-;  	ld	hl,lab4c
-;  	push	hl
-;  	ld	hl,0d7h xor 1
-;  	push	hl
-;  	pop	af
-;  	ret	nc
-;  	call	error
-;  lab4c:	ld	hl,1
-;  	push	hl
-;  	pop	af
-;  	jp	c,lab5c
-;  	call	error
-;  lab5c:	ld	hl,0d7h xor 1
-;  	push	hl
-;  	pop	af
-;  	jp	nc,lab6c
-;  	call	error
-;  lab6c:
-;    if	1
-;  	ld	hl,1
-;  	push	hl
-;  	pop	af
-;  	jr	c,lab7c
-;  	call	error
-;  lab7c:	ld	hl,0d7h xor 1
-;  	push	hl
-,  	pop	af
-;  	jr	nc,lab8c
-;  	call	error
-;  lab8c:
-;    endif
-;  	endm
+  	ld	hl,lab4c ;-- Guardar en la pila lab4c para que salte ahi con ret
+  	push	hl
+  	ld	hl,0d6h
+  	push	hl
+  	pop	af    ;-- Poner flag de carry a 0
+  	ret	nc    ;-- Debe saltar a lab4c
+  	jp fail
+
+  ;-- Direccion: 0x027D
+lab4c:
+  	ld	hl,1
+  	push	hl
+  	pop	af
+  	jp	c,lab5c
+    jp fail
+
+  ;-- Direccion: 0x0288
+lab5c:
+  	ld	hl,0d6h
+  	push	hl
+  	pop	af
+  	jp	nc,lab6c
+  	jp fail
+
+  ;-- Direccion: 0x0293
+lab6c:
+  	ld	hl,1
+  	push	hl
+  	pop	af       ;-- Poner Flag de carry a 1
+  	jr	c,lab7c
+  	jp	fail
+
+  ;-- Direccion 0x029D
+lab7c:
+  	ld	hl,0d6h
+  	push	hl
+  	pop	af       ;-- Poner flag de carry a 0
+  	jr	nc,lab8c
+  	jp fail
+
+  ;-- Direccion: 0x02A7
+lab8c:
 
 ;-- All tests ok
 end:
