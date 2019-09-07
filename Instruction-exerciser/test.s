@@ -539,8 +539,109 @@ lab6:
 	jp	(iy)
 	jp	fail
 
+;-----------------------------------------
+; djnz (and (partially) inc a, inc hl)
 ;-- Direccion: 0x03B0
+
 lab7:
+  ld	a,0a5h
+	ld	b,4
+
+lab8:
+  rrca
+	djnz	lab8
+	cp	05ah
+	jp	nz,fail
+
+	ld	b,16
+lab9:
+  inc	a
+	djnz	lab9
+	cp	06ah
+	jp	nz,fail
+
+;-- Direccion: 0x03C6
+	ld	b,0
+	ld	hl,0
+lab10:
+  inc	hl
+	djnz	lab10
+	ld	a,h
+	cp	1
+	jp	nz,fail
+	ld	a,l
+	cp	0
+	jp	nz,fail
+
+
+
+;-------- relative addressing
+;-- Regitro: IX
+;-- Direccion: 0x03DA
+TEMP  EQU -1
+TEMP2 EQU -127
+
+	ld	ix,hlval
+	ld	a,(ix+0)
+	cp	0a5h
+	jp	nz,fail
+
+  ;-- Direccion: 0x03E6
+	ld	a,(ix+1)
+	cp	03ch
+	jp	nz,fail
+
+  ;-- Direccion 0x03EE
+	inc	ix
+	ld	a,(ix + TEMP + 0)  ;-- -1
+	cp	0a5h
+	jp 	nz,fail
+
+  ;-- Direccio: 0x03F8
+	ld	ix,hlval-126
+	ld	a,(ix+127)
+	cp	03ch
+	jp	nz,fail
+
+  ;-- Direccion: 0x0404
+	ld	ix,hlval+127
+	ld	a,(ix + TEMP2)
+	cp	0a5h
+	jp	nz,fail
+
+;-------- relative addressing
+;-- Regitro: IY
+;-- Direccion: 0x0410
+
+	ld	iy,hlval
+	ld	a,(iy+0)
+	cp	0a5h
+	jp	nz,fail
+
+  ;-- Direccion: 0x041C
+	ld	a,(iy+1)
+	cp	03ch
+	jp	nz,fail
+
+  ;-- Direccion: 0x0424
+	inc	iy
+	ld	a,(iy + TEMP + 0)  ;-- -1
+	cp	0a5h
+	jp 	nz,fail
+
+  ;-- Direccio: 0x42E
+	ld	iy,hlval-126
+	ld	a,(iy+127)
+	cp	03ch
+	jp	nz,fail
+
+  ;-- Direccion: 0x043A
+	ld	iy,hlval+127
+	ld	a,(iy + TEMP2)
+	cp	0a5h
+	jp	nz,fail
+
+;-- Direccion: 0x0446
 
 ;-- All tests ok
 end:
