@@ -641,13 +641,44 @@ TEMP2 EQU -127
 	cp	0a5h
 	jp	nz,fail
 
+;-----------------------------------------------
 ;-- Direccion: 0x0446
-
 ;-- All tests ok
-end:
-  ld a, 07Fh
-	out (LEDS), a
-	halt
+
+allok:
+    ld a, 040h
+
+loop:
+    out (LEDS), a
+    call delay
+    rrca
+    jr loop
+  	halt
+
+;-------------------------------------
+;--- Subrutina de Delay
+;--- TODO: Medir el tiempo exacto
+;------------------------------------
+delay:
+     ;-- Guardar los registro en la pila
+     push af
+     push de
+     push bc
+
+     ld E, 0ffh
+J1:  ld B, 0ffh
+J2:  djnz J2
+     dec E
+     nop
+     nop
+     jr nz,J1
+
+     ;-- Recuperar los registros
+     pop bc
+     pop de
+     pop af
+     ret
+
 
 
 regs1:

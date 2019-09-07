@@ -656,14 +656,44 @@ lab6:
 		cp	0a5h
 		jp	nz,fail
 
-	;-- Direccion: 0x0446
+		;-----------------------------------------------
+		;-- Direccion: 0x0446
+		;-- All tests ok
 
+		allok:
+		    ld a, 040h
 
-;-- All tests ok
-end:
-  ld a, 0x3F
-  out (LEDS), a
-	halt
+		loop:
+		    out (LEDS), a
+		    call delay
+		    rrca
+		    jr loop
+		  	halt
+
+		;-------------------------------------
+		;--- Subrutina de Delay
+		;--- TODO: Medir el tiempo exacto
+		;------------------------------------
+		delay:
+		     ;-- Guardar los registro en la pila
+		     push af
+		     push de
+		     push bc
+
+		     ld E, 0ffh
+		J1:  ld B, 0ffh
+		J2:  djnz J2
+		     dec E
+		     nop
+		     nop
+		     jr nz,J1
+
+		     ;-- Recuperar los registros
+		     pop bc
+		     pop de
+		     pop af
+		     ret
+
 
 regs1:
   DEFB 2,   4,  6,  8, 0ah, 0ch, 0Eh, 10h, 12h, 14h
