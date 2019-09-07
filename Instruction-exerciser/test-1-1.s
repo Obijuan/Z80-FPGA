@@ -342,12 +342,69 @@ lab7c:
 	  	jr	nc,lab8c
 	  	jp fail
 
- 	  ;-- Direccion: 0x02A7
+;-------- test conditional call, ret, jp, jr
+;-- FLAG: Paridad: pe, po
+;-- Direccion 0X02A7
 lab8c:
+
+  	ld	hl,4
+  	push	hl
+  	pop	af
+  	call	pe,lab1pe
+  	jp	fail
+
+    ;-- Direccion 0x02B2
+lab1pe:
+  	pop	hl
+  	ld	hl,0d3h
+  	push	hl
+  	pop	af
+  	call	po,lab2pe
+  	jp	fail
+
+    ;-- Direccion 0x02BE
+lab2pe:
+    pop	hl
+  	ld	hl,lab3pe
+  	push	hl
+  	ld	hl,4
+  	push	hl
+  	pop	af
+  	ret	pe
+  	jp	fail
+
+    ;-- Direccion: 0x02CC
+lab3pe:
+    ld	hl,lab4pe
+  	push	hl
+  	ld	hl,0d3h
+  	push	hl
+  	pop	af
+  	ret	po
+  	jp	fail
+
+    ;-- Direccion: 0x02D9
+lab4pe:
+    ld	hl,4
+  	push	hl
+  	pop	af
+  	jp	pe,lab5pe
+  	jp fail
+
+    ;-- Direccion: 0x02E4
+lab5pe:
+    ld	hl,0d3h
+  	push	hl
+  	pop	af
+  	jp	po,lab6pe
+  	jp  fail
+
+    ;-- Direccion: 0x02EF
+lab6pe:
 
 ;-- All tests ok
 end:
-  ld a, 0x1F
+  ld a, 0x0F
   out (LEDS), a
 	halt
 
