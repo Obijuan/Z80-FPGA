@@ -462,8 +462,61 @@ lab7z:
 	jr	nz,lab8z
 	jp fail
 
+  ;-------- test conditional call, ret, jp, jr
+  ;-- FLAG: Zero: m, p
   ;-- Direccion: 0x034B
+  ;--
 lab8z:
+	ld	hl,080h
+	push	hl
+	pop	af          ;-- Activar flag de signo (1)
+	call	m,lab1m
+	jp	fail
+
+  ;-- Direccion 0x0356
+lab1m:
+  pop	hl
+	ld	hl,057h
+	push	hl
+	pop	af          ;-- Desactivar flag de signo (0)
+	call	p,lab2m
+	jp	fail
+
+  ;-- Direccio: 0x0362
+lab2m:	pop	hl
+	ld	hl,lab3m
+	push	hl
+	ld	hl,080h
+	push	hl
+	pop	af
+	ret	m
+	jp fail
+
+  ;-- Direccion: 0x0370
+lab3m:	ld	hl,lab4m
+	push	hl
+	ld	hl,057h
+	push	hl
+	pop	af
+	ret	p
+	jp fail
+
+  ;-- Direccion: 0x037D
+lab4m:	ld	hl,080h
+	push	hl
+	pop	af
+	jp	m,lab5m
+	jp fail
+
+  ;-- Direccion: 0x0388
+lab5m:	ld	hl,057h
+	push	hl
+	pop	af
+	jp	p,lab6m
+	jp fail
+
+  ;-- Direccion: 0x0393
+lab6m:
 
 
 ;-- All tests ok
