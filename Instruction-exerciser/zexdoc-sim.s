@@ -174,9 +174,11 @@ tlp:
   ld	a,(iut+1)
   cp	076h
 tlp1:
-    nop ;-- Para breakpoint (DIRECCION: 0x01CE)
-    call	nz,test		; execute the test instruction
+  nop ;-- Para breakpoint (DIRECCION: 0x01CE)
+  call	nz,test		; execute the test instruction
 tlp2:
+  nop ;-- Para Breakpoint (DIR: 0x01D2)
+  call	count		; increment the counter
 
   ;-- Retornar
   pop hl
@@ -322,7 +324,40 @@ imlp3:
  	ld	(hl),a
  	ret
 
+;---------------------------------------------
+; multi-byte counter
+count:
+  push	bc
+	push	de
+	push	hl
+	ld	hl,counter	; 20 byte counter starts here
+	ld	de,20		; somewhere in here is the stop bit
+	ex	de,hl
+	add	hl,de
+	ex	de,hl
 
+  ;-- HL apunta al primer byte del contador
+  ;-- DE apunta al byte despues del ultimo
+cntlp:
+	inc	(hl)   ;-- Incrementar contador
+	ld	a,(hl)
+	cp	0
+	jp	z,cntlp1	; overflow to next byte
+	ld	b,a
+	ld	a,(de)
+	and	b		; test for terminal value
+	jp	z,cntend
+	ld	(hl),0		; reset to zero
+cntend:
+  pop	bc
+	pop	de
+	pop	hl
+	ret
+
+cntlp1:
+  inc	hl
+	inc	de
+	jp	cntlp
 
 ; clear memory at hl, bc bytes
 clrmem:
