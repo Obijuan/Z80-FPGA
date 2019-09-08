@@ -40,13 +40,18 @@ start:
   ;-- Inicializar la pila
   ld sp, STACK
 
+  ;--- Encender dos leds para indicar
+  ;--- que la prueba ha comenzado
+  ld a, 018h
+  out (LEDS), a
+
   ;--- Indicar el test a probar en HL
 	ld	hl,adc16
 
   ;-- Ejecutar test!
 	call	stt
 
-  ;-- Indicar el final
+  ;-- Mostrar el codigo de OK
   ld a, 00Fh
   out (LEDS), a
   halt
@@ -163,6 +168,7 @@ stt:
 ;-----------------------------------------------------
 ; Bucle principal del test
 tlp:
+
   ld	a,(iut)
   cp	076h		; pragmatically avoid halt intructions
   jp	z,tlp2
@@ -174,25 +180,17 @@ tlp:
   ld	a,(iut+1)
   cp	076h
 tlp1:
-  nop ;-- Para breakpoint (DIRECCION: 0x01CE)
   call	nz,test		; execute the test instruction
 tlp2:
-  nop ;-- Para Breakpoint (DIR: 0x01D2)
   call	count		; increment the counter
-  nop ;-- Para Breakpoint (DIR: 0x01D6)
-  nop
   call	nz,shift	; shift the scan bit
   pop	hl		; pointer to test case
 
   jp	z,tlp3		; done if shift returned NZ
 
-  nop ;-- Para Breakpoint (DIR: 0x01DF)
   ld	de,20+20+20
 	add	hl,de		; point to expected crc
 	call	cmpcrc
-
-	nop ; Para Breakpoint (DIR: 0x01E7)
-  nop
 	jp	z,tlpok     ;--> TEST OK!
 
   ;-- TEST NO OK!
@@ -218,16 +216,10 @@ tlp3:
 
 	push	hl
 	ld	de,iut
-  nop    ; Para Breakpoint (DIR: 0x01Fc)
-  nop
 	call	setup		; setup iut
-  nop    ; Para Breakpoint (DIR: 0x0201)
-  nop
 	ld	b,16		; bytes in machine state
 	ld	de,msbt
 	call	setup		; setup machine state
-  nop   ; Para Breakpoint (DIR: 0x020B)
-  nop
 	jp	tlp
 
 ;------------------------------------
@@ -993,3 +985,6 @@ crctab:
 	DEFB	0c3h,00ch,08eh,0a1h
 	DEFB	05ah,005h,0dfh,01bh
 	DEFB	02dh,002h,0efh,08dh
+
+led_cont:
+   DEFB 0
