@@ -1,5 +1,5 @@
 ## z80asm Basic.asm -o Basic.bin -l 2> Basic.lst
-NAME=prelim
+NAME=zexdoc
 $(NAME).bin: $(NAME).s
 	z80asm $(NAME).s -o $(NAME).bin
 
