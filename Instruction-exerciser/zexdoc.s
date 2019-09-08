@@ -47,7 +47,7 @@ start:
 	call	stt
 
   ;-- Indicar el final
-  ld a, 00FFh
+  ld a, 00Fh
   out (LEDS), a
   halt
 
@@ -179,11 +179,267 @@ tlp1:
 tlp2:
   nop ;-- Para Breakpoint (DIR: 0x01D2)
   call	count		; increment the counter
+  nop ;-- Para Breakpoint (DIR: 0x01D6)
+  nop
+  call	nz,shift	; shift the scan bit
+  pop	hl		; pointer to test case
 
-  ;-- Retornar
-  pop hl
-  ret
+  jp	z,tlp3		; done if shift returned NZ
 
+  nop ;-- Para Breakpoint (DIR: 0x01DF)
+  ld	de,20+20+20
+	add	hl,de		; point to expected crc
+	call	cmpcrc
+
+	nop ; Para Breakpoint (DIR: 0x01E7)
+  nop
+	jp	z,tlpok     ;--> TEST OK!
+
+  ;-- TEST NO OK!
+	jp fail
+
+  ;------------ TEST OK!! -----------------------
+tlpok:
+	ret
+
+
+tlp3:
+  push	hl
+  ld	a,1		; initialise count and shift scanners
+	ld	(cntbit),a
+	ld	(shfbit),a
+	ld	hl,counter
+	ld	(cntbyt),hl
+	ld	hl,shifter
+	ld	(shfbyt),hl
+
+	ld	b,4		; bytes in iut field
+	pop	hl		; pointer to test case
+
+	push	hl
+	ld	de,iut
+  nop    ; Para Breakpoint (DIR: 0x01Fc)
+  nop
+	call	setup		; setup iut
+  nop    ; Para Breakpoint (DIR: 0x0201)
+  nop
+	ld	b,16		; bytes in machine state
+	ld	de,msbt
+	call	setup		; setup machine state
+  nop   ; Para Breakpoint (DIR: 0x020B)
+  nop
+	jp	tlp
+
+;------------------------------------
+; setup a field of the test case
+; b  = number of bytes
+; hl = pointer to base case
+; de = destination
+setup:
+  call	subyte
+	inc	hl
+	dec	b
+	jp	nz,setup
+	ret
+
+subyte:
+  push	bc
+	push	de
+	push	hl
+	ld	c,(hl)		; get base byte
+	ld	de,20
+	add	hl,de		; point to incmask
+	ld	a,(hl)
+	cp	0
+	jp	z,subshf
+	ld	b,8		; 8 bits
+
+subclp:
+  rrca
+	push	af
+	ld	a,0
+	call	c,nxtcbit	; get next counter bit if mask bit was set
+	xor	c		        ; flip bit if counter bit was set
+	rrca
+	ld	c,a
+	pop	af
+	dec	b
+	jp	nz,subclp
+	ld	b,8
+subshf:
+  ld	de,20
+	add	hl,de		; point to shift mask
+	ld	a,(hl)
+	cp	0
+	jp	z,substr
+	ld	b,8		; 8 bits
+sbshf1:
+  rrca
+	push	af
+	ld	a,0
+	call	c,nxtsbit	; get next shifter bit if mask bit was set
+	xor	c		; flip bit if shifter bit was set
+	rrca
+	ld	c,a
+	pop	af
+	dec	b
+	jp	nz,sbshf1
+substr:
+  pop	hl
+	pop	de
+	ld	a,c
+	ld	(de),a		; mangled byte to destination
+	inc	de
+	pop	bc
+	ret
+
+
+
+; -- get next counter bit in low bit of a
+cntbit:
+  DEFS	1
+cntbyt:
+  DEFS	2
+
+nxtcbit:
+  push	bc
+	push	hl
+	ld	hl,(cntbyt)
+	ld	b,(hl)
+	ld	hl,cntbit
+	ld	a,(hl)
+	ld	c,a
+	rlca
+	ld	(hl),a
+	cp	1
+	jp	nz,ncb1
+	ld	hl,(cntbyt)
+	inc	hl
+	ld	(cntbyt),hl
+ncb1:
+  ld	a,b
+	and	c
+	pop	hl
+	pop	bc
+	ret	z
+	ld	a,1
+	ret
+
+
+
+; -- get next shifter bit in low bit of a
+shfbit:
+	DEFS	1
+shfbyt:
+  DEFS	2
+
+nxtsbit:
+  push	bc
+	push	hl
+	ld	hl,(shfbyt)
+	ld	b,(hl)
+	ld	hl,shfbit
+	ld	a,(hl)
+	ld	c,a
+	rlca
+	ld	(hl),a
+	cp	1
+	jp	nz,nsb1
+	ld	hl,(shfbyt)
+	inc	hl
+	ld	(shfbyt),hl
+nsb1:
+  ld	a,b
+	and	c
+	pop	hl
+	pop	bc
+	ret	z
+	ld	a,1
+	ret
+
+
+;---------------------------------------------
+; multi-byte counter
+count:
+    push	bc
+  	push	de
+  	push	hl
+  	ld	hl,counter	; 20 byte counter starts here
+  	ld	de,20		; somewhere in here is the stop bit
+  	ex	de,hl
+  	add	hl,de
+  	ex	de,hl
+
+    ;-- HL apunta al primer byte del contador
+    ;-- DE apunta al byte despues del ultimo
+cntlp:
+  	inc	(hl)   ;-- Incrementar contador
+  	ld	a,(hl)
+  	cp	0
+  	jp	z,cntlp1	; overflow to next byte
+  	ld	b,a
+  	ld	a,(de)
+  	and	b		; test for terminal value
+  	jp	z,cntend
+  	ld	(hl),0		; reset to zero
+cntend:
+    pop	bc
+  	pop	de
+  	pop	hl
+  	ret
+
+cntlp1:
+    inc	hl
+  	inc	de
+  	jp	cntlp
+
+;----------------------------------
+; multi-byte shifter
+shift:
+  push	bc
+	push	de
+	push	hl
+
+	ld	hl,shifter	; 20 byte shift register starts here
+	ld	de,20		; somewhere in here is the stop bit
+	ex	de,hl
+	add	hl,de
+	ex	de,hl
+  ;-- HL apunta al primer byte del desplazador
+  ;-- DE apunta al byte despues del ultimo
+
+shflp:
+  ld	a,(hl)
+	or	a
+	jp	z,shflp1
+
+	ld	b,a
+	ld	a,(de)
+	and	b
+	jp	nz,shlpe  ;-- Terminar
+
+	ld	a,b
+	rlca
+	cp	1
+	jp	nz,shflp2
+	ld	(hl),0
+	inc	hl
+	inc	de
+
+shflp2:
+  ld	(hl),a
+	xor	a		; set Z
+
+shlpe:
+	pop	hl
+	pop	de
+	pop	bc
+	ret
+
+shflp1:
+	inc	hl
+	inc	de
+	jp	shflp
 
 ;-- Work area for counter/shifter
 counter:
@@ -324,41 +580,6 @@ imlp3:
  	ld	(hl),a
  	ret
 
-;---------------------------------------------
-; multi-byte counter
-count:
-  push	bc
-	push	de
-	push	hl
-	ld	hl,counter	; 20 byte counter starts here
-	ld	de,20		; somewhere in here is the stop bit
-	ex	de,hl
-	add	hl,de
-	ex	de,hl
-
-  ;-- HL apunta al primer byte del contador
-  ;-- DE apunta al byte despues del ultimo
-cntlp:
-	inc	(hl)   ;-- Incrementar contador
-	ld	a,(hl)
-	cp	0
-	jp	z,cntlp1	; overflow to next byte
-	ld	b,a
-	ld	a,(de)
-	and	b		; test for terminal value
-	jp	z,cntend
-	ld	(hl),0		; reset to zero
-cntend:
-  pop	bc
-	pop	de
-	pop	hl
-	ret
-
-cntlp1:
-  inc	hl
-	inc	de
-	jp	cntlp
-
 ; clear memory at hl, bc bytes
 clrmem:
   	push	af
@@ -377,6 +598,82 @@ clrmem:
    	pop	af
    	ret
 
+;---------------------------------------------
+; display hex
+; display the big-endian 32-bit value pointed to by hl
+phex8:
+  push	af
+	push	bc
+	push	hl
+	ld	b,4
+ph8lp:
+ 	ld	a,(hl)
+	call	phex2
+	inc	hl
+	dec	b
+	jp	nz,ph8lp
+	pop	hl
+	pop	bc
+	pop	af
+	ret
+
+;-------------------------------------
+; display byte in a
+phex2:
+  push	af
+	rrca
+	rrca
+	rrca
+	rrca
+	call	phex1
+	pop	af
+; fall through
+
+;------------------------------------------
+; display low nibble in a
+phex1:
+  push	af
+	push	bc
+	push	de
+	push	hl
+	and	0fh
+	cp	10
+	jp	c,ph11
+  ;add	39
+ph11:
+  add	a,'0'
+	ld	e,a
+	ld	c,2
+	;call	bdos
+	pop	hl
+	pop	de
+	pop	bc
+	pop	af
+	ret
+
+
+;-------------------------------------------
+; compare crc
+; hl points to value to compare to crcval
+cmpcrc:
+  push	bc
+	push	de
+	push	hl
+	ld	de,crcval
+	ld	b,4
+cclp:
+  ld	a,(de)
+	cp	(hl)
+	jp	nz,cce
+	inc	hl
+	inc	de
+	dec	b
+	jp	nz,cclp
+cce:
+  pop	hl
+	pop	de
+	pop	bc
+	ret
 
 ; 32-bit crc routine
 ; entry: a contains next byte, hl points to crc
