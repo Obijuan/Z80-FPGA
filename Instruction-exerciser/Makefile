@@ -9,7 +9,9 @@
 ##NAME=test-08-alu8x
 ##NAME=test-09-bitx
 ##NAME=test-10-bitz80
-NAME=test-11-cpd1
+##NAME=test-11-cpd1
+NAME=test-12-cpi1
+
 
 
 
