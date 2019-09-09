@@ -5,7 +5,8 @@
 ##NAME=test-04-add16y
 ##NAME=test-05-alu8i
 ##NAME=test-06-alu8r
-NAME=test-07-alu8rx
+##NAME=test-07-alu8rx
+NAME=test-08-alu8x
 
 
 
