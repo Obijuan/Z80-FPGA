@@ -2,7 +2,8 @@
 ##NAME=test-01-adc16
 ##NAME=test-02-add16
 ##NAME=test-03-add16x
-NAME=test-04-add16y
+##NAME=test-04-add16y
+NAME=test-05-alu8i
 
 $(NAME).bin: $(NAME).s
 	z80asm $(NAME).s -o $(NAME).bin
