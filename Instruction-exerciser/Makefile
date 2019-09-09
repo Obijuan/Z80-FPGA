@@ -6,8 +6,8 @@
 ##NAME=test-05-alu8i
 ##NAME=test-06-alu8r
 ##NAME=test-07-alu8rx
-NAME=test-08-alu8x
-
+##NAME=test-08-alu8x
+NAME=test-09-bitx
 
 
 $(NAME).bin: $(NAME).s
