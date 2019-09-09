@@ -7,7 +7,11 @@
 ##NAME=test-06-alu8r
 ##NAME=test-07-alu8rx
 ##NAME=test-08-alu8x
-NAME=test-09-bitx
+##NAME=test-09-bitx
+##NAME=test-10-bitz80
+NAME=test-11-cpd1
+
+
 
 
 $(NAME).bin: $(NAME).s
