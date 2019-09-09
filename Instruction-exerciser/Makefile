@@ -4,7 +4,9 @@
 ##NAME=test-03-add16x
 ##NAME=test-04-add16y
 ##NAME=test-05-alu8i
-NAME=test-06-alu8r
+##NAME=test-06-alu8r
+NAME=test-07-alu8rx
+
 
 
 $(NAME).bin: $(NAME).s
