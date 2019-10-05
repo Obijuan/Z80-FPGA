@@ -13,7 +13,7 @@ ROTIZQ:    call DELAY
            out (0x40),A    ; Saca el valor del registro A por el puerto 0x40 (Leds de la Alhambra).
 
            cp 0X80         ; Compara el registro A con el valor 0x80.
-           jr nz, ROTIZQ   ; Si el flag Z no es 1 salta a ROTIZQ.
+           jr nz, ROTIZQ   ; Si el flag Z no está activado salta a ROTIZQ.
            
 ; Rotamos el bit encendido a la derecha.          
 ROTDER:    call DELAY
@@ -21,16 +21,15 @@ ROTDER:    call DELAY
            out (0x40),A    ; Saca el valor del registro A por el puerto 0x40 (Leds de la Alhambra).
            
            cp 0x01         ; Compara el registro A con el valor 0x01.
-           jr nz, ROTDER   ; Si el flag Z no es 1 salta a ROTDER.
+           jr nz, ROTDER   ; Si el flag Z no está activado salta a ROTDER.
            
 ; Volvemos al repetir la secuencia (bucle infinito)
 JP ROTIZQ
 
 ; Timer de aproximadamente 60ms para los 12MHz de la Alhambra
-DELAY:
-J50:       ld E,0xFF       ; Cargamos el registro E a su valor máximo.
-J51:       ld B,0xFF       ; Cargamos el registro B a su valor máximo.
-J52:       djnz J52        ; Decrementa B y mientras no sea 0 saltar a J52.
+DELAY:     ld E,0xFF       ; Cargamos el registro E al valor máximo.
+J51:       ld B,0xFF       ; Cargamos el registro B al valor máximo.
+J52:       djnz J52        ; Mientras el flag Z no esté activado, decrementa B y salta a J52.
            dec E           ; Decrementa E.
-           jr nz,J51       ; Si el flag Z no es 1 salta a J51.
+           jr nz,J51       ; Si el flag Z no está activado salta a J51.
            ret
