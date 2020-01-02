@@ -1,3 +1,5 @@
+![](https://github.com/Obijuan/Z80-FPGA/raw/master/wiki/project-logo.png)
+
 # Z80-FPGA
 Z80 CPU for OpenFPGAs, with Icestudio
 
