@@ -25623,74 +25623,6 @@
               }
             },
             {
-              "id": "fb4d2e25-f367-4034-873e-44073f11904a",
-              "type": "basic.code",
-              "data": {
-                "code": "\nlocalparam Flag_C = 0;\nlocalparam Flag_N = 1;\nlocalparam Flag_P = 2;\nlocalparam Flag_X = 3;\nlocalparam Flag_H = 4;\nlocalparam Flag_Y = 5;\nlocalparam Flag_Z = 6;\nlocalparam Flag_S = 7;\nlocalparam Mode = 0;   // 0 => Z80, 1 => Fast Z80, 2 => 8080, 3 => GB\n\nreg [7:0]             Q;\nreg [7:0]             F_Out;\n\n  function [4:0] AddSub4;\n    input [3:0] A;\n    input [3:0] B;\n    input Sub;\n    input Carry_In;\n    begin\n      AddSub4 = { 1'b0, A } + { 1'b0, (Sub)?~B:B } + {4'h0,Carry_In};\n    end\n  endfunction // AddSub4\n\n  function [3:0] AddSub3;\n    input [2:0] A;\n    input [2:0] B;\n    input Sub;\n    input Carry_In;\n    begin\n      AddSub3 = { 1'b0, A } + { 1'b0, (Sub)?~B:B } + {3'h0,Carry_In};\n    end\n  endfunction // AddSub4\n\n  function [1:0] AddSub1;\n    input A;\n    input B;\n    input Sub;\n    input Carry_In;\n    begin\n      AddSub1 = { 1'b0, A } + { 1'b0, (Sub)?~B:B } + {1'h0,Carry_In};\n    end\n  endfunction // AddSub4\n\n  // AddSub variables (temporary signals)\n  reg UseCarry;\n  reg Carry7_v;\n  reg OverFlow_v;\n  reg HalfCarry_v;\n  reg Carry_v;\n  reg [7:0] Q_v;\n\n  reg [7:0] BitMask;\n\n\n  always @(/*AUTOSENSE*/ALU_Op or BusA or BusB or F_In or IR)\n    begin\n      case (IR[5:3])\n        3'b000 : BitMask = 8'b00000001;\n        3'b001 : BitMask = 8'b00000010;\n        3'b010 : BitMask = 8'b00000100;\n        3'b011 : BitMask = 8'b00001000;\n        3'b100 : BitMask = 8'b00010000;\n        3'b101 : BitMask = 8'b00100000;\n        3'b110 : BitMask = 8'b01000000;\n        default: BitMask = 8'b10000000;\n      endcase // case(IR[5:3])\n\n      UseCarry = ~ ALU_Op[2] && ALU_Op[0];\n      { HalfCarry_v, Q_v[3:0] } = AddSub4(BusA[3:0], BusB[3:0], ALU_Op[1], ALU_Op[1] ^ (UseCarry && F_In[Flag_C]) );\n      { Carry7_v, Q_v[6:4]  } = AddSub3(BusA[6:4], BusB[6:4], ALU_Op[1], HalfCarry_v);\n      { Carry_v, Q_v[7] } = AddSub1(BusA[7], BusB[7], ALU_Op[1], Carry7_v);\n      OverFlow_v = Carry_v ^ Carry7_v;\n    end // always @ *\n\n  reg [7:0] Q_t;\n  reg [8:0] DAA_Q;\n\n  always @ (/*AUTOSENSE*/ALU_Op or Arith16 or BitMask or BusA or BusB\n\t    or Carry_v or F_In or HalfCarry_v or IR or ISet\n\t    or OverFlow_v or Q_v or Z16)\n    begin\n      Q_t = 8'hxx;\n      DAA_Q = {9{1'bx}};\n\n      F_Out = F_In;\n      case (ALU_Op)\n\t4'b0000, 4'b0001,  4'b0010, 4'b0011, 4'b0100, 4'b0101, 4'b0110, 4'b0111 :\n          begin\n\t    F_Out[Flag_N] = 1'b0;\n\t    F_Out[Flag_C] = 1'b0;\n\n\t    case (ALU_Op[2:0])\n\n\t      3'b000, 3'b001 : // ADD, ADC\n                begin\n\t\t  Q_t = Q_v;\n\t\t  F_Out[Flag_C] = Carry_v;\n\t\t  F_Out[Flag_H] = HalfCarry_v;\n\t\t  F_Out[Flag_P] = OverFlow_v;\n                end\n\n\t      3'b010, 3'b011, 3'b111 : // SUB, SBC, CP\n                begin\n\t\t  Q_t = Q_v;\n\t\t  F_Out[Flag_N] = 1'b1;\n\t\t  F_Out[Flag_C] = ~ Carry_v;\n\t\t  F_Out[Flag_H] = ~ HalfCarry_v;\n\t\t  F_Out[Flag_P] = OverFlow_v;\n                end\n\n\t      3'b100 : // AND\n                begin\n\t\t  Q_t[7:0] = BusA & BusB;\n\t\t  F_Out[Flag_H] = 1'b1;\n                end\n\n\t      3'b101 : // XOR\n                begin\n\t\t  Q_t[7:0] = BusA ^ BusB;\n\t\t  F_Out[Flag_H] = 1'b0;\n                end\n\n\t      default : // OR 3'b110\n                begin\n\t\t  Q_t[7:0] = BusA | BusB;\n\t\t  F_Out[Flag_H] = 1'b0;\n                end\n\n\t    endcase // case(ALU_OP[2:0])\n\n\t    if (ALU_Op[2:0] == 3'b111 )\n              begin // CP\n\t\tF_Out[Flag_X] = BusB[3];\n\t\tF_Out[Flag_Y] = BusB[5];\n\t      end\n            else\n              begin\n\t\tF_Out[Flag_X] = Q_t[3];\n\t\tF_Out[Flag_Y] = Q_t[5];\n\t      end\n\n\t    if (Q_t[7:0] == 8'b00000000 )\n              begin\n\t\tF_Out[Flag_Z] = 1'b1;\n\t\tif (Z16 == 1'b1 )\n                  begin\n\t\t    F_Out[Flag_Z] = F_In[Flag_Z];\t// 16 bit ADC,SBC\n\t\t  end\n\t      end\n            else\n              begin\n\t\tF_Out[Flag_Z] = 1'b0;\n\t      end // else: !if(Q_t[7:0] == 8'b00000000 )\n\n\t    F_Out[Flag_S] = Q_t[7];\n\t    case (ALU_Op[2:0])\n\t      3'b000, 3'b001, 3'b010, 3'b011, 3'b111 : // ADD, ADC, SUB, SBC, CP\n                ;\n\n\t      default :\n\t        F_Out[Flag_P] = ~(^Q_t);\n\t    endcase // case(ALU_Op[2:0])\n\n\t    if (Arith16 == 1'b1 )\n              begin\n\t\tF_Out[Flag_S] = F_In[Flag_S];\n\t\tF_Out[Flag_Z] = F_In[Flag_Z];\n\t\tF_Out[Flag_P] = F_In[Flag_P];\n\t      end\n          end // case: 4'b0000, 4'b0001,  4'b0010, 4'b0011, 4'b0100, 4'b0101, 4'b0110, 4'b0111\n\n\t4'b1100 :\n          begin\n\t    // DAA\n\t    F_Out[Flag_H] = F_In[Flag_H];\n\t    F_Out[Flag_C] = F_In[Flag_C];\n\t    DAA_Q[7:0] = BusA;\n\t    DAA_Q[8] = 1'b0;\n\t    if (F_In[Flag_N] == 1'b0 )\n              begin\n\t\t// After addition\n\t\t// Alow > 9 || H == 1\n\t\tif (DAA_Q[3:0] > 9 || F_In[Flag_H] == 1'b1 )\n                  begin\n\t\t    if ((DAA_Q[3:0] > 9) )\n                      begin\n\t\t\tF_Out[Flag_H] = 1'b1;\n\t\t      end\n                    else\n                      begin\n\t\t\tF_Out[Flag_H] = 1'b0;\n\t\t      end\n\t\t    DAA_Q = DAA_Q + 6;\n\t\t  end // if (DAA_Q[3:0] > 9 || F_In[Flag_H] == 1'b1 )\n\n\t\t// new Ahigh > 9 || C == 1\n\t\tif (DAA_Q[8:4] > 9 || F_In[Flag_C] == 1'b1 )\n                  begin\n\t\t    DAA_Q = DAA_Q + 96; // 0x60\n\t\t  end\n\t      end\n            else\n              begin\n\t\t// After subtraction\n\t\tif (DAA_Q[3:0] > 9 || F_In[Flag_H] == 1'b1 )\n                  begin\n\t\t    if (DAA_Q[3:0] > 5 )\n                      begin\n\t\t\tF_Out[Flag_H] = 1'b0;\n\t\t      end\n\t\t    DAA_Q[7:0] = DAA_Q[7:0] - 6;\n\t\t  end\n\t\tif (BusA > 153 || F_In[Flag_C] == 1'b1 )\n                  begin\n\t\t    DAA_Q = DAA_Q - 352; // 0x160\n\t\t  end\n\t      end // else: !if(F_In[Flag_N] == 1'b0 )\n\n\t    F_Out[Flag_X] = DAA_Q[3];\n\t    F_Out[Flag_Y] = DAA_Q[5];\n\t    F_Out[Flag_C] = F_In[Flag_C] || DAA_Q[8];\n\t    Q_t = DAA_Q[7:0];\n\n\t    if (DAA_Q[7:0] == 8'b00000000 )\n              begin\n\t\tF_Out[Flag_Z] = 1'b1;\n\t      end\n            else\n              begin\n\t\tF_Out[Flag_Z] = 1'b0;\n\t      end\n\n\t    F_Out[Flag_S] = DAA_Q[7];\n\t    F_Out[Flag_P] = ~ (^DAA_Q);\n          end // case: 4'b1100\n\n\t4'b1101, 4'b1110 :\n          begin\n\t    // RLD, RRD\n\t    Q_t[7:4] = BusA[7:4];\n\t    if (ALU_Op[0] == 1'b1 )\n              begin\n\t\tQ_t[3:0] = BusB[7:4];\n\t      end\n            else\n              begin\n\t\tQ_t[3:0] = BusB[3:0];\n\t      end\n\t    F_Out[Flag_H] = 1'b0;\n\t    F_Out[Flag_N] = 1'b0;\n\t    F_Out[Flag_X] = Q_t[3];\n\t    F_Out[Flag_Y] = Q_t[5];\n\t    if (Q_t[7:0] == 8'b00000000 )\n              begin\n\t\tF_Out[Flag_Z] = 1'b1;\n\t      end\n            else\n              begin\n\t\tF_Out[Flag_Z] = 1'b0;\n\t      end\n\t    F_Out[Flag_S] = Q_t[7];\n            F_Out[Flag_P] = ~(^Q_t);\n          end // case: when 4'b1101, 4'b1110\n\n\t4'b1001 :\n          begin\n\t    // BIT\n\t    Q_t[7:0] = BusB & BitMask;\n\t    F_Out[Flag_S] = Q_t[7];\n\t    if (Q_t[7:0] == 8'b00000000 )\n              begin\n\t\tF_Out[Flag_Z] = 1'b1;\n\t\tF_Out[Flag_P] = 1'b1;\n\t      end\n            else\n              begin\n\t\tF_Out[Flag_Z] = 1'b0;\n\t\tF_Out[Flag_P] = 1'b0;\n\t      end\n\t    F_Out[Flag_H] = 1'b1;\n\t    F_Out[Flag_N] = 1'b0;\n\t    F_Out[Flag_X] = 1'b0;\n\t    F_Out[Flag_Y] = 1'b0;\n\t    if (IR[2:0] != 3'b110 )\n              begin\n\t\tF_Out[Flag_X] = BusB[3];\n\t\tF_Out[Flag_Y] = BusB[5];\n\t      end\n          end // case: when 4'b1001\n\n\t4'b1010 :\n\t  // SET\n\t  Q_t[7:0] = BusB | BitMask;\n\n\t4'b1011 :\n\t  // RES\n\t  Q_t[7:0] = BusB & ~ BitMask;\n\n\t4'b1000 :\n          begin\n\t    // ROT\n\t    case (IR[5:3])\n\t      3'b000 : // RLC\n                begin\n\t\t  Q_t[7:1] = BusA[6:0];\n\t\t  Q_t[0] = BusA[7];\n\t\t  F_Out[Flag_C] = BusA[7];\n                end\n\n\t      3'b010 : // RL\n                begin\n\t\t  Q_t[7:1] = BusA[6:0];\n\t\t  Q_t[0] = F_In[Flag_C];\n\t\t  F_Out[Flag_C] = BusA[7];\n                end\n\n\t      3'b001 : // RRC\n                begin\n\t\t  Q_t[6:0] = BusA[7:1];\n\t\t  Q_t[7] = BusA[0];\n\t\t  F_Out[Flag_C] = BusA[0];\n                end\n\n\t      3'b011 : // RR\n                begin\n\t\t  Q_t[6:0] = BusA[7:1];\n\t\t  Q_t[7] = F_In[Flag_C];\n\t\t  F_Out[Flag_C] = BusA[0];\n                end\n\n\t      3'b100 : // SLA\n                begin\n\t\t  Q_t[7:1] = BusA[6:0];\n\t\t  Q_t[0] = 1'b0;\n\t\t  F_Out[Flag_C] = BusA[7];\n                end\n\n\t      3'b110 : // SLL (Undocumented) / SWAP\n                begin\n\t\t  if (Mode == 3 )\n                    begin\n\t\t      Q_t[7:4] = BusA[3:0];\n\t\t      Q_t[3:0] = BusA[7:4];\n\t\t      F_Out[Flag_C] = 1'b0;\n\t\t    end\n                  else\n                    begin\n\t\t      Q_t[7:1] = BusA[6:0];\n\t\t      Q_t[0] = 1'b1;\n\t\t      F_Out[Flag_C] = BusA[7];\n\t\t    end // else: !if(Mode == 3 )\n                end // case: 3'b110\n\n\t      3'b101 : // SRA\n                begin\n\t\t  Q_t[6:0] = BusA[7:1];\n\t\t  Q_t[7] = BusA[7];\n\t\t  F_Out[Flag_C] = BusA[0];\n                end\n\n\t      default : // SRL\n                begin\n\t\t  Q_t[6:0] = BusA[7:1];\n\t\t  Q_t[7] = 1'b0;\n\t\t  F_Out[Flag_C] = BusA[0];\n                end\n\t    endcase // case(IR[5:3])\n\n\t    F_Out[Flag_H] = 1'b0;\n\t    F_Out[Flag_N] = 1'b0;\n\t    F_Out[Flag_X] = Q_t[3];\n\t    F_Out[Flag_Y] = Q_t[5];\n\t    F_Out[Flag_S] = Q_t[7];\n\t    if (Q_t[7:0] == 8'b00000000 )\n              begin\n\t\tF_Out[Flag_Z] = 1'b1;\n\t      end\n            else\n              begin\n\t\tF_Out[Flag_Z] = 1'b0;\n\t      end\n            F_Out[Flag_P] = ~(^Q_t);\n\n\t    if (ISet == 2'b00 )\n              begin\n\t\tF_Out[Flag_P] = F_In[Flag_P];\n\t\tF_Out[Flag_S] = F_In[Flag_S];\n\t\tF_Out[Flag_Z] = F_In[Flag_Z];\n\t      end\n          end // case: 4'b1000\n\n\n\tdefault :\n\t  ;\n\n      endcase // case(ALU_Op)\n\n      Q = Q_t;\n    end // always @ (Arith16, ALU_OP, F_In, BusA, BusB, IR, Q_v, Carry_v, HalfCarry_v, OverFlow_v, BitMask, ISet, Z16)\n    \n     \n     \n     ",
-                "params": [],
-                "ports": {
-                  "in": [
-                    {
-                      "name": "Arith16"
-                    },
-                    {
-                      "name": "Z16"
-                    },
-                    {
-                      "name": "ALU_Op",
-                      "range": "[3:0]",
-                      "size": 4
-                    },
-                    {
-                      "name": "IR",
-                      "range": "[5:0]",
-                      "size": 6
-                    },
-                    {
-                      "name": "ISet",
-                      "range": "[1:0]",
-                      "size": 2
-                    },
-                    {
-                      "name": "BusA",
-                      "range": "[7:0]",
-                      "size": 8
-                    },
-                    {
-                      "name": "BusB",
-                      "range": "[7:0]",
-                      "size": 8
-                    },
-                    {
-                      "name": "F_In",
-                      "range": "[7:0]",
-                      "size": 8
-                    }
-                  ],
-                  "out": [
-                    {
-                      "name": "Q",
-                      "range": "[7:0]",
-                      "size": 8
-                    },
-                    {
-                      "name": "F_Out",
-                      "range": "[7:0]",
-                      "size": 8
-                    }
-                  ]
-                }
-              },
-              "position": {
-                "x": -400,
-                "y": 1184
-              },
-              "size": {
-                "width": 704,
-                "height": 384
-              }
-            },
-            {
               "id": "256545fa-0ab3-437d-95bd-a7d66cf82ee8",
               "type": "basic.info",
               "data": {
@@ -26423,6 +26355,74 @@
                 "width": 120,
                 "height": 40
               }
+            },
+            {
+              "id": "0eb85ad5-c101-43ec-8c08-3e83604017e2",
+              "type": "basic.code",
+              "data": {
+                "code": "\nlocalparam Flag_C = 0;\nlocalparam Flag_N = 1;\nlocalparam Flag_P = 2;\nlocalparam Flag_X = 3;\nlocalparam Flag_H = 4;\nlocalparam Flag_Y = 5;\nlocalparam Flag_Z = 6;\nlocalparam Flag_S = 7;\nlocalparam Mode = 0;   // 0 => Z80, 1 => Fast Z80, 2 => 8080, 3 => GB\n\nreg [7:0]             Q_i;\nassign Q = Q_i;\n\nreg [7:0]             F_Out;\n\n  function [4:0] AddSub4;\n    input [3:0] A;\n    input [3:0] B;\n    input Sub;\n    input Carry_In;\n    begin\n      AddSub4 = { 1'b0, A } + { 1'b0, (Sub)?~B:B } + {4'h0,Carry_In};\n    end\n  endfunction // AddSub4\n\n  function [3:0] AddSub3;\n    input [2:0] A;\n    input [2:0] B;\n    input Sub;\n    input Carry_In;\n    begin\n      AddSub3 = { 1'b0, A } + { 1'b0, (Sub)?~B:B } + {3'h0,Carry_In};\n    end\n  endfunction // AddSub4\n\n  function [1:0] AddSub1;\n    input A;\n    input B;\n    input Sub;\n    input Carry_In;\n    begin\n      AddSub1 = { 1'b0, A } + { 1'b0, (Sub)?~B:B } + {1'h0,Carry_In};\n    end\n  endfunction // AddSub4\n\n  // AddSub variables (temporary signals)\n  reg UseCarry;\n  reg Carry7_v;\n  reg OverFlow_v;\n  reg HalfCarry_v;\n  reg Carry_v;\n  reg [7:0] Q_v;\n\n  reg [7:0] BitMask;\n\n\n  always @(/*AUTOSENSE*/ALU_Op or BusA or BusB or F_In or IR)\n    begin\n      case (IR[5:3])\n        3'b000 : BitMask = 8'b00000001;\n        3'b001 : BitMask = 8'b00000010;\n        3'b010 : BitMask = 8'b00000100;\n        3'b011 : BitMask = 8'b00001000;\n        3'b100 : BitMask = 8'b00010000;\n        3'b101 : BitMask = 8'b00100000;\n        3'b110 : BitMask = 8'b01000000;\n        default: BitMask = 8'b10000000;\n      endcase // case(IR[5:3])\n\n      UseCarry = ~ ALU_Op[2] && ALU_Op[0];\n      { HalfCarry_v, Q_v[3:0] } = AddSub4(BusA[3:0], BusB[3:0], ALU_Op[1], ALU_Op[1] ^ (UseCarry && F_In[Flag_C]) );\n      { Carry7_v, Q_v[6:4]  } = AddSub3(BusA[6:4], BusB[6:4], ALU_Op[1], HalfCarry_v);\n      { Carry_v, Q_v[7] } = AddSub1(BusA[7], BusB[7], ALU_Op[1], Carry7_v);\n      OverFlow_v = Carry_v ^ Carry7_v;\n    end // always @ *\n\n  reg [7:0] Q_t;\n  reg [8:0] DAA_Q;\n\n  always @ (/*AUTOSENSE*/ALU_Op or Arith16 or BitMask or BusA or BusB\n\t    or Carry_v or F_In or HalfCarry_v or IR or ISet\n\t    or OverFlow_v or Q_v or Z16)\n    begin\n      Q_t = 8'hxx;\n      DAA_Q = {9{1'bx}};\n\n      F_Out = F_In;\n      case (ALU_Op)\n\t4'b0000, 4'b0001,  4'b0010, 4'b0011, 4'b0100, 4'b0101, 4'b0110, 4'b0111 :\n          begin\n\t    F_Out[Flag_N] = 1'b0;\n\t    F_Out[Flag_C] = 1'b0;\n\n\t    case (ALU_Op[2:0])\n\n\t      3'b000, 3'b001 : // ADD, ADC\n                begin\n\t\t  Q_t = Q_v;\n\t\t  F_Out[Flag_C] = Carry_v;\n\t\t  F_Out[Flag_H] = HalfCarry_v;\n\t\t  F_Out[Flag_P] = OverFlow_v;\n                end\n\n\t      3'b010, 3'b011, 3'b111 : // SUB, SBC, CP\n                begin\n\t\t  Q_t = Q_v;\n\t\t  F_Out[Flag_N] = 1'b1;\n\t\t  F_Out[Flag_C] = ~ Carry_v;\n\t\t  F_Out[Flag_H] = ~ HalfCarry_v;\n\t\t  F_Out[Flag_P] = OverFlow_v;\n                end\n\n\t      3'b100 : // AND\n                begin\n\t\t  Q_t[7:0] = BusA & BusB;\n\t\t  F_Out[Flag_H] = 1'b1;\n                end\n\n\t      3'b101 : // XOR\n                begin\n\t\t  Q_t[7:0] = BusA ^ BusB;\n\t\t  F_Out[Flag_H] = 1'b0;\n                end\n\n\t      default : // OR 3'b110\n                begin\n\t\t  Q_t[7:0] = BusA | BusB;\n\t\t  F_Out[Flag_H] = 1'b0;\n                end\n\n\t    endcase // case(ALU_OP[2:0])\n\n\t    if (ALU_Op[2:0] == 3'b111 )\n              begin // CP\n\t\tF_Out[Flag_X] = BusB[3];\n\t\tF_Out[Flag_Y] = BusB[5];\n\t      end\n            else\n              begin\n\t\tF_Out[Flag_X] = Q_t[3];\n\t\tF_Out[Flag_Y] = Q_t[5];\n\t      end\n\n\t    if (Q_t[7:0] == 8'b00000000 )\n              begin\n\t\tF_Out[Flag_Z] = 1'b1;\n\t\tif (Z16 == 1'b1 )\n                  begin\n\t\t    F_Out[Flag_Z] = F_In[Flag_Z];\t// 16 bit ADC,SBC\n\t\t  end\n\t      end\n            else\n              begin\n\t\tF_Out[Flag_Z] = 1'b0;\n\t      end // else: !if(Q_t[7:0] == 8'b00000000 )\n\n\t    F_Out[Flag_S] = Q_t[7];\n\t    case (ALU_Op[2:0])\n\t      3'b000, 3'b001, 3'b010, 3'b011, 3'b111 : // ADD, ADC, SUB, SBC, CP\n                ;\n\n\t      default :\n\t        F_Out[Flag_P] = ~(^Q_t);\n\t    endcase // case(ALU_Op[2:0])\n\n\t    if (Arith16 == 1'b1 )\n              begin\n\t\tF_Out[Flag_S] = F_In[Flag_S];\n\t\tF_Out[Flag_Z] = F_In[Flag_Z];\n\t\tF_Out[Flag_P] = F_In[Flag_P];\n\t      end\n          end // case: 4'b0000, 4'b0001,  4'b0010, 4'b0011, 4'b0100, 4'b0101, 4'b0110, 4'b0111\n\n\t4'b1100 :\n          begin\n\t    // DAA\n\t    F_Out[Flag_H] = F_In[Flag_H];\n\t    F_Out[Flag_C] = F_In[Flag_C];\n\t    DAA_Q[7:0] = BusA;\n\t    DAA_Q[8] = 1'b0;\n\t    if (F_In[Flag_N] == 1'b0 )\n              begin\n\t\t// After addition\n\t\t// Alow > 9 || H == 1\n\t\tif (DAA_Q[3:0] > 9 || F_In[Flag_H] == 1'b1 )\n                  begin\n\t\t    if ((DAA_Q[3:0] > 9) )\n                      begin\n\t\t\tF_Out[Flag_H] = 1'b1;\n\t\t      end\n                    else\n                      begin\n\t\t\tF_Out[Flag_H] = 1'b0;\n\t\t      end\n\t\t    DAA_Q = DAA_Q + 6;\n\t\t  end // if (DAA_Q[3:0] > 9 || F_In[Flag_H] == 1'b1 )\n\n\t\t// new Ahigh > 9 || C == 1\n\t\tif (DAA_Q[8:4] > 9 || F_In[Flag_C] == 1'b1 )\n                  begin\n\t\t    DAA_Q = DAA_Q + 96; // 0x60\n\t\t  end\n\t      end\n            else\n              begin\n\t\t// After subtraction\n\t\tif (DAA_Q[3:0] > 9 || F_In[Flag_H] == 1'b1 )\n                  begin\n\t\t    if (DAA_Q[3:0] > 5 )\n                      begin\n\t\t\tF_Out[Flag_H] = 1'b0;\n\t\t      end\n\t\t    DAA_Q[7:0] = DAA_Q[7:0] - 6;\n\t\t  end\n\t\tif (BusA > 153 || F_In[Flag_C] == 1'b1 )\n                  begin\n\t\t    DAA_Q = DAA_Q - 352; // 0x160\n\t\t  end\n\t      end // else: !if(F_In[Flag_N] == 1'b0 )\n\n\t    F_Out[Flag_X] = DAA_Q[3];\n\t    F_Out[Flag_Y] = DAA_Q[5];\n\t    F_Out[Flag_C] = F_In[Flag_C] || DAA_Q[8];\n\t    Q_t = DAA_Q[7:0];\n\n\t    if (DAA_Q[7:0] == 8'b00000000 )\n              begin\n\t\tF_Out[Flag_Z] = 1'b1;\n\t      end\n            else\n              begin\n\t\tF_Out[Flag_Z] = 1'b0;\n\t      end\n\n\t    F_Out[Flag_S] = DAA_Q[7];\n\t    F_Out[Flag_P] = ~ (^DAA_Q);\n          end // case: 4'b1100\n\n\t4'b1101, 4'b1110 :\n          begin\n\t    // RLD, RRD\n\t    Q_t[7:4] = BusA[7:4];\n\t    if (ALU_Op[0] == 1'b1 )\n              begin\n\t\tQ_t[3:0] = BusB[7:4];\n\t      end\n            else\n              begin\n\t\tQ_t[3:0] = BusB[3:0];\n\t      end\n\t    F_Out[Flag_H] = 1'b0;\n\t    F_Out[Flag_N] = 1'b0;\n\t    F_Out[Flag_X] = Q_t[3];\n\t    F_Out[Flag_Y] = Q_t[5];\n\t    if (Q_t[7:0] == 8'b00000000 )\n              begin\n\t\tF_Out[Flag_Z] = 1'b1;\n\t      end\n            else\n              begin\n\t\tF_Out[Flag_Z] = 1'b0;\n\t      end\n\t    F_Out[Flag_S] = Q_t[7];\n            F_Out[Flag_P] = ~(^Q_t);\n          end // case: when 4'b1101, 4'b1110\n\n\t4'b1001 :\n          begin\n\t    // BIT\n\t    Q_t[7:0] = BusB & BitMask;\n\t    F_Out[Flag_S] = Q_t[7];\n\t    if (Q_t[7:0] == 8'b00000000 )\n              begin\n\t\tF_Out[Flag_Z] = 1'b1;\n\t\tF_Out[Flag_P] = 1'b1;\n\t      end\n            else\n              begin\n\t\tF_Out[Flag_Z] = 1'b0;\n\t\tF_Out[Flag_P] = 1'b0;\n\t      end\n\t    F_Out[Flag_H] = 1'b1;\n\t    F_Out[Flag_N] = 1'b0;\n\t    F_Out[Flag_X] = 1'b0;\n\t    F_Out[Flag_Y] = 1'b0;\n\t    if (IR[2:0] != 3'b110 )\n              begin\n\t\tF_Out[Flag_X] = BusB[3];\n\t\tF_Out[Flag_Y] = BusB[5];\n\t      end\n          end // case: when 4'b1001\n\n\t4'b1010 :\n\t  // SET\n\t  Q_t[7:0] = BusB | BitMask;\n\n\t4'b1011 :\n\t  // RES\n\t  Q_t[7:0] = BusB & ~ BitMask;\n\n\t4'b1000 :\n          begin\n\t    // ROT\n\t    case (IR[5:3])\n\t      3'b000 : // RLC\n                begin\n\t\t  Q_t[7:1] = BusA[6:0];\n\t\t  Q_t[0] = BusA[7];\n\t\t  F_Out[Flag_C] = BusA[7];\n                end\n\n\t      3'b010 : // RL\n                begin\n\t\t  Q_t[7:1] = BusA[6:0];\n\t\t  Q_t[0] = F_In[Flag_C];\n\t\t  F_Out[Flag_C] = BusA[7];\n                end\n\n\t      3'b001 : // RRC\n                begin\n\t\t  Q_t[6:0] = BusA[7:1];\n\t\t  Q_t[7] = BusA[0];\n\t\t  F_Out[Flag_C] = BusA[0];\n                end\n\n\t      3'b011 : // RR\n                begin\n\t\t  Q_t[6:0] = BusA[7:1];\n\t\t  Q_t[7] = F_In[Flag_C];\n\t\t  F_Out[Flag_C] = BusA[0];\n                end\n\n\t      3'b100 : // SLA\n                begin\n\t\t  Q_t[7:1] = BusA[6:0];\n\t\t  Q_t[0] = 1'b0;\n\t\t  F_Out[Flag_C] = BusA[7];\n                end\n\n\t      3'b110 : // SLL (Undocumented) / SWAP\n                begin\n\t\t  if (Mode == 3 )\n                    begin\n\t\t      Q_t[7:4] = BusA[3:0];\n\t\t      Q_t[3:0] = BusA[7:4];\n\t\t      F_Out[Flag_C] = 1'b0;\n\t\t    end\n                  else\n                    begin\n\t\t      Q_t[7:1] = BusA[6:0];\n\t\t      Q_t[0] = 1'b1;\n\t\t      F_Out[Flag_C] = BusA[7];\n\t\t    end // else: !if(Mode == 3 )\n                end // case: 3'b110\n\n\t      3'b101 : // SRA\n                begin\n\t\t  Q_t[6:0] = BusA[7:1];\n\t\t  Q_t[7] = BusA[7];\n\t\t  F_Out[Flag_C] = BusA[0];\n                end\n\n\t      default : // SRL\n                begin\n\t\t  Q_t[6:0] = BusA[7:1];\n\t\t  Q_t[7] = 1'b0;\n\t\t  F_Out[Flag_C] = BusA[0];\n                end\n\t    endcase // case(IR[5:3])\n\n\t    F_Out[Flag_H] = 1'b0;\n\t    F_Out[Flag_N] = 1'b0;\n\t    F_Out[Flag_X] = Q_t[3];\n\t    F_Out[Flag_Y] = Q_t[5];\n\t    F_Out[Flag_S] = Q_t[7];\n\t    if (Q_t[7:0] == 8'b00000000 )\n              begin\n\t\tF_Out[Flag_Z] = 1'b1;\n\t      end\n            else\n              begin\n\t\tF_Out[Flag_Z] = 1'b0;\n\t      end\n            F_Out[Flag_P] = ~(^Q_t);\n\n\t    if (ISet == 2'b00 )\n              begin\n\t\tF_Out[Flag_P] = F_In[Flag_P];\n\t\tF_Out[Flag_S] = F_In[Flag_S];\n\t\tF_Out[Flag_Z] = F_In[Flag_Z];\n\t      end\n          end // case: 4'b1000\n\n\n\tdefault :\n\t  ;\n\n      endcase // case(ALU_Op)\n\n      Q_i = Q_t;\n    end // always @ (Arith16, ALU_OP, F_In, BusA, BusB, IR, Q_v, Carry_v, HalfCarry_v, OverFlow_v, BitMask, ISet, Z16)\n    \n     \n     \n     ",
+                "params": [],
+                "ports": {
+                  "in": [
+                    {
+                      "name": "Arith16"
+                    },
+                    {
+                      "name": "Z16"
+                    },
+                    {
+                      "name": "ALU_Op",
+                      "range": "[3:0]",
+                      "size": 4
+                    },
+                    {
+                      "name": "IR",
+                      "range": "[5:0]",
+                      "size": 6
+                    },
+                    {
+                      "name": "ISet",
+                      "range": "[1:0]",
+                      "size": 2
+                    },
+                    {
+                      "name": "BusA",
+                      "range": "[7:0]",
+                      "size": 8
+                    },
+                    {
+                      "name": "BusB",
+                      "range": "[7:0]",
+                      "size": 8
+                    },
+                    {
+                      "name": "F_In",
+                      "range": "[7:0]",
+                      "size": 8
+                    }
+                  ],
+                  "out": [
+                    {
+                      "name": "Q",
+                      "range": "[7:0]",
+                      "size": 8
+                    },
+                    {
+                      "name": "F_Out",
+                      "range": "[7:0]",
+                      "size": 8
+                    }
+                  ]
+                }
+              },
+              "position": {
+                "x": -400,
+                "y": 1184
+              },
+              "size": {
+                "width": 704,
+                "height": 384
+              }
             }
           ],
           "wires": [
@@ -26998,7 +26998,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "fb4d2e25-f367-4034-873e-44073f11904a",
+                "block": "0eb85ad5-c101-43ec-8c08-3e83604017e2",
                 "port": "Arith16"
               }
             },
@@ -27008,7 +27008,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "fb4d2e25-f367-4034-873e-44073f11904a",
+                "block": "0eb85ad5-c101-43ec-8c08-3e83604017e2",
                 "port": "Z16"
               }
             },
@@ -27028,7 +27028,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "fb4d2e25-f367-4034-873e-44073f11904a",
+                "block": "0eb85ad5-c101-43ec-8c08-3e83604017e2",
                 "port": "ALU_Op",
                 "size": 4
               },
@@ -27052,7 +27052,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "fb4d2e25-f367-4034-873e-44073f11904a",
+                "block": "0eb85ad5-c101-43ec-8c08-3e83604017e2",
                 "port": "IR",
                 "size": 6
               },
@@ -27076,7 +27076,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "fb4d2e25-f367-4034-873e-44073f11904a",
+                "block": "0eb85ad5-c101-43ec-8c08-3e83604017e2",
                 "port": "ISet",
                 "size": 2
               },
@@ -27100,7 +27100,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "fb4d2e25-f367-4034-873e-44073f11904a",
+                "block": "0eb85ad5-c101-43ec-8c08-3e83604017e2",
                 "port": "BusA",
                 "size": 8
               },
@@ -27112,7 +27112,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "fb4d2e25-f367-4034-873e-44073f11904a",
+                "block": "0eb85ad5-c101-43ec-8c08-3e83604017e2",
                 "port": "BusB",
                 "size": 8
               },
@@ -27136,7 +27136,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "fb4d2e25-f367-4034-873e-44073f11904a",
+                "block": "0eb85ad5-c101-43ec-8c08-3e83604017e2",
                 "port": "F_In",
                 "size": 8
               },
@@ -27156,7 +27156,7 @@
             },
             {
               "source": {
-                "block": "fb4d2e25-f367-4034-873e-44073f11904a",
+                "block": "0eb85ad5-c101-43ec-8c08-3e83604017e2",
                 "port": "Q",
                 "size": 8
               },
@@ -27180,7 +27180,7 @@
             },
             {
               "source": {
-                "block": "fb4d2e25-f367-4034-873e-44073f11904a",
+                "block": "0eb85ad5-c101-43ec-8c08-3e83604017e2",
                 "port": "F_Out",
                 "size": 8
               },
