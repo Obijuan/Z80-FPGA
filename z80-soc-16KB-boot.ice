@@ -26070,10 +26070,10 @@
               }
             },
             {
-              "id": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+              "id": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
               "type": "basic.code",
               "data": {
-                "code": "\n  localparam Mode = 0;   // 0 => Z80, 1 => Fast Z80, 2 => 8080, 3 => GB\n  localparam IOWait = 1; // 0 => Single cycle I/O, 1 => Std I/O cycle\n  \nlocalparam Flag_C = 0;\nlocalparam Flag_N = 1;\nlocalparam Flag_P = 2;\nlocalparam Flag_X = 3;\nlocalparam Flag_H = 4;\nlocalparam Flag_Y = 5;\nlocalparam Flag_Z = 6;\nlocalparam Flag_S = 7;\n\n\n  reg    m1_n_i;\n  assign m1_n = m1_n_i;\n\n  reg    iorq_ii;\n  assign iorq = iorq_ii;\n\n`ifdef TV80_REFRESH\n  reg    rfsh_n;\n`endif\n  reg    halt_n;\n  reg    busak_n;\n  reg [15:0] A;\n  reg [7:0]  dout;\n  reg [6:0]  mc;\n  reg [6:0]  ts;\n  reg   intcycle_n;\n  reg   IntE;\n  reg   stop;\n\n  parameter     aNone    = 3'b111;\n  parameter     aBC      = 3'b000;\n  parameter     aDE      = 3'b001;\n  parameter     aXY      = 3'b010;\n  parameter     aIOA     = 3'b100;\n  parameter     aSP      = 3'b101;\n  parameter     aZI      = 3'b110;\n\n  // Registers\n  reg [7:0]     ACC, F;\n  reg [7:0]     Ap, Fp;\n  reg [7:0]     I;\n`ifdef TV80_REFRESH\n  reg [7:0]     R;\n`endif\n  reg [15:0]    SP, PC;\n  reg [7:0]     RegDIH;\n  reg [7:0]     RegDIL;\n  reg [2:0]     RegAddrA_r;\n  reg [2:0]     RegAddrA;\n  reg [2:0]     RegAddrB_r;\n  reg [2:0]     RegAddrB;\n  reg [2:0]     RegAddrC;\n  reg           RegWEH;\n  reg           RegWEL;\n  reg           Alternate;\n\n  // Help Registers\n  reg [15:0]    TmpAddr;        // Temporary address register\n  reg [7:0]     IR;             // Instruction register\n  reg [1:0]     ISet;           // Instruction set selector\n  reg [15:0]    RegBusA_r;\n\n  reg [15:0]    ID16;\n  reg [7:0]     Save_Mux;\n\n  reg [6:0]     tstate;\n  reg [6:0]     mcycle;\n  reg           last_mcycle, last_tstate;\n  reg           IntE_FF1;\n  reg           IntE_FF2;\n  reg           Halt_FF;\n  reg           BusReq_s;\n  reg           BusAck;\n  reg           ClkEn;\n  reg           NMI_s;\n  reg           INT_s;\n  reg [1:0]     IStatus;\n\n  reg [7:0]     DI_Reg;\n  reg           T_Res;\n  reg [1:0]     XY_State;\n  reg [2:0]     Pre_XY_F_M;\n  reg           NextIs_XY_Fetch;\n  reg           XY_Ind;\n  reg           No_BTR;\n  reg           BTR_r;\n  reg           Auto_Wait;\n  reg           Auto_Wait_t1;\n  reg           Auto_Wait_t2;\n  reg           IncDecZ;\n\n  // ALU signals\n  reg [7:0]     BusB;\n  reg [7:0]     BusA;\n  wire [7:0]    F_Out;\n\n  // Registered micro code outputs\n  reg [4:0]     Read_To_Reg_r;\n  reg           Arith16_r;\n  reg           Z16_r;\n  reg [3:0]     ALU_Op_r;\n  reg           Save_ALU_r;\n  reg           PreserveC_r;\n  reg [2:0]     mcycles;\n\n  // Micro code outputs\n  reg           IntCycle;\n  reg           NMICycle;\n  \n  wire           Halt;\n\n  reg [15:0]     PC16;\n  reg [15:0]     PC16_B;\n  reg [15:0]     SP16, SP16_A, SP16_B;\n  reg [15:0]     ID16_B;\n  reg            Oldnmi_n;\n\n  \n\n\n  function [6:0] number_to_bitvec;\n    input [2:0] num;\n    begin\n      case (num)\n        1 : number_to_bitvec = 7'b0000001;\n        2 : number_to_bitvec = 7'b0000010;\n        3 : number_to_bitvec = 7'b0000100;\n        4 : number_to_bitvec = 7'b0001000;\n        5 : number_to_bitvec = 7'b0010000;\n        6 : number_to_bitvec = 7'b0100000;\n        7 : number_to_bitvec = 7'b1000000;\n        default : number_to_bitvec = 7'bx;\n      endcase // case(num)\n    end\n  endfunction // number_to_bitvec\n\n  function [2:0] mcyc_to_number;\n    input [6:0] mcyc;\n    begin\n      casez (mcyc)\n        7'b1zzzzzz : mcyc_to_number = 3'h7;\n        7'b01zzzzz : mcyc_to_number = 3'h6;\n        7'b001zzzz : mcyc_to_number = 3'h5;\n        7'b0001zzz : mcyc_to_number = 3'h4;\n        7'b00001zz : mcyc_to_number = 3'h3;\n        7'b000001z : mcyc_to_number = 3'h2;\n        7'b0000001 : mcyc_to_number = 3'h1;\n        default : mcyc_to_number = 3'h1;\n      endcase\n    end\n  endfunction\n\n  always @(/*AUTOSENSE*/mcycle or mcycles or tstate or tstates)\n    begin\n      case (mcycles)\n        1 : last_mcycle = mcycle[0];\n        2 : last_mcycle = mcycle[1];\n        3 : last_mcycle = mcycle[2];\n        4 : last_mcycle = mcycle[3];\n        5 : last_mcycle = mcycle[4];\n        6 : last_mcycle = mcycle[5];\n        7 : last_mcycle = mcycle[6];\n        default : last_mcycle = 1'bx;\n      endcase // case(mcycles)\n\n      case (tstates)\n        0 : last_tstate = tstate[0];\n        1 : last_tstate = tstate[1];\n        2 : last_tstate = tstate[2];\n        3 : last_tstate = tstate[3];\n        4 : last_tstate = tstate[4];\n        5 : last_tstate = tstate[5];\n        6 : last_tstate = tstate[6];\n        default : last_tstate = 1'bx;\n      endcase\n    end // always @ (...\n\n\n  always @(/*AUTOSENSE*/ALU_Q or BusAck or BusB or DI_Reg\n\t   or ExchangeRp or IR or Save_ALU_r or Set_Addr_To or XY_Ind\n\t   or XY_State or cen or last_tstate or mcycle)\n    begin\n      ClkEn = cen && ~ BusAck;\n\n      if (last_tstate)\n        T_Res = 1'b1;\n      else T_Res = 1'b0;\n\n      if (XY_State != 2'b00 && XY_Ind == 1'b0 &&\n          ((Set_Addr_To == aXY) ||\n           (mcycle[0] && IR == 8'b11001011) ||\n           (mcycle[0] && IR == 8'b00110110)))\n        NextIs_XY_Fetch = 1'b1;\n      else\n        NextIs_XY_Fetch = 1'b0;\n\n      if (ExchangeRp)\n        Save_Mux = BusB;\n      else if (!Save_ALU_r)\n        Save_Mux = DI_Reg;\n      else\n        Save_Mux = ALU_Q;\n    end // always @ *\n\n  always @ (posedge clk or negedge reset_n)\n    begin\n      if (reset_n == 1'b0 )\n        begin\n          PC <= 0;  // Program Counter\n          A <= 0;\n          TmpAddr <= 0;\n          IR <= 8'b00000000;\n          ISet <= 2'b00;\n          XY_State <= 2'b00;\n          IStatus <= 2'b00;\n          mcycles <= 3'b000;\n          dout <= 8'b00000000;\n\n          ACC <= 8'hFF;\n          F <= 8'hFF;\n          Ap <= 8'hFF;\n          Fp <= 8'hFF;\n          I <= 0;\n          `ifdef TV80_REFRESH\n          R <= 0;\n          `endif\n          SP <= 16'hFFFF;\n          Alternate <= 1'b0;\n\n          Read_To_Reg_r <= 5'b00000;\n          Arith16_r <= 1'b0;\n          BTR_r <= 1'b0;\n          Z16_r <= 1'b0;\n          ALU_Op_r <= 4'b0000;\n          Save_ALU_r <= 1'b0;\n          PreserveC_r <= 1'b0;\n          XY_Ind <= 1'b0;\n        end\n      else\n        begin\n\n          if (ClkEn == 1'b1 )\n            begin\n\n              ALU_Op_r <= 4'b0000;\n              Save_ALU_r <= 1'b0;\n              Read_To_Reg_r <= 5'b00000;\n\n              mcycles <= mcycles_d;\n\n              if (IMode != 2'b11 )\n                begin\n                  IStatus <= IMode;\n                end\n\n              Arith16_r <= Arith16;\n              PreserveC_r <= PreserveC;\n              if (ISet == 2'b10 && ALU_Op[2] == 1'b0 && ALU_Op[0] == 1'b1 && mcycle[2] )\n                begin\n                  Z16_r <= 1'b1;\n                end\n              else\n                begin\n                  Z16_r <= 1'b0;\n                end\n\n              if (mcycle[0] && (tstate[1] | tstate[2] | tstate[3] ))\n                begin\n                  // mcycle == 1 && tstate == 1, 2, || 3\n                  if (tstate[2] && wait_n == 1'b1 )\n                    begin\n                      `ifdef TV80_REFRESH\n                      if (Mode < 2 )\n                        begin\n                          A[7:0] <= R;\n                          A[15:8] <= I;\n                          R[6:0] <= R[6:0] + 1;\n                        end\n                      `endif\n                      if (Jump == 1'b0 && Call == 1'b0 && NMICycle == 1'b0 && IntCycle == 1'b0 && ~ (Halt_FF == 1'b1 || Halt == 1'b1) )\n                        begin\n                          PC <= PC16;\n                        end\n\n                      if (IntCycle == 1'b1 && IStatus == 2'b01 )\n                        begin\n                          IR <= 8'b11111111;\n                        end\n                      else if (Halt_FF == 1'b1 || (IntCycle == 1'b1 && IStatus == 2'b10) || NMICycle == 1'b1 )\n                        begin\n                          IR <= 8'b00000000;\n\t\t\t  TmpAddr[7:0] <= dinst; // Special M1 vector fetch\n                        end\n                      else\n                        begin\n                          IR <= dinst;\n                        end\n\n                      ISet <= 2'b00;\n                      if (Prefix != 2'b00 )\n                        begin\n                          if (Prefix == 2'b11 )\n                            begin\n                              if (IR[5] == 1'b1 )\n                                begin\n                                  XY_State <= 2'b10;\n                                end\n                              else\n                                begin\n                                  XY_State <= 2'b01;\n                                end\n                            end\n                          else\n                            begin\n                              if (Prefix == 2'b10 )\n                                begin\n                                  XY_State <= 2'b00;\n                                  XY_Ind <= 1'b0;\n                                end\n                              ISet <= Prefix;\n                            end\n                        end\n                      else\n                        begin\n                          XY_State <= 2'b00;\n                          XY_Ind <= 1'b0;\n                        end\n                    end // if (tstate == 2 && wait_n == 1'b1 )\n\n\n                end\n              else\n                begin\n                  // either (mcycle > 1) OR (mcycle == 1 AND tstate > 3)\n\n                  if (mcycle[5] )\n                    begin\n                      XY_Ind <= 1'b1;\n                      if (Prefix == 2'b01 )\n                        begin\n                          ISet <= 2'b01;\n                        end\n                    end\n\n                  if (T_Res == 1'b1 )\n                    begin\n                      BTR_r <= (I_BT || I_BC || I_BTR) && ~ No_BTR;\n                      if (Jump == 1'b1 )\n                        begin\n                          A[15:8] <= DI_Reg;\n                          A[7:0] <= TmpAddr[7:0];\n                          PC[15:8] <= DI_Reg;\n                          PC[7:0] <= TmpAddr[7:0];\n                        end\n                      else if (JumpXY == 1'b1 )\n                        begin\n                          A <= RegBusC;\n                          PC <= RegBusC;\n                        end else if (Call == 1'b1 || RstP == 1'b1 )\n                          begin\n                            A <= TmpAddr;\n                            PC <= TmpAddr;\n                          end\n                        else if (last_mcycle && NMICycle == 1'b1 )\n                          begin\n                            A <= 16'b0000000001100110;\n                            PC <= 16'b0000000001100110;\n                          end\n                        else if (mcycle[2] && IntCycle == 1'b1 && IStatus == 2'b10 )\n                          begin\n                            A[15:8] <= I;\n                            A[7:0] <= TmpAddr[7:0];\n                            PC[15:8] <= I;\n                            PC[7:0] <= TmpAddr[7:0];\n                          end\n                        else\n                          begin\n                            case (Set_Addr_To)\n                              aXY :\n                                begin\n                                  if (XY_State == 2'b00 )\n                                    begin\n                                      A <= RegBusC;\n                                    end\n                                  else\n                                    begin\n                                      if (NextIs_XY_Fetch == 1'b1 )\n                                        begin\n                                          A <= PC;\n                                        end\n                                      else\n                                        begin\n                                          A <= TmpAddr;\n                                        end\n                                    end // else: !if(XY_State == 2'b00 )\n                                end // case: aXY\n\n                              aIOA :\n                                begin\n                                  if (Mode == 3 )\n                                    begin\n                                      // Memory map I/O on GBZ80\n                                      A[15:8] <= 8'hFF;\n                                    end\n                                  else if (Mode == 2 )\n                                    begin\n                                      // Duplicate I/O address on 8080\n                                      A[15:8] <= DI_Reg;\n                                    end\n                                  else\n                                    begin\n                                      A[15:8] <= ACC;\n                                    end\n                                  A[7:0] <= DI_Reg;\n                                end // case: aIOA\n\n\n                              aSP :\n                                begin\n                                  A <= SP;\n                                end\n\n                              aBC :\n                                begin\n                                  if (Mode == 3 && iorq_i == 1'b1 )\n                                    begin\n                                      // Memory map I/O on GBZ80\n                                      A[15:8] <= 8'hFF;\n                                      A[7:0] <= RegBusC[7:0];\n                                    end\n                                  else\n                                    begin\n                                      A <= RegBusC;\n                                    end\n                                end // case: aBC\n\n                              aDE :\n                                begin\n                                  A <= RegBusC;\n                                end\n\n                              aZI :\n                                begin\n                                  if (Inc_WZ == 1'b1 )\n                                    begin\n                                      A <= TmpAddr + 1;\n                                    end\n                                  else\n                                    begin\n                                      A[15:8] <= DI_Reg;\n                                      A[7:0] <= TmpAddr[7:0];\n                                    end\n                                end // case: aZI\n\n                              default   :\n                                begin\n                                  A <= PC;\n                                end\n                            endcase // case(Set_Addr_To)\n\n                          end // else: !if(mcycle[2] && IntCycle == 1'b1 && IStatus == 2'b10 )\n\n\n                      Save_ALU_r <= Save_ALU;\n                      ALU_Op_r <= ALU_Op;\n\n                      if (I_CPL == 1'b1 )\n                        begin\n                          // CPL\n                          ACC <= ~ ACC;\n                          F[Flag_Y] <= ~ ACC[5];\n                          F[Flag_H] <= 1'b1;\n                          F[Flag_X] <= ~ ACC[3];\n                          F[Flag_N] <= 1'b1;\n                        end\n                      if (I_CCF == 1'b1 )\n                        begin\n                          // CCF\n                          F[Flag_C] <= ~ F[Flag_C];\n                          F[Flag_Y] <= ACC[5];\n                          F[Flag_H] <= F[Flag_C];\n                          F[Flag_X] <= ACC[3];\n                          F[Flag_N] <= 1'b0;\n                        end\n                      if (I_SCF == 1'b1 )\n                        begin\n                          // SCF\n                          F[Flag_C] <= 1'b1;\n                          F[Flag_Y] <= ACC[5];\n                          F[Flag_H] <= 1'b0;\n                          F[Flag_X] <= ACC[3];\n                          F[Flag_N] <= 1'b0;\n                        end\n                    end // if (T_Res == 1'b1 )\n\n\n                  if (tstate[2] && wait_n == 1'b1 )\n                    begin\n                      if (ISet == 2'b01 && mcycle[6] )\n                        begin\n                          IR <= dinst;\n                        end\n                      if (JumpE == 1'b1 )\n                        begin\n                          PC <= PC16;\n                        end\n                      else if (Inc_PC == 1'b1 )\n                        begin\n                          //PC <= PC + 1;\n                          PC <= PC16;\n                        end\n                      if (BTR_r == 1'b1 )\n                        begin\n                          //PC <= PC - 2;\n                          PC <= PC16;\n                        end\n                      if (RstP == 1'b1 )\n                        begin\n                          TmpAddr <= { 10'h0, IR[5:3], 3'h0 };\n                          //TmpAddr <= (others =>1'b0);\n                          //TmpAddr[5:3] <= IR[5:3];\n                        end\n                    end\n                  if (tstate[3] && mcycle[5] )\n                    begin\n                      TmpAddr <= SP16;\n                    end\n\n                  if ((tstate[2] && wait_n == 1'b1) || (tstate[4] && mcycle[0]) )\n                    begin\n                      if (IncDec_16[2:0] == 3'b111 )\n                        begin\n                          SP <= SP16;\n                        end\n                    end\n\n                  if (LDSPHL == 1'b1 )\n                    begin\n                      SP <= RegBusC;\n                    end\n                  if (ExchangeAF == 1'b1 )\n                    begin\n                      Ap <= ACC;\n                      ACC <= Ap;\n                      Fp <= F;\n                      F <= Fp;\n                    end\n                  if (ExchangeRS == 1'b1 )\n                    begin\n                      Alternate <= ~ Alternate;\n                    end\n                end // else: !if(mcycle  == 3'b001 && tstate(2) == 1'b0 )\n\n\n              if (tstate[3] )\n                begin\n                  if (LDZ == 1'b1 )\n                    begin\n                      TmpAddr[7:0] <= DI_Reg;\n                    end\n                  if (LDW == 1'b1 )\n                    begin\n                      TmpAddr[15:8] <= DI_Reg;\n                    end\n\n                  if (Special_LD[2] == 1'b1 )\n                    begin\n                      case (Special_LD[1:0])\n                        2'b00 :\n                          begin\n                            ACC <= I;\n                            F[Flag_P] <= IntE_FF2;\n\t\t\t    F[Flag_Z] <= (I == 0);\n\t\t\t    F[Flag_S] <= I[7];\n\t\t\t    F[Flag_H] <= 0;\n\t\t\t    F[Flag_N] <= 0;\n                          end\n\n                        2'b01 :\n                          begin\n                            `ifdef TV80_REFRESH\n                            ACC <= R;\n                            `else\n                            ACC <= 0;\n                            `endif\n                            F[Flag_P] <= IntE_FF2;\n\t\t\t    F[Flag_Z] <= (I == 0);\n\t\t\t    F[Flag_S] <= I[7];\n\t\t\t    F[Flag_H] <= 0;\n\t\t\t    F[Flag_N] <= 0;\n                          end\n\n                        2'b10 :\n                          I <= ACC;\n\n                        `ifdef TV80_REFRESH\n                        default :\n                          R <= ACC;\n                        `else\n                        default : ;\n                        `endif\n                      endcase\n                    end\n                end // if (tstate == 3 )\n\n\n              if ((I_DJNZ == 1'b0 && Save_ALU_r == 1'b1) || ALU_Op_r == 4'b1001 )\n                begin\n                  if (Mode == 3 )\n                    begin\n                      F[6] <= F_Out[6];\n                      F[5] <= F_Out[5];\n                      F[7] <= F_Out[7];\n                      if (PreserveC_r == 1'b0 )\n                        begin\n                          F[4] <= F_Out[4];\n                        end\n                    end\n                  else\n                    begin\n                      F[7:1] <= F_Out[7:1];\n                      if (PreserveC_r == 1'b0 )\n                        begin\n                          F[Flag_C] <= F_Out[0];\n                        end\n                    end\n                end // if ((I_DJNZ == 1'b0 && Save_ALU_r == 1'b1) || ALU_Op_r == 4'b1001 )\n\n              if (T_Res == 1'b1 && I_INRC == 1'b1 )\n                begin\n                  F[Flag_H] <= 1'b0;\n                  F[Flag_N] <= 1'b0;\n                  if (DI_Reg[7:0] == 8'b00000000 )\n                    begin\n                      F[Flag_Z] <= 1'b1;\n                    end\n                  else\n                    begin\n                      F[Flag_Z] <= 1'b0;\n                    end\n                  F[Flag_S] <= DI_Reg[7];\n                  F[Flag_P] <= ~ (^DI_Reg[7:0]);\n                end // if (T_Res == 1'b1 && I_INRC == 1'b1 )\n\n\n              if (tstate[1] && Auto_Wait_t1 == 1'b0 )\n                begin\n                  dout <= BusB;\n                  if (I_RLD == 1'b1 )\n                    begin\n                      dout[3:0] <= BusA[3:0];\n                      dout[7:4] <= BusB[3:0];\n                    end\n                  if (I_RRD == 1'b1 )\n                    begin\n                      dout[3:0] <= BusB[7:4];\n                      dout[7:4] <= BusA[3:0];\n                    end\n                end\n\n              if (T_Res == 1'b1 )\n                begin\n                  Read_To_Reg_r[3:0] <= Set_BusA_To;\n                  Read_To_Reg_r[4] <= Read_To_Reg;\n                  if (Read_To_Acc == 1'b1 )\n                    begin\n                      Read_To_Reg_r[3:0] <= 4'b0111;\n                      Read_To_Reg_r[4] <= 1'b1;\n                    end\n                end\n\n              if (tstate[1] && I_BT == 1'b1 )\n                begin\n                  F[Flag_X] <= ALU_Q[3];\n                  F[Flag_Y] <= ALU_Q[1];\n                  F[Flag_H] <= 1'b0;\n                  F[Flag_N] <= 1'b0;\n                end\n              if (I_BC == 1'b1 || I_BT == 1'b1 )\n                begin\n                  F[Flag_P] <= IncDecZ;\n                end\n\n              if ((tstate[1] && Save_ALU_r == 1'b0 && Auto_Wait_t1 == 1'b0) ||\n                  (Save_ALU_r == 1'b1 && ALU_Op_r != 4'b0111) )\n                begin\n                  case (Read_To_Reg_r)\n                    5'b10111 :\n                      ACC <= Save_Mux;\n                    5'b10110 :\n                      dout <= Save_Mux;\n                    5'b11000 :\n                      SP[7:0] <= Save_Mux;\n                    5'b11001 :\n                      SP[15:8] <= Save_Mux;\n                    5'b11011 :\n                      F <= Save_Mux;\n                    default : ;\n                  endcase\n                end // if ((tstate == 1 && Save_ALU_r == 1'b0 && Auto_Wait_t1 == 1'b0) ||...\n            end // if (ClkEn == 1'b1 )\n        end // else: !if(reset_n == 1'b0 )\n    end\n\n\n  //-------------------------------------------------------------------------\n  //\n  // BC('), DE('), HL('), IX && IY\n  //\n  //-------------------------------------------------------------------------\n  always @ (posedge clk)\n    begin\n      if (ClkEn == 1'b1 )\n        begin\n          // Bus A / Write\n          RegAddrA_r <=  { Alternate, Set_BusA_To[2:1] };\n          if (XY_Ind == 1'b0 && XY_State != 2'b00 && Set_BusA_To[2:1] == 2'b10 )\n            begin\n              RegAddrA_r <= { XY_State[1],  2'b11 };\n            end\n\n          // Bus B\n          RegAddrB_r <= { Alternate, Set_BusB_To[2:1] };\n          if (XY_Ind == 1'b0 && XY_State != 2'b00 && Set_BusB_To[2:1] == 2'b10 )\n            begin\n              RegAddrB_r <= { XY_State[1],  2'b11 };\n            end\n\n          // Address from register\n          RegAddrC <= { Alternate,  Set_Addr_To[1:0] };\n          // Jump (HL), LD SP,HL\n          if ((JumpXY == 1'b1 || LDSPHL == 1'b1) )\n            begin\n              RegAddrC <= { Alternate, 2'b10 };\n            end\n          if (((JumpXY == 1'b1 || LDSPHL == 1'b1) && XY_State != 2'b00) || (mcycle[5]) )\n            begin\n              RegAddrC <= { XY_State[1],  2'b11 };\n            end\n\n          if (I_DJNZ == 1'b1 && Save_ALU_r == 1'b1 && Mode < 2 )\n            begin\n              IncDecZ <= F_Out[Flag_Z];\n            end\n          if ((tstate[2] || (tstate[3] && mcycle[0])) && IncDec_16[2:0] == 3'b100 )\n            begin\n              if (ID16 == 0 )\n                begin\n                  IncDecZ <= 1'b0;\n                end\n              else\n                begin\n                  IncDecZ <= 1'b1;\n                end\n            end\n\n          RegBusA_r <= RegBusA;\n        end\n\n    end // always @ (posedge clk)\n\n\n  always @(/*AUTOSENSE*/Alternate or ExchangeDH or IncDec_16\n\t   or RegAddrA_r or RegAddrB_r or XY_State or mcycle or tstate)\n    begin\n      if ((tstate[2] || (tstate[3] && mcycle[0] && IncDec_16[2] == 1'b1)) && XY_State == 2'b00)\n        RegAddrA = { Alternate, IncDec_16[1:0] };\n      else if ((tstate[2] || (tstate[3] && mcycle[0] && IncDec_16[2] == 1'b1)) && IncDec_16[1:0] == 2'b10)\n        RegAddrA = { XY_State[1], 2'b11 };\n      else if (ExchangeDH == 1'b1 && tstate[3])\n        RegAddrA = { Alternate, 2'b10 };\n      else if (ExchangeDH == 1'b1 && tstate[4])\n        RegAddrA = { Alternate, 2'b01 };\n      else\n        RegAddrA = RegAddrA_r;\n\n      if (ExchangeDH == 1'b1 && tstate[3])\n        RegAddrB = { Alternate, 2'b01 };\n      else\n        RegAddrB = RegAddrB_r;\n    end // always @ *\n\n\n  always @(/*AUTOSENSE*/ALU_Op_r or Auto_Wait_t1 or ExchangeDH\n\t   or IncDec_16 or Read_To_Reg_r or Save_ALU_r or mcycle\n\t   or tstate or wait_n)\n    begin\n      RegWEH = 1'b0;\n      RegWEL = 1'b0;\n      if ((tstate[1] && ~Save_ALU_r && ~Auto_Wait_t1) ||\n          (Save_ALU_r && (ALU_Op_r != 4'b0111)) )\n        begin\n          case (Read_To_Reg_r)\n            5'b10000 , 5'b10001 , 5'b10010 , 5'b10011 , 5'b10100 , 5'b10101 :\n              begin\n                RegWEH = ~ Read_To_Reg_r[0];\n                RegWEL = Read_To_Reg_r[0];\n              end // UNMATCHED !!\n            default : ;\n          endcase // case(Read_To_Reg_r)\n\n        end // if ((tstate == 1 && Save_ALU_r == 1'b0 && Auto_Wait_t1 == 1'b0) ||...\n\n\n      if (ExchangeDH && (tstate[3] || tstate[4]) )\n        begin\n          RegWEH = 1'b1;\n          RegWEL = 1'b1;\n        end\n\n      if (IncDec_16[2] && ((tstate[2] && wait_n && ~mcycle[0]) || (tstate[3] && mcycle[0])) )\n        begin\n          case (IncDec_16[1:0])\n            2'b00 , 2'b01 , 2'b10 :\n              begin\n                RegWEH = 1'b1;\n                RegWEL = 1'b1;\n              end // UNMATCHED !!\n            default : ;\n          endcase\n        end\n    end // always @ *\n\n\n  always @(/*AUTOSENSE*/ExchangeDH or ID16 or IncDec_16 or RegBusA_r\n\t   or RegBusB or Save_Mux or mcycle or tstate)\n    begin\n      RegDIH = Save_Mux;\n      RegDIL = Save_Mux;\n\n      if (ExchangeDH == 1'b1 && tstate[3] )\n        begin\n          RegDIH = RegBusB[15:8];\n          RegDIL = RegBusB[7:0];\n        end\n      else if (ExchangeDH == 1'b1 && tstate[4] )\n        begin\n          RegDIH = RegBusA_r[15:8];\n          RegDIL = RegBusA_r[7:0];\n        end\n      else if (IncDec_16[2] == 1'b1 && ((tstate[2] && ~mcycle[0]) || (tstate[3] && mcycle[0])) )\n        begin\n          RegDIH = ID16[15:8];\n          RegDIL = ID16[7:0];\n        end\n    end\n\n  //-------------------------------------------------------------------------\n  //\n  // Buses\n  //\n  //-------------------------------------------------------------------------\n\n  always @ (posedge clk)\n    begin\n      if (ClkEn == 1'b1 )\n        begin\n          case (Set_BusB_To)\n            4'b0111 :\n              BusB <= ACC;\n            4'b0000 , 4'b0001 , 4'b0010 , 4'b0011 , 4'b0100 , 4'b0101 :\n              begin\n                if (Set_BusB_To[0] == 1'b1 )\n                  begin\n                    BusB <= RegBusB[7:0];\n                  end\n                else\n                  begin\n                    BusB <= RegBusB[15:8];\n                  end\n              end\n            4'b0110 :\n              BusB <= DI_Reg;\n            4'b1000 :\n              BusB <= SP[7:0];\n            4'b1001 :\n              BusB <= SP[15:8];\n            4'b1010 :\n              BusB <= 8'b00000001;\n            4'b1011 :\n              BusB <= F;\n            4'b1100 :\n              BusB <= PC[7:0];\n            4'b1101 :\n              BusB <= PC[15:8];\n            4'b1110 :\n              BusB <= 8'b00000000;\n            default :\n              BusB <= 8'h0;\n          endcase\n\n          case (Set_BusA_To)\n            4'b0111 :\n              BusA <= ACC;\n            4'b0000 , 4'b0001 , 4'b0010 , 4'b0011 , 4'b0100 , 4'b0101 :\n              begin\n                if (Set_BusA_To[0] == 1'b1 )\n                  begin\n                    BusA <= RegBusA[7:0];\n                  end\n                else\n                  begin\n                    BusA <= RegBusA[15:8];\n                  end\n              end\n            4'b0110 :\n              BusA <= DI_Reg;\n            4'b1000 :\n              BusA <= SP[7:0];\n            4'b1001 :\n              BusA <= SP[15:8];\n            4'b1010 :\n              BusA <= 8'b00000000;\n            default :\n              BusA <=  8'h0;\n          endcase\n        end\n    end\n\n  //-------------------------------------------------------------------------\n  //\n  // Generate external control signals\n  //\n  //-------------------------------------------------------------------------\n`ifdef TV80_REFRESH\n  always @ (posedge clk or negedge reset_n)\n    begin\n      if (reset_n == 1'b0 )\n        begin\n          rfsh_n <= 1'b1;\n        end\n      else\n        begin\n          if (cen == 1'b1 )\n            begin\n              if (mcycle[0] && ((tstate[2]  && wait_n == 1'b1) || tstate[3]) )\n                begin\n                  rfsh_n <= 1'b0;\n                end\n              else\n                begin\n                  rfsh_n <= 1'b1;\n                end\n            end\n        end\n    end // always @ (posedge clk or negedge reset_n)\n`else // !`ifdef TV80_REFRESH\n  assign rfsh_n = 1'b1;\n`endif\n\n  always @(/*AUTOSENSE*/BusAck or Halt_FF or I_DJNZ or IntCycle\n\t   or IntE_FF1 or di or iorq_i or mcycle or tstate)\n    begin\n      mc = mcycle;\n      ts = tstate;\n      DI_Reg = di;\n      halt_n = ~ Halt_FF;\n      busak_n = ~ BusAck;\n      intcycle_n = ~ IntCycle;\n      IntE = IntE_FF1;\n      iorq_ii = iorq_i;\n      stop = I_DJNZ;\n    end\n\n  //-----------------------------------------------------------------------\n  //\n  // Syncronise inputs\n  //\n  //-----------------------------------------------------------------------\n\n  always @ (posedge clk or negedge reset_n)\n    begin : sync_inputs\n      if (~reset_n)\n        begin\n          BusReq_s <= 1'b0;\n          INT_s <= 1'b0;\n          NMI_s <= 1'b0;\n          Oldnmi_n <= 1'b0;\n        end\n      else\n        begin\n          if (cen == 1'b1 )\n            begin\n              BusReq_s <= ~ busrq_n;\n              INT_s <= ~ int_n;\n              if (NMICycle == 1'b1 )\n                begin\n                  NMI_s <= 1'b0;\n                end\n              else if (nmi_n == 1'b0 && Oldnmi_n == 1'b1 )\n                begin\n                  NMI_s <= 1'b1;\n                end\n              Oldnmi_n <= nmi_n;\n            end\n        end\n    end\n\n  //-----------------------------------------------------------------------\n  //\n  // Main state machine\n  //\n  //-----------------------------------------------------------------------\n\n  always @ (posedge clk or negedge reset_n)\n    begin\n      if (reset_n == 1'b0 )\n        begin\n          mcycle <= 7'b0000001;\n          tstate <= 7'b0000001;\n          Pre_XY_F_M <= 3'b000;\n          Halt_FF <= 1'b0;\n          BusAck <= 1'b0;\n          NMICycle <= 1'b0;\n          IntCycle <= 1'b0;\n          IntE_FF1 <= 1'b0;\n          IntE_FF2 <= 1'b0;\n          No_BTR <= 1'b0;\n          Auto_Wait_t1 <= 1'b0;\n          Auto_Wait_t2 <= 1'b0;\n          m1_n_i <= 1'b1;\n        end\n      else\n        begin\n          if (cen == 1'b1 )\n            begin\n              if (T_Res == 1'b1 )\n                begin\n                  Auto_Wait_t1 <= 1'b0;\n                end\n              else\n                begin\n\t\t  Auto_Wait_t1 <= Auto_Wait || (iorq_i & ~Auto_Wait_t2);\n                end\n              Auto_Wait_t2 <= Auto_Wait_t1 & !T_Res;\n              No_BTR <= (I_BT && (~ IR[4] || ~ F[Flag_P])) ||\n                        (I_BC && (~ IR[4] || F[Flag_Z] || ~ F[Flag_P])) ||\n                        (I_BTR && (~ IR[4] || F[Flag_Z]));\n              if (tstate[2] )\n                begin\n                  if (SetEI == 1'b1 )\n                    begin\n                      if (!NMICycle)\n                        IntE_FF1 <= 1'b1;\n                      IntE_FF2 <= 1'b1;\n                    end\n                  if (I_RETN == 1'b1 )\n                    begin\n                      IntE_FF1 <= IntE_FF2;\n                    end\n                end\n              if (tstate[3] )\n                begin\n                  if (SetDI == 1'b1 )\n                    begin\n                      IntE_FF1 <= 1'b0;\n                      IntE_FF2 <= 1'b0;\n                    end\n                end\n              if (IntCycle == 1'b1 || NMICycle == 1'b1 )\n                begin\n                  Halt_FF <= 1'b0;\n                end\n              if (mcycle[0] && tstate[2] && wait_n == 1'b1 )\n                begin\n                  m1_n_i <= 1'b1;\n                end\n              if (BusReq_s == 1'b1 && BusAck == 1'b1 )\n                begin\n                end\n              else\n                begin\n                  BusAck <= 1'b0;\n                  if (tstate[2] && wait_n == 1'b0 )\n                    begin\n                    end\n                  else if (T_Res == 1'b1 )\n                    begin\n                      if (Halt == 1'b1 )\n                        begin\n                          Halt_FF <= 1'b1;\n                        end\n                      if (BusReq_s == 1'b1 )\n                        begin\n                          BusAck <= 1'b1;\n                        end\n                      else\n                        begin\n                          tstate <= 7'b0000010;\n                          if (NextIs_XY_Fetch == 1'b1 )\n                            begin\n                              mcycle <= 7'b0100000;\n                              Pre_XY_F_M <= mcyc_to_number(mcycle);\n                              if (IR == 8'b00110110 && Mode == 0 )\n                                begin\n                                  Pre_XY_F_M <= 3'b010;\n                                end\n                            end\n                          else if ((mcycle[6]) || (mcycle[5] && Mode == 1 && ISet != 2'b01) )\n                            begin\n                              mcycle <= number_to_bitvec(Pre_XY_F_M + 1);\n                            end\n                          else if ((last_mcycle) ||\n                                   No_BTR == 1'b1 ||\n                                   (mcycle[1] && I_DJNZ == 1'b1 && IncDecZ == 1'b1) )\n                            begin\n                              m1_n_i <= 1'b0;\n                              mcycle <= 7'b0000001;\n                              IntCycle <= 1'b0;\n                              NMICycle <= 1'b0;\n                              if (NMI_s == 1'b1 && Prefix == 2'b00 )\n                                begin\n                                  NMICycle <= 1'b1;\n                                  IntE_FF1 <= 1'b0;\n                                end\n                              else if ((IntE_FF1 == 1'b1 && INT_s == 1'b1) && Prefix == 2'b00 && SetEI == 1'b0 )\n                                begin\n                                  IntCycle <= 1'b1;\n                                  IntE_FF1 <= 1'b0;\n                                  IntE_FF2 <= 1'b0;\n                                end\n                            end\n                          else\n                            begin\n                              mcycle <= { mcycle[5:0], mcycle[6] };\n                            end\n                        end\n                    end\n                  else\n                    begin   // verilog has no \"nor\" operator\n                      if ( ~(Auto_Wait == 1'b1 && Auto_Wait_t2 == 1'b0) &&\n                           ~(IOWait == 1 && iorq_i == 1'b1 && Auto_Wait_t1 == 1'b0) )\n                        begin\n                          tstate <= { tstate[5:0], tstate[6] };\n                        end\n                    end\n                end\n              if (tstate[0])\n                begin\n                  m1_n_i <= 1'b0;\n                end\n            end\n        end\n    end\n\n  always @(/*AUTOSENSE*/BTR_r or DI_Reg or IncDec_16 or JumpE or PC\n\t   or RegBusA or RegBusC or SP or tstate)\n    begin\n      if (JumpE == 1'b1 )\n        begin\n          PC16_B = { {8{DI_Reg[7]}}, DI_Reg };\n        end\n      else if (BTR_r == 1'b1 )\n        begin\n          PC16_B = -2;\n        end\n      else\n        begin\n          PC16_B = 1;\n        end\n\n      if (tstate[3])\n        begin\n          SP16_A = RegBusC;\n          SP16_B = { {8{DI_Reg[7]}}, DI_Reg };\n        end\n      else\n        begin\n          // suspect that ID16 and SP16 could be shared\n          SP16_A = SP;\n\n          if (IncDec_16[3] == 1'b1)\n            SP16_B = -1;\n          else\n            SP16_B = 1;\n        end\n\n      if (IncDec_16[3])\n        ID16_B = -1;\n      else\n        ID16_B = 1;\n\n      ID16 = RegBusA + ID16_B;\n      PC16 = PC + PC16_B;\n      SP16 = SP16_A + SP16_B;\n    end // always @ *\n\n\n  always @(/*AUTOSENSE*/IntCycle or NMICycle or mcycle)\n    begin\n      Auto_Wait = 1'b0;\n      if (IntCycle == 1'b1 || NMICycle == 1'b1 )\n        begin\n          if (mcycle[0] )\n            begin\n              Auto_Wait = 1'b1;\n            end\n        end\n    end // always @ *\n    ",
+                "code": "\n  localparam Mode = 0;   // 0 => Z80, 1 => Fast Z80, 2 => 8080, 3 => GB\n  localparam IOWait = 1; // 0 => Single cycle I/O, 1 => Std I/O cycle\n  \nlocalparam Flag_C = 0;\nlocalparam Flag_N = 1;\nlocalparam Flag_P = 2;\nlocalparam Flag_X = 3;\nlocalparam Flag_H = 4;\nlocalparam Flag_Y = 5;\nlocalparam Flag_Z = 6;\nlocalparam Flag_S = 7;\n\n\n  reg    m1_n_i;\n  assign m1_n = m1_n_i;\n\n  reg    iorq_ii;\n  assign iorq = iorq_ii;\n\n`ifdef TV80_REFRESH\n  reg    rfsh_n;\n`endif\n  reg    halt_n_i;\n  assign halt_n = halt_n_i;\n\n  reg    busak_n_i;\n  assign busak_n = busak_n_i;\n  \n  reg [15:0] A_i;\n  assign A = A_i;\n\n  reg [7:0]  dout;\n  reg [6:0]  mc;\n  reg [6:0]  ts;\n  reg   intcycle_n;\n  reg   IntE;\n  reg   stop;\n\n  parameter     aNone    = 3'b111;\n  parameter     aBC      = 3'b000;\n  parameter     aDE      = 3'b001;\n  parameter     aXY      = 3'b010;\n  parameter     aIOA     = 3'b100;\n  parameter     aSP      = 3'b101;\n  parameter     aZI      = 3'b110;\n\n  // Registers\n  reg [7:0]     ACC, F;\n  reg [7:0]     Ap, Fp;\n  reg [7:0]     I;\n`ifdef TV80_REFRESH\n  reg [7:0]     R;\n`endif\n  reg [15:0]    SP, PC;\n  reg [7:0]     RegDIH;\n  reg [7:0]     RegDIL;\n  reg [2:0]     RegAddrA_r;\n  reg [2:0]     RegAddrA;\n  reg [2:0]     RegAddrB_r;\n  reg [2:0]     RegAddrB;\n  reg [2:0]     RegAddrC;\n  reg           RegWEH;\n  reg           RegWEL;\n  reg           Alternate;\n\n  // Help Registers\n  reg [15:0]    TmpAddr;        // Temporary address register\n  reg [7:0]     IR;             // Instruction register\n  reg [1:0]     ISet;           // Instruction set selector\n  reg [15:0]    RegBusA_r;\n\n  reg [15:0]    ID16;\n  reg [7:0]     Save_Mux;\n\n  reg [6:0]     tstate;\n  reg [6:0]     mcycle;\n  reg           last_mcycle, last_tstate;\n  reg           IntE_FF1;\n  reg           IntE_FF2;\n  reg           Halt_FF;\n  reg           BusReq_s;\n  reg           BusAck;\n  reg           ClkEn;\n  reg           NMI_s;\n  reg           INT_s;\n  reg [1:0]     IStatus;\n\n  reg [7:0]     DI_Reg;\n  reg           T_Res;\n  reg [1:0]     XY_State;\n  reg [2:0]     Pre_XY_F_M;\n  reg           NextIs_XY_Fetch;\n  reg           XY_Ind;\n  reg           No_BTR;\n  reg           BTR_r;\n  reg           Auto_Wait;\n  reg           Auto_Wait_t1;\n  reg           Auto_Wait_t2;\n  reg           IncDecZ;\n\n  // ALU signals\n  reg [7:0]     BusB;\n  reg [7:0]     BusA;\n  wire [7:0]    F_Out;\n\n  // Registered micro code outputs\n  reg [4:0]     Read_To_Reg_r;\n  reg           Arith16_r;\n  reg           Z16_r;\n  reg [3:0]     ALU_Op_r;\n  reg           Save_ALU_r;\n  reg           PreserveC_r;\n  reg [2:0]     mcycles;\n\n  // Micro code outputs\n  reg           IntCycle;\n  reg           NMICycle;\n  \n  wire           Halt;\n\n  reg [15:0]     PC16;\n  reg [15:0]     PC16_B;\n  reg [15:0]     SP16, SP16_A, SP16_B;\n  reg [15:0]     ID16_B;\n  reg            Oldnmi_n;\n\n  \n\n\n  function [6:0] number_to_bitvec;\n    input [2:0] num;\n    begin\n      case (num)\n        1 : number_to_bitvec = 7'b0000001;\n        2 : number_to_bitvec = 7'b0000010;\n        3 : number_to_bitvec = 7'b0000100;\n        4 : number_to_bitvec = 7'b0001000;\n        5 : number_to_bitvec = 7'b0010000;\n        6 : number_to_bitvec = 7'b0100000;\n        7 : number_to_bitvec = 7'b1000000;\n        default : number_to_bitvec = 7'bx;\n      endcase // case(num)\n    end\n  endfunction // number_to_bitvec\n\n  function [2:0] mcyc_to_number;\n    input [6:0] mcyc;\n    begin\n      casez (mcyc)\n        7'b1zzzzzz : mcyc_to_number = 3'h7;\n        7'b01zzzzz : mcyc_to_number = 3'h6;\n        7'b001zzzz : mcyc_to_number = 3'h5;\n        7'b0001zzz : mcyc_to_number = 3'h4;\n        7'b00001zz : mcyc_to_number = 3'h3;\n        7'b000001z : mcyc_to_number = 3'h2;\n        7'b0000001 : mcyc_to_number = 3'h1;\n        default : mcyc_to_number = 3'h1;\n      endcase\n    end\n  endfunction\n\n  always @(/*AUTOSENSE*/mcycle or mcycles or tstate or tstates)\n    begin\n      case (mcycles)\n        1 : last_mcycle = mcycle[0];\n        2 : last_mcycle = mcycle[1];\n        3 : last_mcycle = mcycle[2];\n        4 : last_mcycle = mcycle[3];\n        5 : last_mcycle = mcycle[4];\n        6 : last_mcycle = mcycle[5];\n        7 : last_mcycle = mcycle[6];\n        default : last_mcycle = 1'bx;\n      endcase // case(mcycles)\n\n      case (tstates)\n        0 : last_tstate = tstate[0];\n        1 : last_tstate = tstate[1];\n        2 : last_tstate = tstate[2];\n        3 : last_tstate = tstate[3];\n        4 : last_tstate = tstate[4];\n        5 : last_tstate = tstate[5];\n        6 : last_tstate = tstate[6];\n        default : last_tstate = 1'bx;\n      endcase\n    end // always @ (...\n\n\n  always @(/*AUTOSENSE*/ALU_Q or BusAck or BusB or DI_Reg\n\t   or ExchangeRp or IR or Save_ALU_r or Set_Addr_To or XY_Ind\n\t   or XY_State or cen or last_tstate or mcycle)\n    begin\n      ClkEn = cen && ~ BusAck;\n\n      if (last_tstate)\n        T_Res = 1'b1;\n      else T_Res = 1'b0;\n\n      if (XY_State != 2'b00 && XY_Ind == 1'b0 &&\n          ((Set_Addr_To == aXY) ||\n           (mcycle[0] && IR == 8'b11001011) ||\n           (mcycle[0] && IR == 8'b00110110)))\n        NextIs_XY_Fetch = 1'b1;\n      else\n        NextIs_XY_Fetch = 1'b0;\n\n      if (ExchangeRp)\n        Save_Mux = BusB;\n      else if (!Save_ALU_r)\n        Save_Mux = DI_Reg;\n      else\n        Save_Mux = ALU_Q;\n    end // always @ *\n\n  always @ (posedge clk or negedge reset_n)\n    begin\n      if (reset_n == 1'b0 )\n        begin\n          PC <= 0;  // Program Counter\n          A_i <= 0;\n          TmpAddr <= 0;\n          IR <= 8'b00000000;\n          ISet <= 2'b00;\n          XY_State <= 2'b00;\n          IStatus <= 2'b00;\n          mcycles <= 3'b000;\n          dout <= 8'b00000000;\n\n          ACC <= 8'hFF;\n          F <= 8'hFF;\n          Ap <= 8'hFF;\n          Fp <= 8'hFF;\n          I <= 0;\n          `ifdef TV80_REFRESH\n          R <= 0;\n          `endif\n          SP <= 16'hFFFF;\n          Alternate <= 1'b0;\n\n          Read_To_Reg_r <= 5'b00000;\n          Arith16_r <= 1'b0;\n          BTR_r <= 1'b0;\n          Z16_r <= 1'b0;\n          ALU_Op_r <= 4'b0000;\n          Save_ALU_r <= 1'b0;\n          PreserveC_r <= 1'b0;\n          XY_Ind <= 1'b0;\n        end\n      else\n        begin\n\n          if (ClkEn == 1'b1 )\n            begin\n\n              ALU_Op_r <= 4'b0000;\n              Save_ALU_r <= 1'b0;\n              Read_To_Reg_r <= 5'b00000;\n\n              mcycles <= mcycles_d;\n\n              if (IMode != 2'b11 )\n                begin\n                  IStatus <= IMode;\n                end\n\n              Arith16_r <= Arith16;\n              PreserveC_r <= PreserveC;\n              if (ISet == 2'b10 && ALU_Op[2] == 1'b0 && ALU_Op[0] == 1'b1 && mcycle[2] )\n                begin\n                  Z16_r <= 1'b1;\n                end\n              else\n                begin\n                  Z16_r <= 1'b0;\n                end\n\n              if (mcycle[0] && (tstate[1] | tstate[2] | tstate[3] ))\n                begin\n                  // mcycle == 1 && tstate == 1, 2, || 3\n                  if (tstate[2] && wait_n == 1'b1 )\n                    begin\n                      `ifdef TV80_REFRESH\n                      if (Mode < 2 )\n                        begin\n                          A_i[7:0] <= R;\n                          A_i[15:8] <= I;\n                          R[6:0] <= R[6:0] + 1;\n                        end\n                      `endif\n                      if (Jump == 1'b0 && Call == 1'b0 && NMICycle == 1'b0 && IntCycle == 1'b0 && ~ (Halt_FF == 1'b1 || Halt == 1'b1) )\n                        begin\n                          PC <= PC16;\n                        end\n\n                      if (IntCycle == 1'b1 && IStatus == 2'b01 )\n                        begin\n                          IR <= 8'b11111111;\n                        end\n                      else if (Halt_FF == 1'b1 || (IntCycle == 1'b1 && IStatus == 2'b10) || NMICycle == 1'b1 )\n                        begin\n                          IR <= 8'b00000000;\n\t\t\t  TmpAddr[7:0] <= dinst; // Special M1 vector fetch\n                        end\n                      else\n                        begin\n                          IR <= dinst;\n                        end\n\n                      ISet <= 2'b00;\n                      if (Prefix != 2'b00 )\n                        begin\n                          if (Prefix == 2'b11 )\n                            begin\n                              if (IR[5] == 1'b1 )\n                                begin\n                                  XY_State <= 2'b10;\n                                end\n                              else\n                                begin\n                                  XY_State <= 2'b01;\n                                end\n                            end\n                          else\n                            begin\n                              if (Prefix == 2'b10 )\n                                begin\n                                  XY_State <= 2'b00;\n                                  XY_Ind <= 1'b0;\n                                end\n                              ISet <= Prefix;\n                            end\n                        end\n                      else\n                        begin\n                          XY_State <= 2'b00;\n                          XY_Ind <= 1'b0;\n                        end\n                    end // if (tstate == 2 && wait_n == 1'b1 )\n\n\n                end\n              else\n                begin\n                  // either (mcycle > 1) OR (mcycle == 1 AND tstate > 3)\n\n                  if (mcycle[5] )\n                    begin\n                      XY_Ind <= 1'b1;\n                      if (Prefix == 2'b01 )\n                        begin\n                          ISet <= 2'b01;\n                        end\n                    end\n\n                  if (T_Res == 1'b1 )\n                    begin\n                      BTR_r <= (I_BT || I_BC || I_BTR) && ~ No_BTR;\n                      if (Jump == 1'b1 )\n                        begin\n                          A_i[15:8] <= DI_Reg;\n                          A_i[7:0] <= TmpAddr[7:0];\n                          PC[15:8] <= DI_Reg;\n                          PC[7:0] <= TmpAddr[7:0];\n                        end\n                      else if (JumpXY == 1'b1 )\n                        begin\n                          A_i <= RegBusC;\n                          PC <= RegBusC;\n                        end else if (Call == 1'b1 || RstP == 1'b1 )\n                          begin\n                            A_i <= TmpAddr;\n                            PC <= TmpAddr;\n                          end\n                        else if (last_mcycle && NMICycle == 1'b1 )\n                          begin\n                            A_i <= 16'b0000000001100110;\n                            PC <= 16'b0000000001100110;\n                          end\n                        else if (mcycle[2] && IntCycle == 1'b1 && IStatus == 2'b10 )\n                          begin\n                            A_i[15:8] <= I;\n                            A_i[7:0] <= TmpAddr[7:0];\n                            PC[15:8] <= I;\n                            PC[7:0] <= TmpAddr[7:0];\n                          end\n                        else\n                          begin\n                            case (Set_Addr_To)\n                              aXY :\n                                begin\n                                  if (XY_State == 2'b00 )\n                                    begin\n                                      A_i <= RegBusC;\n                                    end\n                                  else\n                                    begin\n                                      if (NextIs_XY_Fetch == 1'b1 )\n                                        begin\n                                          A_i <= PC;\n                                        end\n                                      else\n                                        begin\n                                          A_i <= TmpAddr;\n                                        end\n                                    end // else: !if(XY_State == 2'b00 )\n                                end // case: aXY\n\n                              aIOA :\n                                begin\n                                  if (Mode == 3 )\n                                    begin\n                                      // Memory map I/O on GBZ80\n                                      A_i[15:8] <= 8'hFF;\n                                    end\n                                  else if (Mode == 2 )\n                                    begin\n                                      // Duplicate I/O address on 8080\n                                      A_i[15:8] <= DI_Reg;\n                                    end\n                                  else\n                                    begin\n                                      A_i[15:8] <= ACC;\n                                    end\n                                  A_i[7:0] <= DI_Reg;\n                                end // case: aIOA\n\n\n                              aSP :\n                                begin\n                                  A_i <= SP;\n                                end\n\n                              aBC :\n                                begin\n                                  if (Mode == 3 && iorq_i == 1'b1 )\n                                    begin\n                                      // Memory map I/O on GBZ80\n                                      A_i[15:8] <= 8'hFF;\n                                      A_i[7:0] <= RegBusC[7:0];\n                                    end\n                                  else\n                                    begin\n                                      A_i <= RegBusC;\n                                    end\n                                end // case: aBC\n\n                              aDE :\n                                begin\n                                  A_i <= RegBusC;\n                                end\n\n                              aZI :\n                                begin\n                                  if (Inc_WZ == 1'b1 )\n                                    begin\n                                      A_i <= TmpAddr + 1;\n                                    end\n                                  else\n                                    begin\n                                      A_i[15:8] <= DI_Reg;\n                                      A_i[7:0] <= TmpAddr[7:0];\n                                    end\n                                end // case: aZI\n\n                              default   :\n                                begin\n                                  A_i <= PC;\n                                end\n                            endcase // case(Set_Addr_To)\n\n                          end // else: !if(mcycle[2] && IntCycle == 1'b1 && IStatus == 2'b10 )\n\n\n                      Save_ALU_r <= Save_ALU;\n                      ALU_Op_r <= ALU_Op;\n\n                      if (I_CPL == 1'b1 )\n                        begin\n                          // CPL\n                          ACC <= ~ ACC;\n                          F[Flag_Y] <= ~ ACC[5];\n                          F[Flag_H] <= 1'b1;\n                          F[Flag_X] <= ~ ACC[3];\n                          F[Flag_N] <= 1'b1;\n                        end\n                      if (I_CCF == 1'b1 )\n                        begin\n                          // CCF\n                          F[Flag_C] <= ~ F[Flag_C];\n                          F[Flag_Y] <= ACC[5];\n                          F[Flag_H] <= F[Flag_C];\n                          F[Flag_X] <= ACC[3];\n                          F[Flag_N] <= 1'b0;\n                        end\n                      if (I_SCF == 1'b1 )\n                        begin\n                          // SCF\n                          F[Flag_C] <= 1'b1;\n                          F[Flag_Y] <= ACC[5];\n                          F[Flag_H] <= 1'b0;\n                          F[Flag_X] <= ACC[3];\n                          F[Flag_N] <= 1'b0;\n                        end\n                    end // if (T_Res == 1'b1 )\n\n\n                  if (tstate[2] && wait_n == 1'b1 )\n                    begin\n                      if (ISet == 2'b01 && mcycle[6] )\n                        begin\n                          IR <= dinst;\n                        end\n                      if (JumpE == 1'b1 )\n                        begin\n                          PC <= PC16;\n                        end\n                      else if (Inc_PC == 1'b1 )\n                        begin\n                          //PC <= PC + 1;\n                          PC <= PC16;\n                        end\n                      if (BTR_r == 1'b1 )\n                        begin\n                          //PC <= PC - 2;\n                          PC <= PC16;\n                        end\n                      if (RstP == 1'b1 )\n                        begin\n                          TmpAddr <= { 10'h0, IR[5:3], 3'h0 };\n                          //TmpAddr <= (others =>1'b0);\n                          //TmpAddr[5:3] <= IR[5:3];\n                        end\n                    end\n                  if (tstate[3] && mcycle[5] )\n                    begin\n                      TmpAddr <= SP16;\n                    end\n\n                  if ((tstate[2] && wait_n == 1'b1) || (tstate[4] && mcycle[0]) )\n                    begin\n                      if (IncDec_16[2:0] == 3'b111 )\n                        begin\n                          SP <= SP16;\n                        end\n                    end\n\n                  if (LDSPHL == 1'b1 )\n                    begin\n                      SP <= RegBusC;\n                    end\n                  if (ExchangeAF == 1'b1 )\n                    begin\n                      Ap <= ACC;\n                      ACC <= Ap;\n                      Fp <= F;\n                      F <= Fp;\n                    end\n                  if (ExchangeRS == 1'b1 )\n                    begin\n                      Alternate <= ~ Alternate;\n                    end\n                end // else: !if(mcycle  == 3'b001 && tstate(2) == 1'b0 )\n\n\n              if (tstate[3] )\n                begin\n                  if (LDZ == 1'b1 )\n                    begin\n                      TmpAddr[7:0] <= DI_Reg;\n                    end\n                  if (LDW == 1'b1 )\n                    begin\n                      TmpAddr[15:8] <= DI_Reg;\n                    end\n\n                  if (Special_LD[2] == 1'b1 )\n                    begin\n                      case (Special_LD[1:0])\n                        2'b00 :\n                          begin\n                            ACC <= I;\n                            F[Flag_P] <= IntE_FF2;\n\t\t\t    F[Flag_Z] <= (I == 0);\n\t\t\t    F[Flag_S] <= I[7];\n\t\t\t    F[Flag_H] <= 0;\n\t\t\t    F[Flag_N] <= 0;\n                          end\n\n                        2'b01 :\n                          begin\n                            `ifdef TV80_REFRESH\n                            ACC <= R;\n                            `else\n                            ACC <= 0;\n                            `endif\n                            F[Flag_P] <= IntE_FF2;\n\t\t\t    F[Flag_Z] <= (I == 0);\n\t\t\t    F[Flag_S] <= I[7];\n\t\t\t    F[Flag_H] <= 0;\n\t\t\t    F[Flag_N] <= 0;\n                          end\n\n                        2'b10 :\n                          I <= ACC;\n\n                        `ifdef TV80_REFRESH\n                        default :\n                          R <= ACC;\n                        `else\n                        default : ;\n                        `endif\n                      endcase\n                    end\n                end // if (tstate == 3 )\n\n\n              if ((I_DJNZ == 1'b0 && Save_ALU_r == 1'b1) || ALU_Op_r == 4'b1001 )\n                begin\n                  if (Mode == 3 )\n                    begin\n                      F[6] <= F_Out[6];\n                      F[5] <= F_Out[5];\n                      F[7] <= F_Out[7];\n                      if (PreserveC_r == 1'b0 )\n                        begin\n                          F[4] <= F_Out[4];\n                        end\n                    end\n                  else\n                    begin\n                      F[7:1] <= F_Out[7:1];\n                      if (PreserveC_r == 1'b0 )\n                        begin\n                          F[Flag_C] <= F_Out[0];\n                        end\n                    end\n                end // if ((I_DJNZ == 1'b0 && Save_ALU_r == 1'b1) || ALU_Op_r == 4'b1001 )\n\n              if (T_Res == 1'b1 && I_INRC == 1'b1 )\n                begin\n                  F[Flag_H] <= 1'b0;\n                  F[Flag_N] <= 1'b0;\n                  if (DI_Reg[7:0] == 8'b00000000 )\n                    begin\n                      F[Flag_Z] <= 1'b1;\n                    end\n                  else\n                    begin\n                      F[Flag_Z] <= 1'b0;\n                    end\n                  F[Flag_S] <= DI_Reg[7];\n                  F[Flag_P] <= ~ (^DI_Reg[7:0]);\n                end // if (T_Res == 1'b1 && I_INRC == 1'b1 )\n\n\n              if (tstate[1] && Auto_Wait_t1 == 1'b0 )\n                begin\n                  dout <= BusB;\n                  if (I_RLD == 1'b1 )\n                    begin\n                      dout[3:0] <= BusA[3:0];\n                      dout[7:4] <= BusB[3:0];\n                    end\n                  if (I_RRD == 1'b1 )\n                    begin\n                      dout[3:0] <= BusB[7:4];\n                      dout[7:4] <= BusA[3:0];\n                    end\n                end\n\n              if (T_Res == 1'b1 )\n                begin\n                  Read_To_Reg_r[3:0] <= Set_BusA_To;\n                  Read_To_Reg_r[4] <= Read_To_Reg;\n                  if (Read_To_Acc == 1'b1 )\n                    begin\n                      Read_To_Reg_r[3:0] <= 4'b0111;\n                      Read_To_Reg_r[4] <= 1'b1;\n                    end\n                end\n\n              if (tstate[1] && I_BT == 1'b1 )\n                begin\n                  F[Flag_X] <= ALU_Q[3];\n                  F[Flag_Y] <= ALU_Q[1];\n                  F[Flag_H] <= 1'b0;\n                  F[Flag_N] <= 1'b0;\n                end\n              if (I_BC == 1'b1 || I_BT == 1'b1 )\n                begin\n                  F[Flag_P] <= IncDecZ;\n                end\n\n              if ((tstate[1] && Save_ALU_r == 1'b0 && Auto_Wait_t1 == 1'b0) ||\n                  (Save_ALU_r == 1'b1 && ALU_Op_r != 4'b0111) )\n                begin\n                  case (Read_To_Reg_r)\n                    5'b10111 :\n                      ACC <= Save_Mux;\n                    5'b10110 :\n                      dout <= Save_Mux;\n                    5'b11000 :\n                      SP[7:0] <= Save_Mux;\n                    5'b11001 :\n                      SP[15:8] <= Save_Mux;\n                    5'b11011 :\n                      F <= Save_Mux;\n                    default : ;\n                  endcase\n                end // if ((tstate == 1 && Save_ALU_r == 1'b0 && Auto_Wait_t1 == 1'b0) ||...\n            end // if (ClkEn == 1'b1 )\n        end // else: !if(reset_n == 1'b0 )\n    end\n\n\n  //-------------------------------------------------------------------------\n  //\n  // BC('), DE('), HL('), IX && IY\n  //\n  //-------------------------------------------------------------------------\n  always @ (posedge clk)\n    begin\n      if (ClkEn == 1'b1 )\n        begin\n          // Bus A / Write\n          RegAddrA_r <=  { Alternate, Set_BusA_To[2:1] };\n          if (XY_Ind == 1'b0 && XY_State != 2'b00 && Set_BusA_To[2:1] == 2'b10 )\n            begin\n              RegAddrA_r <= { XY_State[1],  2'b11 };\n            end\n\n          // Bus B\n          RegAddrB_r <= { Alternate, Set_BusB_To[2:1] };\n          if (XY_Ind == 1'b0 && XY_State != 2'b00 && Set_BusB_To[2:1] == 2'b10 )\n            begin\n              RegAddrB_r <= { XY_State[1],  2'b11 };\n            end\n\n          // Address from register\n          RegAddrC <= { Alternate,  Set_Addr_To[1:0] };\n          // Jump (HL), LD SP,HL\n          if ((JumpXY == 1'b1 || LDSPHL == 1'b1) )\n            begin\n              RegAddrC <= { Alternate, 2'b10 };\n            end\n          if (((JumpXY == 1'b1 || LDSPHL == 1'b1) && XY_State != 2'b00) || (mcycle[5]) )\n            begin\n              RegAddrC <= { XY_State[1],  2'b11 };\n            end\n\n          if (I_DJNZ == 1'b1 && Save_ALU_r == 1'b1 && Mode < 2 )\n            begin\n              IncDecZ <= F_Out[Flag_Z];\n            end\n          if ((tstate[2] || (tstate[3] && mcycle[0])) && IncDec_16[2:0] == 3'b100 )\n            begin\n              if (ID16 == 0 )\n                begin\n                  IncDecZ <= 1'b0;\n                end\n              else\n                begin\n                  IncDecZ <= 1'b1;\n                end\n            end\n\n          RegBusA_r <= RegBusA;\n        end\n\n    end // always @ (posedge clk)\n\n\n  always @(/*AUTOSENSE*/Alternate or ExchangeDH or IncDec_16\n\t   or RegAddrA_r or RegAddrB_r or XY_State or mcycle or tstate)\n    begin\n      if ((tstate[2] || (tstate[3] && mcycle[0] && IncDec_16[2] == 1'b1)) && XY_State == 2'b00)\n        RegAddrA = { Alternate, IncDec_16[1:0] };\n      else if ((tstate[2] || (tstate[3] && mcycle[0] && IncDec_16[2] == 1'b1)) && IncDec_16[1:0] == 2'b10)\n        RegAddrA = { XY_State[1], 2'b11 };\n      else if (ExchangeDH == 1'b1 && tstate[3])\n        RegAddrA = { Alternate, 2'b10 };\n      else if (ExchangeDH == 1'b1 && tstate[4])\n        RegAddrA = { Alternate, 2'b01 };\n      else\n        RegAddrA = RegAddrA_r;\n\n      if (ExchangeDH == 1'b1 && tstate[3])\n        RegAddrB = { Alternate, 2'b01 };\n      else\n        RegAddrB = RegAddrB_r;\n    end // always @ *\n\n\n  always @(/*AUTOSENSE*/ALU_Op_r or Auto_Wait_t1 or ExchangeDH\n\t   or IncDec_16 or Read_To_Reg_r or Save_ALU_r or mcycle\n\t   or tstate or wait_n)\n    begin\n      RegWEH = 1'b0;\n      RegWEL = 1'b0;\n      if ((tstate[1] && ~Save_ALU_r && ~Auto_Wait_t1) ||\n          (Save_ALU_r && (ALU_Op_r != 4'b0111)) )\n        begin\n          case (Read_To_Reg_r)\n            5'b10000 , 5'b10001 , 5'b10010 , 5'b10011 , 5'b10100 , 5'b10101 :\n              begin\n                RegWEH = ~ Read_To_Reg_r[0];\n                RegWEL = Read_To_Reg_r[0];\n              end // UNMATCHED !!\n            default : ;\n          endcase // case(Read_To_Reg_r)\n\n        end // if ((tstate == 1 && Save_ALU_r == 1'b0 && Auto_Wait_t1 == 1'b0) ||...\n\n\n      if (ExchangeDH && (tstate[3] || tstate[4]) )\n        begin\n          RegWEH = 1'b1;\n          RegWEL = 1'b1;\n        end\n\n      if (IncDec_16[2] && ((tstate[2] && wait_n && ~mcycle[0]) || (tstate[3] && mcycle[0])) )\n        begin\n          case (IncDec_16[1:0])\n            2'b00 , 2'b01 , 2'b10 :\n              begin\n                RegWEH = 1'b1;\n                RegWEL = 1'b1;\n              end // UNMATCHED !!\n            default : ;\n          endcase\n        end\n    end // always @ *\n\n\n  always @(/*AUTOSENSE*/ExchangeDH or ID16 or IncDec_16 or RegBusA_r\n\t   or RegBusB or Save_Mux or mcycle or tstate)\n    begin\n      RegDIH = Save_Mux;\n      RegDIL = Save_Mux;\n\n      if (ExchangeDH == 1'b1 && tstate[3] )\n        begin\n          RegDIH = RegBusB[15:8];\n          RegDIL = RegBusB[7:0];\n        end\n      else if (ExchangeDH == 1'b1 && tstate[4] )\n        begin\n          RegDIH = RegBusA_r[15:8];\n          RegDIL = RegBusA_r[7:0];\n        end\n      else if (IncDec_16[2] == 1'b1 && ((tstate[2] && ~mcycle[0]) || (tstate[3] && mcycle[0])) )\n        begin\n          RegDIH = ID16[15:8];\n          RegDIL = ID16[7:0];\n        end\n    end\n\n  //-------------------------------------------------------------------------\n  //\n  // Buses\n  //\n  //-------------------------------------------------------------------------\n\n  always @ (posedge clk)\n    begin\n      if (ClkEn == 1'b1 )\n        begin\n          case (Set_BusB_To)\n            4'b0111 :\n              BusB <= ACC;\n            4'b0000 , 4'b0001 , 4'b0010 , 4'b0011 , 4'b0100 , 4'b0101 :\n              begin\n                if (Set_BusB_To[0] == 1'b1 )\n                  begin\n                    BusB <= RegBusB[7:0];\n                  end\n                else\n                  begin\n                    BusB <= RegBusB[15:8];\n                  end\n              end\n            4'b0110 :\n              BusB <= DI_Reg;\n            4'b1000 :\n              BusB <= SP[7:0];\n            4'b1001 :\n              BusB <= SP[15:8];\n            4'b1010 :\n              BusB <= 8'b00000001;\n            4'b1011 :\n              BusB <= F;\n            4'b1100 :\n              BusB <= PC[7:0];\n            4'b1101 :\n              BusB <= PC[15:8];\n            4'b1110 :\n              BusB <= 8'b00000000;\n            default :\n              BusB <= 8'h0;\n          endcase\n\n          case (Set_BusA_To)\n            4'b0111 :\n              BusA <= ACC;\n            4'b0000 , 4'b0001 , 4'b0010 , 4'b0011 , 4'b0100 , 4'b0101 :\n              begin\n                if (Set_BusA_To[0] == 1'b1 )\n                  begin\n                    BusA <= RegBusA[7:0];\n                  end\n                else\n                  begin\n                    BusA <= RegBusA[15:8];\n                  end\n              end\n            4'b0110 :\n              BusA <= DI_Reg;\n            4'b1000 :\n              BusA <= SP[7:0];\n            4'b1001 :\n              BusA <= SP[15:8];\n            4'b1010 :\n              BusA <= 8'b00000000;\n            default :\n              BusA <=  8'h0;\n          endcase\n        end\n    end\n\n  //-------------------------------------------------------------------------\n  //\n  // Generate external control signals\n  //\n  //-------------------------------------------------------------------------\n`ifdef TV80_REFRESH\n  always @ (posedge clk or negedge reset_n)\n    begin\n      if (reset_n == 1'b0 )\n        begin\n          rfsh_n <= 1'b1;\n        end\n      else\n        begin\n          if (cen == 1'b1 )\n            begin\n              if (mcycle[0] && ((tstate[2]  && wait_n == 1'b1) || tstate[3]) )\n                begin\n                  rfsh_n <= 1'b0;\n                end\n              else\n                begin\n                  rfsh_n <= 1'b1;\n                end\n            end\n        end\n    end // always @ (posedge clk or negedge reset_n)\n`else // !`ifdef TV80_REFRESH\n  assign rfsh_n = 1'b1;\n`endif\n\n  always @(/*AUTOSENSE*/BusAck or Halt_FF or I_DJNZ or IntCycle\n\t   or IntE_FF1 or di or iorq_i or mcycle or tstate)\n    begin\n      mc = mcycle;\n      ts = tstate;\n      DI_Reg = di;\n      halt_n_i = ~ Halt_FF;\n      busak_n_i = ~ BusAck;\n      intcycle_n = ~ IntCycle;\n      IntE = IntE_FF1;\n      iorq_ii = iorq_i;\n      stop = I_DJNZ;\n    end\n\n  //-----------------------------------------------------------------------\n  //\n  // Syncronise inputs\n  //\n  //-----------------------------------------------------------------------\n\n  always @ (posedge clk or negedge reset_n)\n    begin : sync_inputs\n      if (~reset_n)\n        begin\n          BusReq_s <= 1'b0;\n          INT_s <= 1'b0;\n          NMI_s <= 1'b0;\n          Oldnmi_n <= 1'b0;\n        end\n      else\n        begin\n          if (cen == 1'b1 )\n            begin\n              BusReq_s <= ~ busrq_n;\n              INT_s <= ~ int_n;\n              if (NMICycle == 1'b1 )\n                begin\n                  NMI_s <= 1'b0;\n                end\n              else if (nmi_n == 1'b0 && Oldnmi_n == 1'b1 )\n                begin\n                  NMI_s <= 1'b1;\n                end\n              Oldnmi_n <= nmi_n;\n            end\n        end\n    end\n\n  //-----------------------------------------------------------------------\n  //\n  // Main state machine\n  //\n  //-----------------------------------------------------------------------\n\n  always @ (posedge clk or negedge reset_n)\n    begin\n      if (reset_n == 1'b0 )\n        begin\n          mcycle <= 7'b0000001;\n          tstate <= 7'b0000001;\n          Pre_XY_F_M <= 3'b000;\n          Halt_FF <= 1'b0;\n          BusAck <= 1'b0;\n          NMICycle <= 1'b0;\n          IntCycle <= 1'b0;\n          IntE_FF1 <= 1'b0;\n          IntE_FF2 <= 1'b0;\n          No_BTR <= 1'b0;\n          Auto_Wait_t1 <= 1'b0;\n          Auto_Wait_t2 <= 1'b0;\n          m1_n_i <= 1'b1;\n        end\n      else\n        begin\n          if (cen == 1'b1 )\n            begin\n              if (T_Res == 1'b1 )\n                begin\n                  Auto_Wait_t1 <= 1'b0;\n                end\n              else\n                begin\n\t\t  Auto_Wait_t1 <= Auto_Wait || (iorq_i & ~Auto_Wait_t2);\n                end\n              Auto_Wait_t2 <= Auto_Wait_t1 & !T_Res;\n              No_BTR <= (I_BT && (~ IR[4] || ~ F[Flag_P])) ||\n                        (I_BC && (~ IR[4] || F[Flag_Z] || ~ F[Flag_P])) ||\n                        (I_BTR && (~ IR[4] || F[Flag_Z]));\n              if (tstate[2] )\n                begin\n                  if (SetEI == 1'b1 )\n                    begin\n                      if (!NMICycle)\n                        IntE_FF1 <= 1'b1;\n                      IntE_FF2 <= 1'b1;\n                    end\n                  if (I_RETN == 1'b1 )\n                    begin\n                      IntE_FF1 <= IntE_FF2;\n                    end\n                end\n              if (tstate[3] )\n                begin\n                  if (SetDI == 1'b1 )\n                    begin\n                      IntE_FF1 <= 1'b0;\n                      IntE_FF2 <= 1'b0;\n                    end\n                end\n              if (IntCycle == 1'b1 || NMICycle == 1'b1 )\n                begin\n                  Halt_FF <= 1'b0;\n                end\n              if (mcycle[0] && tstate[2] && wait_n == 1'b1 )\n                begin\n                  m1_n_i <= 1'b1;\n                end\n              if (BusReq_s == 1'b1 && BusAck == 1'b1 )\n                begin\n                end\n              else\n                begin\n                  BusAck <= 1'b0;\n                  if (tstate[2] && wait_n == 1'b0 )\n                    begin\n                    end\n                  else if (T_Res == 1'b1 )\n                    begin\n                      if (Halt == 1'b1 )\n                        begin\n                          Halt_FF <= 1'b1;\n                        end\n                      if (BusReq_s == 1'b1 )\n                        begin\n                          BusAck <= 1'b1;\n                        end\n                      else\n                        begin\n                          tstate <= 7'b0000010;\n                          if (NextIs_XY_Fetch == 1'b1 )\n                            begin\n                              mcycle <= 7'b0100000;\n                              Pre_XY_F_M <= mcyc_to_number(mcycle);\n                              if (IR == 8'b00110110 && Mode == 0 )\n                                begin\n                                  Pre_XY_F_M <= 3'b010;\n                                end\n                            end\n                          else if ((mcycle[6]) || (mcycle[5] && Mode == 1 && ISet != 2'b01) )\n                            begin\n                              mcycle <= number_to_bitvec(Pre_XY_F_M + 1);\n                            end\n                          else if ((last_mcycle) ||\n                                   No_BTR == 1'b1 ||\n                                   (mcycle[1] && I_DJNZ == 1'b1 && IncDecZ == 1'b1) )\n                            begin\n                              m1_n_i <= 1'b0;\n                              mcycle <= 7'b0000001;\n                              IntCycle <= 1'b0;\n                              NMICycle <= 1'b0;\n                              if (NMI_s == 1'b1 && Prefix == 2'b00 )\n                                begin\n                                  NMICycle <= 1'b1;\n                                  IntE_FF1 <= 1'b0;\n                                end\n                              else if ((IntE_FF1 == 1'b1 && INT_s == 1'b1) && Prefix == 2'b00 && SetEI == 1'b0 )\n                                begin\n                                  IntCycle <= 1'b1;\n                                  IntE_FF1 <= 1'b0;\n                                  IntE_FF2 <= 1'b0;\n                                end\n                            end\n                          else\n                            begin\n                              mcycle <= { mcycle[5:0], mcycle[6] };\n                            end\n                        end\n                    end\n                  else\n                    begin   // verilog has no \"nor\" operator\n                      if ( ~(Auto_Wait == 1'b1 && Auto_Wait_t2 == 1'b0) &&\n                           ~(IOWait == 1 && iorq_i == 1'b1 && Auto_Wait_t1 == 1'b0) )\n                        begin\n                          tstate <= { tstate[5:0], tstate[6] };\n                        end\n                    end\n                end\n              if (tstate[0])\n                begin\n                  m1_n_i <= 1'b0;\n                end\n            end\n        end\n    end\n\n  always @(/*AUTOSENSE*/BTR_r or DI_Reg or IncDec_16 or JumpE or PC\n\t   or RegBusA or RegBusC or SP or tstate)\n    begin\n      if (JumpE == 1'b1 )\n        begin\n          PC16_B = { {8{DI_Reg[7]}}, DI_Reg };\n        end\n      else if (BTR_r == 1'b1 )\n        begin\n          PC16_B = -2;\n        end\n      else\n        begin\n          PC16_B = 1;\n        end\n\n      if (tstate[3])\n        begin\n          SP16_A = RegBusC;\n          SP16_B = { {8{DI_Reg[7]}}, DI_Reg };\n        end\n      else\n        begin\n          // suspect that ID16 and SP16 could be shared\n          SP16_A = SP;\n\n          if (IncDec_16[3] == 1'b1)\n            SP16_B = -1;\n          else\n            SP16_B = 1;\n        end\n\n      if (IncDec_16[3])\n        ID16_B = -1;\n      else\n        ID16_B = 1;\n\n      ID16 = RegBusA + ID16_B;\n      PC16 = PC + PC16_B;\n      SP16 = SP16_A + SP16_B;\n    end // always @ *\n\n\n  always @(/*AUTOSENSE*/IntCycle or NMICycle or mcycle)\n    begin\n      Auto_Wait = 1'b0;\n      if (IntCycle == 1'b1 || NMICycle == 1'b1 )\n        begin\n          if (mcycle[0] )\n            begin\n              Auto_Wait = 1'b1;\n            end\n        end\n    end // always @ *\n    ",
                 "params": [],
                 "ports": {
                   "in": [
@@ -26428,7 +26428,7 @@
           "wires": [
             {
               "source": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "iorq"
               },
               "target": {
@@ -26462,7 +26462,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "clk"
               }
             },
@@ -26492,7 +26492,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "reset_n"
               }
             },
@@ -26532,7 +26532,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "cen"
               }
             },
@@ -26584,7 +26584,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "dinst"
               },
               "size": 8
@@ -26595,7 +26595,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "di"
               },
               "size": 8
@@ -26613,7 +26613,7 @@
             },
             {
               "source": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "mc"
               },
               "target": {
@@ -26635,7 +26635,7 @@
             },
             {
               "source": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "ts"
               },
               "target": {
@@ -26657,7 +26657,7 @@
             },
             {
               "source": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "intcycle_n"
               },
               "target": {
@@ -26691,7 +26691,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "wait_n"
               }
             },
@@ -26721,7 +26721,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "int_n"
               }
             },
@@ -26741,7 +26741,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "nmi_n"
               }
             },
@@ -26761,13 +26761,13 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "busrq_n"
               }
             },
             {
               "source": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "m1_n"
               },
               "target": {
@@ -26867,7 +26867,7 @@
             },
             {
               "source": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "rfsh_n"
               },
               "target": {
@@ -26897,7 +26897,7 @@
             },
             {
               "source": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "halt_n"
               },
               "target": {
@@ -26917,7 +26917,7 @@
             },
             {
               "source": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "busak_n"
               },
               "target": {
@@ -26938,7 +26938,7 @@
             },
             {
               "source": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "A"
               },
               "target": {
@@ -26949,7 +26949,7 @@
             },
             {
               "source": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "dout"
               },
               "target": {
@@ -26971,7 +26971,7 @@
             },
             {
               "source": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "Arith16_r"
               },
               "target": {
@@ -27001,7 +27001,7 @@
             },
             {
               "source": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "Z16_r"
               },
               "target": {
@@ -27044,7 +27044,7 @@
             },
             {
               "source": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "ISet"
               },
               "target": {
@@ -27066,7 +27066,7 @@
             },
             {
               "source": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "BusA"
               },
               "target": {
@@ -27099,7 +27099,7 @@
             },
             {
               "source": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "BusB"
               },
               "target": {
@@ -27121,7 +27121,7 @@
             },
             {
               "source": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "F"
               },
               "target": {
@@ -27147,7 +27147,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "ALU_Q"
               },
               "size": 8
@@ -27169,14 +27169,14 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "F_Out"
               },
               "size": 8
             },
             {
               "source": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "ALU_Op_r"
               },
               "target": {
@@ -27207,7 +27207,7 @@
             },
             {
               "source": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "ClkEn"
               },
               "target": {
@@ -27227,7 +27227,7 @@
             },
             {
               "source": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "RegWEH"
               },
               "target": {
@@ -27247,7 +27247,7 @@
             },
             {
               "source": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "RegWEL"
               },
               "target": {
@@ -27257,7 +27257,7 @@
             },
             {
               "source": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "RegAddrA"
               },
               "target": {
@@ -27290,7 +27290,7 @@
             },
             {
               "source": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "RegAddrB"
               },
               "target": {
@@ -27312,7 +27312,7 @@
             },
             {
               "source": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "RegAddrC"
               },
               "target": {
@@ -27334,7 +27334,7 @@
             },
             {
               "source": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "RegDIH"
               },
               "target": {
@@ -27356,7 +27356,7 @@
             },
             {
               "source": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "RegDIL"
               },
               "target": {
@@ -27382,7 +27382,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "RegBusA"
               },
               "size": 16
@@ -27393,7 +27393,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "RegBusB"
               },
               "size": 16
@@ -27404,7 +27404,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "RegBusC"
               },
               "size": 16
@@ -27433,7 +27433,7 @@
             },
             {
               "source": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "IR"
               },
               "target": {
@@ -27466,7 +27466,7 @@
             },
             {
               "source": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "mcycle"
               },
               "target": {
@@ -27488,7 +27488,7 @@
             },
             {
               "source": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "NMICycle"
               },
               "target": {
@@ -27508,7 +27508,7 @@
             },
             {
               "source": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "IntCycle"
               },
               "target": {
@@ -27532,7 +27532,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "mcycles_d"
               },
               "size": 3
@@ -27565,7 +27565,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "tstates"
               },
               "size": 3
@@ -27587,7 +27587,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "Prefix"
               },
               "size": 2
@@ -27598,7 +27598,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "Inc_PC"
               }
             },
@@ -27639,7 +27639,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "Inc_WZ"
               }
             },
@@ -27659,7 +27659,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "IncDec_16"
               },
               "size": 4
@@ -27670,7 +27670,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "Read_To_Reg"
               }
             },
@@ -27690,7 +27690,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "Read_To_Acc"
               }
             },
@@ -27711,7 +27711,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "Set_BusA_To"
               },
               "size": 4
@@ -27733,7 +27733,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "Set_BusB_To"
               },
               "size": 4
@@ -27755,7 +27755,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "ALU_Op"
               },
               "size": 4
@@ -27777,7 +27777,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "Set_Addr_To"
               },
               "size": 3
@@ -27799,7 +27799,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "Special_LD"
               },
               "size": 3
@@ -27821,7 +27821,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "IMode"
               },
               "size": 2
@@ -27842,7 +27842,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "Save_ALU"
               }
             },
@@ -27862,7 +27862,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "PreserveC"
               }
             },
@@ -27882,7 +27882,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "Arith16"
               }
             },
@@ -27902,7 +27902,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "iorq_i"
               }
             },
@@ -27922,7 +27922,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "Jump"
               }
             },
@@ -27942,7 +27942,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "JumpE"
               }
             },
@@ -27962,7 +27962,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "JumpXY"
               }
             },
@@ -27982,7 +27982,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "Call"
               }
             },
@@ -28002,7 +28002,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "RstP"
               }
             },
@@ -28022,7 +28022,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "LDZ"
               }
             },
@@ -28042,7 +28042,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "LDW"
               }
             },
@@ -28062,7 +28062,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "LDSPHL"
               }
             },
@@ -28082,7 +28082,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "ExchangeDH"
               }
             },
@@ -28102,7 +28102,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "ExchangeRp"
               }
             },
@@ -28122,7 +28122,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "ExchangeAF"
               }
             },
@@ -28142,7 +28142,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "ExchangeRS"
               }
             },
@@ -28162,7 +28162,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "I_DJNZ"
               }
             },
@@ -28182,7 +28182,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "I_CPL"
               }
             },
@@ -28202,7 +28202,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "I_CCF"
               }
             },
@@ -28222,7 +28222,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "I_SCF"
               }
             },
@@ -28242,7 +28242,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "I_RETN"
               }
             },
@@ -28262,7 +28262,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "I_BT"
               }
             },
@@ -28282,7 +28282,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "I_BC"
               }
             },
@@ -28302,7 +28302,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "I_BTR"
               }
             },
@@ -28322,7 +28322,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "I_RLD"
               }
             },
@@ -28342,7 +28342,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "I_RRD"
               }
             },
@@ -28362,7 +28362,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "I_INRC"
               }
             },
@@ -28382,7 +28382,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "SetDI"
               }
             },
@@ -28402,7 +28402,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "SetEI"
               }
             },
@@ -28422,7 +28422,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "Halt"
               }
             },
@@ -28459,7 +28459,7 @@
             },
             {
               "source": {
-                "block": "3283bba0-3d46-4775-a84e-d5bd043f3250",
+                "block": "16e84c9f-ad66-4af0-9e70-aeb53dcedb60",
                 "port": "IR"
               },
               "target": {
