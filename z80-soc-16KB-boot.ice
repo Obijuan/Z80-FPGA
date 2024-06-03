@@ -26357,10 +26357,10 @@
               }
             },
             {
-              "id": "0eb85ad5-c101-43ec-8c08-3e83604017e2",
+              "id": "b02f8201-4d27-4ad2-b076-acdb5c95534e",
               "type": "basic.code",
               "data": {
-                "code": "\nlocalparam Flag_C = 0;\nlocalparam Flag_N = 1;\nlocalparam Flag_P = 2;\nlocalparam Flag_X = 3;\nlocalparam Flag_H = 4;\nlocalparam Flag_Y = 5;\nlocalparam Flag_Z = 6;\nlocalparam Flag_S = 7;\nlocalparam Mode = 0;   // 0 => Z80, 1 => Fast Z80, 2 => 8080, 3 => GB\n\nreg [7:0]             Q_i;\nassign Q = Q_i;\n\nreg [7:0]             F_Out;\n\n  function [4:0] AddSub4;\n    input [3:0] A;\n    input [3:0] B;\n    input Sub;\n    input Carry_In;\n    begin\n      AddSub4 = { 1'b0, A } + { 1'b0, (Sub)?~B:B } + {4'h0,Carry_In};\n    end\n  endfunction // AddSub4\n\n  function [3:0] AddSub3;\n    input [2:0] A;\n    input [2:0] B;\n    input Sub;\n    input Carry_In;\n    begin\n      AddSub3 = { 1'b0, A } + { 1'b0, (Sub)?~B:B } + {3'h0,Carry_In};\n    end\n  endfunction // AddSub4\n\n  function [1:0] AddSub1;\n    input A;\n    input B;\n    input Sub;\n    input Carry_In;\n    begin\n      AddSub1 = { 1'b0, A } + { 1'b0, (Sub)?~B:B } + {1'h0,Carry_In};\n    end\n  endfunction // AddSub4\n\n  // AddSub variables (temporary signals)\n  reg UseCarry;\n  reg Carry7_v;\n  reg OverFlow_v;\n  reg HalfCarry_v;\n  reg Carry_v;\n  reg [7:0] Q_v;\n\n  reg [7:0] BitMask;\n\n\n  always @(/*AUTOSENSE*/ALU_Op or BusA or BusB or F_In or IR)\n    begin\n      case (IR[5:3])\n        3'b000 : BitMask = 8'b00000001;\n        3'b001 : BitMask = 8'b00000010;\n        3'b010 : BitMask = 8'b00000100;\n        3'b011 : BitMask = 8'b00001000;\n        3'b100 : BitMask = 8'b00010000;\n        3'b101 : BitMask = 8'b00100000;\n        3'b110 : BitMask = 8'b01000000;\n        default: BitMask = 8'b10000000;\n      endcase // case(IR[5:3])\n\n      UseCarry = ~ ALU_Op[2] && ALU_Op[0];\n      { HalfCarry_v, Q_v[3:0] } = AddSub4(BusA[3:0], BusB[3:0], ALU_Op[1], ALU_Op[1] ^ (UseCarry && F_In[Flag_C]) );\n      { Carry7_v, Q_v[6:4]  } = AddSub3(BusA[6:4], BusB[6:4], ALU_Op[1], HalfCarry_v);\n      { Carry_v, Q_v[7] } = AddSub1(BusA[7], BusB[7], ALU_Op[1], Carry7_v);\n      OverFlow_v = Carry_v ^ Carry7_v;\n    end // always @ *\n\n  reg [7:0] Q_t;\n  reg [8:0] DAA_Q;\n\n  always @ (/*AUTOSENSE*/ALU_Op or Arith16 or BitMask or BusA or BusB\n\t    or Carry_v or F_In or HalfCarry_v or IR or ISet\n\t    or OverFlow_v or Q_v or Z16)\n    begin\n      Q_t = 8'hxx;\n      DAA_Q = {9{1'bx}};\n\n      F_Out = F_In;\n      case (ALU_Op)\n\t4'b0000, 4'b0001,  4'b0010, 4'b0011, 4'b0100, 4'b0101, 4'b0110, 4'b0111 :\n          begin\n\t    F_Out[Flag_N] = 1'b0;\n\t    F_Out[Flag_C] = 1'b0;\n\n\t    case (ALU_Op[2:0])\n\n\t      3'b000, 3'b001 : // ADD, ADC\n                begin\n\t\t  Q_t = Q_v;\n\t\t  F_Out[Flag_C] = Carry_v;\n\t\t  F_Out[Flag_H] = HalfCarry_v;\n\t\t  F_Out[Flag_P] = OverFlow_v;\n                end\n\n\t      3'b010, 3'b011, 3'b111 : // SUB, SBC, CP\n                begin\n\t\t  Q_t = Q_v;\n\t\t  F_Out[Flag_N] = 1'b1;\n\t\t  F_Out[Flag_C] = ~ Carry_v;\n\t\t  F_Out[Flag_H] = ~ HalfCarry_v;\n\t\t  F_Out[Flag_P] = OverFlow_v;\n                end\n\n\t      3'b100 : // AND\n                begin\n\t\t  Q_t[7:0] = BusA & BusB;\n\t\t  F_Out[Flag_H] = 1'b1;\n                end\n\n\t      3'b101 : // XOR\n                begin\n\t\t  Q_t[7:0] = BusA ^ BusB;\n\t\t  F_Out[Flag_H] = 1'b0;\n                end\n\n\t      default : // OR 3'b110\n                begin\n\t\t  Q_t[7:0] = BusA | BusB;\n\t\t  F_Out[Flag_H] = 1'b0;\n                end\n\n\t    endcase // case(ALU_OP[2:0])\n\n\t    if (ALU_Op[2:0] == 3'b111 )\n              begin // CP\n\t\tF_Out[Flag_X] = BusB[3];\n\t\tF_Out[Flag_Y] = BusB[5];\n\t      end\n            else\n              begin\n\t\tF_Out[Flag_X] = Q_t[3];\n\t\tF_Out[Flag_Y] = Q_t[5];\n\t      end\n\n\t    if (Q_t[7:0] == 8'b00000000 )\n              begin\n\t\tF_Out[Flag_Z] = 1'b1;\n\t\tif (Z16 == 1'b1 )\n                  begin\n\t\t    F_Out[Flag_Z] = F_In[Flag_Z];\t// 16 bit ADC,SBC\n\t\t  end\n\t      end\n            else\n              begin\n\t\tF_Out[Flag_Z] = 1'b0;\n\t      end // else: !if(Q_t[7:0] == 8'b00000000 )\n\n\t    F_Out[Flag_S] = Q_t[7];\n\t    case (ALU_Op[2:0])\n\t      3'b000, 3'b001, 3'b010, 3'b011, 3'b111 : // ADD, ADC, SUB, SBC, CP\n                ;\n\n\t      default :\n\t        F_Out[Flag_P] = ~(^Q_t);\n\t    endcase // case(ALU_Op[2:0])\n\n\t    if (Arith16 == 1'b1 )\n              begin\n\t\tF_Out[Flag_S] = F_In[Flag_S];\n\t\tF_Out[Flag_Z] = F_In[Flag_Z];\n\t\tF_Out[Flag_P] = F_In[Flag_P];\n\t      end\n          end // case: 4'b0000, 4'b0001,  4'b0010, 4'b0011, 4'b0100, 4'b0101, 4'b0110, 4'b0111\n\n\t4'b1100 :\n          begin\n\t    // DAA\n\t    F_Out[Flag_H] = F_In[Flag_H];\n\t    F_Out[Flag_C] = F_In[Flag_C];\n\t    DAA_Q[7:0] = BusA;\n\t    DAA_Q[8] = 1'b0;\n\t    if (F_In[Flag_N] == 1'b0 )\n              begin\n\t\t// After addition\n\t\t// Alow > 9 || H == 1\n\t\tif (DAA_Q[3:0] > 9 || F_In[Flag_H] == 1'b1 )\n                  begin\n\t\t    if ((DAA_Q[3:0] > 9) )\n                      begin\n\t\t\tF_Out[Flag_H] = 1'b1;\n\t\t      end\n                    else\n                      begin\n\t\t\tF_Out[Flag_H] = 1'b0;\n\t\t      end\n\t\t    DAA_Q = DAA_Q + 6;\n\t\t  end // if (DAA_Q[3:0] > 9 || F_In[Flag_H] == 1'b1 )\n\n\t\t// new Ahigh > 9 || C == 1\n\t\tif (DAA_Q[8:4] > 9 || F_In[Flag_C] == 1'b1 )\n                  begin\n\t\t    DAA_Q = DAA_Q + 96; // 0x60\n\t\t  end\n\t      end\n            else\n              begin\n\t\t// After subtraction\n\t\tif (DAA_Q[3:0] > 9 || F_In[Flag_H] == 1'b1 )\n                  begin\n\t\t    if (DAA_Q[3:0] > 5 )\n                      begin\n\t\t\tF_Out[Flag_H] = 1'b0;\n\t\t      end\n\t\t    DAA_Q[7:0] = DAA_Q[7:0] - 6;\n\t\t  end\n\t\tif (BusA > 153 || F_In[Flag_C] == 1'b1 )\n                  begin\n\t\t    DAA_Q = DAA_Q - 352; // 0x160\n\t\t  end\n\t      end // else: !if(F_In[Flag_N] == 1'b0 )\n\n\t    F_Out[Flag_X] = DAA_Q[3];\n\t    F_Out[Flag_Y] = DAA_Q[5];\n\t    F_Out[Flag_C] = F_In[Flag_C] || DAA_Q[8];\n\t    Q_t = DAA_Q[7:0];\n\n\t    if (DAA_Q[7:0] == 8'b00000000 )\n              begin\n\t\tF_Out[Flag_Z] = 1'b1;\n\t      end\n            else\n              begin\n\t\tF_Out[Flag_Z] = 1'b0;\n\t      end\n\n\t    F_Out[Flag_S] = DAA_Q[7];\n\t    F_Out[Flag_P] = ~ (^DAA_Q);\n          end // case: 4'b1100\n\n\t4'b1101, 4'b1110 :\n          begin\n\t    // RLD, RRD\n\t    Q_t[7:4] = BusA[7:4];\n\t    if (ALU_Op[0] == 1'b1 )\n              begin\n\t\tQ_t[3:0] = BusB[7:4];\n\t      end\n            else\n              begin\n\t\tQ_t[3:0] = BusB[3:0];\n\t      end\n\t    F_Out[Flag_H] = 1'b0;\n\t    F_Out[Flag_N] = 1'b0;\n\t    F_Out[Flag_X] = Q_t[3];\n\t    F_Out[Flag_Y] = Q_t[5];\n\t    if (Q_t[7:0] == 8'b00000000 )\n              begin\n\t\tF_Out[Flag_Z] = 1'b1;\n\t      end\n            else\n              begin\n\t\tF_Out[Flag_Z] = 1'b0;\n\t      end\n\t    F_Out[Flag_S] = Q_t[7];\n            F_Out[Flag_P] = ~(^Q_t);\n          end // case: when 4'b1101, 4'b1110\n\n\t4'b1001 :\n          begin\n\t    // BIT\n\t    Q_t[7:0] = BusB & BitMask;\n\t    F_Out[Flag_S] = Q_t[7];\n\t    if (Q_t[7:0] == 8'b00000000 )\n              begin\n\t\tF_Out[Flag_Z] = 1'b1;\n\t\tF_Out[Flag_P] = 1'b1;\n\t      end\n            else\n              begin\n\t\tF_Out[Flag_Z] = 1'b0;\n\t\tF_Out[Flag_P] = 1'b0;\n\t      end\n\t    F_Out[Flag_H] = 1'b1;\n\t    F_Out[Flag_N] = 1'b0;\n\t    F_Out[Flag_X] = 1'b0;\n\t    F_Out[Flag_Y] = 1'b0;\n\t    if (IR[2:0] != 3'b110 )\n              begin\n\t\tF_Out[Flag_X] = BusB[3];\n\t\tF_Out[Flag_Y] = BusB[5];\n\t      end\n          end // case: when 4'b1001\n\n\t4'b1010 :\n\t  // SET\n\t  Q_t[7:0] = BusB | BitMask;\n\n\t4'b1011 :\n\t  // RES\n\t  Q_t[7:0] = BusB & ~ BitMask;\n\n\t4'b1000 :\n          begin\n\t    // ROT\n\t    case (IR[5:3])\n\t      3'b000 : // RLC\n                begin\n\t\t  Q_t[7:1] = BusA[6:0];\n\t\t  Q_t[0] = BusA[7];\n\t\t  F_Out[Flag_C] = BusA[7];\n                end\n\n\t      3'b010 : // RL\n                begin\n\t\t  Q_t[7:1] = BusA[6:0];\n\t\t  Q_t[0] = F_In[Flag_C];\n\t\t  F_Out[Flag_C] = BusA[7];\n                end\n\n\t      3'b001 : // RRC\n                begin\n\t\t  Q_t[6:0] = BusA[7:1];\n\t\t  Q_t[7] = BusA[0];\n\t\t  F_Out[Flag_C] = BusA[0];\n                end\n\n\t      3'b011 : // RR\n                begin\n\t\t  Q_t[6:0] = BusA[7:1];\n\t\t  Q_t[7] = F_In[Flag_C];\n\t\t  F_Out[Flag_C] = BusA[0];\n                end\n\n\t      3'b100 : // SLA\n                begin\n\t\t  Q_t[7:1] = BusA[6:0];\n\t\t  Q_t[0] = 1'b0;\n\t\t  F_Out[Flag_C] = BusA[7];\n                end\n\n\t      3'b110 : // SLL (Undocumented) / SWAP\n                begin\n\t\t  if (Mode == 3 )\n                    begin\n\t\t      Q_t[7:4] = BusA[3:0];\n\t\t      Q_t[3:0] = BusA[7:4];\n\t\t      F_Out[Flag_C] = 1'b0;\n\t\t    end\n                  else\n                    begin\n\t\t      Q_t[7:1] = BusA[6:0];\n\t\t      Q_t[0] = 1'b1;\n\t\t      F_Out[Flag_C] = BusA[7];\n\t\t    end // else: !if(Mode == 3 )\n                end // case: 3'b110\n\n\t      3'b101 : // SRA\n                begin\n\t\t  Q_t[6:0] = BusA[7:1];\n\t\t  Q_t[7] = BusA[7];\n\t\t  F_Out[Flag_C] = BusA[0];\n                end\n\n\t      default : // SRL\n                begin\n\t\t  Q_t[6:0] = BusA[7:1];\n\t\t  Q_t[7] = 1'b0;\n\t\t  F_Out[Flag_C] = BusA[0];\n                end\n\t    endcase // case(IR[5:3])\n\n\t    F_Out[Flag_H] = 1'b0;\n\t    F_Out[Flag_N] = 1'b0;\n\t    F_Out[Flag_X] = Q_t[3];\n\t    F_Out[Flag_Y] = Q_t[5];\n\t    F_Out[Flag_S] = Q_t[7];\n\t    if (Q_t[7:0] == 8'b00000000 )\n              begin\n\t\tF_Out[Flag_Z] = 1'b1;\n\t      end\n            else\n              begin\n\t\tF_Out[Flag_Z] = 1'b0;\n\t      end\n            F_Out[Flag_P] = ~(^Q_t);\n\n\t    if (ISet == 2'b00 )\n              begin\n\t\tF_Out[Flag_P] = F_In[Flag_P];\n\t\tF_Out[Flag_S] = F_In[Flag_S];\n\t\tF_Out[Flag_Z] = F_In[Flag_Z];\n\t      end\n          end // case: 4'b1000\n\n\n\tdefault :\n\t  ;\n\n      endcase // case(ALU_Op)\n\n      Q_i = Q_t;\n    end // always @ (Arith16, ALU_OP, F_In, BusA, BusB, IR, Q_v, Carry_v, HalfCarry_v, OverFlow_v, BitMask, ISet, Z16)\n    \n     \n     \n     ",
+                "code": "localparam Flag_C = 0;\nlocalparam Flag_N = 1;\nlocalparam Flag_P = 2;\nlocalparam Flag_X = 3;\nlocalparam Flag_H = 4;\nlocalparam Flag_Y = 5;\nlocalparam Flag_Z = 6;\nlocalparam Flag_S = 7;\nlocalparam Mode = 0;   // 0 => Z80, 1 => Fast Z80, 2 => 8080, 3 => GB\n\nreg [7:0]             Q_i;\nassign Q = Q_i;\n\nreg [7:0]             F_Out_i;\nassign F_Out = F_Out_i;\n\n  function [4:0] AddSub4;\n    input [3:0] A;\n    input [3:0] B;\n    input Sub;\n    input Carry_In;\n    begin\n      AddSub4 = { 1'b0, A } + { 1'b0, (Sub)?~B:B } + {4'h0,Carry_In};\n    end\n  endfunction // AddSub4\n\n  function [3:0] AddSub3;\n    input [2:0] A;\n    input [2:0] B;\n    input Sub;\n    input Carry_In;\n    begin\n      AddSub3 = { 1'b0, A } + { 1'b0, (Sub)?~B:B } + {3'h0,Carry_In};\n    end\n  endfunction // AddSub4\n\n  function [1:0] AddSub1;\n    input A;\n    input B;\n    input Sub;\n    input Carry_In;\n    begin\n      AddSub1 = { 1'b0, A } + { 1'b0, (Sub)?~B:B } + {1'h0,Carry_In};\n    end\n  endfunction // AddSub4\n\n  // AddSub variables (temporary signals)\n  reg UseCarry;\n  reg Carry7_v;\n  reg OverFlow_v;\n  reg HalfCarry_v;\n  reg Carry_v;\n  reg [7:0] Q_v;\n\n  reg [7:0] BitMask;\n\n\n  always @(/*AUTOSENSE*/ALU_Op or BusA or BusB or F_In or IR)\n    begin\n      case (IR[5:3])\n        3'b000 : BitMask = 8'b00000001;\n        3'b001 : BitMask = 8'b00000010;\n        3'b010 : BitMask = 8'b00000100;\n        3'b011 : BitMask = 8'b00001000;\n        3'b100 : BitMask = 8'b00010000;\n        3'b101 : BitMask = 8'b00100000;\n        3'b110 : BitMask = 8'b01000000;\n        default: BitMask = 8'b10000000;\n      endcase // case(IR[5:3])\n\n      UseCarry = ~ ALU_Op[2] && ALU_Op[0];\n      { HalfCarry_v, Q_v[3:0] } = AddSub4(BusA[3:0], BusB[3:0], ALU_Op[1], ALU_Op[1] ^ (UseCarry && F_In[Flag_C]) );\n      { Carry7_v, Q_v[6:4]  } = AddSub3(BusA[6:4], BusB[6:4], ALU_Op[1], HalfCarry_v);\n      { Carry_v, Q_v[7] } = AddSub1(BusA[7], BusB[7], ALU_Op[1], Carry7_v);\n      OverFlow_v = Carry_v ^ Carry7_v;\n    end // always @ *\n\n  reg [7:0] Q_t;\n  reg [8:0] DAA_Q;\n\n  always @ (/*AUTOSENSE*/ALU_Op or Arith16 or BitMask or BusA or BusB\n\t    or Carry_v or F_In or HalfCarry_v or IR or ISet\n\t    or OverFlow_v or Q_v or Z16)\n    begin\n      Q_t = 8'hxx;\n      DAA_Q = {9{1'bx}};\n\n      F_Out_i = F_In;\n      case (ALU_Op)\n\t4'b0000, 4'b0001,  4'b0010, 4'b0011, 4'b0100, 4'b0101, 4'b0110, 4'b0111 :\n          begin\n\t    F_Out_i[Flag_N] = 1'b0;\n\t    F_Out_i[Flag_C] = 1'b0;\n\n\t    case (ALU_Op[2:0])\n\n\t      3'b000, 3'b001 : // ADD, ADC\n                begin\n\t\t  Q_t = Q_v;\n\t\t  F_Out_i[Flag_C] = Carry_v;\n\t\t  F_Out_i[Flag_H] = HalfCarry_v;\n\t\t  F_Out_i[Flag_P] = OverFlow_v;\n                end\n\n\t      3'b010, 3'b011, 3'b111 : // SUB, SBC, CP\n                begin\n\t\t  Q_t = Q_v;\n\t\t  F_Out_i[Flag_N] = 1'b1;\n\t\t  F_Out_i[Flag_C] = ~ Carry_v;\n\t\t  F_Out_i[Flag_H] = ~ HalfCarry_v;\n\t\t  F_Out_i[Flag_P] = OverFlow_v;\n                end\n\n\t      3'b100 : // AND\n                begin\n\t\t  Q_t[7:0] = BusA & BusB;\n\t\t  F_Out_i[Flag_H] = 1'b1;\n                end\n\n\t      3'b101 : // XOR\n                begin\n\t\t  Q_t[7:0] = BusA ^ BusB;\n\t\t  F_Out_i[Flag_H] = 1'b0;\n                end\n\n\t      default : // OR 3'b110\n                begin\n\t\t  Q_t[7:0] = BusA | BusB;\n\t\t  F_Out_i[Flag_H] = 1'b0;\n                end\n\n\t    endcase // case(ALU_OP[2:0])\n\n\t    if (ALU_Op[2:0] == 3'b111 )\n              begin // CP\n\t\tF_Out_i[Flag_X] = BusB[3];\n\t\tF_Out_i[Flag_Y] = BusB[5];\n\t      end\n            else\n              begin\n\t\tF_Out_i[Flag_X] = Q_t[3];\n\t\tF_Out_i[Flag_Y] = Q_t[5];\n\t      end\n\n\t    if (Q_t[7:0] == 8'b00000000 )\n              begin\n\t\tF_Out_i[Flag_Z] = 1'b1;\n\t\tif (Z16 == 1'b1 )\n                  begin\n\t\t    F_Out_i[Flag_Z] = F_In[Flag_Z];\t// 16 bit ADC,SBC\n\t\t  end\n\t      end\n            else\n              begin\n\t\tF_Out_i[Flag_Z] = 1'b0;\n\t      end // else: !if(Q_t[7:0] == 8'b00000000 )\n\n\t    F_Out_i[Flag_S] = Q_t[7];\n\t    case (ALU_Op[2:0])\n\t      3'b000, 3'b001, 3'b010, 3'b011, 3'b111 : // ADD, ADC, SUB, SBC, CP\n                ;\n\n\t      default :\n\t        F_Out_i[Flag_P] = ~(^Q_t);\n\t    endcase // case(ALU_Op[2:0])\n\n\t    if (Arith16 == 1'b1 )\n              begin\n\t\tF_Out_i[Flag_S] = F_In[Flag_S];\n\t\tF_Out_i[Flag_Z] = F_In[Flag_Z];\n\t\tF_Out_i[Flag_P] = F_In[Flag_P];\n\t      end\n          end // case: 4'b0000, 4'b0001,  4'b0010, 4'b0011, 4'b0100, 4'b0101, 4'b0110, 4'b0111\n\n\t4'b1100 :\n          begin\n\t    // DAA\n\t    F_Out_i[Flag_H] = F_In[Flag_H];\n\t    F_Out_i[Flag_C] = F_In[Flag_C];\n\t    DAA_Q[7:0] = BusA;\n\t    DAA_Q[8] = 1'b0;\n\t    if (F_In[Flag_N] == 1'b0 )\n              begin\n\t\t// After addition\n\t\t// Alow > 9 || H == 1\n\t\tif (DAA_Q[3:0] > 9 || F_In[Flag_H] == 1'b1 )\n                  begin\n\t\t    if ((DAA_Q[3:0] > 9) )\n                      begin\n\t\t\tF_Out_i[Flag_H] = 1'b1;\n\t\t      end\n                    else\n                      begin\n\t\t\tF_Out_i[Flag_H] = 1'b0;\n\t\t      end\n\t\t    DAA_Q = DAA_Q + 6;\n\t\t  end // if (DAA_Q[3:0] > 9 || F_In[Flag_H] == 1'b1 )\n\n\t\t// new Ahigh > 9 || C == 1\n\t\tif (DAA_Q[8:4] > 9 || F_In[Flag_C] == 1'b1 )\n                  begin\n\t\t    DAA_Q = DAA_Q + 96; // 0x60\n\t\t  end\n\t      end\n            else\n              begin\n\t\t// After subtraction\n\t\tif (DAA_Q[3:0] > 9 || F_In[Flag_H] == 1'b1 )\n                  begin\n\t\t    if (DAA_Q[3:0] > 5 )\n                      begin\n\t\t\tF_Out_i[Flag_H] = 1'b0;\n\t\t      end\n\t\t    DAA_Q[7:0] = DAA_Q[7:0] - 6;\n\t\t  end\n\t\tif (BusA > 153 || F_In[Flag_C] == 1'b1 )\n                  begin\n\t\t    DAA_Q = DAA_Q - 352; // 0x160\n\t\t  end\n\t      end // else: !if(F_In[Flag_N] == 1'b0 )\n\n\t    F_Out_i[Flag_X] = DAA_Q[3];\n\t    F_Out_i[Flag_Y] = DAA_Q[5];\n\t    F_Out_i[Flag_C] = F_In[Flag_C] || DAA_Q[8];\n\t    Q_t = DAA_Q[7:0];\n\n\t    if (DAA_Q[7:0] == 8'b00000000 )\n              begin\n\t\tF_Out_i[Flag_Z] = 1'b1;\n\t      end\n            else\n              begin\n\t\tF_Out_i[Flag_Z] = 1'b0;\n\t      end\n\n\t    F_Out_i[Flag_S] = DAA_Q[7];\n\t    F_Out_i[Flag_P] = ~ (^DAA_Q);\n          end // case: 4'b1100\n\n\t4'b1101, 4'b1110 :\n          begin\n\t    // RLD, RRD\n\t    Q_t[7:4] = BusA[7:4];\n\t    if (ALU_Op[0] == 1'b1 )\n              begin\n\t\tQ_t[3:0] = BusB[7:4];\n\t      end\n            else\n              begin\n\t\tQ_t[3:0] = BusB[3:0];\n\t      end\n\t    F_Out_i[Flag_H] = 1'b0;\n\t    F_Out_i[Flag_N] = 1'b0;\n\t    F_Out_i[Flag_X] = Q_t[3];\n\t    F_Out_i[Flag_Y] = Q_t[5];\n\t    if (Q_t[7:0] == 8'b00000000 )\n              begin\n\t\tF_Out_i[Flag_Z] = 1'b1;\n\t      end\n            else\n              begin\n\t\tF_Out_i[Flag_Z] = 1'b0;\n\t      end\n\t    F_Out_i[Flag_S] = Q_t[7];\n            F_Out_i[Flag_P] = ~(^Q_t);\n          end // case: when 4'b1101, 4'b1110\n\n\t4'b1001 :\n          begin\n\t    // BIT\n\t    Q_t[7:0] = BusB & BitMask;\n\t    F_Out_i[Flag_S] = Q_t[7];\n\t    if (Q_t[7:0] == 8'b00000000 )\n              begin\n\t\tF_Out_i[Flag_Z] = 1'b1;\n\t\tF_Out_i[Flag_P] = 1'b1;\n\t      end\n            else\n              begin\n\t\tF_Out_i[Flag_Z] = 1'b0;\n\t\tF_Out_i[Flag_P] = 1'b0;\n\t      end\n\t    F_Out_i[Flag_H] = 1'b1;\n\t    F_Out_i[Flag_N] = 1'b0;\n\t    F_Out_i[Flag_X] = 1'b0;\n\t    F_Out_i[Flag_Y] = 1'b0;\n\t    if (IR[2:0] != 3'b110 )\n              begin\n\t\tF_Out_i[Flag_X] = BusB[3];\n\t\tF_Out_i[Flag_Y] = BusB[5];\n\t      end\n          end // case: when 4'b1001\n\n\t4'b1010 :\n\t  // SET\n\t  Q_t[7:0] = BusB | BitMask;\n\n\t4'b1011 :\n\t  // RES\n\t  Q_t[7:0] = BusB & ~ BitMask;\n\n\t4'b1000 :\n          begin\n\t    // ROT\n\t    case (IR[5:3])\n\t      3'b000 : // RLC\n                begin\n\t\t  Q_t[7:1] = BusA[6:0];\n\t\t  Q_t[0] = BusA[7];\n\t\t  F_Out_i[Flag_C] = BusA[7];\n                end\n\n\t      3'b010 : // RL\n                begin\n\t\t  Q_t[7:1] = BusA[6:0];\n\t\t  Q_t[0] = F_In[Flag_C];\n\t\t  F_Out_i[Flag_C] = BusA[7];\n                end\n\n\t      3'b001 : // RRC\n                begin\n\t\t  Q_t[6:0] = BusA[7:1];\n\t\t  Q_t[7] = BusA[0];\n\t\t  F_Out_i[Flag_C] = BusA[0];\n                end\n\n\t      3'b011 : // RR\n                begin\n\t\t  Q_t[6:0] = BusA[7:1];\n\t\t  Q_t[7] = F_In[Flag_C];\n\t\t  F_Out_i[Flag_C] = BusA[0];\n                end\n\n\t      3'b100 : // SLA\n                begin\n\t\t  Q_t[7:1] = BusA[6:0];\n\t\t  Q_t[0] = 1'b0;\n\t\t  F_Out_i[Flag_C] = BusA[7];\n                end\n\n\t      3'b110 : // SLL (Undocumented) / SWAP\n                begin\n\t\t  if (Mode == 3 )\n                    begin\n\t\t      Q_t[7:4] = BusA[3:0];\n\t\t      Q_t[3:0] = BusA[7:4];\n\t\t      F_Out_i[Flag_C] = 1'b0;\n\t\t    end\n                  else\n                    begin\n\t\t      Q_t[7:1] = BusA[6:0];\n\t\t      Q_t[0] = 1'b1;\n\t\t      F_Out_i[Flag_C] = BusA[7];\n\t\t    end // else: !if(Mode == 3 )\n                end // case: 3'b110\n\n\t      3'b101 : // SRA\n                begin\n\t\t  Q_t[6:0] = BusA[7:1];\n\t\t  Q_t[7] = BusA[7];\n\t\t  F_Out_i[Flag_C] = BusA[0];\n                end\n\n\t      default : // SRL\n                begin\n\t\t  Q_t[6:0] = BusA[7:1];\n\t\t  Q_t[7] = 1'b0;\n\t\t  F_Out_i[Flag_C] = BusA[0];\n                end\n\t    endcase // case(IR[5:3])\n\n\t    F_Out_i[Flag_H] = 1'b0;\n\t    F_Out_i[Flag_N] = 1'b0;\n\t    F_Out_i[Flag_X] = Q_t[3];\n\t    F_Out_i[Flag_Y] = Q_t[5];\n\t    F_Out_i[Flag_S] = Q_t[7];\n\t    if (Q_t[7:0] == 8'b00000000 )\n              begin\n\t\tF_Out_i[Flag_Z] = 1'b1;\n\t      end\n            else\n              begin\n\t\tF_Out_i[Flag_Z] = 1'b0;\n\t      end\n            F_Out_i[Flag_P] = ~(^Q_t);\n\n\t    if (ISet == 2'b00 )\n              begin\n\t\tF_Out_i[Flag_P] = F_In[Flag_P];\n\t\tF_Out_i[Flag_S] = F_In[Flag_S];\n\t\tF_Out_i[Flag_Z] = F_In[Flag_Z];\n\t      end\n          end // case: 4'b1000\n\n\n\tdefault :\n\t  ;\n\n      endcase // case(ALU_Op)\n\n      Q_i = Q_t;\n    end // always @ (Arith16, ALU_OP, F_In, BusA, BusB, IR, Q_v, Carry_v, HalfCarry_v, OverFlow_v, BitMask, ISet, Z16)\n    \n     \n     \n     ",
                 "params": [],
                 "ports": {
                   "in": [
@@ -26559,8 +26559,7 @@
             {
               "source": {
                 "block": "9009c653-d4d5-488d-b74f-9001f1f007d9",
-                "port": "out",
-                "size": 8
+                "port": "out"
               },
               "target": {
                 "block": "94d4bceb-97ef-42b1-84ee-df8c7fff17cf",
@@ -26575,8 +26574,7 @@
               },
               "target": {
                 "block": "f9772dc5-4ab2-4b9f-9b36-4a1be3e10681",
-                "port": "di",
-                "size": 8
+                "port": "di"
               },
               "size": 8
             },
@@ -26587,8 +26585,7 @@
               },
               "target": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "dinst",
-                "size": 8
+                "port": "dinst"
               },
               "size": 8
             },
@@ -26599,16 +26596,14 @@
               },
               "target": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "di",
-                "size": 8
+                "port": "di"
               },
               "size": 8
             },
             {
               "source": {
                 "block": "f9772dc5-4ab2-4b9f-9b36-4a1be3e10681",
-                "port": "di_reg",
-                "size": 8
+                "port": "di_reg"
               },
               "target": {
                 "block": "6bc26324-c003-4219-998b-69daec52a430",
@@ -26619,8 +26614,7 @@
             {
               "source": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "mc",
-                "size": 7
+                "port": "mc"
               },
               "target": {
                 "block": "bd5f96f6-7472-4bb5-b171-361a29fc56b5",
@@ -26635,16 +26629,14 @@
               },
               "target": {
                 "block": "f9772dc5-4ab2-4b9f-9b36-4a1be3e10681",
-                "port": "mcycle",
-                "size": 7
+                "port": "mcycle"
               },
               "size": 7
             },
             {
               "source": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "ts",
-                "size": 7
+                "port": "ts"
               },
               "target": {
                 "block": "6302d182-8dc2-436f-a59d-2a81e17c8dad",
@@ -26659,8 +26651,7 @@
               },
               "target": {
                 "block": "f9772dc5-4ab2-4b9f-9b36-4a1be3e10681",
-                "port": "tstate",
-                "size": 7
+                "port": "tstate"
               },
               "size": 7
             },
@@ -26941,16 +26932,14 @@
               },
               "target": {
                 "block": "d8afee16-1b38-4907-875a-60e69eccac4e",
-                "port": "in",
-                "size": 16
+                "port": "in"
               },
               "size": 16
             },
             {
               "source": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "A",
-                "size": 16
+                "port": "A"
               },
               "target": {
                 "block": "80e5f837-ae41-40e1-a105-f72a9013c12f",
@@ -26961,8 +26950,7 @@
             {
               "source": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "dout",
-                "size": 8
+                "port": "dout"
               },
               "target": {
                 "block": "be78c7d4-1df4-4ffa-8f2a-953789286fb4",
@@ -26977,8 +26965,7 @@
               },
               "target": {
                 "block": "2ae0b1f2-c68b-406a-866a-e9947c2423ce",
-                "port": "in",
-                "size": 8
+                "port": "in"
               },
               "size": 8
             },
@@ -26998,7 +26985,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "0eb85ad5-c101-43ec-8c08-3e83604017e2",
+                "block": "b02f8201-4d27-4ad2-b076-acdb5c95534e",
                 "port": "Arith16"
               }
             },
@@ -27008,7 +26995,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "0eb85ad5-c101-43ec-8c08-3e83604017e2",
+                "block": "b02f8201-4d27-4ad2-b076-acdb5c95534e",
                 "port": "Z16"
               }
             },
@@ -27028,17 +27015,15 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "0eb85ad5-c101-43ec-8c08-3e83604017e2",
-                "port": "ALU_Op",
-                "size": 4
+                "block": "b02f8201-4d27-4ad2-b076-acdb5c95534e",
+                "port": "ALU_Op"
               },
               "size": 4
             },
             {
               "source": {
                 "block": "d5d52d08-9c48-4fa4-ba67-1c820d026a17",
-                "port": "7703d474-9708-4706-a961-8807a4be9699",
-                "size": 6
+                "port": "7703d474-9708-4706-a961-8807a4be9699"
               },
               "target": {
                 "block": "f8f12e97-d25b-4e3d-b0ce-2a4997f78dfb",
@@ -27052,17 +27037,15 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "0eb85ad5-c101-43ec-8c08-3e83604017e2",
-                "port": "IR",
-                "size": 6
+                "block": "b02f8201-4d27-4ad2-b076-acdb5c95534e",
+                "port": "IR"
               },
               "size": 6
             },
             {
               "source": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "ISet",
-                "size": 2
+                "port": "ISet"
               },
               "target": {
                 "block": "89c6b511-6253-4245-9293-bae8e88f918e",
@@ -27076,17 +27059,15 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "0eb85ad5-c101-43ec-8c08-3e83604017e2",
-                "port": "ISet",
-                "size": 2
+                "block": "b02f8201-4d27-4ad2-b076-acdb5c95534e",
+                "port": "ISet"
               },
               "size": 2
             },
             {
               "source": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "BusA",
-                "size": 8
+                "port": "BusA"
               },
               "target": {
                 "block": "cac817c0-1817-4a08-a1f1-faf0874d4789",
@@ -27100,9 +27081,8 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "0eb85ad5-c101-43ec-8c08-3e83604017e2",
-                "port": "BusA",
-                "size": 8
+                "block": "b02f8201-4d27-4ad2-b076-acdb5c95534e",
+                "port": "BusA"
               },
               "size": 8
             },
@@ -27112,17 +27092,15 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "0eb85ad5-c101-43ec-8c08-3e83604017e2",
-                "port": "BusB",
-                "size": 8
+                "block": "b02f8201-4d27-4ad2-b076-acdb5c95534e",
+                "port": "BusB"
               },
               "size": 8
             },
             {
               "source": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "BusB",
-                "size": 8
+                "port": "BusB"
               },
               "target": {
                 "block": "a94558d8-450c-41af-b036-a6ece91f9741",
@@ -27136,17 +27114,15 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "0eb85ad5-c101-43ec-8c08-3e83604017e2",
-                "port": "F_In",
-                "size": 8
+                "block": "b02f8201-4d27-4ad2-b076-acdb5c95534e",
+                "port": "F_In"
               },
               "size": 8
             },
             {
               "source": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "F",
-                "size": 8
+                "port": "F"
               },
               "target": {
                 "block": "eb374ede-a8bd-45e3-b7f6-d62b4e107435",
@@ -27156,9 +27132,8 @@
             },
             {
               "source": {
-                "block": "0eb85ad5-c101-43ec-8c08-3e83604017e2",
-                "port": "Q",
-                "size": 8
+                "block": "b02f8201-4d27-4ad2-b076-acdb5c95534e",
+                "port": "Q"
               },
               "target": {
                 "block": "cb8fa1aa-5a8d-4171-a15f-a68f881796d2",
@@ -27173,16 +27148,14 @@
               },
               "target": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "ALU_Q",
-                "size": 8
+                "port": "ALU_Q"
               },
               "size": 8
             },
             {
               "source": {
-                "block": "0eb85ad5-c101-43ec-8c08-3e83604017e2",
-                "port": "F_Out",
-                "size": 8
+                "block": "b02f8201-4d27-4ad2-b076-acdb5c95534e",
+                "port": "F_Out"
               },
               "target": {
                 "block": "10d9a312-7054-4293-a55b-8e1275741d8a",
@@ -27197,16 +27170,14 @@
               },
               "target": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "F_Out",
-                "size": 8
+                "port": "F_Out"
               },
               "size": 8
             },
             {
               "source": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "ALU_Op_r",
-                "size": 4
+                "port": "ALU_Op_r"
               },
               "target": {
                 "block": "651b9daa-b245-4d86-9207-786ac75a4e49",
@@ -27287,8 +27258,7 @@
             {
               "source": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "RegAddrA",
-                "size": 3
+                "port": "RegAddrA"
               },
               "target": {
                 "block": "aa574585-41c3-4781-bb80-2ab22757bc6e",
@@ -27303,8 +27273,7 @@
               },
               "target": {
                 "block": "187156d8-8481-45c6-b34a-550ad9714dca",
-                "port": "AddrA",
-                "size": 3
+                "port": "AddrA"
               },
               "size": 3
             },
@@ -27315,16 +27284,14 @@
               },
               "target": {
                 "block": "187156d8-8481-45c6-b34a-550ad9714dca",
-                "port": "AddrB",
-                "size": 3
+                "port": "AddrB"
               },
               "size": 3
             },
             {
               "source": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "RegAddrB",
-                "size": 3
+                "port": "RegAddrB"
               },
               "target": {
                 "block": "c5a5272a-450b-42f3-b7ba-fdeef8a59090",
@@ -27339,16 +27306,14 @@
               },
               "target": {
                 "block": "187156d8-8481-45c6-b34a-550ad9714dca",
-                "port": "AddrC",
-                "size": 3
+                "port": "AddrC"
               },
               "size": 3
             },
             {
               "source": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "RegAddrC",
-                "size": 3
+                "port": "RegAddrC"
               },
               "target": {
                 "block": "1d269ff0-d0ed-4b7a-835d-512706b555af",
@@ -27363,16 +27328,14 @@
               },
               "target": {
                 "block": "187156d8-8481-45c6-b34a-550ad9714dca",
-                "port": "DIH",
-                "size": 8
+                "port": "DIH"
               },
               "size": 8
             },
             {
               "source": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "RegDIH",
-                "size": 8
+                "port": "RegDIH"
               },
               "target": {
                 "block": "0dc901aa-286d-4d6e-b145-8a6ea2f4aaff",
@@ -27387,16 +27350,14 @@
               },
               "target": {
                 "block": "187156d8-8481-45c6-b34a-550ad9714dca",
-                "port": "DIL",
-                "size": 8
+                "port": "DIL"
               },
               "size": 8
             },
             {
               "source": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "RegDIL",
-                "size": 8
+                "port": "RegDIL"
               },
               "target": {
                 "block": "98c605c1-e1f7-43f1-9e39-3fe9a7397f5f",
@@ -27407,8 +27368,7 @@
             {
               "source": {
                 "block": "1c62e369-8341-467a-816a-86138ca3fc93",
-                "port": "84292ebb-60eb-48e2-bdac-43cdd0d604af",
-                "size": 16
+                "port": "84292ebb-60eb-48e2-bdac-43cdd0d604af"
               },
               "target": {
                 "block": "34f03b2a-b05f-49c5-ae62-fd0ac54db4a8",
@@ -27423,8 +27383,7 @@
               },
               "target": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "RegBusA",
-                "size": 16
+                "port": "RegBusA"
               },
               "size": 16
             },
@@ -27435,8 +27394,7 @@
               },
               "target": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "RegBusB",
-                "size": 16
+                "port": "RegBusB"
               },
               "size": 16
             },
@@ -27447,16 +27405,14 @@
               },
               "target": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "RegBusC",
-                "size": 16
+                "port": "RegBusC"
               },
               "size": 16
             },
             {
               "source": {
                 "block": "ef2948b4-9103-48e5-b5df-fa5d5b12c48e",
-                "port": "84292ebb-60eb-48e2-bdac-43cdd0d604af",
-                "size": 16
+                "port": "84292ebb-60eb-48e2-bdac-43cdd0d604af"
               },
               "target": {
                 "block": "cb1a2cb2-bdd9-4319-a84a-1b7978a8834f",
@@ -27467,8 +27423,7 @@
             {
               "source": {
                 "block": "b1474a5c-4150-44e4-a31b-2931a5fddcd6",
-                "port": "84292ebb-60eb-48e2-bdac-43cdd0d604af",
-                "size": 16
+                "port": "84292ebb-60eb-48e2-bdac-43cdd0d604af"
               },
               "target": {
                 "block": "75110e7b-f502-4cd7-9c02-ad43eeff9a49",
@@ -27479,8 +27434,7 @@
             {
               "source": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "IR",
-                "size": 8
+                "port": "IR"
               },
               "target": {
                 "block": "94da4a28-96ce-418f-b422-cedf42eaf6a9",
@@ -27495,8 +27449,7 @@
               },
               "target": {
                 "block": "616eecee-1164-405c-be7a-41e94d6fc506",
-                "port": "IR",
-                "size": 8
+                "port": "IR"
               },
               "size": 8
             },
@@ -27507,16 +27460,14 @@
               },
               "target": {
                 "block": "616eecee-1164-405c-be7a-41e94d6fc506",
-                "port": "ISet",
-                "size": 2
+                "port": "ISet"
               },
               "size": 2
             },
             {
               "source": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "mcycle",
-                "size": 7
+                "port": "mcycle"
               },
               "target": {
                 "block": "077b0468-da58-49d2-8c06-1679d241f730",
@@ -27531,8 +27482,7 @@
               },
               "target": {
                 "block": "616eecee-1164-405c-be7a-41e94d6fc506",
-                "port": "F",
-                "size": 8
+                "port": "F"
               },
               "size": 8
             },
@@ -27583,16 +27533,14 @@
               },
               "target": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "mcycles_d",
-                "size": 3
+                "port": "mcycles_d"
               },
               "size": 3
             },
             {
               "source": {
                 "block": "616eecee-1164-405c-be7a-41e94d6fc506",
-                "port": "MCycles",
-                "size": 3
+                "port": "MCycles"
               },
               "target": {
                 "block": "c38ad879-1f74-4f22-b760-893eb0844753",
@@ -27603,8 +27551,7 @@
             {
               "source": {
                 "block": "616eecee-1164-405c-be7a-41e94d6fc506",
-                "port": "TStates",
-                "size": 3
+                "port": "TStates"
               },
               "target": {
                 "block": "3fc5243b-4a21-4041-a1e9-fb0f10472c44",
@@ -27619,16 +27566,14 @@
               },
               "target": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "tstates",
-                "size": 3
+                "port": "tstates"
               },
               "size": 3
             },
             {
               "source": {
                 "block": "616eecee-1164-405c-be7a-41e94d6fc506",
-                "port": "Prefix",
-                "size": 2
+                "port": "Prefix"
               },
               "target": {
                 "block": "78c38954-300d-4bad-abaf-8ee4d94e6ba6",
@@ -27643,8 +27588,7 @@
               },
               "target": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "Prefix",
-                "size": 2
+                "port": "Prefix"
               },
               "size": 2
             },
@@ -27681,8 +27625,7 @@
             {
               "source": {
                 "block": "616eecee-1164-405c-be7a-41e94d6fc506",
-                "port": "IncDec_16",
-                "size": 4
+                "port": "IncDec_16"
               },
               "target": {
                 "block": "e54b4f40-56b3-4366-915a-84a67650dac9",
@@ -27717,8 +27660,7 @@
               },
               "target": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "IncDec_16",
-                "size": 4
+                "port": "IncDec_16"
               },
               "size": 4
             },
@@ -27755,8 +27697,7 @@
             {
               "source": {
                 "block": "616eecee-1164-405c-be7a-41e94d6fc506",
-                "port": "Set_BusA_To",
-                "size": 4
+                "port": "Set_BusA_To"
               },
               "target": {
                 "block": "cc677f84-d555-4404-839f-19c76092ef59",
@@ -27771,16 +27712,14 @@
               },
               "target": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "Set_BusA_To",
-                "size": 4
+                "port": "Set_BusA_To"
               },
               "size": 4
             },
             {
               "source": {
                 "block": "616eecee-1164-405c-be7a-41e94d6fc506",
-                "port": "Set_BusB_To",
-                "size": 4
+                "port": "Set_BusB_To"
               },
               "target": {
                 "block": "41af9fd7-6c41-4cc3-8377-0cc5e193d738",
@@ -27795,16 +27734,14 @@
               },
               "target": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "Set_BusB_To",
-                "size": 4
+                "port": "Set_BusB_To"
               },
               "size": 4
             },
             {
               "source": {
                 "block": "616eecee-1164-405c-be7a-41e94d6fc506",
-                "port": "ALU_Op",
-                "size": 4
+                "port": "ALU_Op"
               },
               "target": {
                 "block": "e7d8dcf3-a111-4d38-8bc0-eedc282498f8",
@@ -27819,16 +27756,14 @@
               },
               "target": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "ALU_Op",
-                "size": 4
+                "port": "ALU_Op"
               },
               "size": 4
             },
             {
               "source": {
                 "block": "616eecee-1164-405c-be7a-41e94d6fc506",
-                "port": "Set_Addr_To",
-                "size": 3
+                "port": "Set_Addr_To"
               },
               "target": {
                 "block": "7be70359-76b5-4fb8-bf84-b23e970ec3b6",
@@ -27843,16 +27778,14 @@
               },
               "target": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "Set_Addr_To",
-                "size": 3
+                "port": "Set_Addr_To"
               },
               "size": 3
             },
             {
               "source": {
                 "block": "616eecee-1164-405c-be7a-41e94d6fc506",
-                "port": "Special_LD",
-                "size": 3
+                "port": "Special_LD"
               },
               "target": {
                 "block": "243eb97f-3482-44ab-88da-2f47558d6730",
@@ -27867,16 +27800,14 @@
               },
               "target": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "Special_LD",
-                "size": 3
+                "port": "Special_LD"
               },
               "size": 3
             },
             {
               "source": {
                 "block": "616eecee-1164-405c-be7a-41e94d6fc506",
-                "port": "IMode",
-                "size": 2
+                "port": "IMode"
               },
               "target": {
                 "block": "2ac94730-f9ad-4b83-959d-a65e392f9c79",
@@ -27891,8 +27822,7 @@
               },
               "target": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "IMode",
-                "size": 2
+                "port": "IMode"
               },
               "size": 2
             },
@@ -28523,8 +28453,7 @@
               },
               "target": {
                 "block": "616eecee-1164-405c-be7a-41e94d6fc506",
-                "port": "MCycle",
-                "size": 7
+                "port": "MCycle"
               },
               "size": 7
             },
