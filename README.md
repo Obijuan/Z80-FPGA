@@ -9,7 +9,7 @@ Z80 CPU for OpenFPGAs, with Icestudio
 
 * Open the **z80-soc-16KB-Boot.ice** file with Icestudio
 * Connect the Alhambra-II board (or compatible) and upload the design
-* After 2min aprox. the LEDs will show the value 0xAA
+* After 1 min aprox. the LEDs will show the value 0xAA
 * Let's upload a program test: open a terminal
 * Move to the roms folder
 * Execute the following line:
