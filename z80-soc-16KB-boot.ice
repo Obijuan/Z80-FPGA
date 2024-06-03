@@ -26347,10 +26347,10 @@
               }
             },
             {
-              "id": "8f7cd6c7-8653-4fc4-b66d-63615d25dcf1",
+              "id": "2000d347-3f77-4ba6-87cd-aa4bf163c779",
               "type": "basic.code",
               "data": {
-                "code": "\nlocalparam Mode = 0;    // 0 => Z80, 1 => Fast Z80, 2 => 8080, 3 => GB\nlocalparam T2Write = 1; // 0 => wr_n active in T3, /=0 => wr_n active in T2\nlocalparam IOWait  = 1; // 0 => Single cycle I/O, 1 => Std I/O cycle\n\n  reg           mreq_n_i;\n  assign mreq_n = mreq_n_i;\n\n  reg           iorq_n_i;\n  assign iorq_n = iorq_n_i;\n\n  reg           rd_n;\n  reg           wr_n;\n\n  wire          intcycle_n;\n  wire          no_read;\n  wire          write;\n  wire          iorq;\n  reg [7:0]     di_reg;\n  wire [6:0]    mcycle;\n  wire [6:0]    tstate;\n\n\n  always @(posedge clk or negedge reset_n)\n    begin\n      if (!reset_n)\n        begin\n          rd_n   <= 1'b1;\n          wr_n   <= 1'b1;\n          iorq_n_i <= 1'b1;\n          mreq_n_i <= 1'b1;\n          di_reg <= 0;\n        end\n      else if(cen)\n        begin\n          rd_n <= 1'b1;\n          wr_n <= 1'b1;\n          iorq_n_i <= 1'b1;\n          mreq_n_i <= 1'b1;\n          if (mcycle[0])\n            begin\n              if (tstate[1] || (tstate[2] && wait_n == 1'b0))\n                begin\n                  rd_n <= ~ intcycle_n;\n                  mreq_n_i <= ~ intcycle_n;\n                  iorq_n_i <= intcycle_n;\n                end\n            `ifdef TV80_REFRESH\n              if (tstate[3])\n            mreq_n_i <= 1'b0;\n            `endif\n            end // if (mcycle[0])\n          else\n            begin\n              if ((tstate[1] || (tstate[2] && wait_n == 1'b0)) && no_read == 1'b0 && write == 1'b0)\n                begin\n                  rd_n <= 1'b0;\n                  iorq_n_i <= ~ iorq;\n                  mreq_n_i <= iorq;\n                end\n              if (T2Write == 0)\n                begin\n                  if (tstate[2] && write == 1'b1)\n                    begin\n                      wr_n <= 1'b0;\n                      iorq_n_i <= ~ iorq;\n                      mreq_n_i <= iorq;\n                    end\n                end\n              else\n                begin\n                  if ((tstate[1] || (tstate[2] && wait_n == 1'b0)) && write == 1'b1)\n                    begin\n                      wr_n <= 1'b0;\n                      iorq_n_i <= ~ iorq;\n                      mreq_n_i <= iorq;\n                  end\n                end // else: !if(T2write == 0)\n\n            end // else: !if(mcycle[0])\n\n          if (tstate[2] && wait_n == 1'b1)\n            di_reg <= di;\n        end // else: !if(!reset_n)\n    end // always @ (posedge clk or negedge reset_n)\n\n\n\n",
+                "code": "\nlocalparam Mode = 0;    // 0 => Z80, 1 => Fast Z80, 2 => 8080, 3 => GB\nlocalparam T2Write = 1; // 0 => wr_n active in T3, /=0 => wr_n active in T2\nlocalparam IOWait  = 1; // 0 => Single cycle I/O, 1 => Std I/O cycle\n\n  reg           mreq_n_i;\n  assign mreq_n = mreq_n_i;\n\n  reg           iorq_n_i;\n  assign iorq_n = iorq_n_i;\n\n  reg           rd_n_i;\n  assign rd_n = rd_n_i;\n\n  reg           wr_n;\n\n  wire          intcycle_n;\n  wire          no_read;\n  wire          write;\n  wire          iorq;\n  reg [7:0]     di_reg;\n  wire [6:0]    mcycle;\n  wire [6:0]    tstate;\n\n\n  always @(posedge clk or negedge reset_n)\n    begin\n      if (!reset_n)\n        begin\n          rd_n_i   <= 1'b1;\n          wr_n   <= 1'b1;\n          iorq_n_i <= 1'b1;\n          mreq_n_i <= 1'b1;\n          di_reg <= 0;\n        end\n      else if(cen)\n        begin\n          rd_n_i <= 1'b1;\n          wr_n <= 1'b1;\n          iorq_n_i <= 1'b1;\n          mreq_n_i <= 1'b1;\n          if (mcycle[0])\n            begin\n              if (tstate[1] || (tstate[2] && wait_n == 1'b0))\n                begin\n                  rd_n_i <= ~ intcycle_n;\n                  mreq_n_i <= ~ intcycle_n;\n                  iorq_n_i <= intcycle_n;\n                end\n            `ifdef TV80_REFRESH\n              if (tstate[3])\n            mreq_n_i <= 1'b0;\n            `endif\n            end // if (mcycle[0])\n          else\n            begin\n              if ((tstate[1] || (tstate[2] && wait_n == 1'b0)) && no_read == 1'b0 && write == 1'b0)\n                begin\n                  rd_n_i <= 1'b0;\n                  iorq_n_i <= ~ iorq;\n                  mreq_n_i <= iorq;\n                end\n              if (T2Write == 0)\n                begin\n                  if (tstate[2] && write == 1'b1)\n                    begin\n                      wr_n <= 1'b0;\n                      iorq_n_i <= ~ iorq;\n                      mreq_n_i <= iorq;\n                    end\n                end\n              else\n                begin\n                  if ((tstate[1] || (tstate[2] && wait_n == 1'b0)) && write == 1'b1)\n                    begin\n                      wr_n <= 1'b0;\n                      iorq_n_i <= ~ iorq;\n                      mreq_n_i <= iorq;\n                  end\n                end // else: !if(T2write == 0)\n\n            end // else: !if(mcycle[0])\n\n          if (tstate[2] && wait_n == 1'b1)\n            di_reg <= di;\n        end // else: !if(!reset_n)\n    end // always @ (posedge clk or negedge reset_n)\n\n\n\n",
                 "params": [],
                 "ports": {
                   "in": [
@@ -26442,7 +26442,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "8f7cd6c7-8653-4fc4-b66d-63615d25dcf1",
+                "block": "2000d347-3f77-4ba6-87cd-aa4bf163c779",
                 "port": "iorq"
               }
             },
@@ -26472,7 +26472,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "8f7cd6c7-8653-4fc4-b66d-63615d25dcf1",
+                "block": "2000d347-3f77-4ba6-87cd-aa4bf163c779",
                 "port": "clk"
               }
             },
@@ -26502,7 +26502,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "8f7cd6c7-8653-4fc4-b66d-63615d25dcf1",
+                "block": "2000d347-3f77-4ba6-87cd-aa4bf163c779",
                 "port": "reset_n"
               }
             },
@@ -26512,7 +26512,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "8f7cd6c7-8653-4fc4-b66d-63615d25dcf1",
+                "block": "2000d347-3f77-4ba6-87cd-aa4bf163c779",
                 "port": "no_read"
               }
             },
@@ -26542,7 +26542,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "8f7cd6c7-8653-4fc4-b66d-63615d25dcf1",
+                "block": "2000d347-3f77-4ba6-87cd-aa4bf163c779",
                 "port": "cen"
               }
             },
@@ -26552,7 +26552,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "8f7cd6c7-8653-4fc4-b66d-63615d25dcf1",
+                "block": "2000d347-3f77-4ba6-87cd-aa4bf163c779",
                 "port": "write"
               }
             },
@@ -26573,7 +26573,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "8f7cd6c7-8653-4fc4-b66d-63615d25dcf1",
+                "block": "2000d347-3f77-4ba6-87cd-aa4bf163c779",
                 "port": "di"
               },
               "size": 8
@@ -26602,7 +26602,7 @@
             },
             {
               "source": {
-                "block": "8f7cd6c7-8653-4fc4-b66d-63615d25dcf1",
+                "block": "2000d347-3f77-4ba6-87cd-aa4bf163c779",
                 "port": "di_reg"
               },
               "target": {
@@ -26628,7 +26628,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "8f7cd6c7-8653-4fc4-b66d-63615d25dcf1",
+                "block": "2000d347-3f77-4ba6-87cd-aa4bf163c779",
                 "port": "mcycle"
               },
               "size": 7
@@ -26650,7 +26650,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "8f7cd6c7-8653-4fc4-b66d-63615d25dcf1",
+                "block": "2000d347-3f77-4ba6-87cd-aa4bf163c779",
                 "port": "tstate"
               },
               "size": 7
@@ -26671,7 +26671,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "8f7cd6c7-8653-4fc4-b66d-63615d25dcf1",
+                "block": "2000d347-3f77-4ba6-87cd-aa4bf163c779",
                 "port": "intcycle_n"
               }
             },
@@ -26701,7 +26701,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "8f7cd6c7-8653-4fc4-b66d-63615d25dcf1",
+                "block": "2000d347-3f77-4ba6-87cd-aa4bf163c779",
                 "port": "wait_n"
               }
             },
@@ -26787,7 +26787,7 @@
             },
             {
               "source": {
-                "block": "8f7cd6c7-8653-4fc4-b66d-63615d25dcf1",
+                "block": "2000d347-3f77-4ba6-87cd-aa4bf163c779",
                 "port": "mreq_n"
               },
               "target": {
@@ -26807,7 +26807,7 @@
             },
             {
               "source": {
-                "block": "8f7cd6c7-8653-4fc4-b66d-63615d25dcf1",
+                "block": "2000d347-3f77-4ba6-87cd-aa4bf163c779",
                 "port": "iorq_n"
               },
               "target": {
@@ -26827,7 +26827,7 @@
             },
             {
               "source": {
-                "block": "8f7cd6c7-8653-4fc4-b66d-63615d25dcf1",
+                "block": "2000d347-3f77-4ba6-87cd-aa4bf163c779",
                 "port": "wr_n"
               },
               "target": {
@@ -26847,7 +26847,7 @@
             },
             {
               "source": {
-                "block": "8f7cd6c7-8653-4fc4-b66d-63615d25dcf1",
+                "block": "2000d347-3f77-4ba6-87cd-aa4bf163c779",
                 "port": "rd_n"
               },
               "target": {
