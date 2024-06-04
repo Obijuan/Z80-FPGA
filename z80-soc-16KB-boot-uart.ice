@@ -29477,84 +29477,6 @@
               }
             },
             {
-              "id": "f9772dc5-4ab2-4b9f-9b36-4a1be3e10681",
-              "type": "basic.code",
-              "data": {
-                "code": "\nlocalparam Mode = 0;    // 0 => Z80, 1 => Fast Z80, 2 => 8080, 3 => GB\nlocalparam T2Write = 1; // 0 => wr_n active in T3, /=0 => wr_n active in T2\nlocalparam IOWait  = 1; // 0 => Single cycle I/O, 1 => Std I/O cycle\n\n  reg           mreq_n;\n  reg           iorq_n;\n  reg           rd_n;\n  reg           wr_n;\n\n  wire          intcycle_n;\n  wire          no_read;\n  wire          write;\n  wire          iorq;\n  reg [7:0]     di_reg;\n  wire [6:0]    mcycle;\n  wire [6:0]    tstate;\n\n\n  always @(posedge clk or negedge reset_n)\n    begin\n      if (!reset_n)\n        begin\n          rd_n   <= 1'b1;\n          wr_n   <= 1'b1;\n          iorq_n <= 1'b1;\n          mreq_n <= 1'b1;\n          di_reg <= 0;\n        end\n      else if(cen)\n        begin\n          rd_n <= 1'b1;\n          wr_n <= 1'b1;\n          iorq_n <= 1'b1;\n          mreq_n <= 1'b1;\n          if (mcycle[0])\n            begin\n              if (tstate[1] || (tstate[2] && wait_n == 1'b0))\n                begin\n                  rd_n <= ~ intcycle_n;\n                  mreq_n <= ~ intcycle_n;\n                  iorq_n <= intcycle_n;\n                end\n            `ifdef TV80_REFRESH\n              if (tstate[3])\n            mreq_n <= 1'b0;\n            `endif\n            end // if (mcycle[0])\n          else\n            begin\n              if ((tstate[1] || (tstate[2] && wait_n == 1'b0)) && no_read == 1'b0 && write == 1'b0)\n                begin\n                  rd_n <= 1'b0;\n                  iorq_n <= ~ iorq;\n                  mreq_n <= iorq;\n                end\n              if (T2Write == 0)\n                begin\n                  if (tstate[2] && write == 1'b1)\n                    begin\n                      wr_n <= 1'b0;\n                      iorq_n <= ~ iorq;\n                      mreq_n <= iorq;\n                    end\n                end\n              else\n                begin\n                  if ((tstate[1] || (tstate[2] && wait_n == 1'b0)) && write == 1'b1)\n                    begin\n                      wr_n <= 1'b0;\n                      iorq_n <= ~ iorq;\n                      mreq_n <= iorq;\n                  end\n                end // else: !if(T2write == 0)\n\n            end // else: !if(mcycle[0])\n\n          if (tstate[2] && wait_n == 1'b1)\n            di_reg <= di;\n        end // else: !if(!reset_n)\n    end // always @ (posedge clk or negedge reset_n)\n\n\n\n",
-                "params": [],
-                "ports": {
-                  "in": [
-                    {
-                      "name": "clk"
-                    },
-                    {
-                      "name": "reset_n"
-                    },
-                    {
-                      "name": "wait_n"
-                    },
-                    {
-                      "name": "di",
-                      "range": "[7:0]",
-                      "size": 8
-                    },
-                    {
-                      "name": "cen"
-                    },
-                    {
-                      "name": "iorq"
-                    },
-                    {
-                      "name": "no_read"
-                    },
-                    {
-                      "name": "write"
-                    },
-                    {
-                      "name": "mcycle",
-                      "range": "[6:0]",
-                      "size": 7
-                    },
-                    {
-                      "name": "tstate",
-                      "range": "[6:0]",
-                      "size": 7
-                    },
-                    {
-                      "name": "intcycle_n"
-                    }
-                  ],
-                  "out": [
-                    {
-                      "name": "mreq_n"
-                    },
-                    {
-                      "name": "iorq_n"
-                    },
-                    {
-                      "name": "wr_n"
-                    },
-                    {
-                      "name": "rd_n"
-                    },
-                    {
-                      "name": "di_reg",
-                      "range": "[7:0]",
-                      "size": 8
-                    }
-                  ]
-                }
-              },
-              "position": {
-                "x": -168,
-                "y": 232
-              },
-              "size": {
-                "width": 408,
-                "height": 824
-              }
-            },
-            {
               "id": "70710ddf-4e51-43f1-b2ee-cacca0c33e16",
               "type": "basic.info",
               "data": {
@@ -30383,6 +30305,84 @@
                 "width": 704,
                 "height": 384
               }
+            },
+            {
+              "id": "74d20c79-4e87-44ad-98ba-c2b1225410e7",
+              "type": "basic.code",
+              "data": {
+                "code": "localparam Mode = 0;    // 0 => Z80, 1 => Fast Z80, 2 => 8080, 3 => GB\nlocalparam T2Write = 1; // 0 => wr_n active in T3, /=0 => wr_n active in T2\nlocalparam IOWait  = 1; // 0 => Single cycle I/O, 1 => Std I/O cycle\n\n  reg           mreq_n_i;\n  assign mreq_n = mreq_n_i;\n\n  reg           iorq_n_i;\n  assign iorq_n = iorq_n_i;\n\n  reg           rd_n_i;\n  assign rd_n = rd_n_i;\n\n  reg           wr_n_i;\n  assign wr_n = wr_n_i;\n\n  wire          intcycle_n_i;\n  assign intcycle_n = intcycle_n_i;\n\n  wire          no_read_i;\n  assign no_read = no_read_i;\n\n  wire          write_i;\n  assign write = write_i;\n\n  wire          iorq_i;\n  assign iorq = iorq_i;\n\n  reg [7:0]     di_reg_i;\n  assign di_reg = di_reg_i;\n\n  wire [6:0]    mcycle_i;\n  assign mcycle = mcycle_i;\n\n  wire [6:0]    tstate_i;\n  assign tstate = tstate_i;\n\n\n  always @(posedge clk or negedge reset_n)\n    begin\n      if (!reset_n)\n        begin\n          rd_n_i   <= 1'b1;\n          wr_n_i   <= 1'b1;\n          iorq_n_i <= 1'b1;\n          mreq_n_i <= 1'b1;\n          di_reg_i <= 0;\n        end\n      else if(cen)\n        begin\n          rd_n_i <= 1'b1;\n          wr_n_i <= 1'b1;\n          iorq_n_i <= 1'b1;\n          mreq_n_i <= 1'b1;\n          if (mcycle_i[0])\n            begin\n              if (tstate_i[1] || (tstate_i[2] && wait_n == 1'b0))\n                begin\n                  rd_n_i <= ~ intcycle_n_i;\n                  mreq_n_i <= ~ intcycle_n_i;\n                  iorq_n_i <= intcycle_n_i;\n                end\n            `ifdef TV80_REFRESH\n              if (tstate_i[3])\n            mreq_n_i <= 1'b0;\n            `endif\n            end // if (mcycle_i[0])\n          else\n            begin\n              if ((tstate_i[1] || (tstate_i[2] && wait_n == 1'b0)) && no_read_i == 1'b0 && write_i == 1'b0)\n                begin\n                  rd_n_i <= 1'b0;\n                  iorq_n_i <= ~ iorq_i;\n                  mreq_n_i <= iorq_i;\n                end\n              if (T2Write == 0)\n                begin\n                  if (tstate_i[2] && write_i == 1'b1)\n                    begin\n                      wr_n_i <= 1'b0;\n                      iorq_n_i <= ~ iorq_i;\n                      mreq_n_i <= iorq_i;\n                    end\n                end\n              else\n                begin\n                  if ((tstate_i[1] || (tstate_i[2] && wait_n == 1'b0)) && write_i == 1'b1)\n                    begin\n                      wr_n_i <= 1'b0;\n                      iorq_n_i <= ~ iorq_i;\n                      mreq_n_i <= iorq_i;\n                  end\n                end // else: !if(T2write == 0)\n\n            end // else: !if(mcycle_i[0])\n\n          if (tstate_i[2] && wait_n == 1'b1)\n            di_reg_i <= di;\n        end // else: !if(!reset_n)\n    end // always @ (posedge clk or negedge reset_n)\n\n\n\n",
+                "params": [],
+                "ports": {
+                  "in": [
+                    {
+                      "name": "clk"
+                    },
+                    {
+                      "name": "reset_n"
+                    },
+                    {
+                      "name": "wait_n"
+                    },
+                    {
+                      "name": "di",
+                      "range": "[7:0]",
+                      "size": 8
+                    },
+                    {
+                      "name": "cen"
+                    },
+                    {
+                      "name": "iorq"
+                    },
+                    {
+                      "name": "no_read"
+                    },
+                    {
+                      "name": "write"
+                    },
+                    {
+                      "name": "mcycle",
+                      "range": "[6:0]",
+                      "size": 7
+                    },
+                    {
+                      "name": "tstate",
+                      "range": "[6:0]",
+                      "size": 7
+                    },
+                    {
+                      "name": "intcycle_n"
+                    }
+                  ],
+                  "out": [
+                    {
+                      "name": "mreq_n"
+                    },
+                    {
+                      "name": "iorq_n"
+                    },
+                    {
+                      "name": "wr_n"
+                    },
+                    {
+                      "name": "rd_n"
+                    },
+                    {
+                      "name": "di_reg",
+                      "range": "[7:0]",
+                      "size": 8
+                    }
+                  ]
+                }
+              },
+              "position": {
+                "x": -168,
+                "y": 232
+              },
+              "size": {
+                "width": 408,
+                "height": 824
+              }
             }
           ],
           "wires": [
@@ -30402,7 +30402,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f9772dc5-4ab2-4b9f-9b36-4a1be3e10681",
+                "block": "74d20c79-4e87-44ad-98ba-c2b1225410e7",
                 "port": "iorq"
               }
             },
@@ -30432,7 +30432,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f9772dc5-4ab2-4b9f-9b36-4a1be3e10681",
+                "block": "74d20c79-4e87-44ad-98ba-c2b1225410e7",
                 "port": "clk"
               }
             },
@@ -30462,7 +30462,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f9772dc5-4ab2-4b9f-9b36-4a1be3e10681",
+                "block": "74d20c79-4e87-44ad-98ba-c2b1225410e7",
                 "port": "reset_n"
               }
             },
@@ -30472,7 +30472,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f9772dc5-4ab2-4b9f-9b36-4a1be3e10681",
+                "block": "74d20c79-4e87-44ad-98ba-c2b1225410e7",
                 "port": "no_read"
               }
             },
@@ -30502,7 +30502,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f9772dc5-4ab2-4b9f-9b36-4a1be3e10681",
+                "block": "74d20c79-4e87-44ad-98ba-c2b1225410e7",
                 "port": "cen"
               }
             },
@@ -30512,14 +30512,15 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f9772dc5-4ab2-4b9f-9b36-4a1be3e10681",
+                "block": "74d20c79-4e87-44ad-98ba-c2b1225410e7",
                 "port": "write"
               }
             },
             {
               "source": {
                 "block": "9009c653-d4d5-488d-b74f-9001f1f007d9",
-                "port": "out"
+                "port": "out",
+                "size": 8
               },
               "target": {
                 "block": "94d4bceb-97ef-42b1-84ee-df8c7fff17cf",
@@ -30533,8 +30534,9 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f9772dc5-4ab2-4b9f-9b36-4a1be3e10681",
-                "port": "di"
+                "block": "74d20c79-4e87-44ad-98ba-c2b1225410e7",
+                "port": "di",
+                "size": 8
               },
               "size": 8
             },
@@ -30545,7 +30547,8 @@
               },
               "target": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "dinst"
+                "port": "dinst",
+                "size": 8
               },
               "size": 8
             },
@@ -30556,14 +30559,16 @@
               },
               "target": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "di"
+                "port": "di",
+                "size": 8
               },
               "size": 8
             },
             {
               "source": {
-                "block": "f9772dc5-4ab2-4b9f-9b36-4a1be3e10681",
-                "port": "di_reg"
+                "block": "74d20c79-4e87-44ad-98ba-c2b1225410e7",
+                "port": "di_reg",
+                "size": 8
               },
               "target": {
                 "block": "6bc26324-c003-4219-998b-69daec52a430",
@@ -30574,7 +30579,8 @@
             {
               "source": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "mc"
+                "port": "mc",
+                "size": 7
               },
               "target": {
                 "block": "bd5f96f6-7472-4bb5-b171-361a29fc56b5",
@@ -30588,15 +30594,17 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f9772dc5-4ab2-4b9f-9b36-4a1be3e10681",
-                "port": "mcycle"
+                "block": "74d20c79-4e87-44ad-98ba-c2b1225410e7",
+                "port": "mcycle",
+                "size": 7
               },
               "size": 7
             },
             {
               "source": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "ts"
+                "port": "ts",
+                "size": 7
               },
               "target": {
                 "block": "6302d182-8dc2-436f-a59d-2a81e17c8dad",
@@ -30610,8 +30618,9 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f9772dc5-4ab2-4b9f-9b36-4a1be3e10681",
-                "port": "tstate"
+                "block": "74d20c79-4e87-44ad-98ba-c2b1225410e7",
+                "port": "tstate",
+                "size": 7
               },
               "size": 7
             },
@@ -30631,7 +30640,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f9772dc5-4ab2-4b9f-9b36-4a1be3e10681",
+                "block": "74d20c79-4e87-44ad-98ba-c2b1225410e7",
                 "port": "intcycle_n"
               }
             },
@@ -30661,7 +30670,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f9772dc5-4ab2-4b9f-9b36-4a1be3e10681",
+                "block": "74d20c79-4e87-44ad-98ba-c2b1225410e7",
                 "port": "wait_n"
               }
             },
@@ -30747,7 +30756,7 @@
             },
             {
               "source": {
-                "block": "f9772dc5-4ab2-4b9f-9b36-4a1be3e10681",
+                "block": "74d20c79-4e87-44ad-98ba-c2b1225410e7",
                 "port": "mreq_n"
               },
               "target": {
@@ -30767,7 +30776,7 @@
             },
             {
               "source": {
-                "block": "f9772dc5-4ab2-4b9f-9b36-4a1be3e10681",
+                "block": "74d20c79-4e87-44ad-98ba-c2b1225410e7",
                 "port": "iorq_n"
               },
               "target": {
@@ -30787,7 +30796,7 @@
             },
             {
               "source": {
-                "block": "f9772dc5-4ab2-4b9f-9b36-4a1be3e10681",
+                "block": "74d20c79-4e87-44ad-98ba-c2b1225410e7",
                 "port": "wr_n"
               },
               "target": {
@@ -30807,7 +30816,7 @@
             },
             {
               "source": {
-                "block": "f9772dc5-4ab2-4b9f-9b36-4a1be3e10681",
+                "block": "74d20c79-4e87-44ad-98ba-c2b1225410e7",
                 "port": "rd_n"
               },
               "target": {
@@ -30892,14 +30901,16 @@
               },
               "target": {
                 "block": "d8afee16-1b38-4907-875a-60e69eccac4e",
-                "port": "in"
+                "port": "in",
+                "size": 16
               },
               "size": 16
             },
             {
               "source": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "A"
+                "port": "A",
+                "size": 16
               },
               "target": {
                 "block": "80e5f837-ae41-40e1-a105-f72a9013c12f",
@@ -30910,7 +30921,8 @@
             {
               "source": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "dout"
+                "port": "dout",
+                "size": 8
               },
               "target": {
                 "block": "be78c7d4-1df4-4ffa-8f2a-953789286fb4",
@@ -30925,7 +30937,8 @@
               },
               "target": {
                 "block": "2ae0b1f2-c68b-406a-866a-e9947c2423ce",
-                "port": "in"
+                "port": "in",
+                "size": 8
               },
               "size": 8
             },
@@ -30976,14 +30989,16 @@
               },
               "target": {
                 "block": "e65c354c-1e8c-4ef3-bda2-057af507e441",
-                "port": "ALU_Op"
+                "port": "ALU_Op",
+                "size": 4
               },
               "size": 4
             },
             {
               "source": {
                 "block": "d5d52d08-9c48-4fa4-ba67-1c820d026a17",
-                "port": "7703d474-9708-4706-a961-8807a4be9699"
+                "port": "7703d474-9708-4706-a961-8807a4be9699",
+                "size": 6
               },
               "target": {
                 "block": "f8f12e97-d25b-4e3d-b0ce-2a4997f78dfb",
@@ -30998,14 +31013,16 @@
               },
               "target": {
                 "block": "e65c354c-1e8c-4ef3-bda2-057af507e441",
-                "port": "IR"
+                "port": "IR",
+                "size": 6
               },
               "size": 6
             },
             {
               "source": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "ISet"
+                "port": "ISet",
+                "size": 2
               },
               "target": {
                 "block": "89c6b511-6253-4245-9293-bae8e88f918e",
@@ -31020,14 +31037,16 @@
               },
               "target": {
                 "block": "e65c354c-1e8c-4ef3-bda2-057af507e441",
-                "port": "ISet"
+                "port": "ISet",
+                "size": 2
               },
               "size": 2
             },
             {
               "source": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "BusA"
+                "port": "BusA",
+                "size": 8
               },
               "target": {
                 "block": "cac817c0-1817-4a08-a1f1-faf0874d4789",
@@ -31042,7 +31061,8 @@
               },
               "target": {
                 "block": "e65c354c-1e8c-4ef3-bda2-057af507e441",
-                "port": "BusA"
+                "port": "BusA",
+                "size": 8
               },
               "size": 8
             },
@@ -31053,14 +31073,16 @@
               },
               "target": {
                 "block": "e65c354c-1e8c-4ef3-bda2-057af507e441",
-                "port": "BusB"
+                "port": "BusB",
+                "size": 8
               },
               "size": 8
             },
             {
               "source": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "BusB"
+                "port": "BusB",
+                "size": 8
               },
               "target": {
                 "block": "a94558d8-450c-41af-b036-a6ece91f9741",
@@ -31075,14 +31097,16 @@
               },
               "target": {
                 "block": "e65c354c-1e8c-4ef3-bda2-057af507e441",
-                "port": "F_In"
+                "port": "F_In",
+                "size": 8
               },
               "size": 8
             },
             {
               "source": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "F"
+                "port": "F",
+                "size": 8
               },
               "target": {
                 "block": "eb374ede-a8bd-45e3-b7f6-d62b4e107435",
@@ -31093,7 +31117,8 @@
             {
               "source": {
                 "block": "e65c354c-1e8c-4ef3-bda2-057af507e441",
-                "port": "Q"
+                "port": "Q",
+                "size": 8
               },
               "target": {
                 "block": "cb8fa1aa-5a8d-4171-a15f-a68f881796d2",
@@ -31108,14 +31133,16 @@
               },
               "target": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "ALU_Q"
+                "port": "ALU_Q",
+                "size": 8
               },
               "size": 8
             },
             {
               "source": {
                 "block": "e65c354c-1e8c-4ef3-bda2-057af507e441",
-                "port": "F_Out"
+                "port": "F_Out",
+                "size": 8
               },
               "target": {
                 "block": "10d9a312-7054-4293-a55b-8e1275741d8a",
@@ -31130,14 +31157,16 @@
               },
               "target": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "F_Out"
+                "port": "F_Out",
+                "size": 8
               },
               "size": 8
             },
             {
               "source": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "ALU_Op_r"
+                "port": "ALU_Op_r",
+                "size": 4
               },
               "target": {
                 "block": "651b9daa-b245-4d86-9207-786ac75a4e49",
@@ -31218,7 +31247,8 @@
             {
               "source": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "RegAddrA"
+                "port": "RegAddrA",
+                "size": 3
               },
               "target": {
                 "block": "aa574585-41c3-4781-bb80-2ab22757bc6e",
@@ -31233,7 +31263,8 @@
               },
               "target": {
                 "block": "187156d8-8481-45c6-b34a-550ad9714dca",
-                "port": "AddrA"
+                "port": "AddrA",
+                "size": 3
               },
               "size": 3
             },
@@ -31244,14 +31275,16 @@
               },
               "target": {
                 "block": "187156d8-8481-45c6-b34a-550ad9714dca",
-                "port": "AddrB"
+                "port": "AddrB",
+                "size": 3
               },
               "size": 3
             },
             {
               "source": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "RegAddrB"
+                "port": "RegAddrB",
+                "size": 3
               },
               "target": {
                 "block": "c5a5272a-450b-42f3-b7ba-fdeef8a59090",
@@ -31266,14 +31299,16 @@
               },
               "target": {
                 "block": "187156d8-8481-45c6-b34a-550ad9714dca",
-                "port": "AddrC"
+                "port": "AddrC",
+                "size": 3
               },
               "size": 3
             },
             {
               "source": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "RegAddrC"
+                "port": "RegAddrC",
+                "size": 3
               },
               "target": {
                 "block": "1d269ff0-d0ed-4b7a-835d-512706b555af",
@@ -31288,14 +31323,16 @@
               },
               "target": {
                 "block": "187156d8-8481-45c6-b34a-550ad9714dca",
-                "port": "DIH"
+                "port": "DIH",
+                "size": 8
               },
               "size": 8
             },
             {
               "source": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "RegDIH"
+                "port": "RegDIH",
+                "size": 8
               },
               "target": {
                 "block": "0dc901aa-286d-4d6e-b145-8a6ea2f4aaff",
@@ -31310,14 +31347,16 @@
               },
               "target": {
                 "block": "187156d8-8481-45c6-b34a-550ad9714dca",
-                "port": "DIL"
+                "port": "DIL",
+                "size": 8
               },
               "size": 8
             },
             {
               "source": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "RegDIL"
+                "port": "RegDIL",
+                "size": 8
               },
               "target": {
                 "block": "98c605c1-e1f7-43f1-9e39-3fe9a7397f5f",
@@ -31328,7 +31367,8 @@
             {
               "source": {
                 "block": "1c62e369-8341-467a-816a-86138ca3fc93",
-                "port": "84292ebb-60eb-48e2-bdac-43cdd0d604af"
+                "port": "84292ebb-60eb-48e2-bdac-43cdd0d604af",
+                "size": 16
               },
               "target": {
                 "block": "34f03b2a-b05f-49c5-ae62-fd0ac54db4a8",
@@ -31343,7 +31383,8 @@
               },
               "target": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "RegBusA"
+                "port": "RegBusA",
+                "size": 16
               },
               "size": 16
             },
@@ -31354,7 +31395,8 @@
               },
               "target": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "RegBusB"
+                "port": "RegBusB",
+                "size": 16
               },
               "size": 16
             },
@@ -31365,14 +31407,16 @@
               },
               "target": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "RegBusC"
+                "port": "RegBusC",
+                "size": 16
               },
               "size": 16
             },
             {
               "source": {
                 "block": "ef2948b4-9103-48e5-b5df-fa5d5b12c48e",
-                "port": "84292ebb-60eb-48e2-bdac-43cdd0d604af"
+                "port": "84292ebb-60eb-48e2-bdac-43cdd0d604af",
+                "size": 16
               },
               "target": {
                 "block": "cb1a2cb2-bdd9-4319-a84a-1b7978a8834f",
@@ -31383,7 +31427,8 @@
             {
               "source": {
                 "block": "b1474a5c-4150-44e4-a31b-2931a5fddcd6",
-                "port": "84292ebb-60eb-48e2-bdac-43cdd0d604af"
+                "port": "84292ebb-60eb-48e2-bdac-43cdd0d604af",
+                "size": 16
               },
               "target": {
                 "block": "75110e7b-f502-4cd7-9c02-ad43eeff9a49",
@@ -31394,7 +31439,8 @@
             {
               "source": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "IR"
+                "port": "IR",
+                "size": 8
               },
               "target": {
                 "block": "94da4a28-96ce-418f-b422-cedf42eaf6a9",
@@ -31409,7 +31455,8 @@
               },
               "target": {
                 "block": "616eecee-1164-405c-be7a-41e94d6fc506",
-                "port": "IR"
+                "port": "IR",
+                "size": 8
               },
               "size": 8
             },
@@ -31420,14 +31467,16 @@
               },
               "target": {
                 "block": "616eecee-1164-405c-be7a-41e94d6fc506",
-                "port": "ISet"
+                "port": "ISet",
+                "size": 2
               },
               "size": 2
             },
             {
               "source": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "mcycle"
+                "port": "mcycle",
+                "size": 7
               },
               "target": {
                 "block": "077b0468-da58-49d2-8c06-1679d241f730",
@@ -31442,7 +31491,8 @@
               },
               "target": {
                 "block": "616eecee-1164-405c-be7a-41e94d6fc506",
-                "port": "F"
+                "port": "F",
+                "size": 8
               },
               "size": 8
             },
@@ -31493,14 +31543,16 @@
               },
               "target": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "mcycles_d"
+                "port": "mcycles_d",
+                "size": 3
               },
               "size": 3
             },
             {
               "source": {
                 "block": "616eecee-1164-405c-be7a-41e94d6fc506",
-                "port": "MCycles"
+                "port": "MCycles",
+                "size": 3
               },
               "target": {
                 "block": "c38ad879-1f74-4f22-b760-893eb0844753",
@@ -31511,7 +31563,8 @@
             {
               "source": {
                 "block": "616eecee-1164-405c-be7a-41e94d6fc506",
-                "port": "TStates"
+                "port": "TStates",
+                "size": 3
               },
               "target": {
                 "block": "3fc5243b-4a21-4041-a1e9-fb0f10472c44",
@@ -31526,14 +31579,16 @@
               },
               "target": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "tstates"
+                "port": "tstates",
+                "size": 3
               },
               "size": 3
             },
             {
               "source": {
                 "block": "616eecee-1164-405c-be7a-41e94d6fc506",
-                "port": "Prefix"
+                "port": "Prefix",
+                "size": 2
               },
               "target": {
                 "block": "78c38954-300d-4bad-abaf-8ee4d94e6ba6",
@@ -31548,7 +31603,8 @@
               },
               "target": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "Prefix"
+                "port": "Prefix",
+                "size": 2
               },
               "size": 2
             },
@@ -31585,7 +31641,8 @@
             {
               "source": {
                 "block": "616eecee-1164-405c-be7a-41e94d6fc506",
-                "port": "IncDec_16"
+                "port": "IncDec_16",
+                "size": 4
               },
               "target": {
                 "block": "e54b4f40-56b3-4366-915a-84a67650dac9",
@@ -31620,7 +31677,8 @@
               },
               "target": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "IncDec_16"
+                "port": "IncDec_16",
+                "size": 4
               },
               "size": 4
             },
@@ -31657,7 +31715,8 @@
             {
               "source": {
                 "block": "616eecee-1164-405c-be7a-41e94d6fc506",
-                "port": "Set_BusA_To"
+                "port": "Set_BusA_To",
+                "size": 4
               },
               "target": {
                 "block": "cc677f84-d555-4404-839f-19c76092ef59",
@@ -31672,14 +31731,16 @@
               },
               "target": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "Set_BusA_To"
+                "port": "Set_BusA_To",
+                "size": 4
               },
               "size": 4
             },
             {
               "source": {
                 "block": "616eecee-1164-405c-be7a-41e94d6fc506",
-                "port": "Set_BusB_To"
+                "port": "Set_BusB_To",
+                "size": 4
               },
               "target": {
                 "block": "41af9fd7-6c41-4cc3-8377-0cc5e193d738",
@@ -31694,14 +31755,16 @@
               },
               "target": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "Set_BusB_To"
+                "port": "Set_BusB_To",
+                "size": 4
               },
               "size": 4
             },
             {
               "source": {
                 "block": "616eecee-1164-405c-be7a-41e94d6fc506",
-                "port": "ALU_Op"
+                "port": "ALU_Op",
+                "size": 4
               },
               "target": {
                 "block": "e7d8dcf3-a111-4d38-8bc0-eedc282498f8",
@@ -31716,14 +31779,16 @@
               },
               "target": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "ALU_Op"
+                "port": "ALU_Op",
+                "size": 4
               },
               "size": 4
             },
             {
               "source": {
                 "block": "616eecee-1164-405c-be7a-41e94d6fc506",
-                "port": "Set_Addr_To"
+                "port": "Set_Addr_To",
+                "size": 3
               },
               "target": {
                 "block": "7be70359-76b5-4fb8-bf84-b23e970ec3b6",
@@ -31738,14 +31803,16 @@
               },
               "target": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "Set_Addr_To"
+                "port": "Set_Addr_To",
+                "size": 3
               },
               "size": 3
             },
             {
               "source": {
                 "block": "616eecee-1164-405c-be7a-41e94d6fc506",
-                "port": "Special_LD"
+                "port": "Special_LD",
+                "size": 3
               },
               "target": {
                 "block": "243eb97f-3482-44ab-88da-2f47558d6730",
@@ -31760,14 +31827,16 @@
               },
               "target": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "Special_LD"
+                "port": "Special_LD",
+                "size": 3
               },
               "size": 3
             },
             {
               "source": {
                 "block": "616eecee-1164-405c-be7a-41e94d6fc506",
-                "port": "IMode"
+                "port": "IMode",
+                "size": 2
               },
               "target": {
                 "block": "2ac94730-f9ad-4b83-959d-a65e392f9c79",
@@ -31782,7 +31851,8 @@
               },
               "target": {
                 "block": "6a084c38-3448-4d1a-86dd-07466d92a596",
-                "port": "IMode"
+                "port": "IMode",
+                "size": 2
               },
               "size": 2
             },
@@ -32413,7 +32483,8 @@
               },
               "target": {
                 "block": "616eecee-1164-405c-be7a-41e94d6fc506",
-                "port": "MCycle"
+                "port": "MCycle",
+                "size": 7
               },
               "size": 7
             },
