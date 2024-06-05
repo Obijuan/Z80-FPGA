@@ -1,0 +1,39 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "dezog",
+            "request": "launch",
+            "name": "Sim Z80",
+            "remoteType": "zsim",
+            "zsim": {
+                "visualMemory": false,
+                "memoryModel": "RAM",
+            },
+            "sjasmplus": [
+                {
+                 "path": "test.sld"
+                }
+            ],
+            "history": {
+                "reverseDebugInstructionCount": 1000000,
+                "spotCount": 10,
+                "codeCoverageEnabled": true
+            },
+            "commandsAfterLaunch": [],
+            "startAutomatically": false,
+            "rootFolder": "${workspaceFolder}",
+            "topOfStack": "topOfStack",
+            "loadObjs": [
+                {
+                    "path": "test.obj",
+                    "start": "0x0000"
+                }
+            ],
+            "execAddress": "main",
+        },
+    ]
+}

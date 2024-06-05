@@ -1,0 +1,58 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build (sjasmplus)",
+            "type": "shell",
+            "command": "sjasmplus",
+            "args": [
+                "--sld=${fileBasenameNoExtension}.sld",
+                "--sym=${fileBasenameNoExtension}.labels",
+                "--raw=${fileBasenameNoExtension}.obj",
+                "--fullpath",
+                "${fileBasename}"
+            ],
+            "problemMatcher": {
+                "owner": "sjasmplus",
+                "fileLocation": "autoDetect",
+                "pattern": {
+                    "regexp": "^(.*)\\((\\d+)\\):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "severity": 3,
+                    "message": 4
+                }
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Build (Z80asm)",
+            "type": "shell",
+            "command": "z80asm",
+            "args": [
+                "--output=${fileBasenameNoExtension}.bin",
+                "--list=${fileBasenameNoExtension}.list",
+                "--label=${fileBasenameNoExtension}.labels",
+                "${fileBasename}"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Test",
+            "type": "shell",
+            "command": "echo",
+            "args": [
+                "Probando!!!!"
+            ]
+        }
+
+    ]
+}
