@@ -1,2 +1,23 @@
-/* http://srecord.sourceforge.net/ */
-@00000000 3E AA D3 40 76
+# File roms/01-port-leds.s
+0000			;-- Ejemplo 1: Escritura de un valor en el puerto de salida 
+0000			;-- donde estan conectados los LEDs 
+0000			 
+0000			PORT_LEDS: equ 0x40  ;--Direccion del puerto de los LEDs 
+0000			VALOR: equ 0xAA  ;-- Valor a sacar en los LEDs 
+0000			 
+0000			;-- Al arrancar, el Z80 lee la instruccion de la 
+0000			;-- direccion 0 
+0000			org 0x0000 
+0000			main: 
+0000			  ;-- Cargar el valor en el registro A 
+0000 3e aa		  ld	A, VALOR 
+0002			 
+0002			  ;-- Escribir el valor en puerto de los LEDs 
+0002 d3 40		  out	(PORT_LEDS), A 
+0004			 
+0004			  ;-- Terminar. El procesador se para 
+0004 76			  halt 
+0005			 
+0005			topOfStack:
+# End of file roms/01-port-leds.s
+0005

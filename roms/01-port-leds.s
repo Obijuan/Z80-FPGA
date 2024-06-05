@@ -7,7 +7,7 @@ VALOR: equ 0xAA  ;-- Valor a sacar en los LEDs
 ;-- Al arrancar, el Z80 lee la instruccion de la
 ;-- direccion 0
 org 0x0000
-
+main:
   ;-- Cargar el valor en el registro A
   ld	A, VALOR
 
@@ -16,3 +16,5 @@ org 0x0000
 
   ;-- Terminar. El procesador se para
   halt
+
+topOfStack:
