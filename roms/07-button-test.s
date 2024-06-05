@@ -6,7 +6,8 @@ LEDS:  equ 0x40
 BUTTON: equ 0x00
 
 ;--- Comienzo del programa
-org 0x0000
+  org 0x0000
+main:
 
 loop:
 
@@ -18,3 +19,6 @@ loop:
 
   ;-- Bucle
   jr loop
+
+  org 0x3fff
+topOfStack:

@@ -10,7 +10,8 @@ VALOR_OFF: equ 0xF0
 VALOR_ON: equ 0x0F
 
 ;--- Comienzo del programa
-org 0x0000
+  org 0x0000
+main:
 
 loop:
   ;-- Leer pulsador
@@ -30,3 +31,6 @@ no_pulsado:
   ld A, VALOR_OFF
   out (LEDS), A
   jr loop
+
+  org 0x3fff
+topOfStack:

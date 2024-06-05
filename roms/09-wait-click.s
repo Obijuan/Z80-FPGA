@@ -13,15 +13,15 @@ BUTTON: equ 0x00
 
 ;--- Comienzo del programa
 org 0x0000
-
+main:
   ;-- Configurar la pila
-  ld sp, STACK
+  ld sp, topOfStack
 
   ;-- Inicializar contador de clicks
   ld D, 0
 
   ;-- Bucle principal
-main:
+main_loop:
   ;-- Mostrar el contador de clicks actual por los LEDs
   ld A, D
   out (LEDS), A
@@ -33,39 +33,42 @@ main:
   inc D
 
   ;-- Repetir
-  jr main
+  jr main_loop
 
 
 wait_click:
 
-;-- Inicializar. Leer el estado actual del pulsador
-in A, (BUTTON)
-ld C, A
+  ;-- Inicializar. Leer el estado actual del pulsador
+  in A, (BUTTON)
+  ld C, A
 
 
 loop:
-;-- Guardar en B el valor actual
-ld B, C
+  ;-- Guardar en B el valor actual
+  ld B, C
 
-;-- Leer pulsador (valor actual)
-in A, (BUTTON)
-ld C, A ;-- Guardar el valor actual en C
+  ;-- Leer pulsador (valor actual)
+  in A, (BUTTON)
+  ld C, A ;-- Guardar el valor actual en C
 
-;-- Comprobar si esta pulsado
-and 0x01
+  ;-- Comprobar si esta pulsado
+  and 0x01
 
-jr nz, pulsado
+  jr nz, pulsado
 
-;-- No pulsado: repetir
-jr loop
+  ;-- No pulsado: repetir
+  jr loop
 
 pulsado:
-;-- El boton esta pulsado
-;-- Comprobar el valor anterior, que esta en B
-cp B
+  ;-- El boton esta pulsado
+  ;-- Comprobar el valor anterior, que esta en B
+  cp B
 
-;-- El valor anterior es distinto?
-ret nz ;--> si: Hay click. Retornar
+  ;-- El valor anterior es distinto?
+  ret nz ;--> si: Hay click. Retornar
 
-;-- No hay click
-jr loop
+  ;-- No hay click
+  jr loop
+
+ org 0x3fff
+topOfStack:

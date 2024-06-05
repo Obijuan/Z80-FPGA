@@ -1,2 +1,27 @@
-/* http://srecord.sourceforge.net/ */
-@00000000 DB 00 D3 40 18 FA
+# File roms/07-button-test.s
+0000			;-- Ejemplo 7: Prueba de lectura del pulador SW2 
+0000			;-- Se muestra su estado en el LED0: Al apretar se enciende 
+0000			 
+0000			;---- PUERTOS 
+0000			LEDS:  equ 0x40 
+0000			BUTTON: equ 0x00 
+0000			 
+0000			;--- Comienzo del programa 
+0000			  org 0x0000 
+0000			main: 
+0000			 
+0000			loop: 
+0000			 
+0000			  ;-- Leer pulsador 
+0000 db 00		  in A, (BUTTON) 
+0002			 
+0002			  ;-- Mostrar su estado en los LEDs 
+0002 d3 40		  out (LEDS), A 
+0004			 
+0004			  ;-- Bucle 
+0004 18 fa		  jr loop 
+0006			 
+0006			  org 0x3fff 
+3fff			topOfStack:
+# End of file roms/07-button-test.s
+3fff

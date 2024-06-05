@@ -1,2 +1,39 @@
-/* http://srecord.sourceforge.net/ */
-@00000000 DB 00 E6 01 28 06 3E 0F D3 40 18 F4 3E F0 D3 40 18 EE
+# File roms/08-button-seq.s
+0000			;-- Ejemplo 8: Secuencia manual de dos estados. Cuando el pulsador NO esta 
+0000			;-- apretado se muestra un valor en los LEDs. Al apretarlo sale otro 
+0000			 
+0000			;---- PUERTOS 
+0000			LEDS:  equ 0x40 
+0000			BUTTON: equ 0x00 
+0000			 
+0000			;-- CONSTANTES 
+0000			VALOR_OFF: equ 0xF0 
+0000			VALOR_ON: equ 0x0F 
+0000			 
+0000			;--- Comienzo del programa 
+0000			  org 0x0000 
+0000			main: 
+0000			 
+0000			loop: 
+0000			  ;-- Leer pulsador 
+0000 db 00		  in A, (BUTTON) 
+0002			 
+0002			  ;-- Comprobar estado del pulsador 
+0002 e6 01		  and 0x01 
+0004			 
+0004 28 06		  JR z,no_pulsado 
+0006			 
+0006			  ;-- Boton pulsado 
+0006 3e 0f		  ld A, VALOR_ON 
+0008 d3 40		  out (LEDS), A 
+000a 18 f4		  jr loop 
+000c			 
+000c			no_pulsado: 
+000c 3e f0		  ld A, VALOR_OFF 
+000e d3 40		  out (LEDS), A 
+0010 18 ee		  jr loop 
+0012			 
+0012			  org 0x3fff 
+3fff			topOfStack: 
+# End of file roms/08-button-seq.s
+3fff
