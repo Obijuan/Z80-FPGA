@@ -6,8 +6,8 @@
 PORT_LEDS: equ 0x40
 
 
-org 0x0000
-
+  org 0x0000
+main:
   ;-- Leer la variable var
   ld	A, (var)
 
@@ -19,3 +19,4 @@ org 0x0000
 
 ;----- Variable var. Inicializada con un valor
 var: db 0xF0
+topOfStack:

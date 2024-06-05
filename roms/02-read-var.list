@@ -1,2 +1,25 @@
-/* http://srecord.sourceforge.net/ */
-@00000000 3A 06 00 D3 40 76 F0
+# File roms/02-read-var.s
+0000			;-- Ejemplo 2: Lectura de una variable almacenada en memoria 
+0000			;-- Se lee la variable var (con direccionamiento directo) 
+0000			;-- y se saca por el puerto de LEDs 
+0000			 
+0000			;-- Puerto de los LEDs 
+0000			PORT_LEDS: equ 0x40 
+0000			 
+0000			 
+0000			org 0x0000 
+0000			main: 
+0000			  ;-- Leer la variable var 
+0000 3a 06 00		  ld	A, (var) 
+0003			 
+0003			  ;-- Sacar su valor por los LEDs 
+0003 d3 40		  out	(PORT_LEDS), A 
+0005			 
+0005			  ;-- Terminar 
+0005 76			  halt 
+0006			 
+0006			;----- Variable var. Inicializada con un valor 
+0006 f0			var: db 0xF0 
+0007			topOfStack:
+# End of file roms/02-read-var.s
+0007

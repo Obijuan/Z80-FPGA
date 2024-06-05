@@ -15,7 +15,7 @@
             },
             "z80asm":[
                 {
-                 "path": "${fileBasenameNoExtension}.list"
+                 "path": "${relativeFileDirname}/${fileBasenameNoExtension}.list"
                 }
             ],
             "history": {
@@ -29,7 +29,7 @@
             "topOfStack": "topOfStack",
             "loadObjs": [
                 {
-                    "path": "${fileBasenameNoExtension}.bin",
+                    "path": "${relativeFileDirname}/${fileBasenameNoExtension}.bin",
                     "start": "0x0000"
                 }
             ],
