@@ -2,12 +2,11 @@
 ;--- Se saca un valor por los LEDs, se espera,
 ;--- se saca un segundo valor y se termina
 
-STACK: equ 0x3FFF
-
 org 0x0000
+main:
 
   ;-- Configurar la pila
-  ld sp, STACK
+  ld sp, topOfStack
 
   ;-- Sacar un valor
   ld	A,0xF0
@@ -46,3 +45,6 @@ delay:
        pop de
        pop af
        ret
+
+  org 0x3fff
+topOfStack:

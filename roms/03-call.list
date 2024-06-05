@@ -1,2 +1,49 @@
-/* http://srecord.sourceforge.net/ */
-@00000000 31 FF 3F CD 0B 00 3E 18 D3 40 76 CD 0F 00 C9 C9
+# File roms/03-call.s
+0000			;-- Ejemplo 3: Prueba de llamada a subrutina. Se llama a una subrutina 
+0000			;-- que a su vez llama a otra, para comprobar que retorna correctamente 
+0000			;-- A retorna saca un valor por los LEDs 
+0000			 
+0000			;-- Puerto de los LEDs 
+0000			PORT_LEDS: equ 0x40 
+0000			 
+0000			;-- Valor a sacar por los LEDs 
+0000			VALOR: equ 0x18 
+0000			 
+0000			  org 0x0000 
+0000			main: 
+0000			 
+0000			  ;-- Situar la cima de la pila al final de la RAM 
+0000			  ;-- La pila crece hacia direcciones bajas de memoria 
+0000			  ;-- (sp se decrementa al introducir elementos) 
+0000 31 ff 3f		  ld	sp, 0x3FFF 
+0003			 
+0003			  ;-- Llamar a la subrutina de test 
+0003 cd 0b 00		  call test 
+0006			 
+0006			  ;-- Sacar un valor por los LEDs para comprobar 
+0006			  ;-- si ha retornado correctamente de la subrutina 
+0006 3e 18		  ld	A, VALOR 
+0008 d3 40		  out	(PORT_LEDS), A 
+000a			 
+000a			  ;-- Termminar 
+000a 76			  halt 
+000b			 
+000b			 
+000b			;------------- 
+000b			;-- Subrutina de pruebas 
+000b			;-- Llama a test 2 y retorna 
+000b			;------- 
+000b			test: 
+000b cd 0f 00		  call test2 
+000e c9			  ret 
+000f			 
+000f			;------------------------------ 
+000f			;-- Subrutina que solo retorna 
+000f			;------------------------------ 
+000f			test2: 
+000f c9			  ret 
+0010			 
+0010			  org 0x3fff 
+3fff			topOfStack: 
+# End of file roms/03-call.s
+3fff

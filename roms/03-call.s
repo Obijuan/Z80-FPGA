@@ -8,7 +8,8 @@ PORT_LEDS: equ 0x40
 ;-- Valor a sacar por los LEDs
 VALOR: equ 0x18
 
-org 0x0000
+  org 0x0000
+main:
 
   ;-- Situar la cima de la pila al final de la RAM
   ;-- La pila crece hacia direcciones bajas de memoria
@@ -40,3 +41,6 @@ test:
 ;------------------------------
 test2:
   ret
+
+  org 0x3fff
+topOfStack:
