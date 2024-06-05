@@ -33,12 +33,12 @@ TEST1:
 
 TEST2:
     ;-- Cargar el valor en el registro A
-    ld	A, (VALOR)
+    ld	A, VALOR
     ;-- Comprobamos que el en A está el valor adecuado
-    CP A, (VALOR)
+    CP A, VALOR
     ;-- Salto relativo con comparación, Si son iguales el flag Zero se activará
     JR Z, TEST2_OK
-    ;-- Si algo ha ido mal, se saca un 1 por los leds y se para la ejecución
+    ;-- Si algo ha ido mal, se saca un 2 por los leds y se para la ejecución
     ld A,0x02
   	out	(PORT_LEDS), A
     halt
