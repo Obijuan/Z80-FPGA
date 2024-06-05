@@ -25,20 +25,16 @@
                     "message": 4
                 }
             },
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
         },
         {
-            "label": "Build (Z80asm)",
+            "label": "Build",
             "type": "shell",
             "command": "z80asm",
             "args": [
-                "--output=${fileBasenameNoExtension}.bin",
-                "--list=${fileBasenameNoExtension}.list",
-                "--label=${fileBasenameNoExtension}.labels",
-                "${fileBasename}"
+                "--output=${relativeFileDirname}/${fileBasenameNoExtension}.bin",
+                "--list=${relativeFileDirname}/${fileBasenameNoExtension}.list",
+                "--label=${relativeFileDirname}/${fileBasenameNoExtension}.labels",
+                "${relativeFile}"
             ],
             "group": {
                 "kind": "build",
@@ -46,11 +42,11 @@
             }
         },
         {
-            "label": "Test",
+            "label": "Upload",
             "type": "shell",
-            "command": "echo",
+            "command": "roms/z80-loader.py",
             "args": [
-                "Probando!!!!"
+                "${relativeFileDirname}/${fileBasenameNoExtension}.bin"
             ]
         }
 

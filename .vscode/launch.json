@@ -13,9 +13,9 @@
                 "visualMemory": false,
                 "memoryModel": "RAM",
             },
-            "sjasmplus": [
+            "z80asm":[
                 {
-                 "path": "test.sld"
+                 "path": "${fileBasenameNoExtension}.list"
                 }
             ],
             "history": {
@@ -29,7 +29,7 @@
             "topOfStack": "topOfStack",
             "loadObjs": [
                 {
-                    "path": "test.obj",
+                    "path": "${fileBasenameNoExtension}.bin",
                     "start": "0x0000"
                 }
             ],
