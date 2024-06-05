@@ -2,15 +2,15 @@
 ;-- Mostrar una secuencia de dos estados en los LEDs,
 ;-- para hacer pruebas
 
-STACK: equ 0x3FFF
 LEDS:  equ 0x40
 
 VALOR: equ 0xF0
 
-org 0x0000
+  org 0x0000
+main:
 
   ;-- Configurar la pila
-  ld sp, STACK
+  ld sp, topOfStack
 
   ;-- Mascara para negar A
   ld B, 0xFF
@@ -58,3 +58,6 @@ delay:
          pop de
          pop af
          ret
+
+  org 0x3fff
+topOfStack:

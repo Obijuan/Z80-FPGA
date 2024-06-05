@@ -1,3 +1,66 @@
-/* http://srecord.sourceforge.net/ */
-@00000000 31 FF 3F 06 FF 3E F0 D3 40 CD 18 00 CD 18 00 CD 18 00 CD 18 00 A8 18
-@00000017 EF F5 D5 C5 1E FF 06 FF 10 FE 1D 00 00 20 F7 C1 D1 F1 C9
+# File roms/06-seq.s
+0000			;-- Ejemplo 6: Secuencia en los LEDs 
+0000			;-- Mostrar una secuencia de dos estados en los LEDs, 
+0000			;-- para hacer pruebas 
+0000			 
+0000			LEDS:  equ 0x40 
+0000			 
+0000			VALOR: equ 0xF0 
+0000			 
+0000			  org 0x0000 
+0000			main: 
+0000			 
+0000			  ;-- Configurar la pila 
+0000 31 ff 3f		  ld sp, topOfStack 
+0003			 
+0003			  ;-- Mascara para negar A 
+0003 06 ff		  ld B, 0xFF 
+0005			 
+0005			  ;-- Valor inicial de la secuencia 
+0005 3e f0		  ld	A,VALOR 
+0007			 
+0007			loop: 
+0007			 
+0007			    ;-- Mostrar A en los LEDs 
+0007 d3 40		    out (LEDS),A 
+0009			 
+0009			    ;--- Esperar 
+0009 cd 18 00		    call delay 
+000c cd 18 00		    call delay 
+000f cd 18 00		    call delay 
+0012 cd 18 00		    call delay 
+0015			 
+0015			    ;-- Negar los bits 
+0015 a8			    xor B 
+0016			 
+0016			    ;-- Bucle 
+0016 18 ef		    jr loop 
+0018			 
+0018			;------------------------------------- 
+0018			;--- Subrutina de Delay 
+0018			;--- TODO: Medir el tiempo exacto 
+0018			;------------------------------------ 
+0018			delay: 
+0018			         ;-- Guardar los registro en la pila 
+0018 f5			         push af 
+0019 d5			         push de 
+001a c5			         push bc 
+001b			 
+001b 1e ff		         ld E,0xFF 
+001d 06 ff		    J1:  ld B,0xFF 
+001f 10 fe		    J2:  djnz J2 
+0021 1d			         dec E 
+0022 00			         nop 
+0023 00			         nop 
+0024 20 f7		         jr nz,J1 
+0026			 
+0026			         ;-- Recuperar los registros 
+0026 c1			         pop bc 
+0027 d1			         pop de 
+0028 f1			         pop af 
+0029 c9			         ret 
+002a			 
+002a			  org 0x3fff 
+3fff			topOfStack:
+# End of file roms/06-seq.s
+3fff
