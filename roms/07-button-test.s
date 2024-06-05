@@ -5,8 +5,8 @@
 LEDS:  equ 0x40
 BUTTON: equ 0x00
 
-  ;--- Comienzo del programa
-  org 0x0000
+;--- Comienzo del programa
+org 0x0000
 
 loop:
 

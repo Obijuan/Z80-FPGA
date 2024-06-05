@@ -13,10 +13,10 @@ SERIAL_STATUS: equ 0x11
 
 ;--- CONSTANTES
 ;-- Caracter a enviar (repetidamente)
-CAR: EQU 'X'
+CAR: EQU 'B'
 
-  ;--- Comienzo del programa
-  org 0x0000
+;--- Comienzo del programa
+org 0x0000
 
   ;-- Configurar la pila
   ld sp, STACK

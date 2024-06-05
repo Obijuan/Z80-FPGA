@@ -16,8 +16,8 @@ SERIAL_TX: equ 0x10
 ;-- Caracter a enviar por el pueto serie
 CAR: EQU 'A'
 
-  ;--- Comienzo del programa
-  org 0x0000
+;--- Comienzo del programa
+org 0x0000
 
   ;-- Sacar el caracter por los LEDs
   ld A, CAR

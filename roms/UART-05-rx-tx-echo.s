@@ -10,8 +10,8 @@ LEDS:  equ 0x40
 SERIAL_DATA: equ 0x10
 SERIAL_STATUS: equ 0x11
 
-  ;--- Comienzo del programa
-  org 0x0000
+;--- Comienzo del programa
+org 0x0000
 
   ;-- Configurar la pila
   ld sp, STACK

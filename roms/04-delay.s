@@ -4,30 +4,30 @@
 
 STACK: equ 0x3FFF
 
-  org 0x0000
+org 0x0000
 
   ;-- Configurar la pila
   ld sp, STACK
 
-    ;-- Sacar un valor
-    ld	A,0xF0
-    out (0x40),A
+  ;-- Sacar un valor
+  ld	A,0xF0
+  out (0x40),A
 
-    ;--- Esperar
-    call delay
+  ;--- Esperar
+  call delay
 
-    ;-- Sacar otro valor
-    ld A,0x0F
-    out (0x40),A
+  ;-- Sacar otro valor
+  ld A,0x0F
+  out (0x40),A
 
-    ;-- Terminar
-    halt
+  ;-- Terminar
+  halt
 
-  ;-------------------------------------
-  ;--- Subrutina de Delay
-  ;--- TODO: Medir el tiempo exacto
-  ;------------------------------------
-  delay:
+;-------------------------------------
+;--- Subrutina de Delay
+;--- TODO: Medir el tiempo exacto
+;------------------------------------
+delay:
        ;-- Guardar los registro en la pila
        push af
        push de

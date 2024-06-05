@@ -12,7 +12,7 @@ ROTIZQ:    call DELAY
            sla A           ; Desplaza los bits del registro A a la izquierda una posición.
            out (0x40),A    ; Saca el valor del registro A por el puerto 0x40 (Leds de la Alhambra).
 
-           cp 0X80         ; Compara el registro A con el valor 0x80.
+           cp 0x80         ; Compara el registro A con el valor 0x80.
            jr nz, ROTIZQ   ; Si el flag Z no está activado salta a ROTIZQ.
            
 ; Rotamos el bit encendido a la derecha.          

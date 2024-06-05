@@ -6,16 +6,16 @@
 PORT_LEDS: equ 0x40
 
 
-    org 0x0000
+org 0x0000
 
-    ;-- Leer la variable var
-    ld	A, (var)
+  ;-- Leer la variable var
+  ld	A, (var)
 
-    ;-- Sacar su valor por los LEDs
-  	out	(PORT_LEDS), A
+  ;-- Sacar su valor por los LEDs
+  out	(PORT_LEDS), A
 
-    ;-- Terminar
-    halt
+  ;-- Terminar
+  halt
 
 ;----- Variable var. Inicializada con un valor
 var: db 0xF0

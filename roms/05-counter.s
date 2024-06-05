@@ -3,7 +3,7 @@
 STACK: equ 0x3FFF
 LEDS:  equ 0x40
 
-  org 0x0000
+org 0x0000
 
   ;-- Configurar la pila
   ld sp, STACK
@@ -26,11 +26,11 @@ loop:
     ;-- Repetir
     jr loop
 
-  ;-------------------------------------
-  ;--- Subrutina de Delay
-  ;--- TODO: Medir el tiempo exacto
-  ;------------------------------------
-  delay:
+;-------------------------------------
+;--- Subrutina de Delay
+;--- TODO: Medir el tiempo exacto
+;------------------------------------
+delay:
        ;-- Guardar los registro en la pila
        push af
        push de

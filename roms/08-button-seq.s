@@ -9,8 +9,8 @@ BUTTON: equ 0x00
 VALOR_OFF: equ 0xF0
 VALOR_ON: equ 0x0F
 
-  ;--- Comienzo del programa
-  org 0x0000
+;--- Comienzo del programa
+org 0x0000
 
 loop:
   ;-- Leer pulsador
