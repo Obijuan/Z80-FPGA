@@ -1,4 +1,54 @@
-/* http://srecord.sourceforge.net/ */
-@00000000 31 FF 3F 21 18 00 DB 11 E6 01 C2 06 00 7E FE 00 28 05 D3 10 23 18 EF
-@00000017 76 5A 38 30 20 65 6E 20 46 50 47 41 73 20 6C 69 62 72 65 73 21 21 21
-@0000002E 21 21 2E 2E 2E 00
+# File roms/UART-03-tx-string.s
+0000			;-- UART. Ejemplo 03: Prueba de envio de una cadena al PC por el puerto serie 
+0000			 
+0000			;---- PUERTOS 
+0000			LEDS:  equ 0x40 
+0000			SERIAL_DATA: equ 0x10 
+0000			SERIAL_STATUS: equ 0x11 
+0000			 
+0000			;--- Comienzo del programa 
+0000			  org 0x0000 
+0000			  main: 
+0000			 
+0000			  ;-- Configurar la pila 
+0000 31 ff 3f		  ld sp, topOfStack 
+0003			 
+0003			  ;-- HL apunta a la cadena a enviar 
+0003 21 18 00		  ld HL, MSG 
+0006			 
+0006			loop: 
+0006			 
+0006			  ;-- Leer registro de estaus de la UART 
+0006			  ;-- ¿Se puede enviar? 
+0006 db 11		  in A, (SERIAL_STATUS) 
+0008 e6 01		  and 0x01 
+000a c2 06 00		  jp nz, loop ;-- No--> Esperar 
+000d			 
+000d			  ;-- Listo para transmitir 
+000d			 
+000d			  ;-- Leer el primer caracter 
+000d 7e			  ld A, (HL) 
+000e			 
+000e			  ;-- Es el ultimo caracter? 
+000e fe 00		  cp 0 
+0010 28 05		  jr z,fin  ;-- Si--> Terminar 
+0012			 
+0012			  ;--- No. Enviar caracter 
+0012 d3 10		  out (SERIAL_DATA), A 
+0014			 
+0014			  ;-- Apuntar al siguiente caracter 
+0014 23			  inc HL 
+0015			 
+0015			  ;-- Repetir 
+0015 18 ef		  jr loop 
+0017			 
+0017			fin: 
+0017 76			  halt 
+0018			 
+0018			;--- Cadena a enviar. Deber terminar en 0 
+0018 .. 00		MSG: DB "Z80 en FPGAs libres!!!!!...",0 
+0034			 
+0034			  org 0x3fff 
+3fff			topOfStack:
+# End of file roms/UART-03-tx-string.s
+3fff

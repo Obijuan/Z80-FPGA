@@ -5,9 +5,6 @@
 ;-- cargado previamente
 
 
-;-- PILA
-STACK: equ 0x3FFF
-
 ;---- PUERTOS
 LEDS:  equ 0x40
 SERIAL_TX: equ 0x10
@@ -17,7 +14,8 @@ SERIAL_TX: equ 0x10
 CAR: EQU 'A'
 
 ;--- Comienzo del programa
-org 0x0000
+  org 0x0000
+main:
 
   ;-- Sacar el caracter por los LEDs
   ld A, CAR
@@ -28,3 +26,6 @@ org 0x0000
 
   ;-- Terminar
   halt
+
+    org 0x3fff
+topOfStack:

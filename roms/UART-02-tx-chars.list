@@ -1,2 +1,43 @@
-/* http://srecord.sourceforge.net/ */
-@00000000 31 FF 3F 06 05 DB 11 E6 01 C2 05 00 3E 42 D3 10 10 F3 76
+# File roms/UART-02-tx-chars.s
+0000			;-- UART. Ejemplo 02: Prueba del bit de ready, que se pone a uno cuando la 
+0000			;-- uart esta lista para enviar otro caracter 
+0000			;-- Se envian 5 caracteres iguales 
+0000			 
+0000			;---- PUERTOS 
+0000			LEDS:  equ 0x40 
+0000			SERIAL_DATA: equ 0x10 
+0000			SERIAL_STATUS: equ 0x11 
+0000			 
+0000			;--- CONSTANTES 
+0000			;-- Caracter a enviar (repetidamente) 
+0000			CAR: EQU 'B' 
+0000			 
+0000			  ;--- Comienzo del programa 
+0000			  org 0x0000 
+0000			main: 
+0000			 
+0000			  ;-- Configurar la pila 
+0000 31 ff 3f		  ld sp, topOfStack 
+0003			 
+0003			  ;--- Numero de caracteres a enviar 
+0003 06 05		  ld B, 5 
+0005			 
+0005			loop: 
+0005			 
+0005			  ;-- Leer registro de estaus de la UART 
+0005			  ;-- ¿Se puede enviar? 
+0005 db 11		  in A, (SERIAL_STATUS) 
+0007 e6 01		  and 0x01 
+0009 c2 05 00		  jp nz, loop ;-- No--> Esperar 
+000c			 
+000c			  ;-- Listo para transmitir 
+000c 3e 42		  ld A, CAR 
+000e d3 10		  out (SERIAL_DATA), A 
+0010			 
+0010 10 f3		  djnz loop 
+0012 76			  halt 
+0013			 
+0013			   org 0x3fff 
+3fff			topOfStack: 
+# End of file roms/UART-02-tx-chars.s
+3fff

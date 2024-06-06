@@ -1,2 +1,34 @@
-/* http://srecord.sourceforge.net/ */
-@00000000 3E 41 D3 40 D3 10 76
+# File roms/UART-01-tx-char.s
+0000			;-- UART. Ejemplo 01: Prueba de envio de un caracter por la UART, directamente 
+0000			;-- sin consultar el bit de Ready 
+0000			;-- Al abrir el terminal serie se entrara en modo bootloader. Pulsar SW1 para 
+0000			;-- hacer un reset, salir del bootloader y ejecutar el porgrama que se haya 
+0000			;-- cargado previamente 
+0000			 
+0000			 
+0000			;---- PUERTOS 
+0000			LEDS:  equ 0x40 
+0000			SERIAL_TX: equ 0x10 
+0000			 
+0000			;--- CONSTANTES 
+0000			;-- Caracter a enviar por el pueto serie 
+0000			CAR: EQU 'A' 
+0000			 
+0000			;--- Comienzo del programa 
+0000			  org 0x0000 
+0000			main: 
+0000			 
+0000			  ;-- Sacar el caracter por los LEDs 
+0000 3e 41		  ld A, CAR 
+0002 d3 40		  out (LEDS), A 
+0004			 
+0004			  ;-- Enviarlo por el puerto Serie al PC 
+0004 d3 10		  out (SERIAL_TX), A 
+0006			 
+0006			  ;-- Terminar 
+0006 76			  halt 
+0007			 
+0007			    org 0x3fff 
+3fff			topOfStack: 
+# End of file roms/UART-01-tx-char.s
+3fff

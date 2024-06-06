@@ -1,29 +1,27 @@
 ;-- UART. Ejemplo 03: Prueba de envio de una cadena al PC por el puerto serie
 
-;-- PILA
-STACK: equ 0x3FFF
-
 ;---- PUERTOS
 LEDS:  equ 0x40
 SERIAL_DATA: equ 0x10
 SERIAL_STATUS: equ 0x11
 
 ;--- Comienzo del programa
-org 0x0000
+  org 0x0000
+  main:
 
   ;-- Configurar la pila
-  ld sp, STACK
+  ld sp, topOfStack
 
   ;-- HL apunta a la cadena a enviar
   ld HL, MSG
 
-main:
+loop:
 
   ;-- Leer registro de estaus de la UART
   ;-- ¿Se puede enviar?
   in A, (SERIAL_STATUS)
   and 0x01
-  jp nz, main ;-- No--> Esperar
+  jp nz, loop ;-- No--> Esperar
 
   ;-- Listo para transmitir
 
@@ -41,10 +39,13 @@ main:
   inc HL
 
   ;-- Repetir
-  jr main
+  jr loop
 
 fin:
   halt
 
 ;--- Cadena a enviar. Deber terminar en 0
 MSG: DB "Z80 en FPGAs libres!!!!!...",0
+
+  org 0x3fff
+topOfStack:

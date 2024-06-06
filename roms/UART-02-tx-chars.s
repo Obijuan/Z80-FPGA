@@ -2,10 +2,6 @@
 ;-- uart esta lista para enviar otro caracter
 ;-- Se envian 5 caracteres iguales
 
-
-;-- PILA
-STACK: equ 0x3FFF
-
 ;---- PUERTOS
 LEDS:  equ 0x40
 SERIAL_DATA: equ 0x10
@@ -15,27 +11,30 @@ SERIAL_STATUS: equ 0x11
 ;-- Caracter a enviar (repetidamente)
 CAR: EQU 'B'
 
-;--- Comienzo del programa
-org 0x0000
+  ;--- Comienzo del programa
+  org 0x0000
+main:
 
   ;-- Configurar la pila
-  ld sp, STACK
+  ld sp, topOfStack
 
   ;--- Numero de caracteres a enviar
   ld B, 5
 
-main:
+loop:
 
   ;-- Leer registro de estaus de la UART
   ;-- ¿Se puede enviar?
   in A, (SERIAL_STATUS)
   and 0x01
-  jp nz, main ;-- No--> Esperar
+  jp nz, loop ;-- No--> Esperar
 
   ;-- Listo para transmitir
-
   ld A, CAR
   out (SERIAL_DATA), A
 
-  djnz main
+  djnz loop
   halt
+
+   org 0x3fff
+topOfStack:
