@@ -1,7 +1,8 @@
 
-org 0x0000                 ; El programa arranca en la dirección 0 de la ROM
+    org 0x0000                 ; El programa arranca en la dirección 0 de la ROM
+main:
 
-           ld SP,0x3FFF    ; Situa la pila al final de la memoria RAM de la Alhambra-II.
+           ld SP,topOfStack    ; Situa la pila al final de la memoria RAM de la Alhambra-II.
                            ; La pila nos permite hacer llamadas tipo CALL().
 ; Sacamos un 1 por el puerto 0x40 para encender el led0 de la Alhambra-II
            ld   A, 0x01    ; Carga el registro A con el valor de 1
@@ -33,3 +34,6 @@ J52:       djnz J52        ; Mientras el flag Z no esté activado, decrementa B 
            dec E           ; Decrementa E.
            jr nz,J51       ; Si el flag Z no está activado salta a J51.
            ret
+
+    org 0x3fff
+topOfStack:

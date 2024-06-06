@@ -1,5 +1,6 @@
 
-org 0x0000                ; El programa arranca en la dirección 0 de la ROM
+    org 0x0000                ; El programa arranca en la dirección 0 de la ROM
+main:
 
            ld   A, 0x00   ; Registro de propósito general (esencialmente contador para el PWM).
            ld   D, A      ; Registro para incrementar la intensidad lumínica. 
@@ -31,3 +32,6 @@ TEMP:      djnz PWM       ; Decrementa el registo B y si no es 0 salta a la etiq
            
 ; Se repite la secuencia. (bucle infinito)
 JP START
+
+    org 0x3fff
+topOfStack:

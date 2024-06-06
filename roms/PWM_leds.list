@@ -1,0 +1,40 @@
+# File roms/PWM_leds.asm
+0000			  
+0000			    org 0x0000                ; El programa arranca en la dirección 0 de la ROM  
+0000			main:  
+0000			  
+0000 3e 00		           ld   A, 0x00   ; Registro de propósito general (esencialmente contador para el PWM).  
+0002 57			           ld   D, A      ; Registro para incrementar la intensidad lumínica.   
+0003 d3 40		           out (0x40), A  ; Comienza con la salida de los leds a 0.  
+0005			             
+0005 01 04 ff		START:     ld BC,0xFF04   ; Los registros BC lo usamos como temporizador para incrementar el registro D (intensidad lumínica).  
+0008			  
+0008 3c			PWM:       inc  A         ; El registro A se va a ir incrementando muy rápido (PWM).  
+0009 ba			IF:        cp   D         ; Comparamos con el valor que tenga D.  
+000a 30 09		           jr nc, ELSE    ; Si no hay carry salta a ELSE.  
+000c			  
+000c 5f			THEN:      ld E, A        ; Guardamos el valor del registro A (el contador rápido PWM).  
+000d 3e ff		           ld A, 0xFF     ; Ahora el registro A vale todos los Leds a 1.  
+000f d3 40		           out (0x40), A  ; Saca dicho valor por el puerto de los Leds de la Alhambra II.  
+0011 7b			           ld A, E        ; Recuperamos el valor de A, es decir, el contador rápido PWM.  
+0012 c3 1b 00		           jp ENDIF       ; Salta a ENDIF  
+0015			  
+0015 5f			ELSE:      ld E, A        ; Guardamos el valor del registro A.  
+0016 3e 00		           ld A, 0x00     ; Ahora el registro A vale todos los Leds a 0.  
+0018 d3 40		           out (0x40), A  ; Saca dicho valor por el puerto de los Leds de la Alhambra II.  
+001a 7b			           ld A, E        ; Recuperamos el valor de A, es decir, el contador rápido PWM.  
+001b			ENDIF:  
+001b			  
+001b			; Temporizador para ir incrementado el registro D (intensidad lumínica).  
+001b 10 eb		TEMP:      djnz PWM       ; Decrementa el registo B y si no es 0 salta a la etiqueta PWM.  
+001d 0d			           dec C          ; Decrementa el registro C.  
+001e 20 e8		           jr nz, PWM     ; Si el flag Z no se activó, salta a la etiqueta PWM.  
+0020 14			           inc D          ; Cuando B y C se han puesto a 0, incrementa una unidad el registro D.  
+0021			             
+0021			; Se repite la secuencia. (bucle infinito)  
+0021 c3 05 00		JP START  
+0024			  
+0024			    org 0x3fff  
+3fff			topOfStack:  
+# End of file roms/PWM_leds.asm
+3fff

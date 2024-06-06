@@ -1,0 +1,42 @@
+# File roms/kitt.asm
+0000			  
+0000			    org 0x0000                 ; El programa arranca en la dirección 0 de la ROM  
+0000			main:  
+0000			  
+0000 31 ff 3f		           ld SP,topOfStack    ; Situa la pila al final de la memoria RAM de la Alhambra-II.  
+0003			                           ; La pila nos permite hacer llamadas tipo CALL().  
+0003			; Sacamos un 1 por el puerto 0x40 para encender el led0 de la Alhambra-II  
+0003 3e 01		           ld   A, 0x01    ; Carga el registro A con el valor de 1  
+0005 d3 40		           out (0x40),A    ; Saca el valor del registro A por el puerto 0x40 (Leds de la Alhambra).  
+0007			  
+0007			; Rotamos el bit encendido a la izquierda.  
+0007 cd 20 00		ROTIZQ:    call DELAY  
+000a cb 27		           sla A           ; Desplaza los bits del registro A a la izquierda una posición.  
+000c d3 40		           out (0x40),A    ; Saca el valor del registro A por el puerto 0x40 (Leds de la Alhambra).  
+000e			  
+000e fe 80		           cp 0x80         ; Compara el registro A con el valor 0x80.  
+0010 20 f5		           jr nz, ROTIZQ   ; Si el flag Z no está activado salta a ROTIZQ.  
+0012			             
+0012			; Rotamos el bit encendido a la derecha.            
+0012 cd 20 00		ROTDER:    call DELAY  
+0015 cb 3f		           srl A           ; Desplaza los bits del registro A a la derecha  una posición.  
+0017 d3 40		           out (0x40),A    ; Saca el valor del registro A por el puerto 0x40 (Leds de la Alhambra).  
+0019			             
+0019 fe 01		           cp 0x01         ; Compara el registro A con el valor 0x01.  
+001b 20 f5		           jr nz, ROTDER   ; Si el flag Z no está activado salta a ROTDER.  
+001d			             
+001d			; Volvemos al repetir la secuencia (bucle infinito)  
+001d c3 07 00		JP ROTIZQ  
+0020			  
+0020			; Timer de aproximadamente 60ms para los 12MHz de la Alhambra  
+0020 1e ff		DELAY:     ld E,0xFF       ; Cargamos el registro E al valor máximo.  
+0022 06 ff		J51:       ld B,0xFF       ; Cargamos el registro B al valor máximo.  
+0024 10 fe		J52:       djnz J52        ; Mientras el flag Z no esté activado, decrementa B y salta a J52.  
+0026 1d			           dec E           ; Decrementa E.  
+0027 20 f9		           jr nz,J51       ; Si el flag Z no está activado salta a J51.  
+0029 c9			           ret  
+002a			  
+002a			    org 0x3fff  
+3fff			topOfStack:  
+# End of file roms/kitt.asm
+3fff
