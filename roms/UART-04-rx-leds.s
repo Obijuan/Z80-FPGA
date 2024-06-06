@@ -3,10 +3,6 @@
 ;-- LEDs. Si desde el terminal enviamos caracteres, veremos su valor
 ;-- ASCII en los LEDs
 
-
-;-- PILA
-STACK: equ 0x3FFF
-
 ;---- PUERTOS
 LEDS:  equ 0x40
 SERIAL_DATA: equ 0x10
@@ -15,7 +11,7 @@ SERIAL_DATA: equ 0x10
 org 0x0000
 
   ;-- Configurar la pila
-  ld sp, STACK
+  ld sp, topOfStack
 
 main:
 
@@ -27,3 +23,6 @@ main:
 
   ;-- Repetir
   jr main
+
+  org 0x3fff
+topOfStack:

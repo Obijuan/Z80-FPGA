@@ -1,3 +1,88 @@
-/* http://srecord.sourceforge.net/ */
-@00000000 31 FF 3F 3E F0 D3 40 CD 11 00 D3 40 CD 1A 00 18 F6 DB 11 E6 02 28 FA
-@00000017 DB 10 C9 F5 DB 11 E6 01 C2 1B 00 F1 D3 10 C9
+# File roms/UART-05-rx-tx-echo.s
+0000			;-- UART. Ejemplo 05: Prueba de lectura y envio de caracteres. Los caracteres 
+0000			;-- recibidos se sacan por los LEDs y se vuelven a enviar al PC (eco) 
+0000			;-- Tanto la recepcion como el envio se hacen mediante subrutinas 
+0000			 
+0000			;---- PUERTOS 
+0000			LEDS:  equ 0x40 
+0000			SERIAL_DATA: equ 0x10 
+0000			SERIAL_STATUS: equ 0x11 
+0000			 
+0000			;--- Comienzo del programa 
+0000			  org 0x0000 
+0000			main: 
+0000			 
+0000			  ;-- Configurar la pila 
+0000 31 ff 3f		  ld sp, topOfStack 
+0003			 
+0003			  ;-- Sacar un valor inicial por los LEDs 
+0003 3e f0		  ld A, 0xF0 
+0005 d3 40		  out (LEDS), A 
+0007			 
+0007			;-- Bucle principal 
+0007			loop: 
+0007			 
+0007			  ;-- Esperar hasta que se reciba un caracter 
+0007 cd 11 00		  call read_char 
+000a			 
+000a			  ;-- Sacar el caracter por los LEDs 
+000a d3 40		  out(LEDS), A 
+000c			 
+000c			  ;-- Enviar el caracter la PC (eco) 
+000c cd 1a 00		  call print_char 
+000f			 
+000f			  ;-- Repetir 
+000f 18 f6		  jr loop 
+0011			 
+0011			 
+0011			;------------------------------------- 
+0011			;-- Subrutina para recibir un caracter 
+0011			;-- Se queda esperando hasta que llega 
+0011			;-- SALIDAS: 
+0011			;--   A: Contiene el carater recibido 
+0011			;-------------------------------------- 
+0011			read_char: 
+0011			  ;-- Esperar hasta que llegue un caracter 
+0011 db 11		  in A, (SERIAL_STATUS) 
+0013 e6 02		  and 0x2 
+0015 28 fa		  jr z, read_char ;-- No llega, esperar 
+0017			 
+0017			  ;-- Leer el caracter que ha llegado 
+0017 db 10		  in A, (SERIAL_DATA) 
+0019			 
+0019			  ;-- Retornar. A contiene el caracter recibido 
+0019 c9			  ret 
+001a			 
+001a			 
+001a			;----------------------------------------------------------- 
+001a			;-- Subrutina para enviar un caracter por el puerto serie 
+001a			;-- ENTRADAS: 
+001a			;--   A: Contiene el caracter a enviar 
+001a			;----------------------------------------------------------- 
+001a			print_char: 
+001a			 
+001a			  ;-- Guardar A en la pila, para no perderlo 
+001a f5			  push AF 
+001b			 
+001b			ready_tx: 
+001b			  ;-- Leer registro de estaus de la UART 
+001b			  ;-- ¿Se puede enviar? 
+001b db 11		  in A, (SERIAL_STATUS) 
+001d e6 01		  and 0x01 
+001f c2 1b 00		  jp nz, ready_tx ;-- No--> Esperar 
+0022			 
+0022			  ;-- Listo para transmitir 
+0022			 
+0022			  ;-- Recuperar de la pila el caracter a enviar 
+0022 f1			  pop AF 
+0023			 
+0023			  ;-- Enviar caracter 
+0023 d3 10		  out (SERIAL_DATA), A 
+0025			 
+0025			  ;-- Retornar 
+0025 c9			  ret 
+0026			 
+0026			 org 0x3fff 
+3fff			topOfStack:
+# End of file roms/UART-05-rx-tx-echo.s
+3fff

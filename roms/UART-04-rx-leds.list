@@ -1,2 +1,31 @@
-/* http://srecord.sourceforge.net/ */
-@00000000 31 FF 3F DB 10 D3 40 18 FA
+# File roms/UART-04-rx-leds.s
+0000			;-- UART. Ejemplo 04: Prueba de lectura del canal de datos recibidos de 
+0000			;-- la UART. Se esta constantemente leyendo su valor y sacandolo por los 
+0000			;-- LEDs. Si desde el terminal enviamos caracteres, veremos su valor 
+0000			;-- ASCII en los LEDs 
+0000			 
+0000			;---- PUERTOS 
+0000			LEDS:  equ 0x40 
+0000			SERIAL_DATA: equ 0x10 
+0000			 
+0000			;--- Comienzo del programa 
+0000			org 0x0000 
+0000			 
+0000			  ;-- Configurar la pila 
+0000 31 ff 3f		  ld sp, topOfStack 
+0003			 
+0003			main: 
+0003			 
+0003			  ;-- Leer lo ultimo recibido por la UART 
+0003 db 10		  in A, (SERIAL_DATA) 
+0005			 
+0005			  ;-- Mostrarlo en los LEDs 
+0005 d3 40		  out (LEDS), A 
+0007			 
+0007			  ;-- Repetir 
+0007 18 fa		  jr main 
+0009			 
+0009			  org 0x3fff 
+3fff			topOfStack:
+# End of file roms/UART-04-rx-leds.s
+3fff

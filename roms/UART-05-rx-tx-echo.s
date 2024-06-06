@@ -2,26 +2,24 @@
 ;-- recibidos se sacan por los LEDs y se vuelven a enviar al PC (eco)
 ;-- Tanto la recepcion como el envio se hacen mediante subrutinas
 
-;-- PILA
-STACK: equ 0x3FFF
-
 ;---- PUERTOS
 LEDS:  equ 0x40
 SERIAL_DATA: equ 0x10
 SERIAL_STATUS: equ 0x11
 
 ;--- Comienzo del programa
-org 0x0000
+  org 0x0000
+main:
 
   ;-- Configurar la pila
-  ld sp, STACK
+  ld sp, topOfStack
 
   ;-- Sacar un valor inicial por los LEDs
   ld A, 0xF0
   out (LEDS), A
 
 ;-- Bucle principal
-main:
+loop:
 
   ;-- Esperar hasta que se reciba un caracter
   call read_char
@@ -33,7 +31,7 @@ main:
   call print_char
 
   ;-- Repetir
-  jr main
+  jr loop
 
 
 ;-------------------------------------
@@ -82,3 +80,6 @@ ready_tx:
 
   ;-- Retornar
   ret
+
+ org 0x3fff
+topOfStack:
