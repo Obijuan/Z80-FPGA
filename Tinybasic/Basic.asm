@@ -99,7 +99,7 @@ DWA:    MACRO WHERE
         ENDM
 
         ORG  0000H
-
+main:
 START:
         LD SP,STACK                     ;*** COLD START ***
         LD A,0FFH
@@ -1827,4 +1827,9 @@ VARBGN: DS   55                         ;VARIABLE @(0)
 BUFFER: DS   64                         ;INPUT BUFFER
 BUFEND: DS   1                          ;BUFFER ENDS
 STKLMT: DS   1                          ;TOP LIMIT FOR STACK
+        
+
+        org 0x3fff
+topOfStack:
+
         END
