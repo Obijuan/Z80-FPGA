@@ -3,10 +3,6 @@
 0000			;-- Cada vez que hay un click se incrementa un contador 
 0000			;-- que se muestra en los leds 
 0000			 
-0000			 
-0000			;-- PILA 
-0000			STACK: equ 0x3FFF 
-0000			 
 0000			;---- PUERTOS 
 0000			LEDS:  equ 0x40 
 0000			BUTTON: equ 0x00 
@@ -39,37 +35,37 @@
 000e			 
 000e			wait_click: 
 000e			 
-000e			;-- Inicializar. Leer el estado actual del pulsador 
-000e db 00		in A, (BUTTON) 
-0010 4f			ld C, A 
+000e			  ;-- Inicializar. Leer el estado actual del pulsador 
+000e db 00		  in A, (BUTTON) 
+0010 4f			  ld C, A 
 0011			 
 0011			 
 0011			loop: 
-0011			;-- Guardar en B el valor actual 
-0011 41			ld B, C 
+0011			  ;-- Guardar en B el valor actual 
+0011 41			  ld B, C 
 0012			 
-0012			;-- Leer pulsador (valor actual) 
-0012 db 00		in A, (BUTTON) 
-0014 4f			ld C, A ;-- Guardar el valor actual en C 
+0012			  ;-- Leer pulsador (valor actual) 
+0012 db 00		  in A, (BUTTON) 
+0014 4f			  ld C, A ;-- Guardar el valor actual en C 
 0015			 
-0015			;-- Comprobar si esta pulsado 
-0015 e6 01		and 0x01 
+0015			  ;-- Comprobar si esta pulsado 
+0015 e6 01		  and 0x01 
 0017			 
-0017 20 02		jr nz, pulsado 
+0017 20 02		  jr nz, pulsado 
 0019			 
-0019			;-- No pulsado: repetir 
-0019 18 f6		jr loop 
+0019			  ;-- No pulsado: repetir 
+0019 18 f6		  jr loop 
 001b			 
 001b			pulsado: 
-001b			;-- El boton esta pulsado 
-001b			;-- Comprobar el valor anterior, que esta en B 
-001b b8			cp B 
+001b			  ;-- El boton esta pulsado 
+001b			  ;-- Comprobar el valor anterior, que esta en B 
+001b b8			  cp B 
 001c			 
-001c			;-- El valor anterior es distinto? 
-001c c0			ret nz ;--> si: Hay click. Retornar 
+001c			  ;-- El valor anterior es distinto? 
+001c c0			  ret nz ;--> si: Hay click. Retornar 
 001d			 
-001d			;-- No hay click 
-001d 18 f2		jr loop 
+001d			  ;-- No hay click 
+001d 18 f2		  jr loop 
 001f			 
 001f			 org 0x3fff 
 3fff			topOfStack: 

@@ -2,10 +2,6 @@
 ;-- Cada vez que hay un click se incrementa un contador
 ;-- que se muestra en los leds
 
-
-;-- PILA
-STACK: equ 0x3FFF
-
 ;---- PUERTOS
 LEDS:  equ 0x40
 BUTTON: equ 0x00
