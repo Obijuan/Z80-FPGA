@@ -2142,8 +2142,8 @@
           }
         },
         {
-          "id": "d2aa80ea-782b-4fb4-b6a3-b33aee4d276f",
-          "type": "076a61c552d503a0046ff4f999221bcbf84654f6",
+          "id": "9446eaaa-74d0-43cd-b3f5-7e09229bac8f",
+          "type": "712c14e0e427afe227e8d99c8c59c0a174012e15",
           "position": {
             "x": 560,
             "y": -600
@@ -2168,7 +2168,7 @@
         },
         {
           "source": {
-            "block": "d2aa80ea-782b-4fb4-b6a3-b33aee4d276f",
+            "block": "9446eaaa-74d0-43cd-b3f5-7e09229bac8f",
             "port": "db1d84ef-dc0b-49a7-974b-eeee446b9fb1"
           },
           "target": {
@@ -2179,7 +2179,7 @@
         },
         {
           "source": {
-            "block": "d2aa80ea-782b-4fb4-b6a3-b33aee4d276f",
+            "block": "9446eaaa-74d0-43cd-b3f5-7e09229bac8f",
             "port": "98187abe-2c7b-4672-88ae-99ca1742724d"
           },
           "target": {
@@ -2629,7 +2629,7 @@
             "port": "outlabel"
           },
           "target": {
-            "block": "d2aa80ea-782b-4fb4-b6a3-b33aee4d276f",
+            "block": "9446eaaa-74d0-43cd-b3f5-7e09229bac8f",
             "port": "c495a92b-384a-4e47-b1d7-9f7a2bdfaf51"
           },
           "size": 8
@@ -2650,13 +2650,13 @@
             "port": "outlabel"
           },
           "target": {
-            "block": "d2aa80ea-782b-4fb4-b6a3-b33aee4d276f",
+            "block": "9446eaaa-74d0-43cd-b3f5-7e09229bac8f",
             "port": "97e4013d-6454-41e5-8c01-8a884d898b3c"
           }
         },
         {
           "source": {
-            "block": "d2aa80ea-782b-4fb4-b6a3-b33aee4d276f",
+            "block": "9446eaaa-74d0-43cd-b3f5-7e09229bac8f",
             "port": "a1b3c802-ccfb-4cb5-bee7-565f001cf4e1"
           },
           "target": {
@@ -2672,7 +2672,7 @@
         },
         {
           "source": {
-            "block": "d2aa80ea-782b-4fb4-b6a3-b33aee4d276f",
+            "block": "9446eaaa-74d0-43cd-b3f5-7e09229bac8f",
             "port": "cc9c3571-6466-4c03-80f6-251ca5765e40"
           },
           "target": {
@@ -2682,7 +2682,7 @@
         },
         {
           "source": {
-            "block": "d2aa80ea-782b-4fb4-b6a3-b33aee4d276f",
+            "block": "9446eaaa-74d0-43cd-b3f5-7e09229bac8f",
             "port": "da72b0d9-dea2-4b85-b1b9-2821267a403d"
           },
           "target": {
@@ -2692,7 +2692,7 @@
         },
         {
           "source": {
-            "block": "d2aa80ea-782b-4fb4-b6a3-b33aee4d276f",
+            "block": "9446eaaa-74d0-43cd-b3f5-7e09229bac8f",
             "port": "a422ea28-3784-4f44-9d0d-78bdabf0334e"
           },
           "target": {
@@ -20487,10 +20487,10 @@
         }
       }
     },
-    "076a61c552d503a0046ff4f999221bcbf84654f6": {
+    "712c14e0e427afe227e8d99c8c59c0a174012e15": {
       "package": {
         "name": "z80-min CLONE",
-        "version": "0.1-c1717414540307",
+        "version": "0.1-c1717519491396",
         "description": "Z80 con las entradas y salidas mínimas",
         "author": "Basado en el proyecto TV80",
         "image": "%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22296.115%22%20version=%221.2%22%20height=%22296.115%22%20viewBox=%220%200%20222.08599%20222.08601%22%3E%3Cdesc%3EFritzing%20breadboard%20generated%20by%20brd2svg%3C/desc%3E%3Cg%20transform=%22scale(4.477)%20rotate(90%2025.1%2024.8)%22%20stroke-width=%220%22%3E%3Cpath%20fill=%22#8c8c8c%22%20d=%22M49.906%208.587h-4.252v-.992h4.252zM49.906%2010.003h-4.252v-.992h4.252zM49.906%2011.421h-4.252v-.992h4.252zM49.906%2012.839h-4.252v-.992h4.252zM49.906%2014.255h-4.252v-.992h4.252zM49.906%2015.673h-4.252v-.992h4.252zM49.906%2017.09h-4.252V16.1h4.252zM49.906%2018.507h-4.252v-.992h4.252zM49.906%2019.925h-4.252v-.992h4.252zM49.906%2021.343h-4.252v-.992h4.252zM49.906%2022.76h-4.252v-.992h4.252zM49.906%2024.177h-4.252v-.992h4.252zM49.906%2025.595h-4.252v-.992h4.252zM49.906%2027.011h-4.252v-.992h4.252zM49.906%2028.429h-4.252v-.992h4.252zM49.906%2029.846h-4.252v-.992h4.252zM49.906%2031.264h-4.252v-.992h4.252zM49.906%2032.68h-4.252v-.991h4.252zM49.906%2034.098h-4.252v-.992h4.252zM49.906%2035.516h-4.252v-.992h4.252zM49.906%2036.932h-4.252v-.992h4.252zM49.906%2038.35h-4.252v-.992h4.252zM49.906%2039.768h-4.252v-.992h4.252zM49.906%2041.184h-4.252v-.992h4.252zM49.906%2042.602h-4.252v-.992h4.252zM42.608%2049.902h-.992V45.65h.992zM41.19%2049.902h-.992V45.65h.992zM39.772%2049.902h-.992V45.65h.992zM38.356%2049.902h-.992V45.65h.992zM36.938%2049.902h-.992V45.65h.992zM35.52%2049.902h-.991V45.65h.992zM34.104%2049.902h-.992V45.65h.992zM32.686%2049.902h-.992V45.65h.992zM31.269%2049.902h-.992V45.65h.992zM29.851%2049.901h-.992V45.65h.992zM28.434%2049.901h-.992V45.65h.992zM27.017%2049.901h-.992V45.65h.992zM25.6%2049.901h-.993V45.65h.992zM24.183%2049.901h-.992V45.65h.992zM22.765%2049.901h-.992V45.65h.992zM21.347%2049.901h-.992V45.65h.992zM19.93%2049.901h-.991V45.65h.992zM18.513%2049.901h-.992V45.65h.992zM17.095%2049.901h-.992V45.65h.992zM15.679%2049.901h-.992V45.65h.992zM14.261%2049.901h-.992V45.65h.992zM12.843%2049.901h-.992V45.65h.992zM11.427%2049.901h-.992V45.65h.992zM10.01%2049.901h-.993V45.65h.992zM8.592%2049.901H7.6V45.65h.992zM4.553%2042.602H.3v-.992h4.252zM4.553%2041.184H.3v-.992h4.252zM4.553%2039.768H.3v-.992h4.252zM4.553%2038.35H.3v-.992h4.252zM4.553%2036.932H.3v-.992h4.252zM4.553%2035.516H.3v-.992h4.252zM4.553%2034.098H.3v-.992h4.252zM4.553%2032.68H.3v-.991h4.252zM4.553%2031.264H.3v-.992h4.252zM4.553%2029.846H.3v-.992h4.252zM4.553%2028.429H.3v-.992h4.252zM4.553%2027.011H.3v-.992h4.252zM4.553%2025.595H.3v-.992h4.252zM4.553%2024.177H.3v-.992h4.252zM4.553%2022.76H.3v-.992h4.252zM4.553%2021.343H.3v-.992h4.252zM4.553%2019.925H.3v-.992h4.252zM4.553%2018.507H.3v-.992h4.252zM4.553%2017.09H.3V16.1h4.252zM4.553%2015.673H.3v-.992h4.252zM4.553%2014.255H.3v-.992h4.252zM4.553%2012.839H.3v-.992h4.252zM4.553%2011.421H.3v-.992h4.252zM4.553%2010.003H.3v-.992h4.252zM4.553%208.587H.3v-.992h4.252zM8.592%204.547H7.6V.295h.992zM10.01%204.547h-.993V.295h.992zM11.427%204.547h-.992V.295h.992zM12.843%204.547h-.992V.295h.992zM14.261%204.547h-.992V.295h.992zM15.679%204.547h-.992V.295h.992zM17.095%204.547h-.992V.295h.992zM18.513%204.547h-.992V.295h.992zM19.93%204.547h-.991V.295h.992zM21.347%204.547h-.992V.295h.992zM22.765%204.547h-.992V.295h.992zM24.183%204.547h-.992V.295h.992zM25.6%204.547h-.993V.295h.992zM27.017%204.547h-.992V.295h.992zM28.434%204.547h-.992V.295h.992zM29.851%204.547h-.992V.295h.992zM31.269%204.547h-.992V.295h.992zM32.686%204.547h-.992V.295h.992zM34.104%204.547h-.992V.295h.992zM35.52%204.547h-.991V.295h.992zM36.938%204.547h-.992V.295h.992zM38.356%204.547h-.992V.295h.992zM39.772%204.547h-.992V.295h.992zM41.19%204.547h-.992V.295h.992zM42.608%204.547h-.992V.295h.992z%22/%3E%3Cpath%20fill=%22#303030%22%20d=%22M5.258%205.258h39.685v39.685H5.258z%22/%3E%3Cpath%20fill=%22#1f1f1f%22%20d=%22M5.258%205.258h39.685l-.72.72H5.978zM5.258%2044.943h39.685l-.72-.72H5.978z%22/%3E%3Cpath%20d=%22M5.258%205.258v39.685l.72-.72V5.978z%22/%3E%3Cpath%20fill=%22#3d3d3d%22%20d=%22M44.943%205.258v39.685l-.72-.72V5.978z%22/%3E%3Ccircle%20cx=%227.418%22%20cy=%2242.783%22%20r=%22.72%22%20fill=%22#1f1f1f%22/%3E%3C/g%3E%3Ctext%20style=%22line-height:1.25;-inkscape-font-specification:ubuntu;text-align:start%22%20x=%2269.107%22%20y=%22106.106%22%20font-weight=%22400%22%20font-size=%2250.208%22%20font-family=%22ubuntu%22%20letter-spacing=%220%22%20word-spacing=%220%22%20fill=%22#ff0%22%20stroke-width=%223.138%22%3E%3Ctspan%20x=%2269.107%22%20y=%22106.106%22%20style=%22-inkscape-font-specification:'ubuntu%20Medium'%22%20font-weight=%22500%22%3EZ80%3C/tspan%3E%3C/text%3E%3Ctext%20style=%22line-height:1.25;-inkscape-font-specification:ubuntu;text-align:start%22%20x=%2274.46%22%20y=%22155.505%22%20font-weight=%22400%22%20font-size=%2234.387%22%20font-family=%22ubuntu%22%20letter-spacing=%220%22%20word-spacing=%220%22%20fill=%22#fff%22%20stroke-width=%222.149%22%3E%3Ctspan%20x=%2274.46%22%20y=%22155.505%22%20style=%22-inkscape-font-specification:'ubuntu%20Medium'%22%20font-weight=%22500%22%3ECPU%3C/tspan%3E%3C/text%3E%3C/svg%3E"
@@ -20688,6 +20688,18 @@
               }
             },
             {
+              "id": "42c6cc5d-567d-4a43-b4c4-22a68f9d7e31",
+              "type": "aa7742878a0a5f9d4b1b61be7666413c06da5f7c",
+              "position": {
+                "x": 1256,
+                "y": -512
+              },
+              "size": {
+                "width": 96,
+                "height": 64
+              }
+            },
+            {
               "id": "d0feb955-a442-42cf-a655-8c29ea50a7dc",
               "type": "35f267d0df6ffcb7fc33753bc9df9cf083642cca",
               "position": {
@@ -20736,8 +20748,8 @@
               }
             },
             {
-              "id": "2d5189ca-f8ad-4957-b239-5f64fac39670",
-              "type": "f85065dd0937ec69216a0d929ae86b59f3497d67",
+              "id": "0b6ceb2e-3f91-4e6e-9e02-4fe511a7ab35",
+              "type": "1fbb09af90f22c695965a35a062725ec8b32e1ab",
               "position": {
                 "x": 848,
                 "y": -448
@@ -20745,18 +20757,6 @@
               "size": {
                 "width": 96,
                 "height": 320
-              }
-            },
-            {
-              "id": "59e729b3-c67f-412d-8378-c097a17dd404",
-              "type": "45b46121e920e3d12d72c978c700771c89ce64f0",
-              "position": {
-                "x": 1256,
-                "y": -512
-              },
-              "size": {
-                "width": 96,
-                "height": 64
               }
             }
           ],
@@ -20777,7 +20777,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "2d5189ca-f8ad-4957-b239-5f64fac39670",
+                "block": "0b6ceb2e-3f91-4e6e-9e02-4fe511a7ab35",
                 "port": "5c8687be-29c2-4c63-8799-a79e6f942a29"
               },
               "vertices": [
@@ -20789,7 +20789,7 @@
             },
             {
               "source": {
-                "block": "2d5189ca-f8ad-4957-b239-5f64fac39670",
+                "block": "0b6ceb2e-3f91-4e6e-9e02-4fe511a7ab35",
                 "port": "45cc2a84-a11a-4787-9daa-9c02a88aa039"
               },
               "target": {
@@ -20799,7 +20799,7 @@
             },
             {
               "source": {
-                "block": "2d5189ca-f8ad-4957-b239-5f64fac39670",
+                "block": "0b6ceb2e-3f91-4e6e-9e02-4fe511a7ab35",
                 "port": "72a9a3d0-2547-4669-88bc-7b28d75b8d93"
               },
               "target": {
@@ -20819,13 +20819,13 @@
                 "port": "664caf9e-5f40-4df4-800a-b626af702e62"
               },
               "target": {
-                "block": "59e729b3-c67f-412d-8378-c097a17dd404",
-                "port": "d9293102-2bf9-49d6-90a2-52cca5ea8023"
+                "block": "42c6cc5d-567d-4a43-b4c4-22a68f9d7e31",
+                "port": "e18ee7de-0f42-4efe-ab00-b9e7e4295fa1"
               }
             },
             {
               "source": {
-                "block": "2d5189ca-f8ad-4957-b239-5f64fac39670",
+                "block": "0b6ceb2e-3f91-4e6e-9e02-4fe511a7ab35",
                 "port": "b488f5a2-c63e-4dfa-ba98-946d88d9005d"
               },
               "target": {
@@ -20849,7 +20849,7 @@
                 "port": "3d584b0a-29eb-47af-8c43-c0822282ef05"
               },
               "target": {
-                "block": "2d5189ca-f8ad-4957-b239-5f64fac39670",
+                "block": "0b6ceb2e-3f91-4e6e-9e02-4fe511a7ab35",
                 "port": "970887c6-f97e-45b0-bfeb-fc661c656b1d"
               }
             },
@@ -20859,13 +20859,13 @@
                 "port": "3d584b0a-29eb-47af-8c43-c0822282ef05"
               },
               "target": {
-                "block": "2d5189ca-f8ad-4957-b239-5f64fac39670",
+                "block": "0b6ceb2e-3f91-4e6e-9e02-4fe511a7ab35",
                 "port": "7fea655e-be65-445a-949f-db801a541a62"
               }
             },
             {
               "source": {
-                "block": "2d5189ca-f8ad-4957-b239-5f64fac39670",
+                "block": "0b6ceb2e-3f91-4e6e-9e02-4fe511a7ab35",
                 "port": "de931c26-83b6-49cd-bbbc-902c084f9174"
               },
               "target": {
@@ -20885,8 +20885,8 @@
                 "port": "664caf9e-5f40-4df4-800a-b626af702e62"
               },
               "target": {
-                "block": "59e729b3-c67f-412d-8378-c097a17dd404",
-                "port": "bccf523e-a4b1-42f4-a396-796a3fde9129"
+                "block": "42c6cc5d-567d-4a43-b4c4-22a68f9d7e31",
+                "port": "894c456e-8ee0-40e0-96dd-4e5fb5d12322"
               }
             },
             {
@@ -20895,7 +20895,7 @@
                 "port": "3d584b0a-29eb-47af-8c43-c0822282ef05"
               },
               "target": {
-                "block": "2d5189ca-f8ad-4957-b239-5f64fac39670",
+                "block": "0b6ceb2e-3f91-4e6e-9e02-4fe511a7ab35",
                 "port": "3e1d1885-b162-43a3-a647-d90f20ebe275"
               }
             },
@@ -20905,7 +20905,7 @@
                 "port": "3d584b0a-29eb-47af-8c43-c0822282ef05"
               },
               "target": {
-                "block": "2d5189ca-f8ad-4957-b239-5f64fac39670",
+                "block": "0b6ceb2e-3f91-4e6e-9e02-4fe511a7ab35",
                 "port": "46bad1d2-a5f2-4da3-85a6-10f3c702eee2"
               },
               "vertices": [
@@ -20921,7 +20921,7 @@
                 "port": "3d584b0a-29eb-47af-8c43-c0822282ef05"
               },
               "target": {
-                "block": "2d5189ca-f8ad-4957-b239-5f64fac39670",
+                "block": "0b6ceb2e-3f91-4e6e-9e02-4fe511a7ab35",
                 "port": "23e89c7b-4f7d-45fa-a57e-02cd1272e9ad"
               },
               "vertices": [
@@ -20937,7 +20937,7 @@
                 "port": "664caf9e-5f40-4df4-800a-b626af702e62"
               },
               "target": {
-                "block": "2d5189ca-f8ad-4957-b239-5f64fac39670",
+                "block": "0b6ceb2e-3f91-4e6e-9e02-4fe511a7ab35",
                 "port": "e9f48b85-1c5b-44f5-b2e4-0cdbddf2b148"
               },
               "vertices": [
@@ -20949,7 +20949,7 @@
             },
             {
               "source": {
-                "block": "2d5189ca-f8ad-4957-b239-5f64fac39670",
+                "block": "0b6ceb2e-3f91-4e6e-9e02-4fe511a7ab35",
                 "port": "dc42ef15-e7e1-436e-8800-8218e1b4aa0c"
               },
               "target": {
@@ -20979,7 +20979,7 @@
                 "port": "out"
               },
               "target": {
-                "block": "2d5189ca-f8ad-4957-b239-5f64fac39670",
+                "block": "0b6ceb2e-3f91-4e6e-9e02-4fe511a7ab35",
                 "port": "9009c653-d4d5-488d-b74f-9001f1f007d9"
               },
               "size": 8
@@ -21006,8 +21006,8 @@
             },
             {
               "source": {
-                "block": "59e729b3-c67f-412d-8378-c097a17dd404",
-                "port": "b97337fb-2814-484d-b9d7-ff9aebe4de2b"
+                "block": "42c6cc5d-567d-4a43-b4c4-22a68f9d7e31",
+                "port": "3b5091bd-69ea-443b-a389-35de1a213e34"
               },
               "target": {
                 "block": "a422ea28-3784-4f44-9d0d-78bdabf0334e",
@@ -21016,7 +21016,7 @@
             },
             {
               "source": {
-                "block": "2d5189ca-f8ad-4957-b239-5f64fac39670",
+                "block": "0b6ceb2e-3f91-4e6e-9e02-4fe511a7ab35",
                 "port": "d8afee16-1b38-4907-875a-60e69eccac4e"
               },
               "target": {
@@ -21033,7 +21033,7 @@
             },
             {
               "source": {
-                "block": "2d5189ca-f8ad-4957-b239-5f64fac39670",
+                "block": "0b6ceb2e-3f91-4e6e-9e02-4fe511a7ab35",
                 "port": "2ae0b1f2-c68b-406a-866a-e9947c2423ce"
               },
               "target": {
@@ -21046,10 +21046,147 @@
         }
       }
     },
-    "f85065dd0937ec69216a0d929ae86b59f3497d67": {
+    "aa7742878a0a5f9d4b1b61be7666413c06da5f7c": {
+      "package": {
+        "name": "Codificador-2-1",
+        "version": "0.1",
+        "description": "Codificador de 2 a 1. La salida zero se activa cuando ninguna entrada está activada",
+        "author": "Juan González-Gómez (Obijuan)",
+        "image": "%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2092.804077%20312.37338%22%20width=%2292.804%22%20height=%22312.373%22%3E%3Cpath%20d=%22M92.804%2072.842c0-6.286-1.871-12.518-5.412-18.025-7.306-11.352-11.167-24.924-11.167-39.247V5.629A5.63%205.63%200%200%200%2070.596%200H22.209a5.63%205.63%200%200%200-5.63%205.629v9.941c0%2014.324-3.86%2027.895-11.167%2039.25C1.872%2060.323%200%2066.555%200%2072.842c0%209.492%204.122%2018.426%2011.65%2025.43v44.017c0%2019.164%2015.588%2034.755%2034.749%2034.755%2019.164%200%2034.755-15.59%2034.755-34.755V98.273c7.528-7.005%2011.65-15.938%2011.65-25.431zM69.896%20142.29c0%2012.956-10.541%2023.497-23.497%2023.497-12.953%200-23.49-10.541-23.49-23.497V92.11c0-6.38%202.55-12.304%206.872-16.623%201.274%208.027%208.24%2014.184%2016.62%2014.184%208.375%200%2015.338-6.15%2016.618-14.169%204.435%204.439%206.877%2010.336%206.877%2016.607v50.18zM40.828%2072.84V50.438c0-3.072%202.5-5.572%205.572-5.572%203.073%200%205.573%202.5%205.573%205.572v22.404c0%203.073-2.5%205.573-5.573%205.573a5.578%205.578%200%200%201-5.572-5.573zm38.752%208.897c-1.65-5.302-4.568-10.162-8.607-14.201a34.654%2034.654%200%200%200-7.742-5.829V50.438c0-9.28-7.55-16.83-16.83-16.83-9.28%200-16.83%207.55-16.83%2016.83v11.257a34.626%2034.626%200%200%200-16.348%2020.044c-1.29-2.834-1.966-5.834-1.966-8.896%200-4.181%201.219-8.196%203.622-11.932%208.477-13.173%2012.958-28.851%2012.958-45.34v-4.313h37.13v4.312c0%2016.489%204.48%2032.167%2012.957%2045.339%202.403%203.737%203.622%207.752%203.622%2011.933%200%203.062-.677%206.062-1.966%208.895z%22%20fill=%22#00f%22/%3E%3Cpath%20d=%22M46.4%20119.636c-8.29%200-15.037%206.746-15.037%2015.038v7.617c0%208.291%206.746%2015.037%2015.038%2015.037s15.038-6.746%2015.038-15.037v-7.617c0-8.292-6.747-15.038-15.038-15.038zm3.78%2022.655a3.784%203.784%200%200%201-3.78%203.78%203.784%203.784%200%200%201-3.779-3.78v-7.617a3.784%203.784%200%200%201%203.78-3.78%203.784%203.784%200%200%201%203.78%203.78zM28.48%20191.362h18.818a5.63%205.63%200%200%200%200-11.258H28.48a5.63%205.63%200%200%200%200%2011.258zM64.325%20193.579h-18.82a5.63%205.63%200%200%200%200%2011.258h18.82a5.63%205.63%200%200%200%200-11.258zM28.48%20218.311h18.818a5.63%205.63%200%200%200%200-11.258H28.48a5.63%205.63%200%200%200%200%2011.258zM64.325%20220.529h-18.82a5.63%205.63%200%200%200%200%2011.258h18.82a5.63%205.63%200%200%200%200-11.258zM52.927%20239.633a5.63%205.63%200%200%200-5.629-5.629H28.48a5.63%205.63%200%200%200%200%2011.258H47.3a5.63%205.63%200%200%200%205.628-5.629zM64.325%20247.48h-18.82a5.63%205.63%200%200%200%200%2011.257h18.82a5.63%205.63%200%200%200%200-11.258zM52.927%20266.413a5.63%205.63%200%200%200-5.629-5.629H28.48a5.63%205.63%200%200%200%200%2011.258H47.3a5.63%205.63%200%200%200%205.628-5.629zM64.325%20274.26h-18.82a5.63%205.63%200%200%200%200%2011.258h18.82a5.63%205.63%200%200%200%200-11.258zM52.927%20293.27a5.63%205.63%200%200%200-5.629-5.63H28.48a5.63%205.63%200%200%200%200%2011.258H47.3a5.63%205.63%200%200%200%205.628-5.629zM64.325%20301.115h-18.82a5.63%205.63%200%200%200%200%2011.258h18.82a5.63%205.63%200%200%200%200-11.258z%22%20fill=%22#00f%22/%3E%3C/svg%3E"
+      },
+      "design": {
+        "graph": {
+          "blocks": [
+            {
+              "id": "894c456e-8ee0-40e0-96dd-4e5fb5d12322",
+              "type": "basic.input",
+              "data": {
+                "name": "i1",
+                "clock": false
+              },
+              "position": {
+                "x": 216,
+                "y": 96
+              }
+            },
+            {
+              "id": "3b5091bd-69ea-443b-a389-35de1a213e34",
+              "type": "basic.output",
+              "data": {
+                "name": "y"
+              },
+              "position": {
+                "x": 736,
+                "y": 96
+              }
+            },
+            {
+              "id": "e18ee7de-0f42-4efe-ab00-b9e7e4295fa1",
+              "type": "basic.input",
+              "data": {
+                "name": "i0",
+                "clock": false
+              },
+              "position": {
+                "x": 216,
+                "y": 152
+              }
+            },
+            {
+              "id": "c15ff15e-8eae-4555-9d05-2430588e35ad",
+              "type": "basic.output",
+              "data": {
+                "name": "zero"
+              },
+              "position": {
+                "x": 736,
+                "y": 152
+              }
+            },
+            {
+              "id": "3f02a995-3a83-44a4-8956-b2640956baac",
+              "type": "basic.code",
+              "data": {
+                "code": "//-- Codificador de 2 a 1\n\nassign zero = ({i1,i0}==2'b00);\nassign y = (i1 == 1);\n",
+                "params": [],
+                "ports": {
+                  "in": [
+                    {
+                      "name": "i1"
+                    },
+                    {
+                      "name": "i0"
+                    }
+                  ],
+                  "out": [
+                    {
+                      "name": "y"
+                    },
+                    {
+                      "name": "zero"
+                    }
+                  ]
+                }
+              },
+              "position": {
+                "x": 376,
+                "y": 104
+              },
+              "size": {
+                "width": 296,
+                "height": 104
+              }
+            }
+          ],
+          "wires": [
+            {
+              "source": {
+                "block": "e18ee7de-0f42-4efe-ab00-b9e7e4295fa1",
+                "port": "out"
+              },
+              "target": {
+                "block": "3f02a995-3a83-44a4-8956-b2640956baac",
+                "port": "i0"
+              }
+            },
+            {
+              "source": {
+                "block": "894c456e-8ee0-40e0-96dd-4e5fb5d12322",
+                "port": "out"
+              },
+              "target": {
+                "block": "3f02a995-3a83-44a4-8956-b2640956baac",
+                "port": "i1"
+              }
+            },
+            {
+              "source": {
+                "block": "3f02a995-3a83-44a4-8956-b2640956baac",
+                "port": "y"
+              },
+              "target": {
+                "block": "3b5091bd-69ea-443b-a389-35de1a213e34",
+                "port": "in"
+              }
+            },
+            {
+              "source": {
+                "block": "3f02a995-3a83-44a4-8956-b2640956baac",
+                "port": "zero"
+              },
+              "target": {
+                "block": "c15ff15e-8eae-4555-9d05-2430588e35ad",
+                "port": "in"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "1fbb09af90f22c695965a35a062725ec8b32e1ab": {
       "package": {
         "name": "Z80 CLONE",
-        "version": "Z80-c1717414561287",
+        "version": "Z80-c1717519529946",
         "description": "Microprocesador Z80",
         "author": "TV80 project",
         "image": "%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22296.115%22%20version=%221.2%22%20height=%22296.115%22%20viewBox=%220%200%20222.08599%20222.08601%22%3E%3Cdesc%3EFritzing%20breadboard%20generated%20by%20brd2svg%3C/desc%3E%3Cg%20transform=%22scale(4.477)%20rotate(90%2025.1%2024.8)%22%20stroke-width=%220%22%3E%3Cpath%20fill=%22#8c8c8c%22%20d=%22M49.906%208.587h-4.252v-.992h4.252zM49.906%2010.003h-4.252v-.992h4.252zM49.906%2011.421h-4.252v-.992h4.252zM49.906%2012.839h-4.252v-.992h4.252zM49.906%2014.255h-4.252v-.992h4.252zM49.906%2015.673h-4.252v-.992h4.252zM49.906%2017.09h-4.252V16.1h4.252zM49.906%2018.507h-4.252v-.992h4.252zM49.906%2019.925h-4.252v-.992h4.252zM49.906%2021.343h-4.252v-.992h4.252zM49.906%2022.76h-4.252v-.992h4.252zM49.906%2024.177h-4.252v-.992h4.252zM49.906%2025.595h-4.252v-.992h4.252zM49.906%2027.011h-4.252v-.992h4.252zM49.906%2028.429h-4.252v-.992h4.252zM49.906%2029.846h-4.252v-.992h4.252zM49.906%2031.264h-4.252v-.992h4.252zM49.906%2032.68h-4.252v-.991h4.252zM49.906%2034.098h-4.252v-.992h4.252zM49.906%2035.516h-4.252v-.992h4.252zM49.906%2036.932h-4.252v-.992h4.252zM49.906%2038.35h-4.252v-.992h4.252zM49.906%2039.768h-4.252v-.992h4.252zM49.906%2041.184h-4.252v-.992h4.252zM49.906%2042.602h-4.252v-.992h4.252zM42.608%2049.902h-.992V45.65h.992zM41.19%2049.902h-.992V45.65h.992zM39.772%2049.902h-.992V45.65h.992zM38.356%2049.902h-.992V45.65h.992zM36.938%2049.902h-.992V45.65h.992zM35.52%2049.902h-.991V45.65h.992zM34.104%2049.902h-.992V45.65h.992zM32.686%2049.902h-.992V45.65h.992zM31.269%2049.902h-.992V45.65h.992zM29.851%2049.901h-.992V45.65h.992zM28.434%2049.901h-.992V45.65h.992zM27.017%2049.901h-.992V45.65h.992zM25.6%2049.901h-.993V45.65h.992zM24.183%2049.901h-.992V45.65h.992zM22.765%2049.901h-.992V45.65h.992zM21.347%2049.901h-.992V45.65h.992zM19.93%2049.901h-.991V45.65h.992zM18.513%2049.901h-.992V45.65h.992zM17.095%2049.901h-.992V45.65h.992zM15.679%2049.901h-.992V45.65h.992zM14.261%2049.901h-.992V45.65h.992zM12.843%2049.901h-.992V45.65h.992zM11.427%2049.901h-.992V45.65h.992zM10.01%2049.901h-.993V45.65h.992zM8.592%2049.901H7.6V45.65h.992zM4.553%2042.602H.3v-.992h4.252zM4.553%2041.184H.3v-.992h4.252zM4.553%2039.768H.3v-.992h4.252zM4.553%2038.35H.3v-.992h4.252zM4.553%2036.932H.3v-.992h4.252zM4.553%2035.516H.3v-.992h4.252zM4.553%2034.098H.3v-.992h4.252zM4.553%2032.68H.3v-.991h4.252zM4.553%2031.264H.3v-.992h4.252zM4.553%2029.846H.3v-.992h4.252zM4.553%2028.429H.3v-.992h4.252zM4.553%2027.011H.3v-.992h4.252zM4.553%2025.595H.3v-.992h4.252zM4.553%2024.177H.3v-.992h4.252zM4.553%2022.76H.3v-.992h4.252zM4.553%2021.343H.3v-.992h4.252zM4.553%2019.925H.3v-.992h4.252zM4.553%2018.507H.3v-.992h4.252zM4.553%2017.09H.3V16.1h4.252zM4.553%2015.673H.3v-.992h4.252zM4.553%2014.255H.3v-.992h4.252zM4.553%2012.839H.3v-.992h4.252zM4.553%2011.421H.3v-.992h4.252zM4.553%2010.003H.3v-.992h4.252zM4.553%208.587H.3v-.992h4.252zM8.592%204.547H7.6V.295h.992zM10.01%204.547h-.993V.295h.992zM11.427%204.547h-.992V.295h.992zM12.843%204.547h-.992V.295h.992zM14.261%204.547h-.992V.295h.992zM15.679%204.547h-.992V.295h.992zM17.095%204.547h-.992V.295h.992zM18.513%204.547h-.992V.295h.992zM19.93%204.547h-.991V.295h.992zM21.347%204.547h-.992V.295h.992zM22.765%204.547h-.992V.295h.992zM24.183%204.547h-.992V.295h.992zM25.6%204.547h-.993V.295h.992zM27.017%204.547h-.992V.295h.992zM28.434%204.547h-.992V.295h.992zM29.851%204.547h-.992V.295h.992zM31.269%204.547h-.992V.295h.992zM32.686%204.547h-.992V.295h.992zM34.104%204.547h-.992V.295h.992zM35.52%204.547h-.991V.295h.992zM36.938%204.547h-.992V.295h.992zM38.356%204.547h-.992V.295h.992zM39.772%204.547h-.992V.295h.992zM41.19%204.547h-.992V.295h.992zM42.608%204.547h-.992V.295h.992z%22/%3E%3Cpath%20fill=%22#303030%22%20d=%22M5.258%205.258h39.685v39.685H5.258z%22/%3E%3Cpath%20fill=%22#1f1f1f%22%20d=%22M5.258%205.258h39.685l-.72.72H5.978zM5.258%2044.943h39.685l-.72-.72H5.978z%22/%3E%3Cpath%20d=%22M5.258%205.258v39.685l.72-.72V5.978z%22/%3E%3Cpath%20fill=%22#3d3d3d%22%20d=%22M44.943%205.258v39.685l-.72-.72V5.978z%22/%3E%3Ccircle%20cx=%227.418%22%20cy=%2242.783%22%20r=%22.72%22%20fill=%22#1f1f1f%22/%3E%3C/g%3E%3Ctext%20style=%22line-height:1.25;-inkscape-font-specification:ubuntu;text-align:start%22%20x=%2269.107%22%20y=%22106.106%22%20font-weight=%22400%22%20font-size=%2250.208%22%20font-family=%22ubuntu%22%20letter-spacing=%220%22%20word-spacing=%220%22%20fill=%22#ff0%22%20stroke-width=%223.138%22%3E%3Ctspan%20x=%2269.107%22%20y=%22106.106%22%20style=%22-inkscape-font-specification:'ubuntu%20Medium'%22%20font-weight=%22500%22%3EZ80%3C/tspan%3E%3C/text%3E%3Ctext%20style=%22line-height:1.25;-inkscape-font-specification:ubuntu;text-align:start%22%20x=%2274.46%22%20y=%22155.505%22%20font-weight=%22400%22%20font-size=%2234.387%22%20font-family=%22ubuntu%22%20letter-spacing=%220%22%20word-spacing=%220%22%20fill=%22#fff%22%20stroke-width=%222.149%22%3E%3Ctspan%20x=%2274.46%22%20y=%22155.505%22%20style=%22-inkscape-font-specification:'ubuntu%20Medium'%22%20font-weight=%22500%22%3ECPU%3C/tspan%3E%3C/text%3E%3C/svg%3E"
@@ -25718,7 +25855,7 @@
               }
             },
             {
-              "id": "b02f8201-4d27-4ad2-b076-acdb5c95534e",
+              "id": "e65c354c-1e8c-4ef3-bda2-057af507e441",
               "type": "basic.code",
               "data": {
                 "code": "localparam Flag_C = 0;\nlocalparam Flag_N = 1;\nlocalparam Flag_P = 2;\nlocalparam Flag_X = 3;\nlocalparam Flag_H = 4;\nlocalparam Flag_Y = 5;\nlocalparam Flag_Z = 6;\nlocalparam Flag_S = 7;\nlocalparam Mode = 0;   // 0 => Z80, 1 => Fast Z80, 2 => 8080, 3 => GB\n\nreg [7:0]             Q_i;\nassign Q = Q_i;\n\nreg [7:0]             F_Out_i;\nassign F_Out = F_Out_i;\n\n  function [4:0] AddSub4;\n    input [3:0] A;\n    input [3:0] B;\n    input Sub;\n    input Carry_In;\n    begin\n      AddSub4 = { 1'b0, A } + { 1'b0, (Sub)?~B:B } + {4'h0,Carry_In};\n    end\n  endfunction // AddSub4\n\n  function [3:0] AddSub3;\n    input [2:0] A;\n    input [2:0] B;\n    input Sub;\n    input Carry_In;\n    begin\n      AddSub3 = { 1'b0, A } + { 1'b0, (Sub)?~B:B } + {3'h0,Carry_In};\n    end\n  endfunction // AddSub4\n\n  function [1:0] AddSub1;\n    input A;\n    input B;\n    input Sub;\n    input Carry_In;\n    begin\n      AddSub1 = { 1'b0, A } + { 1'b0, (Sub)?~B:B } + {1'h0,Carry_In};\n    end\n  endfunction // AddSub4\n\n  // AddSub variables (temporary signals)\n  reg UseCarry;\n  reg Carry7_v;\n  reg OverFlow_v;\n  reg HalfCarry_v;\n  reg Carry_v;\n  reg [7:0] Q_v;\n\n  reg [7:0] BitMask;\n\n\n  always @(/*AUTOSENSE*/ALU_Op or BusA or BusB or F_In or IR)\n    begin\n      case (IR[5:3])\n        3'b000 : BitMask = 8'b00000001;\n        3'b001 : BitMask = 8'b00000010;\n        3'b010 : BitMask = 8'b00000100;\n        3'b011 : BitMask = 8'b00001000;\n        3'b100 : BitMask = 8'b00010000;\n        3'b101 : BitMask = 8'b00100000;\n        3'b110 : BitMask = 8'b01000000;\n        default: BitMask = 8'b10000000;\n      endcase // case(IR[5:3])\n\n      UseCarry = ~ ALU_Op[2] && ALU_Op[0];\n      { HalfCarry_v, Q_v[3:0] } = AddSub4(BusA[3:0], BusB[3:0], ALU_Op[1], ALU_Op[1] ^ (UseCarry && F_In[Flag_C]) );\n      { Carry7_v, Q_v[6:4]  } = AddSub3(BusA[6:4], BusB[6:4], ALU_Op[1], HalfCarry_v);\n      { Carry_v, Q_v[7] } = AddSub1(BusA[7], BusB[7], ALU_Op[1], Carry7_v);\n      OverFlow_v = Carry_v ^ Carry7_v;\n    end // always @ *\n\n  reg [7:0] Q_t;\n  reg [8:0] DAA_Q;\n\n  always @ (/*AUTOSENSE*/ALU_Op or Arith16 or BitMask or BusA or BusB\n\t    or Carry_v or F_In or HalfCarry_v or IR or ISet\n\t    or OverFlow_v or Q_v or Z16)\n    begin\n      Q_t = 8'hxx;\n      DAA_Q = {9{1'bx}};\n\n      F_Out_i = F_In;\n      case (ALU_Op)\n\t4'b0000, 4'b0001,  4'b0010, 4'b0011, 4'b0100, 4'b0101, 4'b0110, 4'b0111 :\n          begin\n\t    F_Out_i[Flag_N] = 1'b0;\n\t    F_Out_i[Flag_C] = 1'b0;\n\n\t    case (ALU_Op[2:0])\n\n\t      3'b000, 3'b001 : // ADD, ADC\n                begin\n\t\t  Q_t = Q_v;\n\t\t  F_Out_i[Flag_C] = Carry_v;\n\t\t  F_Out_i[Flag_H] = HalfCarry_v;\n\t\t  F_Out_i[Flag_P] = OverFlow_v;\n                end\n\n\t      3'b010, 3'b011, 3'b111 : // SUB, SBC, CP\n                begin\n\t\t  Q_t = Q_v;\n\t\t  F_Out_i[Flag_N] = 1'b1;\n\t\t  F_Out_i[Flag_C] = ~ Carry_v;\n\t\t  F_Out_i[Flag_H] = ~ HalfCarry_v;\n\t\t  F_Out_i[Flag_P] = OverFlow_v;\n                end\n\n\t      3'b100 : // AND\n                begin\n\t\t  Q_t[7:0] = BusA & BusB;\n\t\t  F_Out_i[Flag_H] = 1'b1;\n                end\n\n\t      3'b101 : // XOR\n                begin\n\t\t  Q_t[7:0] = BusA ^ BusB;\n\t\t  F_Out_i[Flag_H] = 1'b0;\n                end\n\n\t      default : // OR 3'b110\n                begin\n\t\t  Q_t[7:0] = BusA | BusB;\n\t\t  F_Out_i[Flag_H] = 1'b0;\n                end\n\n\t    endcase // case(ALU_OP[2:0])\n\n\t    if (ALU_Op[2:0] == 3'b111 )\n              begin // CP\n\t\tF_Out_i[Flag_X] = BusB[3];\n\t\tF_Out_i[Flag_Y] = BusB[5];\n\t      end\n            else\n              begin\n\t\tF_Out_i[Flag_X] = Q_t[3];\n\t\tF_Out_i[Flag_Y] = Q_t[5];\n\t      end\n\n\t    if (Q_t[7:0] == 8'b00000000 )\n              begin\n\t\tF_Out_i[Flag_Z] = 1'b1;\n\t\tif (Z16 == 1'b1 )\n                  begin\n\t\t    F_Out_i[Flag_Z] = F_In[Flag_Z];\t// 16 bit ADC,SBC\n\t\t  end\n\t      end\n            else\n              begin\n\t\tF_Out_i[Flag_Z] = 1'b0;\n\t      end // else: !if(Q_t[7:0] == 8'b00000000 )\n\n\t    F_Out_i[Flag_S] = Q_t[7];\n\t    case (ALU_Op[2:0])\n\t      3'b000, 3'b001, 3'b010, 3'b011, 3'b111 : // ADD, ADC, SUB, SBC, CP\n                ;\n\n\t      default :\n\t        F_Out_i[Flag_P] = ~(^Q_t);\n\t    endcase // case(ALU_Op[2:0])\n\n\t    if (Arith16 == 1'b1 )\n              begin\n\t\tF_Out_i[Flag_S] = F_In[Flag_S];\n\t\tF_Out_i[Flag_Z] = F_In[Flag_Z];\n\t\tF_Out_i[Flag_P] = F_In[Flag_P];\n\t      end\n          end // case: 4'b0000, 4'b0001,  4'b0010, 4'b0011, 4'b0100, 4'b0101, 4'b0110, 4'b0111\n\n\t4'b1100 :\n          begin\n\t    // DAA\n\t    F_Out_i[Flag_H] = F_In[Flag_H];\n\t    F_Out_i[Flag_C] = F_In[Flag_C];\n\t    DAA_Q[7:0] = BusA;\n\t    DAA_Q[8] = 1'b0;\n\t    if (F_In[Flag_N] == 1'b0 )\n              begin\n\t\t// After addition\n\t\t// Alow > 9 || H == 1\n\t\tif (DAA_Q[3:0] > 9 || F_In[Flag_H] == 1'b1 )\n                  begin\n\t\t    if ((DAA_Q[3:0] > 9) )\n                      begin\n\t\t\tF_Out_i[Flag_H] = 1'b1;\n\t\t      end\n                    else\n                      begin\n\t\t\tF_Out_i[Flag_H] = 1'b0;\n\t\t      end\n\t\t    DAA_Q = DAA_Q + 6;\n\t\t  end // if (DAA_Q[3:0] > 9 || F_In[Flag_H] == 1'b1 )\n\n\t\t// new Ahigh > 9 || C == 1\n\t\tif (DAA_Q[8:4] > 9 || F_In[Flag_C] == 1'b1 )\n                  begin\n\t\t    DAA_Q = DAA_Q + 96; // 0x60\n\t\t  end\n\t      end\n            else\n              begin\n\t\t// After subtraction\n\t\tif (DAA_Q[3:0] > 9 || F_In[Flag_H] == 1'b1 )\n                  begin\n\t\t    if (DAA_Q[3:0] > 5 )\n                      begin\n\t\t\tF_Out_i[Flag_H] = 1'b0;\n\t\t      end\n\t\t    DAA_Q[7:0] = DAA_Q[7:0] - 6;\n\t\t  end\n\t\tif (BusA > 153 || F_In[Flag_C] == 1'b1 )\n                  begin\n\t\t    DAA_Q = DAA_Q - 352; // 0x160\n\t\t  end\n\t      end // else: !if(F_In[Flag_N] == 1'b0 )\n\n\t    F_Out_i[Flag_X] = DAA_Q[3];\n\t    F_Out_i[Flag_Y] = DAA_Q[5];\n\t    F_Out_i[Flag_C] = F_In[Flag_C] || DAA_Q[8];\n\t    Q_t = DAA_Q[7:0];\n\n\t    if (DAA_Q[7:0] == 8'b00000000 )\n              begin\n\t\tF_Out_i[Flag_Z] = 1'b1;\n\t      end\n            else\n              begin\n\t\tF_Out_i[Flag_Z] = 1'b0;\n\t      end\n\n\t    F_Out_i[Flag_S] = DAA_Q[7];\n\t    F_Out_i[Flag_P] = ~ (^DAA_Q);\n          end // case: 4'b1100\n\n\t4'b1101, 4'b1110 :\n          begin\n\t    // RLD, RRD\n\t    Q_t[7:4] = BusA[7:4];\n\t    if (ALU_Op[0] == 1'b1 )\n              begin\n\t\tQ_t[3:0] = BusB[7:4];\n\t      end\n            else\n              begin\n\t\tQ_t[3:0] = BusB[3:0];\n\t      end\n\t    F_Out_i[Flag_H] = 1'b0;\n\t    F_Out_i[Flag_N] = 1'b0;\n\t    F_Out_i[Flag_X] = Q_t[3];\n\t    F_Out_i[Flag_Y] = Q_t[5];\n\t    if (Q_t[7:0] == 8'b00000000 )\n              begin\n\t\tF_Out_i[Flag_Z] = 1'b1;\n\t      end\n            else\n              begin\n\t\tF_Out_i[Flag_Z] = 1'b0;\n\t      end\n\t    F_Out_i[Flag_S] = Q_t[7];\n            F_Out_i[Flag_P] = ~(^Q_t);\n          end // case: when 4'b1101, 4'b1110\n\n\t4'b1001 :\n          begin\n\t    // BIT\n\t    Q_t[7:0] = BusB & BitMask;\n\t    F_Out_i[Flag_S] = Q_t[7];\n\t    if (Q_t[7:0] == 8'b00000000 )\n              begin\n\t\tF_Out_i[Flag_Z] = 1'b1;\n\t\tF_Out_i[Flag_P] = 1'b1;\n\t      end\n            else\n              begin\n\t\tF_Out_i[Flag_Z] = 1'b0;\n\t\tF_Out_i[Flag_P] = 1'b0;\n\t      end\n\t    F_Out_i[Flag_H] = 1'b1;\n\t    F_Out_i[Flag_N] = 1'b0;\n\t    F_Out_i[Flag_X] = 1'b0;\n\t    F_Out_i[Flag_Y] = 1'b0;\n\t    if (IR[2:0] != 3'b110 )\n              begin\n\t\tF_Out_i[Flag_X] = BusB[3];\n\t\tF_Out_i[Flag_Y] = BusB[5];\n\t      end\n          end // case: when 4'b1001\n\n\t4'b1010 :\n\t  // SET\n\t  Q_t[7:0] = BusB | BitMask;\n\n\t4'b1011 :\n\t  // RES\n\t  Q_t[7:0] = BusB & ~ BitMask;\n\n\t4'b1000 :\n          begin\n\t    // ROT\n\t    case (IR[5:3])\n\t      3'b000 : // RLC\n                begin\n\t\t  Q_t[7:1] = BusA[6:0];\n\t\t  Q_t[0] = BusA[7];\n\t\t  F_Out_i[Flag_C] = BusA[7];\n                end\n\n\t      3'b010 : // RL\n                begin\n\t\t  Q_t[7:1] = BusA[6:0];\n\t\t  Q_t[0] = F_In[Flag_C];\n\t\t  F_Out_i[Flag_C] = BusA[7];\n                end\n\n\t      3'b001 : // RRC\n                begin\n\t\t  Q_t[6:0] = BusA[7:1];\n\t\t  Q_t[7] = BusA[0];\n\t\t  F_Out_i[Flag_C] = BusA[0];\n                end\n\n\t      3'b011 : // RR\n                begin\n\t\t  Q_t[6:0] = BusA[7:1];\n\t\t  Q_t[7] = F_In[Flag_C];\n\t\t  F_Out_i[Flag_C] = BusA[0];\n                end\n\n\t      3'b100 : // SLA\n                begin\n\t\t  Q_t[7:1] = BusA[6:0];\n\t\t  Q_t[0] = 1'b0;\n\t\t  F_Out_i[Flag_C] = BusA[7];\n                end\n\n\t      3'b110 : // SLL (Undocumented) / SWAP\n                begin\n\t\t  if (Mode == 3 )\n                    begin\n\t\t      Q_t[7:4] = BusA[3:0];\n\t\t      Q_t[3:0] = BusA[7:4];\n\t\t      F_Out_i[Flag_C] = 1'b0;\n\t\t    end\n                  else\n                    begin\n\t\t      Q_t[7:1] = BusA[6:0];\n\t\t      Q_t[0] = 1'b1;\n\t\t      F_Out_i[Flag_C] = BusA[7];\n\t\t    end // else: !if(Mode == 3 )\n                end // case: 3'b110\n\n\t      3'b101 : // SRA\n                begin\n\t\t  Q_t[6:0] = BusA[7:1];\n\t\t  Q_t[7] = BusA[7];\n\t\t  F_Out_i[Flag_C] = BusA[0];\n                end\n\n\t      default : // SRL\n                begin\n\t\t  Q_t[6:0] = BusA[7:1];\n\t\t  Q_t[7] = 1'b0;\n\t\t  F_Out_i[Flag_C] = BusA[0];\n                end\n\t    endcase // case(IR[5:3])\n\n\t    F_Out_i[Flag_H] = 1'b0;\n\t    F_Out_i[Flag_N] = 1'b0;\n\t    F_Out_i[Flag_X] = Q_t[3];\n\t    F_Out_i[Flag_Y] = Q_t[5];\n\t    F_Out_i[Flag_S] = Q_t[7];\n\t    if (Q_t[7:0] == 8'b00000000 )\n              begin\n\t\tF_Out_i[Flag_Z] = 1'b1;\n\t      end\n            else\n              begin\n\t\tF_Out_i[Flag_Z] = 1'b0;\n\t      end\n            F_Out_i[Flag_P] = ~(^Q_t);\n\n\t    if (ISet == 2'b00 )\n              begin\n\t\tF_Out_i[Flag_P] = F_In[Flag_P];\n\t\tF_Out_i[Flag_S] = F_In[Flag_S];\n\t\tF_Out_i[Flag_Z] = F_In[Flag_Z];\n\t      end\n          end // case: 4'b1000\n\n\n\tdefault :\n\t  ;\n\n      endcase // case(ALU_Op)\n\n      Q_i = Q_t;\n    end // always @ (Arith16, ALU_OP, F_In, BusA, BusB, IR, Q_v, Carry_v, HalfCarry_v, OverFlow_v, BitMask, ISet, Z16)\n    \n     \n     \n     ",
@@ -25786,7 +25923,7 @@
               }
             },
             {
-              "id": "6ccfdf51-b885-49b3-b68a-7f5442cf58f7",
+              "id": "74d20c79-4e87-44ad-98ba-c2b1225410e7",
               "type": "basic.code",
               "data": {
                 "code": "localparam Mode = 0;    // 0 => Z80, 1 => Fast Z80, 2 => 8080, 3 => GB\nlocalparam T2Write = 1; // 0 => wr_n active in T3, /=0 => wr_n active in T2\nlocalparam IOWait  = 1; // 0 => Single cycle I/O, 1 => Std I/O cycle\n\n  reg           mreq_n_i;\n  assign mreq_n = mreq_n_i;\n\n  reg           iorq_n_i;\n  assign iorq_n = iorq_n_i;\n\n  reg           rd_n_i;\n  assign rd_n = rd_n_i;\n\n  reg           wr_n_i;\n  assign wr_n = wr_n_i;\n\n  wire          intcycle_n_i;\n  assign intcycle_n = intcycle_n_i;\n\n  wire          no_read_i;\n  assign no_read = no_read_i;\n\n  wire          write_i;\n  assign write = write_i;\n\n  wire          iorq_i;\n  assign iorq = iorq_i;\n\n  reg [7:0]     di_reg_i;\n  assign di_reg = di_reg_i;\n\n  wire [6:0]    mcycle_i;\n  assign mcycle = mcycle_i;\n\n  wire [6:0]    tstate_i;\n  assign tstate = tstate_i;\n\n\n  always @(posedge clk or negedge reset_n)\n    begin\n      if (!reset_n)\n        begin\n          rd_n_i   <= 1'b1;\n          wr_n_i   <= 1'b1;\n          iorq_n_i <= 1'b1;\n          mreq_n_i <= 1'b1;\n          di_reg_i <= 0;\n        end\n      else if(cen)\n        begin\n          rd_n_i <= 1'b1;\n          wr_n_i <= 1'b1;\n          iorq_n_i <= 1'b1;\n          mreq_n_i <= 1'b1;\n          if (mcycle_i[0])\n            begin\n              if (tstate_i[1] || (tstate_i[2] && wait_n == 1'b0))\n                begin\n                  rd_n_i <= ~ intcycle_n_i;\n                  mreq_n_i <= ~ intcycle_n_i;\n                  iorq_n_i <= intcycle_n_i;\n                end\n            `ifdef TV80_REFRESH\n              if (tstate_i[3])\n            mreq_n_i <= 1'b0;\n            `endif\n            end // if (mcycle_i[0])\n          else\n            begin\n              if ((tstate_i[1] || (tstate_i[2] && wait_n == 1'b0)) && no_read_i == 1'b0 && write_i == 1'b0)\n                begin\n                  rd_n_i <= 1'b0;\n                  iorq_n_i <= ~ iorq_i;\n                  mreq_n_i <= iorq_i;\n                end\n              if (T2Write == 0)\n                begin\n                  if (tstate_i[2] && write_i == 1'b1)\n                    begin\n                      wr_n_i <= 1'b0;\n                      iorq_n_i <= ~ iorq_i;\n                      mreq_n_i <= iorq_i;\n                    end\n                end\n              else\n                begin\n                  if ((tstate_i[1] || (tstate_i[2] && wait_n == 1'b0)) && write_i == 1'b1)\n                    begin\n                      wr_n_i <= 1'b0;\n                      iorq_n_i <= ~ iorq_i;\n                      mreq_n_i <= iorq_i;\n                  end\n                end // else: !if(T2write == 0)\n\n            end // else: !if(mcycle_i[0])\n\n          if (tstate_i[2] && wait_n == 1'b1)\n            di_reg_i <= di;\n        end // else: !if(!reset_n)\n    end // always @ (posedge clk or negedge reset_n)\n\n\n\n",
@@ -25864,7 +26001,7 @@
               }
             },
             {
-              "id": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+              "id": "36e6b72a-8a26-4307-805a-c445138afe59",
               "type": "basic.code",
               "data": {
                 "code": "    localparam Mode = 0;   // 0 => Z80, 1 => Fast Z80, 2 => 8080, 3 => GB\n  localparam IOWait = 1; // 0 => Single cycle I/O, 1 => Std I/O cycle\n  \nlocalparam Flag_C = 0;\nlocalparam Flag_N = 1;\nlocalparam Flag_P = 2;\nlocalparam Flag_X = 3;\nlocalparam Flag_H = 4;\nlocalparam Flag_Y = 5;\nlocalparam Flag_Z = 6;\nlocalparam Flag_S = 7;\n\n\n  reg    m1_n_i;\n  assign m1_n = m1_n_i;\n\n  reg    iorq_ii;\n  assign iorq = iorq_ii;\n\n`ifdef TV80_REFRESH\n  reg    rfsh_n;\n`endif\n  reg    halt_n_i;\n  assign halt_n = halt_n_i;\n\n  reg    busak_n_i;\n  assign busak_n = busak_n_i;\n  \n  reg [15:0] A_i;\n  assign A = A_i;\n\n  reg [7:0]  dout_i;\n  assign dout = dout_i;\n\n  reg [6:0]  mc_i;\n  assign mc = mc_i;\n\n  reg [6:0]  ts_i;\n  assign ts = ts_i;\n\n  reg   intcycle_n_i;\n  assign intcycle_n = intcycle_n_i;\n\n  reg   IntE_i;\n  assign IntE = IntE_i;\n\n  reg   stop_i;\n  assign stop = stop_i;\n\n  parameter     aNone    = 3'b111;\n  parameter     aBC      = 3'b000;\n  parameter     aDE      = 3'b001;\n  parameter     aXY      = 3'b010;\n  parameter     aIOA     = 3'b100;\n  parameter     aSP      = 3'b101;\n  parameter     aZI      = 3'b110;\n\n  // Registers\n  reg [7:0]     ACC, F_i;\n  assign F = F_i;\n\n  reg [7:0]     Ap, Fp;\n  reg [7:0]     I;\n`ifdef TV80_REFRESH\n  reg [7:0]     R;\n`endif\n  reg [15:0]    SP, PC;\n  reg [7:0]     RegDIH_i;\n  assign RegDIH = RegDIH_i;\n\n  reg [7:0]     RegDIL_i;\n  assign RegDIL = RegDIL_i;\n\n  reg [2:0]     RegAddrA_r;\n  reg [2:0]     RegAddrA_i;\n  assign RegAddrA = RegAddrA_i;\n\n  reg [2:0]     RegAddrB_r;\n\n  reg [2:0]     RegAddrB_i;\n  assign RegAddrB = RegAddrB_i;\n\n  reg [2:0]     RegAddrC_i;\n  assign RegAddrC = RegAddrC_i;\n\n  reg           RegWEH_i;\n  assign RegWEH = RegWEH_i;\n\n  reg           RegWEL_i;\n  assign RegWEL = RegWEL_i;\n\n  reg           Alternate;\n\n  // Help Registers\n  reg [15:0]    TmpAddr;        // Temporary address register\n  reg [7:0]     IR_i;             // Instruction register\n  assign IR = IR_i;\n\n  reg [1:0]     ISet_i;           // Instruction set selector\n  assign ISet = ISet_i;\n\n  reg [15:0]    RegBusA_r;\n\n  reg [15:0]    ID16;\n  reg [7:0]     Save_Mux;\n\n  reg [6:0]     tstate;\n  reg [6:0]     mcycle_i;\n  assign mcycle = mcycle_i;\n\n  reg           last_mcycle, last_tstate;\n  reg           IntE_FF1;\n  reg           IntE_FF2;\n  reg           Halt_FF;\n  reg           BusReq_s;\n  reg           BusAck;\n\n  reg           ClkEn_i;\n  assign ClkEn = ClkEn_i;\n\n  reg           NMI_s;\n  reg           INT_s;\n  reg [1:0]     IStatus;\n\n  reg [7:0]     DI_Reg;\n  reg           T_Res;\n  reg [1:0]     XY_State;\n  reg [2:0]     Pre_XY_F_M;\n  reg           NextIs_XY_Fetch;\n  reg           XY_Ind;\n  reg           No_BTR;\n  reg           BTR_r;\n  reg           Auto_Wait;\n  reg           Auto_Wait_t1;\n  reg           Auto_Wait_t2;\n  reg           IncDecZ;\n\n  // ALU signals\n  reg [7:0]     BusB_i;\n  assign BusB = BusB_i;\n\n  reg [7:0]     BusA_i;\n  assign BusA = BusA_i;\n\n  wire [7:0]    F_Out_i;\n  assign F_Out = F_Out_i;\n\n  // Registered micro code outputs\n  reg [4:0]     Read_To_Reg_r;\n  reg           Arith16_r_i;\n  assign Arith16_r = Arith16_r_i;\n\n  reg           Z16_r_i;\n  assign Z16_r = Z16_r_i;\n\n  reg [3:0]     ALU_Op_r_i;\n  assign ALU_Op_r = ALU_Op_r_i;\n\n  reg           Save_ALU_r;\n  reg           PreserveC_r;\n  reg [2:0]     mcycles;\n\n  // Micro code outputs\n  reg           IntCycle_i;\n  assign IntCycle = IntCycle_i;\n\n  reg           NMICycle_i;\n  assign NMICycle = NMICycle_i;\n  \n  wire           Halt_i;\n  assign Halt = Halt_i;\n\n  reg [15:0]     PC16;\n  reg [15:0]     PC16_B;\n  reg [15:0]     SP16, SP16_A, SP16_B;\n  reg [15:0]     ID16_B;\n  reg            Oldnmi_n;\n\n  \n\n\n  function [6:0] number_to_bitvec;\n    input [2:0] num;\n    begin\n      case (num)\n        1 : number_to_bitvec = 7'b0000001;\n        2 : number_to_bitvec = 7'b0000010;\n        3 : number_to_bitvec = 7'b0000100;\n        4 : number_to_bitvec = 7'b0001000;\n        5 : number_to_bitvec = 7'b0010000;\n        6 : number_to_bitvec = 7'b0100000;\n        7 : number_to_bitvec = 7'b1000000;\n        default : number_to_bitvec = 7'bx;\n      endcase // case(num)\n    end\n  endfunction // number_to_bitvec\n\n  function [2:0] mcyc_to_number;\n    input [6:0] mcyc;\n    begin\n      casez (mcyc)\n        7'b1zzzzzz : mcyc_to_number = 3'h7;\n        7'b01zzzzz : mcyc_to_number = 3'h6;\n        7'b001zzzz : mcyc_to_number = 3'h5;\n        7'b0001zzz : mcyc_to_number = 3'h4;\n        7'b00001zz : mcyc_to_number = 3'h3;\n        7'b000001z : mcyc_to_number = 3'h2;\n        7'b0000001 : mcyc_to_number = 3'h1;\n        default : mcyc_to_number = 3'h1;\n      endcase\n    end\n  endfunction\n\n  always @(/*AUTOSENSE*/mcycle_i or mcycles or tstate or tstates)\n    begin\n      case (mcycles)\n        1 : last_mcycle = mcycle_i[0];\n        2 : last_mcycle = mcycle_i[1];\n        3 : last_mcycle = mcycle_i[2];\n        4 : last_mcycle = mcycle_i[3];\n        5 : last_mcycle = mcycle_i[4];\n        6 : last_mcycle = mcycle_i[5];\n        7 : last_mcycle = mcycle_i[6];\n        default : last_mcycle = 1'bx;\n      endcase // case(mcycles)\n\n      case (tstates)\n        0 : last_tstate = tstate[0];\n        1 : last_tstate = tstate[1];\n        2 : last_tstate = tstate[2];\n        3 : last_tstate = tstate[3];\n        4 : last_tstate = tstate[4];\n        5 : last_tstate = tstate[5];\n        6 : last_tstate = tstate[6];\n        default : last_tstate = 1'bx;\n      endcase\n    end // always @ (...\n\n\n  always @(/*AUTOSENSE*/ALU_Q or BusAck or BusB_i or DI_Reg\n\t   or ExchangeRp or IR_i or Save_ALU_r or Set_Addr_To or XY_Ind\n\t   or XY_State or cen or last_tstate or mcycle_i)\n    begin\n      ClkEn_i = cen && ~ BusAck;\n\n      if (last_tstate)\n        T_Res = 1'b1;\n      else T_Res = 1'b0;\n\n      if (XY_State != 2'b00 && XY_Ind == 1'b0 &&\n          ((Set_Addr_To == aXY) ||\n           (mcycle_i[0] && IR_i == 8'b11001011) ||\n           (mcycle_i[0] && IR_i == 8'b00110110)))\n        NextIs_XY_Fetch = 1'b1;\n      else\n        NextIs_XY_Fetch = 1'b0;\n\n      if (ExchangeRp)\n        Save_Mux = BusB_i;\n      else if (!Save_ALU_r)\n        Save_Mux = DI_Reg;\n      else\n        Save_Mux = ALU_Q;\n    end // always @ *\n\n  always @ (posedge clk or negedge reset_n)\n    begin\n      if (reset_n == 1'b0 )\n        begin\n          PC <= 0;  // Program Counter\n          A_i <= 0;\n          TmpAddr <= 0;\n          IR_i <= 8'b00000000;\n          ISet_i <= 2'b00;\n          XY_State <= 2'b00;\n          IStatus <= 2'b00;\n          mcycles <= 3'b000;\n          dout_i <= 8'b00000000;\n\n          ACC <= 8'hFF;\n          F_i <= 8'hFF;\n          Ap <= 8'hFF;\n          Fp <= 8'hFF;\n          I <= 0;\n          `ifdef TV80_REFRESH\n          R <= 0;\n          `endif\n          SP <= 16'hFFFF;\n          Alternate <= 1'b0;\n\n          Read_To_Reg_r <= 5'b00000;\n          Arith16_r_i <= 1'b0;\n          BTR_r <= 1'b0;\n          Z16_r_i <= 1'b0;\n          ALU_Op_r_i <= 4'b0000;\n          Save_ALU_r <= 1'b0;\n          PreserveC_r <= 1'b0;\n          XY_Ind <= 1'b0;\n        end\n      else\n        begin\n\n          if (ClkEn_i == 1'b1 )\n            begin\n\n              ALU_Op_r_i <= 4'b0000;\n              Save_ALU_r <= 1'b0;\n              Read_To_Reg_r <= 5'b00000;\n\n              mcycles <= mcycles_d;\n\n              if (IMode != 2'b11 )\n                begin\n                  IStatus <= IMode;\n                end\n\n              Arith16_r_i <= Arith16;\n              PreserveC_r <= PreserveC;\n              if (ISet_i == 2'b10 && ALU_Op[2] == 1'b0 && ALU_Op[0] == 1'b1 && mcycle_i[2] )\n                begin\n                  Z16_r_i <= 1'b1;\n                end\n              else\n                begin\n                  Z16_r_i <= 1'b0;\n                end\n\n              if (mcycle_i[0] && (tstate[1] | tstate[2] | tstate[3] ))\n                begin\n                  // mcycle_i == 1 && tstate == 1, 2, || 3\n                  if (tstate[2] && wait_n == 1'b1 )\n                    begin\n                      `ifdef TV80_REFRESH\n                      if (Mode < 2 )\n                        begin\n                          A_i[7:0] <= R;\n                          A_i[15:8] <= I;\n                          R[6:0] <= R[6:0] + 1;\n                        end\n                      `endif\n                      if (Jump == 1'b0 && Call == 1'b0 && NMICycle_i == 1'b0 && IntCycle_i == 1'b0 && ~ (Halt_FF == 1'b1 || Halt_i== 1'b1) )\n                        begin\n                          PC <= PC16;\n                        end\n\n                      if (IntCycle_i == 1'b1 && IStatus == 2'b01 )\n                        begin\n                          IR_i <= 8'b11111111;\n                        end\n                      else if (Halt_FF == 1'b1 || (IntCycle_i == 1'b1 && IStatus == 2'b10) || NMICycle_i == 1'b1 )\n                        begin\n                          IR_i <= 8'b00000000;\n\t\t\t  TmpAddr[7:0] <= dinst; // Special M1 vector fetch\n                        end\n                      else\n                        begin\n                          IR_i <= dinst;\n                        end\n\n                      ISet_i <= 2'b00;\n                      if (Prefix != 2'b00 )\n                        begin\n                          if (Prefix == 2'b11 )\n                            begin\n                              if (IR_i[5] == 1'b1 )\n                                begin\n                                  XY_State <= 2'b10;\n                                end\n                              else\n                                begin\n                                  XY_State <= 2'b01;\n                                end\n                            end\n                          else\n                            begin\n                              if (Prefix == 2'b10 )\n                                begin\n                                  XY_State <= 2'b00;\n                                  XY_Ind <= 1'b0;\n                                end\n                              ISet_i <= Prefix;\n                            end\n                        end\n                      else\n                        begin\n                          XY_State <= 2'b00;\n                          XY_Ind <= 1'b0;\n                        end\n                    end // if (tstate == 2 && wait_n == 1'b1 )\n\n\n                end\n              else\n                begin\n                  // either (mcycle_i > 1) OR (mcycle_i == 1 AND tstate > 3)\n\n                  if (mcycle_i[5] )\n                    begin\n                      XY_Ind <= 1'b1;\n                      if (Prefix == 2'b01 )\n                        begin\n                          ISet_i <= 2'b01;\n                        end\n                    end\n\n                  if (T_Res == 1'b1 )\n                    begin\n                      BTR_r <= (I_BT || I_BC || I_BTR) && ~ No_BTR;\n                      if (Jump == 1'b1 )\n                        begin\n                          A_i[15:8] <= DI_Reg;\n                          A_i[7:0] <= TmpAddr[7:0];\n                          PC[15:8] <= DI_Reg;\n                          PC[7:0] <= TmpAddr[7:0];\n                        end\n                      else if (JumpXY == 1'b1 )\n                        begin\n                          A_i <= RegBusC;\n                          PC <= RegBusC;\n                        end else if (Call == 1'b1 || RstP == 1'b1 )\n                          begin\n                            A_i <= TmpAddr;\n                            PC <= TmpAddr;\n                          end\n                        else if (last_mcycle && NMICycle_i == 1'b1 )\n                          begin\n                            A_i <= 16'b0000000001100110;\n                            PC <= 16'b0000000001100110;\n                          end\n                        else if (mcycle_i[2] && IntCycle_i == 1'b1 && IStatus == 2'b10 )\n                          begin\n                            A_i[15:8] <= I;\n                            A_i[7:0] <= TmpAddr[7:0];\n                            PC[15:8] <= I;\n                            PC[7:0] <= TmpAddr[7:0];\n                          end\n                        else\n                          begin\n                            case (Set_Addr_To)\n                              aXY :\n                                begin\n                                  if (XY_State == 2'b00 )\n                                    begin\n                                      A_i <= RegBusC;\n                                    end\n                                  else\n                                    begin\n                                      if (NextIs_XY_Fetch == 1'b1 )\n                                        begin\n                                          A_i <= PC;\n                                        end\n                                      else\n                                        begin\n                                          A_i <= TmpAddr;\n                                        end\n                                    end // else: !if(XY_State == 2'b00 )\n                                end // case: aXY\n\n                              aIOA :\n                                begin\n                                  if (Mode == 3 )\n                                    begin\n                                      // Memory map I/O on GBZ80\n                                      A_i[15:8] <= 8'hFF;\n                                    end\n                                  else if (Mode == 2 )\n                                    begin\n                                      // Duplicate I/O address on 8080\n                                      A_i[15:8] <= DI_Reg;\n                                    end\n                                  else\n                                    begin\n                                      A_i[15:8] <= ACC;\n                                    end\n                                  A_i[7:0] <= DI_Reg;\n                                end // case: aIOA\n\n\n                              aSP :\n                                begin\n                                  A_i <= SP;\n                                end\n\n                              aBC :\n                                begin\n                                  if (Mode == 3 && iorq_i == 1'b1 )\n                                    begin\n                                      // Memory map I/O on GBZ80\n                                      A_i[15:8] <= 8'hFF;\n                                      A_i[7:0] <= RegBusC[7:0];\n                                    end\n                                  else\n                                    begin\n                                      A_i <= RegBusC;\n                                    end\n                                end // case: aBC\n\n                              aDE :\n                                begin\n                                  A_i <= RegBusC;\n                                end\n\n                              aZI :\n                                begin\n                                  if (Inc_WZ == 1'b1 )\n                                    begin\n                                      A_i <= TmpAddr + 1;\n                                    end\n                                  else\n                                    begin\n                                      A_i[15:8] <= DI_Reg;\n                                      A_i[7:0] <= TmpAddr[7:0];\n                                    end\n                                end // case: aZI\n\n                              default   :\n                                begin\n                                  A_i <= PC;\n                                end\n                            endcase // case(Set_Addr_To)\n\n                          end // else: !if(mcycle_i[2] && IntCycle_i == 1'b1 && IStatus == 2'b10 )\n\n\n                      Save_ALU_r <= Save_ALU;\n                      ALU_Op_r_i <= ALU_Op;\n\n                      if (I_CPL == 1'b1 )\n                        begin\n                          // CPL\n                          ACC <= ~ ACC;\n                          F_i[Flag_Y] <= ~ ACC[5];\n                          F_i[Flag_H] <= 1'b1;\n                          F_i[Flag_X] <= ~ ACC[3];\n                          F_i[Flag_N] <= 1'b1;\n                        end\n                      if (I_CCF == 1'b1 )\n                        begin\n                          // CCF\n                          F_i[Flag_C] <= ~ F_i[Flag_C];\n                          F_i[Flag_Y] <= ACC[5];\n                          F_i[Flag_H] <= F_i[Flag_C];\n                          F_i[Flag_X] <= ACC[3];\n                          F_i[Flag_N] <= 1'b0;\n                        end\n                      if (I_SCF == 1'b1 )\n                        begin\n                          // SCF\n                          F_i[Flag_C] <= 1'b1;\n                          F_i[Flag_Y] <= ACC[5];\n                          F_i[Flag_H] <= 1'b0;\n                          F_i[Flag_X] <= ACC[3];\n                          F_i[Flag_N] <= 1'b0;\n                        end\n                    end // if (T_Res == 1'b1 )\n\n\n                  if (tstate[2] && wait_n == 1'b1 )\n                    begin\n                      if (ISet_i == 2'b01 && mcycle_i[6] )\n                        begin\n                          IR_i <= dinst;\n                        end\n                      if (JumpE == 1'b1 )\n                        begin\n                          PC <= PC16;\n                        end\n                      else if (Inc_PC == 1'b1 )\n                        begin\n                          //PC <= PC + 1;\n                          PC <= PC16;\n                        end\n                      if (BTR_r == 1'b1 )\n                        begin\n                          //PC <= PC - 2;\n                          PC <= PC16;\n                        end\n                      if (RstP == 1'b1 )\n                        begin\n                          TmpAddr <= { 10'h0, IR_i[5:3], 3'h0 };\n                          //TmpAddr <= (others =>1'b0);\n                          //TmpAddr[5:3] <= IR_i[5:3];\n                        end\n                    end\n                  if (tstate[3] && mcycle_i[5] )\n                    begin\n                      TmpAddr <= SP16;\n                    end\n\n                  if ((tstate[2] && wait_n == 1'b1) || (tstate[4] && mcycle_i[0]) )\n                    begin\n                      if (IncDec_16[2:0] == 3'b111 )\n                        begin\n                          SP <= SP16;\n                        end\n                    end\n\n                  if (LDSPHL == 1'b1 )\n                    begin\n                      SP <= RegBusC;\n                    end\n                  if (ExchangeAF == 1'b1 )\n                    begin\n                      Ap <= ACC;\n                      ACC <= Ap;\n                      Fp <= F;\n                      F_i <= Fp;\n                    end\n                  if (ExchangeRS == 1'b1 )\n                    begin\n                      Alternate <= ~ Alternate;\n                    end\n                end // else: !if(mcycle_i  == 3'b001 && tstate(2) == 1'b0 )\n\n\n              if (tstate[3] )\n                begin\n                  if (LDZ == 1'b1 )\n                    begin\n                      TmpAddr[7:0] <= DI_Reg;\n                    end\n                  if (LDW == 1'b1 )\n                    begin\n                      TmpAddr[15:8] <= DI_Reg;\n                    end\n\n                  if (Special_LD[2] == 1'b1 )\n                    begin\n                      case (Special_LD[1:0])\n                        2'b00 :\n                          begin\n                            ACC <= I;\n                            F_i[Flag_P] <= IntE_FF2;\n\t\t\t    F_i[Flag_Z] <= (I == 0);\n\t\t\t    F_i[Flag_S] <= I[7];\n\t\t\t    F_i[Flag_H] <= 0;\n\t\t\t    F_i[Flag_N] <= 0;\n                          end\n\n                        2'b01 :\n                          begin\n                            `ifdef TV80_REFRESH\n                            ACC <= R;\n                            `else\n                            ACC <= 0;\n                            `endif\n                            F_i[Flag_P] <= IntE_FF2;\n\t\t\t    F_i[Flag_Z] <= (I == 0);\n\t\t\t    F_i[Flag_S] <= I[7];\n\t\t\t    F_i[Flag_H] <= 0;\n\t\t\t    F_i[Flag_N] <= 0;\n                          end\n\n                        2'b10 :\n                          I <= ACC;\n\n                        `ifdef TV80_REFRESH\n                        default :\n                          R <= ACC;\n                        `else\n                        default : ;\n                        `endif\n                      endcase\n                    end\n                end // if (tstate == 3 )\n\n\n              if ((I_DJNZ == 1'b0 && Save_ALU_r == 1'b1) || ALU_Op_r_i == 4'b1001 )\n                begin\n                  if (Mode == 3 )\n                    begin\n                      F_i[6] <= F_Out_i[6];\n                      F_i[5] <= F_Out_i[5];\n                      F_i[7] <= F_Out_i[7];\n                      if (PreserveC_r == 1'b0 )\n                        begin\n                          F_i[4] <= F_Out_i[4];\n                        end\n                    end\n                  else\n                    begin\n                      F_i[7:1] <= F_Out_i[7:1];\n                      if (PreserveC_r == 1'b0 )\n                        begin\n                          F_i[Flag_C] <= F_Out_i[0];\n                        end\n                    end\n                end // if ((I_DJNZ == 1'b0 && Save_ALU_r == 1'b1) || ALU_Op_r_i == 4'b1001 )\n\n              if (T_Res == 1'b1 && I_INRC == 1'b1 )\n                begin\n                  F_i[Flag_H] <= 1'b0;\n                  F_i[Flag_N] <= 1'b0;\n                  if (DI_Reg[7:0] == 8'b00000000 )\n                    begin\n                      F_i[Flag_Z] <= 1'b1;\n                    end\n                  else\n                    begin\n                      F_i[Flag_Z] <= 1'b0;\n                    end\n                  F_i[Flag_S] <= DI_Reg[7];\n                  F_i[Flag_P] <= ~ (^DI_Reg[7:0]);\n                end // if (T_Res == 1'b1 && I_INRC == 1'b1 )\n\n\n              if (tstate[1] && Auto_Wait_t1 == 1'b0 )\n                begin\n                  dout_i <= BusB_i;\n                  if (I_RLD == 1'b1 )\n                    begin\n                      dout_i[3:0] <= BusA_i[3:0];\n                      dout_i[7:4] <= BusB_i[3:0];\n                    end\n                  if (I_RRD == 1'b1 )\n                    begin\n                      dout_i[3:0] <= BusB_i[7:4];\n                      dout_i[7:4] <= BusA_i[3:0];\n                    end\n                end\n\n              if (T_Res == 1'b1 )\n                begin\n                  Read_To_Reg_r[3:0] <= Set_BusA_To;\n                  Read_To_Reg_r[4] <= Read_To_Reg;\n                  if (Read_To_Acc == 1'b1 )\n                    begin\n                      Read_To_Reg_r[3:0] <= 4'b0111;\n                      Read_To_Reg_r[4] <= 1'b1;\n                    end\n                end\n\n              if (tstate[1] && I_BT == 1'b1 )\n                begin\n                  F_i[Flag_X] <= ALU_Q[3];\n                  F_i[Flag_Y] <= ALU_Q[1];\n                  F_i[Flag_H] <= 1'b0;\n                  F_i[Flag_N] <= 1'b0;\n                end\n              if (I_BC == 1'b1 || I_BT == 1'b1 )\n                begin\n                  F_i[Flag_P] <= IncDecZ;\n                end\n\n              if ((tstate[1] && Save_ALU_r == 1'b0 && Auto_Wait_t1 == 1'b0) ||\n                  (Save_ALU_r == 1'b1 && ALU_Op_r_i != 4'b0111) )\n                begin\n                  case (Read_To_Reg_r)\n                    5'b10111 :\n                      ACC <= Save_Mux;\n                    5'b10110 :\n                      dout_i <= Save_Mux;\n                    5'b11000 :\n                      SP[7:0] <= Save_Mux;\n                    5'b11001 :\n                      SP[15:8] <= Save_Mux;\n                    5'b11011 :\n                      F_i <= Save_Mux;\n                    default : ;\n                  endcase\n                end // if ((tstate == 1 && Save_ALU_r == 1'b0 && Auto_Wait_t1 == 1'b0) ||...\n            end // if (ClkEn_i == 1'b1 )\n        end // else: !if(reset_n == 1'b0 )\n    end\n\n\n  //-------------------------------------------------------------------------\n  //\n  // BC('), DE('), HL('), IX && IY\n  //\n  //-------------------------------------------------------------------------\n  always @ (posedge clk)\n    begin\n      if (ClkEn_i == 1'b1 )\n        begin\n          // Bus A / Write\n          RegAddrA_r <=  { Alternate, Set_BusA_To[2:1] };\n          if (XY_Ind == 1'b0 && XY_State != 2'b00 && Set_BusA_To[2:1] == 2'b10 )\n            begin\n              RegAddrA_r <= { XY_State[1],  2'b11 };\n            end\n\n          // Bus B\n          RegAddrB_r <= { Alternate, Set_BusB_To[2:1] };\n          if (XY_Ind == 1'b0 && XY_State != 2'b00 && Set_BusB_To[2:1] == 2'b10 )\n            begin\n              RegAddrB_r <= { XY_State[1],  2'b11 };\n            end\n\n          // Address from register\n          RegAddrC_i <= { Alternate,  Set_Addr_To[1:0] };\n          // Jump (HL), LD SP,HL\n          if ((JumpXY == 1'b1 || LDSPHL == 1'b1) )\n            begin\n              RegAddrC_i <= { Alternate, 2'b10 };\n            end\n          if (((JumpXY == 1'b1 || LDSPHL == 1'b1) && XY_State != 2'b00) || (mcycle_i[5]) )\n            begin\n              RegAddrC_i <= { XY_State[1],  2'b11 };\n            end\n\n          if (I_DJNZ == 1'b1 && Save_ALU_r == 1'b1 && Mode < 2 )\n            begin\n              IncDecZ <= F_Out_i[Flag_Z];\n            end\n          if ((tstate[2] || (tstate[3] && mcycle_i[0])) && IncDec_16[2:0] == 3'b100 )\n            begin\n              if (ID16 == 0 )\n                begin\n                  IncDecZ <= 1'b0;\n                end\n              else\n                begin\n                  IncDecZ <= 1'b1;\n                end\n            end\n\n          RegBusA_r <= RegBusA;\n        end\n\n    end // always @ (posedge clk)\n\n\n  always @(/*AUTOSENSE*/Alternate or ExchangeDH or IncDec_16\n\t   or RegAddrA_r or RegAddrB_r or XY_State or mcycle_i or tstate)\n    begin\n      if ((tstate[2] || (tstate[3] && mcycle_i[0] && IncDec_16[2] == 1'b1)) && XY_State == 2'b00)\n        RegAddrA_i = { Alternate, IncDec_16[1:0] };\n      else if ((tstate[2] || (tstate[3] && mcycle_i[0] && IncDec_16[2] == 1'b1)) && IncDec_16[1:0] == 2'b10)\n        RegAddrA_i = { XY_State[1], 2'b11 };\n      else if (ExchangeDH == 1'b1 && tstate[3])\n        RegAddrA_i = { Alternate, 2'b10 };\n      else if (ExchangeDH == 1'b1 && tstate[4])\n        RegAddrA_i = { Alternate, 2'b01 };\n      else\n        RegAddrA_i = RegAddrA_r;\n\n      if (ExchangeDH == 1'b1 && tstate[3])\n        RegAddrB_i = { Alternate, 2'b01 };\n      else\n        RegAddrB_i = RegAddrB_r;\n    end // always @ *\n\n\n  always @(/*AUTOSENSE*/ALU_Op_r_i or Auto_Wait_t1 or ExchangeDH\n\t   or IncDec_16 or Read_To_Reg_r or Save_ALU_r or mcycle_i\n\t   or tstate or wait_n)\n    begin\n      RegWEH_i = 1'b0;\n      RegWEL_i = 1'b0;\n      if ((tstate[1] && ~Save_ALU_r && ~Auto_Wait_t1) ||\n          (Save_ALU_r && (ALU_Op_r_i != 4'b0111)) )\n        begin\n          case (Read_To_Reg_r)\n            5'b10000 , 5'b10001 , 5'b10010 , 5'b10011 , 5'b10100 , 5'b10101 :\n              begin\n                RegWEH_i = ~ Read_To_Reg_r[0];\n                RegWEL_i = Read_To_Reg_r[0];\n              end // UNMATCHED !!\n            default : ;\n          endcase // case(Read_To_Reg_r)\n\n        end // if ((tstate == 1 && Save_ALU_r == 1'b0 && Auto_Wait_t1 == 1'b0) ||...\n\n\n      if (ExchangeDH && (tstate[3] || tstate[4]) )\n        begin\n          RegWEH_i = 1'b1;\n          RegWEL_i = 1'b1;\n        end\n\n      if (IncDec_16[2] && ((tstate[2] && wait_n && ~mcycle_i[0]) || (tstate[3] && mcycle_i[0])) )\n        begin\n          case (IncDec_16[1:0])\n            2'b00 , 2'b01 , 2'b10 :\n              begin\n                RegWEH_i = 1'b1;\n                RegWEL_i = 1'b1;\n              end // UNMATCHED !!\n            default : ;\n          endcase\n        end\n    end // always @ *\n\n\n  always @(/*AUTOSENSE*/ExchangeDH or ID16 or IncDec_16 or RegBusA_r\n\t   or RegBusB or Save_Mux or mcycle_i or tstate)\n    begin\n      RegDIH_i = Save_Mux;\n      RegDIL_i = Save_Mux;\n\n      if (ExchangeDH == 1'b1 && tstate[3] )\n        begin\n          RegDIH_i = RegBusB[15:8];\n          RegDIL_i = RegBusB[7:0];\n        end\n      else if (ExchangeDH == 1'b1 && tstate[4] )\n        begin\n          RegDIH_i = RegBusA_r[15:8];\n          RegDIL_i = RegBusA_r[7:0];\n        end\n      else if (IncDec_16[2] == 1'b1 && ((tstate[2] && ~mcycle_i[0]) || (tstate[3] && mcycle_i[0])) )\n        begin\n          RegDIH_i = ID16[15:8];\n          RegDIL_i = ID16[7:0];\n        end\n    end\n\n  //-------------------------------------------------------------------------\n  //\n  // Buses\n  //\n  //-------------------------------------------------------------------------\n\n  always @ (posedge clk)\n    begin\n      if (ClkEn_i == 1'b1 )\n        begin\n          case (Set_BusB_To)\n            4'b0111 :\n              BusB_i <= ACC;\n            4'b0000 , 4'b0001 , 4'b0010 , 4'b0011 , 4'b0100 , 4'b0101 :\n              begin\n                if (Set_BusB_To[0] == 1'b1 )\n                  begin\n                    BusB_i <= RegBusB[7:0];\n                  end\n                else\n                  begin\n                    BusB_i <= RegBusB[15:8];\n                  end\n              end\n            4'b0110 :\n              BusB_i <= DI_Reg;\n            4'b1000 :\n              BusB_i <= SP[7:0];\n            4'b1001 :\n              BusB_i <= SP[15:8];\n            4'b1010 :\n              BusB_i <= 8'b00000001;\n            4'b1011 :\n              BusB_i <= F_i;\n            4'b1100 :\n              BusB_i <= PC[7:0];\n            4'b1101 :\n              BusB_i <= PC[15:8];\n            4'b1110 :\n              BusB_i <= 8'b00000000;\n            default :\n              BusB_i <= 8'h0;\n          endcase\n\n          case (Set_BusA_To)\n            4'b0111 :\n              BusA_i <= ACC;\n            4'b0000 , 4'b0001 , 4'b0010 , 4'b0011 , 4'b0100 , 4'b0101 :\n              begin\n                if (Set_BusA_To[0] == 1'b1 )\n                  begin\n                    BusA_i <= RegBusA[7:0];\n                  end\n                else\n                  begin\n                    BusA_i <= RegBusA[15:8];\n                  end\n              end\n            4'b0110 :\n              BusA_i <= DI_Reg;\n            4'b1000 :\n              BusA_i <= SP[7:0];\n            4'b1001 :\n              BusA_i <= SP[15:8];\n            4'b1010 :\n              BusA_i <= 8'b00000000;\n            default :\n              BusA_i <=  8'h0;\n          endcase\n        end\n    end\n\n  //-------------------------------------------------------------------------\n  //\n  // Generate external control signals\n  //\n  //-------------------------------------------------------------------------\n`ifdef TV80_REFRESH\n  always @ (posedge clk or negedge reset_n)\n    begin\n      if (reset_n == 1'b0 )\n        begin\n          rfsh_n <= 1'b1;\n        end\n      else\n        begin\n          if (cen == 1'b1 )\n            begin\n              if (mcycle_i[0] && ((tstate[2]  && wait_n == 1'b1) || tstate[3]) )\n                begin\n                  rfsh_n <= 1'b0;\n                end\n              else\n                begin\n                  rfsh_n <= 1'b1;\n                end\n            end\n        end\n    end // always @ (posedge clk or negedge reset_n)\n`else // !`ifdef TV80_REFRESH\n  assign rfsh_n = 1'b1;\n`endif\n\n  always @(/*AUTOSENSE*/BusAck or Halt_FF or I_DJNZ or IntCycle_i\n\t   or IntE_FF1 or di or iorq_i or mcycle_i or tstate)\n    begin\n      mc_i = mcycle_i;\n      ts_i = tstate;\n      DI_Reg = di;\n      halt_n_i = ~ Halt_FF;\n      busak_n_i = ~ BusAck;\n      intcycle_n_i = ~ IntCycle_i;\n      IntE_i = IntE_FF1;\n      iorq_ii = iorq_i;\n      stop_i = I_DJNZ;\n    end\n\n  //-----------------------------------------------------------------------\n  //\n  // Syncronise inputs\n  //\n  //-----------------------------------------------------------------------\n\n  always @ (posedge clk or negedge reset_n)\n    begin : sync_inputs\n      if (~reset_n)\n        begin\n          BusReq_s <= 1'b0;\n          INT_s <= 1'b0;\n          NMI_s <= 1'b0;\n          Oldnmi_n <= 1'b0;\n        end\n      else\n        begin\n          if (cen == 1'b1 )\n            begin\n              BusReq_s <= ~ busrq_n;\n              INT_s <= ~ int_n;\n              if (NMICycle_i == 1'b1 )\n                begin\n                  NMI_s <= 1'b0;\n                end\n              else if (nmi_n == 1'b0 && Oldnmi_n == 1'b1 )\n                begin\n                  NMI_s <= 1'b1;\n                end\n              Oldnmi_n <= nmi_n;\n            end\n        end\n    end\n\n  //-----------------------------------------------------------------------\n  //\n  // Main state machine\n  //\n  //-----------------------------------------------------------------------\n\n  always @ (posedge clk or negedge reset_n)\n    begin\n      if (reset_n == 1'b0 )\n        begin\n          mcycle_i <= 7'b0000001;\n          tstate <= 7'b0000001;\n          Pre_XY_F_M <= 3'b000;\n          Halt_FF <= 1'b0;\n          BusAck <= 1'b0;\n          NMICycle_i <= 1'b0;\n          IntCycle_i <= 1'b0;\n          IntE_FF1 <= 1'b0;\n          IntE_FF2 <= 1'b0;\n          No_BTR <= 1'b0;\n          Auto_Wait_t1 <= 1'b0;\n          Auto_Wait_t2 <= 1'b0;\n          m1_n_i <= 1'b1;\n        end\n      else\n        begin\n          if (cen == 1'b1 )\n            begin\n              if (T_Res == 1'b1 )\n                begin\n                  Auto_Wait_t1 <= 1'b0;\n                end\n              else\n                begin\n\t\t  Auto_Wait_t1 <= Auto_Wait || (iorq_i & ~Auto_Wait_t2);\n                end\n              Auto_Wait_t2 <= Auto_Wait_t1 & !T_Res;\n              No_BTR <= (I_BT && (~ IR_i[4] || ~ F_i[Flag_P])) ||\n                        (I_BC && (~ IR_i[4] || F_i[Flag_Z] || ~ F_i[Flag_P])) ||\n                        (I_BTR && (~ IR_i[4] || F_i[Flag_Z]));\n              if (tstate[2] )\n                begin\n                  if (SetEI == 1'b1 )\n                    begin\n                      if (!NMICycle_i)\n                        IntE_FF1 <= 1'b1;\n                      IntE_FF2 <= 1'b1;\n                    end\n                  if (I_RETN == 1'b1 )\n                    begin\n                      IntE_FF1 <= IntE_FF2;\n                    end\n                end\n              if (tstate[3] )\n                begin\n                  if (SetDI == 1'b1 )\n                    begin\n                      IntE_FF1 <= 1'b0;\n                      IntE_FF2 <= 1'b0;\n                    end\n                end\n              if (IntCycle_i == 1'b1 || NMICycle_i == 1'b1 )\n                begin\n                  Halt_FF <= 1'b0;\n                end\n              if (mcycle_i[0] && tstate[2] && wait_n == 1'b1 )\n                begin\n                  m1_n_i <= 1'b1;\n                end\n              if (BusReq_s == 1'b1 && BusAck == 1'b1 )\n                begin\n                end\n              else\n                begin\n                  BusAck <= 1'b0;\n                  if (tstate[2] && wait_n == 1'b0 )\n                    begin\n                    end\n                  else if (T_Res == 1'b1 )\n                    begin\n                      if (Halt_i== 1'b1 )\n                        begin\n                          Halt_FF <= 1'b1;\n                        end\n                      if (BusReq_s == 1'b1 )\n                        begin\n                          BusAck <= 1'b1;\n                        end\n                      else\n                        begin\n                          tstate <= 7'b0000010;\n                          if (NextIs_XY_Fetch == 1'b1 )\n                            begin\n                              mcycle_i <= 7'b0100000;\n                              Pre_XY_F_M <= mcyc_to_number(mcycle_i);\n                              if (IR_i == 8'b00110110 && Mode == 0 )\n                                begin\n                                  Pre_XY_F_M <= 3'b010;\n                                end\n                            end\n                          else if ((mcycle_i[6]) || (mcycle_i[5] && Mode == 1 && ISet_i != 2'b01) )\n                            begin\n                              mcycle_i <= number_to_bitvec(Pre_XY_F_M + 1);\n                            end\n                          else if ((last_mcycle) ||\n                                   No_BTR == 1'b1 ||\n                                   (mcycle_i[1] && I_DJNZ == 1'b1 && IncDecZ == 1'b1) )\n                            begin\n                              m1_n_i <= 1'b0;\n                              mcycle_i <= 7'b0000001;\n                              IntCycle_i <= 1'b0;\n                              NMICycle_i <= 1'b0;\n                              if (NMI_s == 1'b1 && Prefix == 2'b00 )\n                                begin\n                                  NMICycle_i <= 1'b1;\n                                  IntE_FF1 <= 1'b0;\n                                end\n                              else if ((IntE_FF1 == 1'b1 && INT_s == 1'b1) && Prefix == 2'b00 && SetEI == 1'b0 )\n                                begin\n                                  IntCycle_i <= 1'b1;\n                                  IntE_FF1 <= 1'b0;\n                                  IntE_FF2 <= 1'b0;\n                                end\n                            end\n                          else\n                            begin\n                              mcycle_i <= { mcycle_i[5:0], mcycle_i[6] };\n                            end\n                        end\n                    end\n                  else\n                    begin   // verilog has no \"nor\" operator\n                      if ( ~(Auto_Wait == 1'b1 && Auto_Wait_t2 == 1'b0) &&\n                           ~(IOWait == 1 && iorq_i == 1'b1 && Auto_Wait_t1 == 1'b0) )\n                        begin\n                          tstate <= { tstate[5:0], tstate[6] };\n                        end\n                    end\n                end\n              if (tstate[0])\n                begin\n                  m1_n_i <= 1'b0;\n                end\n            end\n        end\n    end\n\n  always @(/*AUTOSENSE*/BTR_r or DI_Reg or IncDec_16 or JumpE or PC\n\t   or RegBusA or RegBusC or SP or tstate)\n    begin\n      if (JumpE == 1'b1 )\n        begin\n          PC16_B = { {8{DI_Reg[7]}}, DI_Reg };\n        end\n      else if (BTR_r == 1'b1 )\n        begin\n          PC16_B = -2;\n        end\n      else\n        begin\n          PC16_B = 1;\n        end\n\n      if (tstate[3])\n        begin\n          SP16_A = RegBusC;\n          SP16_B = { {8{DI_Reg[7]}}, DI_Reg };\n        end\n      else\n        begin\n          // suspect that ID16 and SP16 could be shared\n          SP16_A = SP;\n\n          if (IncDec_16[3] == 1'b1)\n            SP16_B = -1;\n          else\n            SP16_B = 1;\n        end\n\n      if (IncDec_16[3])\n        ID16_B = -1;\n      else\n        ID16_B = 1;\n\n      ID16 = RegBusA + ID16_B;\n      PC16 = PC + PC16_B;\n      SP16 = SP16_A + SP16_B;\n    end // always @ *\n\n\n  always @(/*AUTOSENSE*/IntCycle_i or NMICycle_i or mcycle_i)\n    begin\n      Auto_Wait = 1'b0;\n      if (IntCycle_i == 1'b1 || NMICycle_i == 1'b1 )\n        begin\n          if (mcycle_i[0] )\n            begin\n              Auto_Wait = 1'b1;\n            end\n        end\n    end // always @ *\n   ",
@@ -26219,10 +26356,10 @@
               }
             },
             {
-              "id": "a4967663-7198-4299-b22e-02061852c217",
+              "id": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
               "type": "basic.code",
               "data": {
-                "code": "\nlocalparam Mode = 0;   // 0 => Z80, 1 => Fast Z80, 2 => 8080, 3 => GB\nlocalparam Flag_C = 0;\nlocalparam Flag_N = 1;\nlocalparam Flag_P = 2;\nlocalparam Flag_X = 3;\nlocalparam Flag_H = 4;\nlocalparam Flag_Y = 5;\nlocalparam Flag_Z = 6;\nlocalparam Flag_S = 7;\n\n// regs\n  reg [2:0]             MCycles_i                 ;\n  assign MCycles = MCycles_i;\n\n  reg [2:0]             TStates_i                 ;\n  assign TStates = TStates_i;\n\n  reg [1:0]             Prefix_i                  ; // None,BC,ED,DD/FD\n  assign Prefix = Prefix_i;\n\n  reg                   Inc_PC_i                  ;\n  assign Inc_PC = Inc_PC_i;\n\n  reg                   Inc_WZ_i                  ;\n  assign Inc_WZ = Inc_WZ_i;\n\n  reg [3:0]             IncDec_16_i              ; // BC,DE,HL,SP   0 is inc\n  assign IncDec_16 = IncDec_16_i;\n\n  reg                   Read_To_Reg_i             ;\n  assign Read_To_Reg = Read_To_Reg_i;\n\n  reg                   Read_To_Acc_i             ;\n  assign Read_To_Acc = Read_To_Acc_i;\n\n  reg [3:0]             Set_BusA_To_i     ; // B,C,D,E,H,L,DI/DB,A,SP(L),SP(M),0,F\n  assign Set_BusA_To = Set_BusA_To_i;\n\n  reg [3:0]             Set_BusB_To_i     ; // B,C,D,E,H,L,DI,A,SP(L),SP(M),1,F,PC(L),PC(M),0\n  assign Set_BusB_To = Set_BusB_To_i;\n\n  reg [3:0]             ALU_Op_i                  ;\n  assign ALU_Op = ALU_Op_i;\n\n  reg                   Save_ALU_i                ;\n  assign Save_ALU = Save_ALU_i;\n\n  reg                   PreserveC_i               ;\n  assign PreserveC = PreserveC_i;\n\n  reg                   Arith16_i                 ;\n  assign Arith16 = Arith16_i;\n\n  reg [2:0]             Set_Addr_To_i             ; // aNone,aXY,aIOA,aSP,aBC,aDE,aZI\n  assign Set_Addr_To = Set_Addr_To_i;\n\n  reg                   IORQ_i                    ;\n  assign IORQ = IORQ_i;\n\n\n  reg                   Jump_i                    ;\n  assign Jump = Jump_i;\n  reg                   JumpE_i                  ;\n  assign JumpE = JumpE_i;\n  reg                   JumpXY_i                 ;\n  assign JumpXY = JumpXY_i;\n  reg                   Call_i                    ;\n  assign Call = Call_i;\n  reg                   RstP_i                   ;\n  assign RstP = RstP_i;\n\n  reg                   LDZ_i                    ;\n  assign LDZ = LDZ_i ;\n  reg                   LDW_i  ;\n  assign LDW = LDW_i;                   \n  reg                   LDSPHL_i                 ;\n  assign LDSPHL = LDSPHL_i;  \n  reg [2:0]             Special_LD_i             ; // A,I;A,R;I,A;R,A;None\n  assign Special_LD = Special_LD_i;  \n  reg                   ExchangeDH_i             ;\n  assign ExchangeDH = ExchangeDH_i ;  \n  reg                   ExchangeRp_i              ;\n  assign ExchangeRp = ExchangeRp ;  \n  reg                   ExchangeAF_i              ;\n  assign ExchangeAF = ExchangeAF_i ;  \n  reg                   ExchangeRS_i              ;\n  assign ExchangeRS = ExchangeRS_i ;  \n\n  reg                   I_DJNZ_i                 ;\n  assign I_DJNZ = I_DJNZ_i;\n  reg                   I_CPL_i                   ;\n  assign I_CPL = I_CPL;\n  reg                   I_CCF_i                   ;\n  assign I_CCF = I_CCF_i;\n  reg                   I_SCF_i                   ;\n  assign I_SCF = I_SCF_i;\n  reg                   I_RETN_i                  ;\n  assign I_RETN = I_RETN_i;\n  reg                   I_BT_i                   ;\n  assign I_BT = I_BT_i;\n  reg                   I_BC_i                   ;\n  assign I_BC = I_BC_i;\n  reg                   I_BTR_i                  ;\n  assign I_BTR = I_BTR_i;\n  reg                   I_RLD_i                  ;\n  assign I_RLD = I_RLD_i;\n  reg                   I_RRD_i                  ;\n  assign I_RRD = I_RRD_i;\n  reg                   I_INRC_i                 ;\n  assign I_INRC = I_INRC_i;\n\n\n  reg                   SetDI_i                  ;\n  assign SetDI = SetDI_i;\n  reg                   SetEI_i                  ;\n  assign SetEI = SetEI_i;\n  reg [1:0]             IMode_i                  ;\n  assign IMode = IMode_i;\n  reg                   Halt_i                   ;\n  assign Halt = Halt_i;\n  reg                   NoRead_i                 ;\n  assign NoRead = NoRead_i;\n  reg                   Write_i  ;\n  assign Write = Write_i;\n\n  parameter             aNone   = 3'b111;\n  parameter             aBC     = 3'b000;\n  parameter             aDE     = 3'b001;\n  parameter             aXY     = 3'b010;\n  parameter             aIOA    = 3'b100;\n  parameter             aSP     = 3'b101;\n  parameter             aZI     = 3'b110;\n  //    constant aNone  : std_logic_vector[2:0] = 3'b000;\n  //    constant aXY    : std_logic_vector[2:0] = 3'b001;\n  //    constant aIOA   : std_logic_vector[2:0] = 3'b010;\n  //    constant aSP    : std_logic_vector[2:0] = 3'b011;\n  //    constant aBC    : std_logic_vector[2:0] = 3'b100;\n  //    constant aDE    : std_logic_vector[2:0] = 3'b101;\n  //    constant aZI    : std_logic_vector[2:0] = 3'b110;\n\n  function is_cc_true;\n    input [7:0] FF;\n    input [2:0] cc;\n    begin\n      if (Mode == 3 )\n        begin\n          case (cc)\n            3'b000  : is_cc_true = FF[7] == 1'b0; // NZ\n            3'b001  : is_cc_true = FF[7] == 1'b1; // Z\n            3'b010  : is_cc_true = FF[4] == 1'b0; // NC\n            3'b011  : is_cc_true = FF[4] == 1'b1; // C\n            3'b100  : is_cc_true = 0;\n            3'b101  : is_cc_true = 0;\n            3'b110  : is_cc_true = 0;\n            3'b111  : is_cc_true = 0;\n          endcase\n        end\n      else\n        begin\n          case (cc)\n            3'b000  : is_cc_true = FF[6] == 1'b0; // NZ\n            3'b001  : is_cc_true = FF[6] == 1'b1; // Z\n            3'b010  : is_cc_true = FF[0] == 1'b0; // NC\n            3'b011  : is_cc_true = FF[0] == 1'b1; // C\n            3'b100  : is_cc_true = FF[2] == 1'b0; // PO\n            3'b101  : is_cc_true = FF[2] == 1'b1; // PE\n            3'b110  : is_cc_true = FF[7] == 1'b0; // P\n            3'b111  : is_cc_true = FF[7] == 1'b1; // M\n          endcase\n        end\n    end\n  endfunction // is_cc_true\n\n\n  reg [2:0] DDD;\n  reg [2:0] SSS;\n  reg [1:0] DPAIR;\n\n  always @ (/*AUTOSENSE*/F or IR or ISet or IntCycle or MCycle\n            or NMICycle)\n    begin\n      DDD = IR[5:3];\n      SSS = IR[2:0];\n      DPAIR = IR[5:4];\n\n      MCycles_i = 3'b001;\n      if (MCycle[0] )\n        begin\n          TStates_i = 3'b100;\n        end\n      else\n        begin\n          TStates_i = 3'b011;\n        end\n      Prefix_i = 2'b00;\n      Inc_PC_i = 1'b0;\n      Inc_WZ_i = 1'b0;\n      IncDec_16_i = 4'b0000;\n      Read_To_Acc_i = 1'b0;\n      Read_To_Reg_i = 1'b0;\n      Set_BusB_To_i = 4'b0000;\n      Set_BusA_To_i = 4'b0000;\n      ALU_Op_i = { 1'b0, IR[5:3] };\n      Save_ALU_i = 1'b0;\n      PreserveC_i = 1'b0;\n      Arith16_i = 1'b0;\n      IORQ_i = 1'b0;\n      Set_Addr_To_i = aNone;\n      Jump_i= 1'b0;\n      JumpE_i= 1'b0;\n      JumpXY_i= 1'b0;\n      Call_i = 1'b0;\n      RstP_i= 1'b0;\n      LDZ_i= 1'b0;\n      LDW_i= 1'b0;\n      LDSPHL_i= 1'b0;\n      Special_LD_i= 3'b000;\n      ExchangeDH_i= 1'b0;\n      ExchangeRp_i = 1'b0;\n      ExchangeAF_i = 1'b0;\n      ExchangeRS_i = 1'b0;\n      I_DJNZ_i= 1'b0;\n      I_CPL_i = 1'b0;\n      I_CCF_i = 1'b0;\n      I_SCF_i = 1'b0;\n      I_RETN_i = 1'b0;\n      I_BT_i= 1'b0;\n      I_BC_i= 1'b0;\n      I_BTR_i= 1'b0;\n      I_RLD_i= 1'b0;\n      I_RRD_i= 1'b0;\n      I_INRC_i= 1'b0;\n      SetDI_i= 1'b0;\n      SetEI_i= 1'b0;\n      IMode_i= 2'b11;\n      Halt_i= 1'b0;\n      NoRead_i= 1'b0;\n      Write_i= 1'b0;\n\n      case (ISet)\n        2'b00  :\n          begin\n\n            //----------------------------------------------------------------------------\n            //\n            //  Unprefixed instructions\n            //\n            //----------------------------------------------------------------------------\n\n            casez (IR)\n              // 8 BIT LOAD GROUP\n              8'b01zzzzzz :\n                begin\n                  if (IR[5:0] == 6'b110110)\n                    Halt_i= 1'b1;\n                  else if (IR[2:0] == 3'b110)\n                    begin\n                      // LD r,(HL)\n                      MCycles_i = 3'b010;\n                      if (MCycle[0])\n                        Set_Addr_To_i = aXY;\n                      if (MCycle[1])\n                        begin\n                          Set_BusA_To_i[2:0] = DDD;\n                          Read_To_Reg_i = 1'b1;\n                        end\n                    end // if (IR[2:0] == 3'b110)\n                  else if (IR[5:3] == 3'b110)\n                    begin\n                      // LD (HL),r\n                      MCycles_i = 3'b010;\n                      if (MCycle[0])\n                        begin\n                          Set_Addr_To_i = aXY;\n                          Set_BusB_To_i[2:0] = SSS;\n                          Set_BusB_To_i[3] = 1'b0;\n                        end\n                      if (MCycle[1])\n                        Write_i= 1'b1;\n                    end // if (IR[5:3] == 3'b110)\n                  else\n                    begin\n                      Set_BusB_To_i[2:0] = SSS;\n                      ExchangeRp_i = 1'b1;\n                      Set_BusA_To_i[2:0] = DDD;\n                      Read_To_Reg_i = 1'b1;\n                    end // else: !if(IR[5:3] == 3'b110)\n                end // case: 8'b01zzzzzz\n\n              8'b00zzz110 :\n                begin\n                  if (IR[5:3] == 3'b110)\n                    begin\n                      // LD (HL),n\n                      MCycles_i = 3'b011;\n                      if (MCycle[1])\n                        begin\n                          Inc_PC_i = 1'b1;\n                          Set_Addr_To_i = aXY;\n                          Set_BusB_To_i[2:0] = SSS;\n                          Set_BusB_To_i[3] = 1'b0;\n                        end\n                      if (MCycle[2])\n                        Write_i= 1'b1;\n                    end // if (IR[5:3] == 3'b110)\n                  else\n                    begin\n                      // LD r,n\n                      MCycles_i = 3'b010;\n                      if (MCycle[1])\n                        begin\n                          Inc_PC_i = 1'b1;\n                          Set_BusA_To_i[2:0] = DDD;\n                          Read_To_Reg_i = 1'b1;\n                        end\n                    end\n                end\n\n              8'b00001010  :\n                begin\n                  // LD A,(BC)\n                  MCycles_i = 3'b010;\n                  if (MCycle[0])\n                    Set_Addr_To_i = aBC;\n                  if (MCycle[1])\n                    Read_To_Acc_i = 1'b1;\n                end // case: 8'b00001010\n\n              8'b00011010  :\n                begin\n                  // LD A,(DE)\n                  MCycles_i = 3'b010;\n                  if (MCycle[0])\n                    Set_Addr_To_i = aDE;\n                  if (MCycle[1])\n                    Read_To_Acc_i = 1'b1;\n                end // case: 8'b00011010\n\n              8'b00111010  :\n                begin\n                  if (Mode == 3 )\n                    begin\n                      // LDD A,(HL)\n                      MCycles_i = 3'b010;\n                      if (MCycle[0])\n                        Set_Addr_To_i = aXY;\n                      if (MCycle[1])\n                        begin\n                          Read_To_Acc_i = 1'b1;\n                          IncDec_16_i = 4'b1110;\n                        end\n                    end\n                  else\n                    begin\n                      // LD A,(nn)\n                      MCycles_i = 3'b100;\n                      if (MCycle[1])\n                        begin\n                          Inc_PC_i = 1'b1;\n                          LDZ_i= 1'b1;\n                        end\n                      if (MCycle[2])\n                        begin\n                          Set_Addr_To_i = aZI;\n                          Inc_PC_i = 1'b1;\n                        end\n                      if (MCycle[3])\n                        begin\n                          Read_To_Acc_i = 1'b1;\n                        end\n                    end // else: !if(Mode == 3 )\n                end // case: 8'b00111010\n\n              8'b00000010  :\n                begin\n                  // LD (BC),A\n                  MCycles_i = 3'b010;\n                  if (MCycle[0])\n                    begin\n                      Set_Addr_To_i = aBC;\n                      Set_BusB_To_i = 4'b0111;\n                    end\n                  if (MCycle[1])\n                    begin\n                      Write_i= 1'b1;\n                    end\n                end // case: 8'b00000010\n\n              8'b00010010  :\n                begin\n                  // LD (DE),A\n                  MCycles_i = 3'b010;\n                  case (1'b1) // MCycle\n                    MCycle[0] :\n                      begin\n                        Set_Addr_To_i = aDE;\n                        Set_BusB_To_i = 4'b0111;\n                      end\n                    MCycle[1] :\n                      Write_i= 1'b1;\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b00010010\n\n              8'b00110010  :\n                begin\n                  if (Mode == 3 )\n                    begin\n                      // LDD (HL),A\n                      MCycles_i = 3'b010;\n                      case (1'b1) // MCycle\n                        MCycle[0] :\n                          begin\n                            Set_Addr_To_i = aXY;\n                            Set_BusB_To_i = 4'b0111;\n                          end\n                        MCycle[1] :\n                          begin\n                            Write_i= 1'b1;\n                            IncDec_16_i = 4'b1110;\n                          end\n                        default :;\n                      endcase // case(MCycle)\n\n                    end\n                  else\n                    begin\n                      // LD (nn),A\n                      MCycles_i = 3'b100;\n                      case (1'b1) // MCycle\n                        MCycle[1] :\n                          begin\n                            Inc_PC_i = 1'b1;\n                            LDZ_i= 1'b1;\n                          end\n                        MCycle[2] :\n                          begin\n                            Set_Addr_To_i = aZI;\n                            Inc_PC_i = 1'b1;\n                            Set_BusB_To_i = 4'b0111;\n                          end\n                        MCycle[3] :\n                          begin\n                            Write_i= 1'b1;\n                          end\n                        default :;\n                      endcase\n                    end // else: !if(Mode == 3 )\n                end // case: 8'b00110010\n\n\n              // 16 BIT LOAD GROUP\n              8'b00000001,8'b00010001,8'b00100001,8'b00110001  :\n                begin\n                  // LD dd,nn\n                  MCycles_i = 3'b011;\n                  case (1'b1) // MCycle\n                    MCycle[1] :\n                      begin\n                        Inc_PC_i = 1'b1;\n                        Read_To_Reg_i = 1'b1;\n                        if (DPAIR == 2'b11 )\n                          begin\n                            Set_BusA_To_i[3:0] = 4'b1000;\n                          end\n                        else\n                          begin\n                            Set_BusA_To_i[2:1] = DPAIR;\n                            Set_BusA_To_i[0] = 1'b1;\n                          end\n                      end // case: 2\n\n                    MCycle[2] :\n                      begin\n                        Inc_PC_i = 1'b1;\n                        Read_To_Reg_i = 1'b1;\n                        if (DPAIR == 2'b11 )\n                          begin\n                            Set_BusA_To_i[3:0] = 4'b1001;\n                          end\n                        else\n                          begin\n                            Set_BusA_To_i[2:1] = DPAIR;\n                            Set_BusA_To_i[0] = 1'b0;\n                          end\n                      end // case: 3\n\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b00000001,8'b00010001,8'b00100001,8'b00110001\n\n              8'b00101010  :\n                begin\n                  if (Mode == 3 )\n                    begin\n                      // LDI A,(HL)\n                      MCycles_i = 3'b010;\n                      case (1'b1) // MCycle\n                        MCycle[0] :\n                          Set_Addr_To_i = aXY;\n                        MCycle[1] :\n                          begin\n                            Read_To_Acc_i = 1'b1;\n                            IncDec_16_i = 4'b0110;\n                          end\n\n                        default :;\n                      endcase\n                    end\n                  else\n                    begin\n                      // LD HL,(nn)\n                      MCycles_i = 3'b101;\n                      case (1'b1) // MCycle\n                        MCycle[1] :\n                          begin\n                            Inc_PC_i = 1'b1;\n                            LDZ_i= 1'b1;\n                          end\n                        MCycle[2] :\n                          begin\n                            Set_Addr_To_i = aZI;\n                            Inc_PC_i = 1'b1;\n                            LDW_i= 1'b1;\n                          end\n                        MCycle[3] :\n                          begin\n                            Set_BusA_To_i[2:0] = 3'b101; // L\n                            Read_To_Reg_i = 1'b1;\n                            Inc_WZ_i = 1'b1;\n                            Set_Addr_To_i = aZI;\n                          end\n                        MCycle[4] :\n                          begin\n                            Set_BusA_To_i[2:0] = 3'b100; // H\n                            Read_To_Reg_i = 1'b1;\n                          end\n                        default :;\n                      endcase\n                    end // else: !if(Mode == 3 )\n                end // case: 8'b00101010\n\n              8'b00100010  :\n                begin\n                  if (Mode == 3 )\n                    begin\n                      // LDI (HL),A\n                      MCycles_i = 3'b010;\n                      case (1'b1) // MCycle\n                        MCycle[0] :\n                          begin\n                            Set_Addr_To_i = aXY;\n                            Set_BusB_To_i = 4'b0111;\n                          end\n                        MCycle[1] :\n                          begin\n                            Write_i= 1'b1;\n                            IncDec_16_i = 4'b0110;\n                          end\n                        default :;\n                      endcase\n                    end\n                  else\n                    begin\n                      // LD (nn),HL\n                      MCycles_i = 3'b101;\n                      case (1'b1) // MCycle\n                        MCycle[1] :\n                          begin\n                            Inc_PC_i = 1'b1;\n                            LDZ_i= 1'b1;\n                          end\n\n                        MCycle[2] :\n                          begin\n                            Set_Addr_To_i = aZI;\n                            Inc_PC_i = 1'b1;\n                            LDW_i= 1'b1;\n                            Set_BusB_To_i = 4'b0101; // L\n                          end\n\n                        MCycle[3] :\n                          begin\n                            Inc_WZ_i = 1'b1;\n                            Set_Addr_To_i = aZI;\n                            Write_i= 1'b1;\n                            Set_BusB_To_i = 4'b0100; // H\n                          end\n                        MCycle[4] :\n                          Write_i= 1'b1;\n                        default :;\n                      endcase\n                    end // else: !if(Mode == 3 )\n                end // case: 8'b00100010\n\n              8'b11111001  :\n                begin\n                  // LD SP,HL\n                  TStates_i = 3'b110;\n                  LDSPHL_i= 1'b1;\n                end\n\n              8'b11zz0101 :\n                begin\n                  // PUSH qq\n                  MCycles_i = 3'b011;\n                  case (1'b1) // MCycle\n                    MCycle[0] :\n                      begin\n                        TStates_i = 3'b101;\n                        IncDec_16_i = 4'b1111;\n                        Set_Addr_To_i = aSP;\n                        if (DPAIR == 2'b11 )\n                          begin\n                            Set_BusB_To_i = 4'b0111;\n                          end\n                        else\n                          begin\n                            Set_BusB_To_i[2:1] = DPAIR;\n                            Set_BusB_To_i[0] = 1'b0;\n                            Set_BusB_To_i[3] = 1'b0;\n                          end\n                      end // case: 1\n\n                    MCycle[1] :\n                      begin\n                        IncDec_16_i = 4'b1111;\n                        Set_Addr_To_i = aSP;\n                        if (DPAIR == 2'b11 )\n                          begin\n                            Set_BusB_To_i = 4'b1011;\n                          end\n                        else\n                          begin\n                            Set_BusB_To_i[2:1] = DPAIR;\n                            Set_BusB_To_i[0] = 1'b1;\n                            Set_BusB_To_i[3] = 1'b0;\n                          end\n                        Write_i= 1'b1;\n                      end // case: 2\n\n                    MCycle[2] :\n                      Write_i= 1'b1;\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b11000101,8'b11010101,8'b11100101,8'b11110101\n\n              8'b11zz0001 :\n                begin\n                  // POP qq\n                  MCycles_i = 3'b011;\n                  case (1'b1) // MCycle\n                    MCycle[0] :\n                      Set_Addr_To_i = aSP;\n                    MCycle[1] :\n                      begin\n                        IncDec_16_i = 4'b0111;\n                        Set_Addr_To_i = aSP;\n                        Read_To_Reg_i = 1'b1;\n                        if (DPAIR == 2'b11 )\n                          begin\n                            Set_BusA_To_i[3:0] = 4'b1011;\n                          end\n                        else\n                          begin\n                            Set_BusA_To_i[2:1] = DPAIR;\n                            Set_BusA_To_i[0] = 1'b1;\n                          end\n                      end // case: 2\n\n                    MCycle[2] :\n                      begin\n                        IncDec_16_i = 4'b0111;\n                        Read_To_Reg_i = 1'b1;\n                        if (DPAIR == 2'b11 )\n                          begin\n                            Set_BusA_To_i[3:0] = 4'b0111;\n                          end\n                        else\n                          begin\n                            Set_BusA_To_i[2:1] = DPAIR;\n                            Set_BusA_To_i[0] = 1'b0;\n                          end\n                      end // case: 3\n\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b11000001,8'b11010001,8'b11100001,8'b11110001\n\n\n              // EXCHANGE, BLOCK TRANSFER AND SEARCH GROUP\n              8'b11101011  :\n                begin\n                  if (Mode != 3 )\n                    begin\n                      // EX DE,HL\n                      ExchangeDH_i= 1'b1;\n                    end\n                end\n\n              8'b00001000  :\n                begin\n                  if (Mode == 3 )\n                    begin\n                      // LD (nn),SP\n                      MCycles_i = 3'b101;\n                      case (1'b1) // MCycle\n                        MCycle[1] :\n                          begin\n                            Inc_PC_i = 1'b1;\n                            LDZ_i= 1'b1;\n                          end\n\n                        MCycle[2] :\n                          begin\n                            Set_Addr_To_i = aZI;\n                            Inc_PC_i = 1'b1;\n                            LDW_i= 1'b1;\n                            Set_BusB_To_i = 4'b1000;\n                          end\n\n                        MCycle[3] :\n                          begin\n                            Inc_WZ_i = 1'b1;\n                            Set_Addr_To_i = aZI;\n                            Write_i= 1'b1;\n                            Set_BusB_To_i = 4'b1001;\n                          end\n\n                        MCycle[4] :\n                          Write_i= 1'b1;\n                        default :;\n                      endcase\n                    end\n                  else if (Mode < 2 )\n                    begin\n                      // EX AF,AF'\n                      ExchangeAF_i = 1'b1;\n                    end\n                end // case: 8'b00001000\n\n              8'b11011001  :\n                begin\n                  if (Mode == 3 )\n                    begin\n                      // RETI\n                      MCycles_i = 3'b011;\n                      case (1'b1) // MCycle\n                        MCycle[0] :\n                          Set_Addr_To_i = aSP;\n                        MCycle[1] :\n                          begin\n                            IncDec_16_i = 4'b0111;\n                            Set_Addr_To_i = aSP;\n                            LDZ_i= 1'b1;\n                          end\n\n                        MCycle[2] :\n                          begin\n                            Jump_i= 1'b1;\n                            IncDec_16_i = 4'b0111;\n                            I_RETN_i = 1'b1;\n                            SetEI_i= 1'b1;\n                          end\n                        default :;\n                      endcase\n                    end\n                  else if (Mode < 2 )\n                    begin\n                      // EXX\n                      ExchangeRS_i = 1'b1;\n                    end\n                end // case: 8'b11011001\n\n              8'b11100011  :\n                begin\n                  if (Mode != 3 )\n                    begin\n                      // EX (SP),HL\n                      MCycles_i = 3'b101;\n                      case (1'b1) // MCycle\n                        MCycle[0] :\n                          Set_Addr_To_i = aSP;\n                        MCycle[1] :\n                          begin\n                            Read_To_Reg_i = 1'b1;\n                            Set_BusA_To_i = 4'b0101;\n                            Set_BusB_To_i = 4'b0101;\n                            Set_Addr_To_i = aSP;\n                          end\n                        MCycle[2] :\n                          begin\n                            IncDec_16_i = 4'b0111;\n                            Set_Addr_To_i = aSP;\n                            TStates_i = 3'b100;\n                            Write_i= 1'b1;\n                          end\n                        MCycle[3] :\n                          begin\n                            Read_To_Reg_i = 1'b1;\n                            Set_BusA_To_i = 4'b0100;\n                            Set_BusB_To_i = 4'b0100;\n                            Set_Addr_To_i = aSP;\n                          end\n                        MCycle[4] :\n                          begin\n                            IncDec_16_i = 4'b1111;\n                            TStates_i = 3'b101;\n                            Write_i= 1'b1;\n                          end\n\n                        default :;\n                      endcase\n                    end // if (Mode != 3 )\n                end // case: 8'b11100011\n\n\n              // 8 BIT ARITHMETIC AND LOGICAL GROUP\n              8'b10zzzzzz :\n                begin\n                  if (IR[2:0] == 3'b110)\n                    begin\n                      // ADD A,(HL)\n                      // ADC A,(HL)\n                      // SUB A,(HL)\n                      // SBC A,(HL)\n                      // AND A,(HL)\n                      // OR A,(HL)\n                      // XOR A,(HL)\n                      // CP A,(HL)\n                      MCycles_i = 3'b010;\n                      case (1'b1) // MCycle\n                        MCycle[0] :\n                          Set_Addr_To_i = aXY;\n                        MCycle[1] :\n                          begin\n                            Read_To_Reg_i = 1'b1;\n                            Save_ALU_i = 1'b1;\n                            Set_BusB_To_i[2:0] = SSS;\n                            Set_BusA_To_i[2:0] = 3'b111;\n                          end\n\n                        default :;\n                      endcase // case(MCycle)\n                    end // if (IR[2:0] == 3'b110)\n                  else\n                    begin\n                      // ADD A,r\n                      // ADC A,r\n                      // SUB A,r\n                      // SBC A,r\n                      // AND A,r\n                      // OR A,r\n                      // XOR A,r\n                      // CP A,r\n                      Set_BusB_To_i[2:0] = SSS;\n                      Set_BusA_To_i[2:0] = 3'b111;\n                      Read_To_Reg_i = 1'b1;\n                      Save_ALU_i = 1'b1;\n                    end // else: !if(IR[2:0] == 3'b110)\n                end // case: 8'b10000000,8'b10000001,8'b10000010,8'b10000011,8'b10000100,8'b10000101,8'b10000111,...\n\n              8'b11zzz110 :\n                begin\n                  // ADD A,n\n                  // ADC A,n\n                  // SUB A,n\n                  // SBC A,n\n                  // AND A,n\n                  // OR A,n\n                  // XOR A,n\n                  // CP A,n\n                  MCycles_i = 3'b010;\n                  if (MCycle[1] )\n                    begin\n                      Inc_PC_i = 1'b1;\n                      Read_To_Reg_i = 1'b1;\n                      Save_ALU_i = 1'b1;\n                      Set_BusB_To_i[2:0] = SSS;\n                      Set_BusA_To_i[2:0] = 3'b111;\n                    end\n                end\n\n              8'b00zzz100 :\n                begin\n                  if (IR[5:3] == 3'b110)\n                    begin\n                      // INC (HL)\n                      MCycles_i = 3'b011;\n                      case (1'b1) // MCycle\n                        MCycle[0] :\n                          Set_Addr_To_i = aXY;\n                        MCycle[1] :\n                          begin\n                            TStates_i = 3'b100;\n                            Set_Addr_To_i = aXY;\n                            Read_To_Reg_i = 1'b1;\n                            Save_ALU_i = 1'b1;\n                            PreserveC_i = 1'b1;\n                            ALU_Op_i = 4'b0000;\n                            Set_BusB_To_i = 4'b1010;\n                            Set_BusA_To_i[2:0] = DDD;\n                          end // case: 2\n\n                        MCycle[2] :\n                          Write_i= 1'b1;\n                        default :;\n                      endcase // case(MCycle)\n                    end // case: 8'b00110100\n                  else\n                    begin\n                      // INC r\n                      Set_BusB_To_i = 4'b1010;\n                      Set_BusA_To_i[2:0] = DDD;\n                      Read_To_Reg_i = 1'b1;\n                      Save_ALU_i = 1'b1;\n                      PreserveC_i = 1'b1;\n                      ALU_Op_i = 4'b0000;\n                    end\n                end\n\n              8'b00zzz101 :\n                begin\n                  if (IR[5:3] == 3'b110)\n                    begin\n                      // DEC (HL)\n                      MCycles_i = 3'b011;\n                      case (1'b1) // MCycle\n                        MCycle[0] :\n                          Set_Addr_To_i = aXY;\n                        MCycle[1] :\n                          begin\n                            TStates_i = 3'b100;\n                            Set_Addr_To_i = aXY;\n                            ALU_Op_i = 4'b0010;\n                            Read_To_Reg_i = 1'b1;\n                            Save_ALU_i = 1'b1;\n                            PreserveC_i = 1'b1;\n                            Set_BusB_To_i = 4'b1010;\n                            Set_BusA_To_i[2:0] = DDD;\n                          end // case: 2\n\n                        MCycle[2] :\n                          Write_i= 1'b1;\n                        default :;\n                      endcase // case(MCycle)\n                    end\n                  else\n                    begin\n                      // DEC r\n                      Set_BusB_To_i = 4'b1010;\n                      Set_BusA_To_i[2:0] = DDD;\n                      Read_To_Reg_i = 1'b1;\n                      Save_ALU_i = 1'b1;\n                      PreserveC_i = 1'b1;\n                      ALU_Op_i = 4'b0010;\n                    end\n                end\n\n              // GENERAL PURPOSE ARITHMETIC AND CPU CONTROL GROUPS\n              8'b00100111  :\n                begin\n                  // DAA\n                  Set_BusA_To_i[2:0] = 3'b111;\n                  Read_To_Reg_i = 1'b1;\n                  ALU_Op_i = 4'b1100;\n                  Save_ALU_i = 1'b1;\n                end\n\n              8'b00101111  :\n                // CPL\n                I_CPL_i = 1'b1;\n\n              8'b00111111  :\n                // CCF\n                I_CCF_i = 1'b1;\n\n              8'b00110111  :\n                // SCF\n                I_SCF_i = 1'b1;\n\n              8'b00000000  :\n                begin\n                  if (NMICycle == 1'b1 )\n                    begin\n                      // NMI\n                      MCycles_i = 3'b011;\n                      case (1'b1) // MCycle\n                        MCycle[0] :\n                          begin\n                            TStates_i = 3'b101;\n                            IncDec_16_i = 4'b1111;\n                            Set_Addr_To_i = aSP;\n                            Set_BusB_To_i = 4'b1101;\n                          end\n\n                        MCycle[1] :\n                          begin\n                            TStates_i = 3'b100;\n                            Write_i= 1'b1;\n                            IncDec_16_i = 4'b1111;\n                            Set_Addr_To_i = aSP;\n                            Set_BusB_To_i = 4'b1100;\n                          end\n\n                        MCycle[2] :\n                          begin\n                            TStates_i = 3'b100;\n                            Write_i= 1'b1;\n                          end\n\n                        default :;\n                      endcase // case(MCycle)\n\n                    end\n                  else if (IntCycle == 1'b1 )\n                    begin\n                      // INT (IM 2)\n                      MCycles_i = 3'b101;\n                      case (1'b1) // MCycle\n                        MCycle[0] :\n                          begin\n                            LDZ_i= 1'b1;\n                            TStates_i = 3'b101;\n                            IncDec_16_i = 4'b1111;\n                            Set_Addr_To_i = aSP;\n                            Set_BusB_To_i = 4'b1101;\n                          end\n\n                        MCycle[1] :\n                          begin\n                            TStates_i = 3'b100;\n                            Write_i= 1'b1;\n                            IncDec_16_i = 4'b1111;\n                            Set_Addr_To_i = aSP;\n                            Set_BusB_To_i = 4'b1100;\n                          end\n\n                        MCycle[2] :\n                          begin\n                            TStates_i = 3'b100;\n                            Write_i= 1'b1;\n                          end\n\n                        MCycle[3] :\n                          begin\n                            Inc_PC_i = 1'b1;\n                            LDZ_i= 1'b1;\n                          end\n\n                        MCycle[4] :\n                          Jump_i= 1'b1;\n                        default :;\n                      endcase\n                    end\n                end // case: 8'b00000000\n\n              8'b11110011  :\n                // DI\n                SetDI_i= 1'b1;\n\n              8'b11111011  :\n                // EI\n                SetEI_i= 1'b1;\n\n              // 16 BIT ARITHMETIC GROUP\n              8'b00zz1001  :\n                begin\n                  // ADD HL,ss\n                  MCycles_i = 3'b011;\n                  case (1'b1) // MCycle\n                    MCycle[1] :\n                      begin\n                        NoRead_i= 1'b1;\n                        ALU_Op_i = 4'b0000;\n                        Read_To_Reg_i = 1'b1;\n                        Save_ALU_i = 1'b1;\n                        Set_BusA_To_i[2:0] = 3'b101;\n                        case (IR[5:4])\n                          0,1,2  :\n                            begin\n                              Set_BusB_To_i[2:1] = IR[5:4];\n                              Set_BusB_To_i[0] = 1'b1;\n                            end\n\n                          default :\n                            Set_BusB_To_i = 4'b1000;\n                        endcase // case(IR[5:4])\n\n                        TStates_i = 3'b100;\n                        Arith16_i = 1'b1;\n                      end // case: 2\n\n                    MCycle[2] :\n                      begin\n                        NoRead_i= 1'b1;\n                        Read_To_Reg_i = 1'b1;\n                        Save_ALU_i = 1'b1;\n                        ALU_Op_i = 4'b0001;\n                        Set_BusA_To_i[2:0] = 3'b100;\n                        case (IR[5:4])\n                          0,1,2  :\n                            Set_BusB_To_i[2:1] = IR[5:4];\n                          default :\n                            Set_BusB_To_i = 4'b1001;\n                        endcase\n                        Arith16_i = 1'b1;\n                      end // case: 3\n\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b00001001,8'b00011001,8'b00101001,8'b00111001\n\n              8'b00zz0011 :\n                begin\n                  // INC ss\n                  TStates_i = 3'b110;\n                  IncDec_16_i[3:2] = 2'b01;\n                  IncDec_16_i[1:0] = DPAIR;\n                end\n\n              8'b00zz1011 :\n                begin\n                  // DEC ss\n                  TStates_i = 3'b110;\n                  IncDec_16_i[3:2] = 2'b11;\n                  IncDec_16_i[1:0] = DPAIR;\n                end\n\n              // ROTATE AND SHIFT GROUP\n              8'b00000111,\n                  // RLCA\n                  8'b00010111,\n                  // RLA\n                  8'b00001111,\n                  // RRCA\n                  8'b00011111 :\n                    // RRA\n                    begin\n                      Set_BusA_To_i[2:0] = 3'b111;\n                      ALU_Op_i = 4'b1000;\n                      Read_To_Reg_i = 1'b1;\n                      Save_ALU_i = 1'b1;\n                    end // case: 8'b00000111,...\n\n\n              // Jump_iGROUP\n              8'b11000011  :\n                begin\n                  // JP nn\n                  MCycles_i = 3'b011;\n                  if (MCycle[1])\n                    begin\n                      Inc_PC_i = 1'b1;\n                      LDZ_i= 1'b1;\n                    end\n\n                  if (MCycle[2])\n                    begin\n                      Inc_PC_i = 1'b1;\n                      Jump_i= 1'b1;\n                    end\n\n                end // case: 8'b11000011\n\n              8'b11zzz010  :\n                begin\n                  if (IR[5] == 1'b1 && Mode == 3 )\n                    begin\n                      case (IR[4:3])\n                        2'b00  :\n                          begin\n                            // LD ($FF00+C),A\n                            MCycles_i = 3'b010;\n                            case (1'b1) // MCycle\n                              MCycle[0] :\n                                begin\n                                  Set_Addr_To_i = aBC;\n                                  Set_BusB_To_i   = 4'b0111;\n                                end\n                              MCycle[1] :\n                                begin\n                                  Write_i= 1'b1;\n                                  IORQ_i = 1'b1;\n                                end\n\n                              default :;\n                            endcase // case(MCycle)\n                          end // case: 2'b00\n\n                        2'b01  :\n                          begin\n                            // LD (nn),A\n                            MCycles_i = 3'b100;\n                            case (1'b1) // MCycle\n                              MCycle[1] :\n                                begin\n                                  Inc_PC_i = 1'b1;\n                                  LDZ_i= 1'b1;\n                                end\n\n                              MCycle[2] :\n                                begin\n                                  Set_Addr_To_i = aZI;\n                                  Inc_PC_i = 1'b1;\n                                  Set_BusB_To_i = 4'b0111;\n                                end\n\n                              MCycle[3] :\n                                Write_i= 1'b1;\n                              default :;\n                            endcase // case(MCycle)\n                          end // case: default :...\n\n                        2'b10  :\n                          begin\n                            // LD A,($FF00+C)\n                            MCycles_i = 3'b010;\n                            case (1'b1) // MCycle\n                              MCycle[0] :\n                                Set_Addr_To_i = aBC;\n                              MCycle[1] :\n                                begin\n                                  Read_To_Acc_i = 1'b1;\n                                  IORQ_i = 1'b1;\n                                end\n                              default :;\n                            endcase // case(MCycle)\n                          end // case: 2'b10\n\n                        2'b11  :\n                          begin\n                            // LD A,(nn)\n                            MCycles_i = 3'b100;\n                            case (1'b1) // MCycle\n                              MCycle[1] :\n                                begin\n                                  Inc_PC_i = 1'b1;\n                                  LDZ_i= 1'b1;\n                                end\n                              MCycle[2] :\n                                begin\n                                  Set_Addr_To_i = aZI;\n                                  Inc_PC_i = 1'b1;\n                                end\n                              MCycle[3] :\n                                Read_To_Acc_i = 1'b1;\n                              default :;\n                            endcase // case(MCycle)\n                          end\n                      endcase\n                    end\n                  else\n                    begin\n                      // JP cc,nn\n                      MCycles_i = 3'b011;\n                      case (1'b1) // MCycle\n                        MCycle[1] :\n                          begin\n                            Inc_PC_i = 1'b1;\n                            LDZ_i= 1'b1;\n                          end\n                        MCycle[2] :\n                          begin\n                            Inc_PC_i = 1'b1;\n                            if (is_cc_true(F, IR[5:3]) )\n                              begin\n                                Jump_i= 1'b1;\n                              end\n                          end\n\n                        default :;\n                      endcase\n                    end // else: !if(DPAIR == 2'b11 )\n                end // case: 8'b11000010,8'b11001010,8'b11010010,8'b11011010,8'b11100010,8'b11101010,8'b11110010,8'b11111010\n\n              8'b00011000  :\n                begin\n                  if (Mode != 2 )\n                    begin\n                      // JR e\n                      MCycles_i = 3'b011;\n                      case (1'b1) // MCycle\n                        MCycle[1] :\n                          Inc_PC_i = 1'b1;\n                        MCycle[2] :\n                          begin\n                            NoRead_i= 1'b1;\n                            JumpE_i= 1'b1;\n                            TStates_i = 3'b101;\n                          end\n                        default :;\n                      endcase\n                    end // if (Mode != 2 )\n                end // case: 8'b00011000\n\n              // Conditional relative jumps (JR [C/NC/Z/NZ], e)\n              8'b001zz000  :\n                begin\n                  if (Mode != 2 )\n                    begin\n                      MCycles_i = 3'd3;\n                      case (1'b1) // MCycle\n                        MCycle[1] :\n                          begin\n                            Inc_PC_i = 1'b1;\n\n                            case (IR[4:3])\n                              0 : MCycles_i = (F[Flag_Z]) ? 3'd2 : 3'd3;\n                              1 : MCycles_i = (!F[Flag_Z]) ? 3'd2 : 3'd3;\n                              2 : MCycles_i = (F[Flag_C]) ? 3'd2 : 3'd3;\n                              3 : MCycles_i = (!F[Flag_C]) ? 3'd2 : 3'd3;\n                            endcase\n                          end\n\n                        MCycle[2] :\n                          begin\n                            NoRead_i= 1'b1;\n                            JumpE_i= 1'b1;\n                            TStates_i = 3'd5;\n                          end\n                        default :;\n                      endcase\n                    end // if (Mode != 2 )\n                end // case: 8'b00111000\n\n              8'b11101001  :\n                // JP (HL)\n                JumpXY_i= 1'b1;\n\n              8'b00010000  :\n                begin\n                  if (Mode == 3 )\n                    begin\n                      I_DJNZ_i= 1'b1;\n                    end\n                  else if (Mode < 2 )\n                    begin\n                      // DJNZ,e\n                      MCycles_i = 3'b011;\n                      case (1'b1) // MCycle\n                        MCycle[0] :\n                          begin\n                            TStates_i = 3'b101;\n                            I_DJNZ_i= 1'b1;\n                            Set_BusB_To_i = 4'b1010;\n                            Set_BusA_To_i[2:0] = 3'b000;\n                            Read_To_Reg_i = 1'b1;\n                            Save_ALU_i = 1'b1;\n                            ALU_Op_i = 4'b0010;\n                          end\n                        MCycle[1] :\n                          begin\n                            I_DJNZ_i= 1'b1;\n                            Inc_PC_i = 1'b1;\n                          end\n                        MCycle[2] :\n                          begin\n                            NoRead_i= 1'b1;\n                            JumpE_i= 1'b1;\n                            TStates_i = 3'b101;\n                          end\n                        default :;\n                      endcase\n                    end // if (Mode < 2 )\n                end // case: 8'b00010000\n\n\n              // Call_i AND RETURN GROUP\n              8'b11001101  :\n                begin\n                  // Call_i nn\n                  MCycles_i = 3'b101;\n                  case (1'b1) // MCycle\n                    MCycle[1] :\n                      begin\n                        Inc_PC_i = 1'b1;\n                        LDZ_i= 1'b1;\n                      end\n                    MCycle[2] :\n                      begin\n                        IncDec_16_i = 4'b1111;\n                        Inc_PC_i = 1'b1;\n                        TStates_i = 3'b100;\n                        Set_Addr_To_i = aSP;\n                        LDW_i= 1'b1;\n                        Set_BusB_To_i = 4'b1101;\n                      end\n                    MCycle[3] :\n                      begin\n                        Write_i= 1'b1;\n                        IncDec_16_i = 4'b1111;\n                        Set_Addr_To_i = aSP;\n                        Set_BusB_To_i = 4'b1100;\n                      end\n                    MCycle[4] :\n                      begin\n                        Write_i= 1'b1;\n                        Call_i = 1'b1;\n                      end\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b11001101\n\n              8'b11zzz100  :\n                begin\n                  if (IR[5] == 1'b0 || Mode != 3 )\n                    begin\n                      // Call_i cc,nn\n                      MCycles_i = 3'b101;\n                      case (1'b1) // MCycle\n                        MCycle[1] :\n                          begin\n                            Inc_PC_i = 1'b1;\n                            LDZ_i= 1'b1;\n                          end\n                        MCycle[2] :\n                          begin\n                            Inc_PC_i = 1'b1;\n                            LDW_i= 1'b1;\n                            if (is_cc_true(F, IR[5:3]) )\n                              begin\n                                IncDec_16_i = 4'b1111;\n                                Set_Addr_To_i = aSP;\n                                TStates_i = 3'b100;\n                                Set_BusB_To_i = 4'b1101;\n                              end\n                            else\n                              begin\n                                MCycles_i = 3'b011;\n                              end // else: !if(is_cc_true(F, IR[5:3]) )\n                          end // case: 3\n\n                        MCycle[3] :\n                          begin\n                            Write_i= 1'b1;\n                            IncDec_16_i = 4'b1111;\n                            Set_Addr_To_i = aSP;\n                            Set_BusB_To_i = 4'b1100;\n                          end\n\n                        MCycle[4] :\n                          begin\n                            Write_i= 1'b1;\n                            Call_i = 1'b1;\n                          end\n\n                        default :;\n                      endcase\n                    end // if (IR[5] == 1'b0 || Mode != 3 )\n                end // case: 8'b11000100,8'b11001100,8'b11010100,8'b11011100,8'b11100100,8'b11101100,8'b11110100,8'b11111100\n\n              8'b11001001  :\n                begin\n                  // RET\n                  MCycles_i = 3'b011;\n                  case (1'b1) // MCycle\n                    MCycle[0] :\n                      begin\n                        TStates_i = 3'b101;\n                        Set_Addr_To_i = aSP;\n                      end\n\n                    MCycle[1] :\n                      begin\n                        IncDec_16_i = 4'b0111;\n                        Set_Addr_To_i = aSP;\n                        LDZ_i= 1'b1;\n                      end\n\n                    MCycle[2] :\n                      begin\n                        Jump_i= 1'b1;\n                        IncDec_16_i = 4'b0111;\n                      end\n\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b11001001\n\n              8'b11000000,8'b11001000,8'b11010000,8'b11011000,8'b11100000,8'b11101000,8'b11110000,8'b11111000  :\n                begin\n                  if (IR[5] == 1'b1 && Mode == 3 )\n                    begin\n                      case (IR[4:3])\n                        2'b00  :\n                          begin\n                            // LD ($FF00+nn),A\n                            MCycles_i = 3'b011;\n                            case (1'b1) // MCycle\n                              MCycle[1] :\n                                begin\n                                  Inc_PC_i = 1'b1;\n                                  Set_Addr_To_i = aIOA;\n                                  Set_BusB_To_i   = 4'b0111;\n                                end\n\n                              MCycle[2] :\n                                Write_i= 1'b1;\n                              default :;\n                            endcase // case(MCycle)\n                          end // case: 2'b00\n\n                        2'b01  :\n                          begin\n                            // ADD SP,n\n                            MCycles_i = 3'b011;\n                            case (1'b1) // MCycle\n                              MCycle[1] :\n                                begin\n                                  ALU_Op_i = 4'b0000;\n                                  Inc_PC_i = 1'b1;\n                                  Read_To_Reg_i = 1'b1;\n                                  Save_ALU_i = 1'b1;\n                                  Set_BusA_To_i = 4'b1000;\n                                  Set_BusB_To_i = 4'b0110;\n                                end\n\n                              MCycle[2] :\n                                begin\n                                  NoRead_i= 1'b1;\n                                  Read_To_Reg_i = 1'b1;\n                                  Save_ALU_i = 1'b1;\n                                  ALU_Op_i = 4'b0001;\n                                  Set_BusA_To_i = 4'b1001;\n                                  Set_BusB_To_i = 4'b1110;        // Incorrect unsigned !!!!!!!!!!!!!!!!!!!!!\n                                end\n\n                              default :;\n                            endcase // case(MCycle)\n                          end // case: 2'b01\n\n                        2'b10  :\n                          begin\n                            // LD A,($FF00+nn)\n                            MCycles_i = 3'b011;\n                            case (1'b1) // MCycle\n                              MCycle[1] :\n                                begin\n                                  Inc_PC_i = 1'b1;\n                                  Set_Addr_To_i = aIOA;\n                                end\n\n                              MCycle[2] :\n                                Read_To_Acc_i = 1'b1;\n                              default :;\n                            endcase // case(MCycle)\n                          end // case: 2'b10\n\n                        2'b11  :\n                          begin\n                            // LD HL,SP+n       -- Not correct !!!!!!!!!!!!!!!!!!!\n                            MCycles_i = 3'b101;\n                            case (1'b1) // MCycle\n                              MCycle[1] :\n                                begin\n                                  Inc_PC_i = 1'b1;\n                                  LDZ_i= 1'b1;\n                                end\n\n                              MCycle[2] :\n                                begin\n                                  Set_Addr_To_i = aZI;\n                                  Inc_PC_i = 1'b1;\n                                  LDW_i= 1'b1;\n                                end\n\n                              MCycle[3] :\n                                begin\n                                  Set_BusA_To_i[2:0] = 3'b101; // L\n                                  Read_To_Reg_i = 1'b1;\n                                  Inc_WZ_i = 1'b1;\n                                  Set_Addr_To_i = aZI;\n                                end\n\n                              MCycle[4] :\n                                begin\n                                  Set_BusA_To_i[2:0] = 3'b100; // H\n                                  Read_To_Reg_i = 1'b1;\n                                end\n\n                              default :;\n                            endcase // case(MCycle)\n                          end // case: 2'b11\n\n                      endcase // case(IR[4:3])\n\n                    end\n                  else\n                    begin\n                      // RET cc\n                      MCycles_i = 3'b011;\n                      case (1'b1) // MCycle\n                        MCycle[0] :\n                          begin\n                            if (is_cc_true(F, IR[5:3]) )\n                              begin\n                                Set_Addr_To_i = aSP;\n                              end\n                            else\n                              begin\n                                MCycles_i = 3'b001;\n                              end\n                            TStates_i = 3'b101;\n                          end // case: 1\n\n                        MCycle[1] :\n                          begin\n                            IncDec_16_i = 4'b0111;\n                            Set_Addr_To_i = aSP;\n                            LDZ_i= 1'b1;\n                          end\n                        MCycle[2] :\n                          begin\n                            Jump_i= 1'b1;\n                            IncDec_16_i = 4'b0111;\n                          end\n                        default :;\n                      endcase\n                    end // else: !if(IR[5] == 1'b1 && Mode == 3 )\n                end // case: 8'b11000000,8'b11001000,8'b11010000,8'b11011000,8'b11100000,8'b11101000,8'b11110000,8'b11111000\n\n              8'b11000111,8'b11001111,8'b11010111,8'b11011111,8'b11100111,8'b11101111,8'b11110111,8'b11111111  :\n                begin\n                  // RST p\n                  MCycles_i = 3'b011;\n                  case (1'b1) // MCycle\n                    MCycle[0] :\n                      begin\n                        TStates_i = 3'b101;\n                        IncDec_16_i = 4'b1111;\n                        Set_Addr_To_i = aSP;\n                        Set_BusB_To_i = 4'b1101;\n                      end\n\n                    MCycle[1] :\n                      begin\n                        Write_i= 1'b1;\n                        IncDec_16_i = 4'b1111;\n                        Set_Addr_To_i = aSP;\n                        Set_BusB_To_i = 4'b1100;\n                      end\n\n                    MCycle[2] :\n                      begin\n                        Write_i= 1'b1;\n                        RstP_i= 1'b1;\n                      end\n\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b11000111,8'b11001111,8'b11010111,8'b11011111,8'b11100111,8'b11101111,8'b11110111,8'b11111111\n\n              // INPUT AND OUTPUT GROUP\n              8'b11011011  :\n                begin\n                  if (Mode != 3 )\n                    begin\n                      // IN A,(n)\n                      MCycles_i = 3'b011;\n                      case (1'b1) // MCycle\n                        MCycle[1] :\n                          begin\n                            Inc_PC_i = 1'b1;\n                            Set_Addr_To_i = aIOA;\n                          end\n\n                        MCycle[2] :\n                          begin\n                            Read_To_Acc_i = 1'b1;\n                            IORQ_i = 1'b1;\n                          end\n\n                        default :;\n                      endcase\n                    end // if (Mode != 3 )\n                end // case: 8'b11011011\n\n              8'b11010011  :\n                begin\n                  if (Mode != 3 )\n                    begin\n                      // OUT (n),A\n                      MCycles_i = 3'b011;\n                      case (1'b1) // MCycle\n                        MCycle[1] :\n                          begin\n                            Inc_PC_i = 1'b1;\n                            Set_Addr_To_i = aIOA;\n                            Set_BusB_To_i = 4'b0111;\n                          end\n\n                        MCycle[2] :\n                          begin\n                            Write_i= 1'b1;\n                            IORQ_i = 1'b1;\n                          end\n\n                        default :;\n                      endcase\n                    end // if (Mode != 3 )\n                end // case: 8'b11010011\n\n\n              //----------------------------------------------------------------------------\n              //----------------------------------------------------------------------------\n              // MULTIBYTE INSTRUCTIONS\n              //----------------------------------------------------------------------------\n              //----------------------------------------------------------------------------\n\n              8'b11001011  :\n                begin\n                  if (Mode != 2 )\n                    begin\n                      Prefix_i = 2'b01;\n                    end\n                end\n\n              8'b11101101  :\n                begin\n                  if (Mode < 2 )\n                    begin\n                      Prefix_i = 2'b10;\n                    end\n                end\n\n              8'b11011101,8'b11111101  :\n                begin\n                  if (Mode < 2 )\n                    begin\n                      Prefix_i = 2'b11;\n                    end\n                end\n\n            endcase // case(IR)\n          end // case: 2'b00\n\n\n        2'b01  :\n          begin\n\n\n            //----------------------------------------------------------------------------\n            //\n            //  CB prefixed instructions\n            //\n            //----------------------------------------------------------------------------\n\n            Set_BusA_To_i[2:0] = IR[2:0];\n            Set_BusB_To_i[2:0] = IR[2:0];\n\n            casez (IR)\n              8'b00000000,8'b00000001,8'b00000010,8'b00000011,8'b00000100,8'b00000101,8'b00000111,\n              8'b00010000,8'b00010001,8'b00010010,8'b00010011,8'b00010100,8'b00010101,8'b00010111,\n              8'b00001000,8'b00001001,8'b00001010,8'b00001011,8'b00001100,8'b00001101,8'b00001111,\n              8'b00011000,8'b00011001,8'b00011010,8'b00011011,8'b00011100,8'b00011101,8'b00011111,\n              8'b00100000,8'b00100001,8'b00100010,8'b00100011,8'b00100100,8'b00100101,8'b00100111,\n              8'b00101000,8'b00101001,8'b00101010,8'b00101011,8'b00101100,8'b00101101,8'b00101111,\n              8'b00110000,8'b00110001,8'b00110010,8'b00110011,8'b00110100,8'b00110101,8'b00110111,\n              8'b00111000,8'b00111001,8'b00111010,8'b00111011,8'b00111100,8'b00111101,8'b00111111 :\n                begin\n                  // RLC r\n                  // RL r\n                  // RRC r\n                  // RR r\n                  // SLA r\n                  // SRA r\n                  // SRL r\n                  // SLL r (Undocumented) / SWAP r\n                  if (MCycle[0] ) begin\n                    ALU_Op_i = 4'b1000;\n                    Read_To_Reg_i = 1'b1;\n                    Save_ALU_i = 1'b1;\n                  end\n                end // case: 8'b00000000,8'b00000001,8'b00000010,8'b00000011,8'b00000100,8'b00000101,8'b00000111,...\n\n              8'b00zzz110  :\n                begin\n                  // RLC (HL)\n                  // RL (HL)\n                  // RRC (HL)\n                  // RR (HL)\n                  // SRA (HL)\n                  // SRL (HL)\n                  // SLA (HL)\n                  // SLL (HL) (Undocumented) / SWAP (HL)\n                  MCycles_i = 3'b011;\n                  case (1'b1) // MCycle\n                    MCycle[0], MCycle[6] :\n                      Set_Addr_To_i = aXY;\n                    MCycle[1] :\n                      begin\n                        ALU_Op_i = 4'b1000;\n                        Read_To_Reg_i = 1'b1;\n                        Save_ALU_i = 1'b1;\n                        Set_Addr_To_i = aXY;\n                        TStates_i = 3'b100;\n                      end\n\n                    MCycle[2] :\n                      Write_i= 1'b1;\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b00000110,8'b00010110,8'b00001110,8'b00011110,8'b00101110,8'b00111110,8'b00100110,8'b00110110\n\n              8'b01000000,8'b01000001,8'b01000010,8'b01000011,8'b01000100,8'b01000101,8'b01000111,\n                  8'b01001000,8'b01001001,8'b01001010,8'b01001011,8'b01001100,8'b01001101,8'b01001111,\n                  8'b01010000,8'b01010001,8'b01010010,8'b01010011,8'b01010100,8'b01010101,8'b01010111,\n                  8'b01011000,8'b01011001,8'b01011010,8'b01011011,8'b01011100,8'b01011101,8'b01011111,\n                  8'b01100000,8'b01100001,8'b01100010,8'b01100011,8'b01100100,8'b01100101,8'b01100111,\n                  8'b01101000,8'b01101001,8'b01101010,8'b01101011,8'b01101100,8'b01101101,8'b01101111,\n                  8'b01110000,8'b01110001,8'b01110010,8'b01110011,8'b01110100,8'b01110101,8'b01110111,\n                  8'b01111000,8'b01111001,8'b01111010,8'b01111011,8'b01111100,8'b01111101,8'b01111111 :\n                    begin\n                      // BIT b,r\n                      if (MCycle[0] )\n                        begin\n                          Set_BusB_To_i[2:0] = IR[2:0];\n                          ALU_Op_i = 4'b1001;\n                        end\n                    end // case: 8'b01000000,8'b01000001,8'b01000010,8'b01000011,8'b01000100,8'b01000101,8'b01000111,...\n\n              8'b01000110,8'b01001110,8'b01010110,8'b01011110,8'b01100110,8'b01101110,8'b01110110,8'b01111110  :\n                begin\n                  // BIT b,(HL)\n                  MCycles_i = 3'b010;\n                  case (1'b1) // MCycle\n                    MCycle[0], MCycle[6] :\n                      Set_Addr_To_i = aXY;\n                    MCycle[1] :\n                      begin\n                        ALU_Op_i = 4'b1001;\n                        TStates_i = 3'b100;\n                      end\n\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b01000110,8'b01001110,8'b01010110,8'b01011110,8'b01100110,8'b01101110,8'b01110110,8'b01111110\n\n              8'b11000000,8'b11000001,8'b11000010,8'b11000011,8'b11000100,8'b11000101,8'b11000111,\n                  8'b11001000,8'b11001001,8'b11001010,8'b11001011,8'b11001100,8'b11001101,8'b11001111,\n                  8'b11010000,8'b11010001,8'b11010010,8'b11010011,8'b11010100,8'b11010101,8'b11010111,\n                  8'b11011000,8'b11011001,8'b11011010,8'b11011011,8'b11011100,8'b11011101,8'b11011111,\n                  8'b11100000,8'b11100001,8'b11100010,8'b11100011,8'b11100100,8'b11100101,8'b11100111,\n                  8'b11101000,8'b11101001,8'b11101010,8'b11101011,8'b11101100,8'b11101101,8'b11101111,\n                  8'b11110000,8'b11110001,8'b11110010,8'b11110011,8'b11110100,8'b11110101,8'b11110111,\n                  8'b11111000,8'b11111001,8'b11111010,8'b11111011,8'b11111100,8'b11111101,8'b11111111 :\n                    begin\n                      // SET b,r\n                      if (MCycle[0] )\n                        begin\n                          ALU_Op_i = 4'b1010;\n                          Read_To_Reg_i = 1'b1;\n                          Save_ALU_i = 1'b1;\n                        end\n                    end // case: 8'b11000000,8'b11000001,8'b11000010,8'b11000011,8'b11000100,8'b11000101,8'b11000111,...\n\n              8'b11000110,8'b11001110,8'b11010110,8'b11011110,8'b11100110,8'b11101110,8'b11110110,8'b11111110  :\n                begin\n                  // SET b,(HL)\n                  MCycles_i = 3'b011;\n                  case (1'b1) // MCycle\n                    MCycle[0], MCycle[6] :\n                      Set_Addr_To_i = aXY;\n                    MCycle[1] :\n                      begin\n                        ALU_Op_i = 4'b1010;\n                        Read_To_Reg_i = 1'b1;\n                        Save_ALU_i = 1'b1;\n                        Set_Addr_To_i = aXY;\n                        TStates_i = 3'b100;\n                      end\n                    MCycle[2] :\n                      Write_i= 1'b1;\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b11000110,8'b11001110,8'b11010110,8'b11011110,8'b11100110,8'b11101110,8'b11110110,8'b11111110\n\n              8'b10000000,8'b10000001,8'b10000010,8'b10000011,8'b10000100,8'b10000101,8'b10000111,\n                  8'b10001000,8'b10001001,8'b10001010,8'b10001011,8'b10001100,8'b10001101,8'b10001111,\n                  8'b10010000,8'b10010001,8'b10010010,8'b10010011,8'b10010100,8'b10010101,8'b10010111,\n                  8'b10011000,8'b10011001,8'b10011010,8'b10011011,8'b10011100,8'b10011101,8'b10011111,\n                  8'b10100000,8'b10100001,8'b10100010,8'b10100011,8'b10100100,8'b10100101,8'b10100111,\n                  8'b10101000,8'b10101001,8'b10101010,8'b10101011,8'b10101100,8'b10101101,8'b10101111,\n                  8'b10110000,8'b10110001,8'b10110010,8'b10110011,8'b10110100,8'b10110101,8'b10110111,\n                  8'b10111000,8'b10111001,8'b10111010,8'b10111011,8'b10111100,8'b10111101,8'b10111111 :\n                    begin\n                      // RES b,r\n                      if (MCycle[0] )\n                        begin\n                          ALU_Op_i = 4'b1011;\n                          Read_To_Reg_i = 1'b1;\n                          Save_ALU_i = 1'b1;\n                        end\n                    end // case: 8'b10000000,8'b10000001,8'b10000010,8'b10000011,8'b10000100,8'b10000101,8'b10000111,...\n\n              8'b10000110,8'b10001110,8'b10010110,8'b10011110,8'b10100110,8'b10101110,8'b10110110,8'b10111110  :\n                begin\n                  // RES b,(HL)\n                  MCycles_i = 3'b011;\n                  case (1'b1) // MCycle\n                    MCycle[0], MCycle[6] :\n                      Set_Addr_To_i = aXY;\n                    MCycle[1] :\n                      begin\n                        ALU_Op_i = 4'b1011;\n                        Read_To_Reg_i = 1'b1;\n                        Save_ALU_i = 1'b1;\n                        Set_Addr_To_i = aXY;\n                        TStates_i = 3'b100;\n                      end\n\n                    MCycle[2] :\n                      Write_i= 1'b1;\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b10000110,8'b10001110,8'b10010110,8'b10011110,8'b10100110,8'b10101110,8'b10110110,8'b10111110\n\n            endcase // case(IR)\n          end // case: 2'b01\n\n\n        default :\n          begin : default_ed_block\n\n            //----------------------------------------------------------------------------\n            //\n            //  ED prefixed instructions\n            //\n            //----------------------------------------------------------------------------\n\n            casez (IR)\n\t      /*\n\t       * Undocumented NOP instructions commented out to reduce size of mcode\n\t       *\n              8'b00000000,8'b00000001,8'b00000010,8'b00000011,8'b00000100,8'b00000101,8'b00000110,8'b00000111\n                ,8'b00001000,8'b00001001,8'b00001010,8'b00001011,8'b00001100,8'b00001101,8'b00001110,8'b00001111\n                  ,8'b00010000,8'b00010001,8'b00010010,8'b00010011,8'b00010100,8'b00010101,8'b00010110,8'b00010111\n                    ,8'b00011000,8'b00011001,8'b00011010,8'b00011011,8'b00011100,8'b00011101,8'b00011110,8'b00011111\n                      ,8'b00100000,8'b00100001,8'b00100010,8'b00100011,8'b00100100,8'b00100101,8'b00100110,8'b00100111\n                        ,8'b00101000,8'b00101001,8'b00101010,8'b00101011,8'b00101100,8'b00101101,8'b00101110,8'b00101111\n                          ,8'b00110000,8'b00110001,8'b00110010,8'b00110011,8'b00110100,8'b00110101,8'b00110110,8'b00110111\n                            ,8'b00111000,8'b00111001,8'b00111010,8'b00111011,8'b00111100,8'b00111101,8'b00111110,8'b00111111\n\n\n                              ,8'b10000000,8'b10000001,8'b10000010,8'b10000011,8'b10000100,8'b10000101,8'b10000110,8'b10000111\n                                ,8'b10001000,8'b10001001,8'b10001010,8'b10001011,8'b10001100,8'b10001101,8'b10001110,8'b10001111\n                                  ,8'b10010000,8'b10010001,8'b10010010,8'b10010011,8'b10010100,8'b10010101,8'b10010110,8'b10010111\n                                    ,8'b10011000,8'b10011001,8'b10011010,8'b10011011,8'b10011100,8'b10011101,8'b10011110,8'b10011111\n                                      ,                                            8'b10100100,8'b10100101,8'b10100110,8'b10100111\n                                        ,                                            8'b10101100,8'b10101101,8'b10101110,8'b10101111\n                                          ,                                            8'b10110100,8'b10110101,8'b10110110,8'b10110111\n                                            ,                                            8'b10111100,8'b10111101,8'b10111110,8'b10111111\n                                              ,8'b11000000,8'b11000001,8'b11000010,8'b11000011,8'b11000100,8'b11000101,8'b11000110,8'b11000111\n                                                ,8'b11001000,8'b11001001,8'b11001010,8'b11001011,8'b11001100,8'b11001101,8'b11001110,8'b11001111\n                                                  ,8'b11010000,8'b11010001,8'b11010010,8'b11010011,8'b11010100,8'b11010101,8'b11010110,8'b11010111\n                                                    ,8'b11011000,8'b11011001,8'b11011010,8'b11011011,8'b11011100,8'b11011101,8'b11011110,8'b11011111\n                                                      ,8'b11100000,8'b11100001,8'b11100010,8'b11100011,8'b11100100,8'b11100101,8'b11100110,8'b11100111\n                                                        ,8'b11101000,8'b11101001,8'b11101010,8'b11101011,8'b11101100,8'b11101101,8'b11101110,8'b11101111\n                                                          ,8'b11110000,8'b11110001,8'b11110010,8'b11110011,8'b11110100,8'b11110101,8'b11110110,8'b11110111\n                                                            ,8'b11111000,8'b11111001,8'b11111010,8'b11111011,8'b11111100,8'b11111101,8'b11111110,8'b11111111 :\n                                                              ; // NOP, undocumented\n\n              8'b01111110,8'b01111111  :\n                // NOP, undocumented\n                ;\n\t       */\n\n              // 8 BIT LOAD GROUP\n              8'b01010111  :\n                begin\n                  // LD A,I\n                  Special_LD_i= 3'b100;\n                  TStates_i = 3'b101;\n                end\n\n              8'b01011111  :\n                begin\n                  // LD A,R\n                  Special_LD_i= 3'b101;\n                  TStates_i = 3'b101;\n                end\n\n              8'b01000111  :\n                begin\n                  // LD I,A\n                  Special_LD_i= 3'b110;\n                  TStates_i = 3'b101;\n                end\n\n              8'b01001111  :\n                begin\n                  // LD R,A\n                  Special_LD_i= 3'b111;\n                  TStates_i = 3'b101;\n                end\n\n              // 16 BIT LOAD GROUP\n              8'b01001011,8'b01011011,8'b01101011,8'b01111011  :\n                begin\n                  // LD dd,(nn)\n                  MCycles_i = 3'b101;\n                  case (1'b1) // MCycle\n                    MCycle[1] :\n                      begin\n                        Inc_PC_i = 1'b1;\n                        LDZ_i= 1'b1;\n                      end\n\n                    MCycle[2] :\n                      begin\n                        Set_Addr_To_i = aZI;\n                        Inc_PC_i = 1'b1;\n                        LDW_i= 1'b1;\n                      end\n\n                    MCycle[3] :\n                      begin\n                        Read_To_Reg_i = 1'b1;\n                        if (IR[5:4] == 2'b11 )\n                          begin\n                            Set_BusA_To_i = 4'b1000;\n                          end\n                        else\n                          begin\n                            Set_BusA_To_i[2:1] = IR[5:4];\n                            Set_BusA_To_i[0] = 1'b1;\n                          end\n                        Inc_WZ_i = 1'b1;\n                        Set_Addr_To_i = aZI;\n                      end // case: 4\n\n                    MCycle[4] :\n                      begin\n                        Read_To_Reg_i = 1'b1;\n                        if (IR[5:4] == 2'b11 )\n                          begin\n                            Set_BusA_To_i = 4'b1001;\n                          end\n                        else\n                          begin\n                            Set_BusA_To_i[2:1] = IR[5:4];\n                            Set_BusA_To_i[0] = 1'b0;\n                          end\n                      end // case: 5\n\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b01001011,8'b01011011,8'b01101011,8'b01111011\n\n\n              8'b01000011,8'b01010011,8'b01100011,8'b01110011  :\n                begin\n                  // LD (nn),dd\n                  MCycles_i = 3'b101;\n                  case (1'b1) // MCycle\n                    MCycle[1] :\n                      begin\n                        Inc_PC_i = 1'b1;\n                        LDZ_i= 1'b1;\n                      end\n\n                    MCycle[2] :\n                      begin\n                        Set_Addr_To_i = aZI;\n                        Inc_PC_i = 1'b1;\n                        LDW_i= 1'b1;\n                        if (IR[5:4] == 2'b11 )\n                          begin\n                            Set_BusB_To_i = 4'b1000;\n                          end\n                        else\n                          begin\n                            Set_BusB_To_i[2:1] = IR[5:4];\n                            Set_BusB_To_i[0] = 1'b1;\n                            Set_BusB_To_i[3] = 1'b0;\n                          end\n                      end // case: 3\n\n                    MCycle[3] :\n                      begin\n                        Inc_WZ_i = 1'b1;\n                        Set_Addr_To_i = aZI;\n                        Write_i= 1'b1;\n                        if (IR[5:4] == 2'b11 )\n                          begin\n                            Set_BusB_To_i = 4'b1001;\n                          end\n                        else\n                          begin\n                            Set_BusB_To_i[2:1] = IR[5:4];\n                            Set_BusB_To_i[0] = 1'b0;\n                            Set_BusB_To_i[3] = 1'b0;\n                          end\n                      end // case: 4\n\n                    MCycle[4] :\n                      begin\n                        Write_i= 1'b1;\n                      end\n\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b01000011,8'b01010011,8'b01100011,8'b01110011\n\n              8'b10100000 , 8'b10101000 , 8'b10110000 , 8'b10111000  :\n                begin\n                  // LDI, LDD, LDIR, LDDR\n                  MCycles_i = 3'b100;\n                  case (1'b1) // MCycle\n                    MCycle[0] :\n                      begin\n                        Set_Addr_To_i = aXY;\n                        IncDec_16_i = 4'b1100; // BC\n                      end\n\n                    MCycle[1] :\n                      begin\n                        Set_BusB_To_i = 4'b0110;\n                        Set_BusA_To_i[2:0] = 3'b111;\n                        ALU_Op_i = 4'b0000;\n                        Set_Addr_To_i = aDE;\n                        if (IR[3] == 1'b0 )\n                          begin\n                            IncDec_16_i = 4'b0110; // IX\n                          end\n                        else\n                          begin\n                            IncDec_16_i = 4'b1110;\n                          end\n                      end // case: 2\n\n                    MCycle[2] :\n                      begin\n                        I_BT_i= 1'b1;\n                        TStates_i = 3'b101;\n                        Write_i= 1'b1;\n                        if (IR[3] == 1'b0 )\n                          begin\n                            IncDec_16_i = 4'b0101; // DE\n                          end\n                        else\n                          begin\n                            IncDec_16_i = 4'b1101;\n                          end\n                      end // case: 3\n\n                    MCycle[3] :\n                      begin\n                        NoRead_i= 1'b1;\n                        TStates_i = 3'b101;\n                      end\n\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b10100000 , 8'b10101000 , 8'b10110000 , 8'b10111000\n\n              8'b10100001 , 8'b10101001 , 8'b10110001 , 8'b10111001  :\n                begin\n                  // CPI, CPD, CPIR, CPDR\n                  MCycles_i = 3'b100;\n                  case (1'b1) // MCycle\n                    MCycle[0] :\n                      begin\n                        Set_Addr_To_i = aXY;\n                        IncDec_16_i = 4'b1100; // BC\n                      end\n\n                    MCycle[1] :\n                      begin\n                        Set_BusB_To_i = 4'b0110;\n                        Set_BusA_To_i[2:0] = 3'b111;\n                        ALU_Op_i = 4'b0111;\n                        Save_ALU_i = 1'b1;\n                        PreserveC_i = 1'b1;\n                        if (IR[3] == 1'b0 )\n                          begin\n                            IncDec_16_i = 4'b0110;\n                          end\n                        else\n                          begin\n                            IncDec_16_i = 4'b1110;\n                          end\n                      end // case: 2\n\n                    MCycle[2] :\n                      begin\n                        NoRead_i= 1'b1;\n                        I_BC_i= 1'b1;\n                        TStates_i = 3'b101;\n                      end\n\n                    MCycle[3] :\n                      begin\n                        NoRead_i= 1'b1;\n                        TStates_i = 3'b101;\n                      end\n\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b10100001 , 8'b10101001 , 8'b10110001 , 8'b10111001\n\n              8'b01000100,8'b01001100,8'b01010100,8'b01011100,8'b01100100,8'b01101100,8'b01110100,8'b01111100  :\n                begin\n                  // NEG\n                  ALU_Op_i = 4'b0010;\n                  Set_BusB_To_i = 4'b0111;\n                  Set_BusA_To_i = 4'b1010;\n                  Read_To_Acc_i = 1'b1;\n                  Save_ALU_i = 1'b1;\n                end\n\n              8'b01000110,8'b01001110,8'b01100110,8'b01101110  :\n                begin\n                  // IM 0\n                  IMode_i= 2'b00;\n                end\n\n              8'b01010110,8'b01110110  :\n                // IM 1\n                IMode_i= 2'b01;\n\n              8'b01011110,8'b01110111  :\n                // IM 2\n                IMode_i= 2'b10;\n\n              // 16 bit arithmetic\n              8'b01001010,8'b01011010,8'b01101010,8'b01111010  :\n                begin\n                  // ADC HL,ss\n                  MCycles_i = 3'b011;\n                  case (1'b1) // MCycle\n                    MCycle[1] :\n                      begin\n                        NoRead_i= 1'b1;\n                        ALU_Op_i = 4'b0001;\n                        Read_To_Reg_i = 1'b1;\n                        Save_ALU_i = 1'b1;\n                        Set_BusA_To_i[2:0] = 3'b101;\n                        case (IR[5:4])\n                          0,1,2  :\n                            begin\n                              Set_BusB_To_i[2:1] = IR[5:4];\n                              Set_BusB_To_i[0] = 1'b1;\n                            end\n                          default :\n                            Set_BusB_To_i = 4'b1000;\n                        endcase\n                        TStates_i = 3'b100;\n                      end // case: 2\n\n                    MCycle[2] :\n                      begin\n                        NoRead_i= 1'b1;\n                        Read_To_Reg_i = 1'b1;\n                        Save_ALU_i = 1'b1;\n                        ALU_Op_i = 4'b0001;\n                        Set_BusA_To_i[2:0] = 3'b100;\n                        case (IR[5:4])\n                          0,1,2  :\n                            begin\n                              Set_BusB_To_i[2:1] = IR[5:4];\n                              Set_BusB_To_i[0] = 1'b0;\n                            end\n                          default :\n                            Set_BusB_To_i = 4'b1001;\n                        endcase // case(IR[5:4])\n                      end // case: 3\n\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b01001010,8'b01011010,8'b01101010,8'b01111010\n\n              8'b01000010,8'b01010010,8'b01100010,8'b01110010  :\n                begin\n                  // SBC HL,ss\n                  MCycles_i = 3'b011;\n                  case (1'b1) // MCycle\n                    MCycle[1] :\n                      begin\n                        NoRead_i= 1'b1;\n                        ALU_Op_i = 4'b0011;\n                        Read_To_Reg_i = 1'b1;\n                        Save_ALU_i = 1'b1;\n                        Set_BusA_To_i[2:0] = 3'b101;\n                        case (IR[5:4])\n                          0,1,2  :\n                            begin\n                              Set_BusB_To_i[2:1] = IR[5:4];\n                              Set_BusB_To_i[0] = 1'b1;\n                            end\n                          default :\n                            Set_BusB_To_i = 4'b1000;\n                        endcase\n                        TStates_i = 3'b100;\n                      end // case: 2\n\n                    MCycle[2] :\n                      begin\n                        NoRead_i= 1'b1;\n                        ALU_Op_i = 4'b0011;\n                        Read_To_Reg_i = 1'b1;\n                        Save_ALU_i = 1'b1;\n                        Set_BusA_To_i[2:0] = 3'b100;\n                        case (IR[5:4])\n                          0,1,2  :\n                            Set_BusB_To_i[2:1] = IR[5:4];\n                          default :\n                            Set_BusB_To_i = 4'b1001;\n                        endcase\n                      end // case: 3\n\n                    default :;\n\n                  endcase // case(MCycle)\n                end // case: 8'b01000010,8'b01010010,8'b01100010,8'b01110010\n\n              8'b01101111  :\n                begin\n                  // RLD\n                  MCycles_i = 3'b100;\n                  case (1'b1) // MCycle\n                    MCycle[1] :\n                      begin\n                        NoRead_i= 1'b1;\n                        Set_Addr_To_i = aXY;\n                      end\n\n                    MCycle[2] :\n                      begin\n                        Read_To_Reg_i = 1'b1;\n                        Set_BusB_To_i[2:0] = 3'b110;\n                        Set_BusA_To_i[2:0] = 3'b111;\n                        ALU_Op_i = 4'b1101;\n                        TStates_i = 3'b100;\n                        Set_Addr_To_i = aXY;\n                        Save_ALU_i = 1'b1;\n                      end\n\n                    MCycle[3] :\n                      begin\n                        I_RLD_i= 1'b1;\n                        Write_i= 1'b1;\n                      end\n\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b01101111\n\n              8'b01100111  :\n                begin\n                  // RRD\n                  MCycles_i = 3'b100;\n                  case (1'b1) // MCycle\n                    MCycle[1] :\n                      Set_Addr_To_i = aXY;\n                    MCycle[2] :\n                      begin\n                        Read_To_Reg_i = 1'b1;\n                        Set_BusB_To_i[2:0] = 3'b110;\n                        Set_BusA_To_i[2:0] = 3'b111;\n                        ALU_Op_i = 4'b1110;\n                        TStates_i = 3'b100;\n                        Set_Addr_To_i = aXY;\n                        Save_ALU_i = 1'b1;\n                      end\n\n                    MCycle[3] :\n                      begin\n                        I_RRD_i= 1'b1;\n                        Write_i= 1'b1;\n                      end\n\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b01100111\n\n              8'b01000101,8'b01001101,8'b01010101,8'b01011101,8'b01100101,8'b01101101,8'b01110101,8'b01111101  :\n                begin\n                  // RETI, RETN\n                  MCycles_i = 3'b011;\n                  case (1'b1) // MCycle\n                    MCycle[0] :\n                      Set_Addr_To_i = aSP;\n\n                    MCycle[1] :\n                      begin\n                        IncDec_16_i = 4'b0111;\n                        Set_Addr_To_i = aSP;\n                        LDZ_i= 1'b1;\n                      end\n\n                    MCycle[2] :\n                      begin\n                        Jump_i= 1'b1;\n                        IncDec_16_i = 4'b0111;\n                        I_RETN_i = 1'b1;\n                      end\n\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b01000101,8'b01001101,8'b01010101,8'b01011101,8'b01100101,8'b01101101,8'b01110101,8'b01111101\n\n              8'b01000000,8'b01001000,8'b01010000,8'b01011000,8'b01100000,8'b01101000,8'b01110000,8'b01111000  :\n                begin\n                  // IN r,(C)\n                  MCycles_i = 3'b010;\n                  case (1'b1) // MCycle\n                    MCycle[0] :\n                      Set_Addr_To_i = aBC;\n\n                    MCycle[1] :\n                      begin\n                        IORQ_i = 1'b1;\n                        if (IR[5:3] != 3'b110 )\n                          begin\n                            Read_To_Reg_i = 1'b1;\n                            Set_BusA_To_i[2:0] = IR[5:3];\n                          end\n                        I_INRC_i= 1'b1;\n                      end\n\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b01000000,8'b01001000,8'b01010000,8'b01011000,8'b01100000,8'b01101000,8'b01110000,8'b01111000\n\n              8'b01000001,8'b01001001,8'b01010001,8'b01011001,8'b01100001,8'b01101001,8'b01110001,8'b01111001  :\n                begin\n                  // OUT (C),r\n                  // OUT (C),0\n                  MCycles_i = 3'b010;\n                  case (1'b1) // MCycle\n                    MCycle[0] :\n                      begin\n                        Set_Addr_To_i = aBC;\n                        Set_BusB_To_i[2:0]        = IR[5:3];\n                        if (IR[5:3] == 3'b110 )\n                          begin\n                            Set_BusB_To_i[3] = 1'b1;\n                          end\n                      end\n\n                    MCycle[1] :\n                      begin\n                        Write_i= 1'b1;\n                        IORQ_i = 1'b1;\n                      end\n\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b01000001,8'b01001001,8'b01010001,8'b01011001,8'b01100001,8'b01101001,8'b01110001,8'b01111001\n\n              8'b10100010 , 8'b10101010 , 8'b10110010 , 8'b10111010  :\n                begin\n                  // INI, IND, INIR, INDR\n                  MCycles_i = 3'b100;\n                  case (1'b1) // MCycle\n                    MCycle[0] :\n                      begin\n                        Set_Addr_To_i = aBC;\n                        Set_BusB_To_i = 4'b1010;\n                        Set_BusA_To_i = 4'b0000;\n                        Read_To_Reg_i = 1'b1;\n                        Save_ALU_i = 1'b1;\n                        ALU_Op_i = 4'b0010;\n                      end\n\n                    MCycle[1] :\n                      begin\n                        IORQ_i = 1'b1;\n                        Set_BusB_To_i = 4'b0110;\n                        Set_Addr_To_i = aXY;\n                      end\n\n                    MCycle[2] :\n                      begin\n                        if (IR[3] == 1'b0 )\n                          begin\n\t\t\t    IncDec_16_i = 4'b0110;\n                          end\n                        else\n                          begin\n\t\t\t    IncDec_16_i = 4'b1110;\n                          end\n                        TStates_i = 3'b100;\n                        Write_i= 1'b1;\n                        I_BTR_i= 1'b1;\n                      end // case: 3\n\n                    MCycle[3] :\n                      begin\n                        NoRead_i= 1'b1;\n                        TStates_i = 3'b101;\n                      end\n\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b10100010 , 8'b10101010 , 8'b10110010 , 8'b10111010\n\n              8'b10100011 , 8'b10101011 , 8'b10110011 , 8'b10111011  :\n                begin\n                  // OUTI, OUTD, OTIR, OTDR\n                  MCycles_i = 3'b100;\n                  case (1'b1) // MCycle\n                    MCycle[0] :\n                      begin\n                        TStates_i = 3'b101;\n                        Set_Addr_To_i = aXY;\n                        Set_BusB_To_i = 4'b1010;\n                        Set_BusA_To_i = 4'b0000;\n                        Read_To_Reg_i = 1'b1;\n                        Save_ALU_i = 1'b1;\n                        ALU_Op_i = 4'b0010;\n                      end\n\n                    MCycle[1] :\n                      begin\n                        Set_BusB_To_i = 4'b0110;\n                        Set_Addr_To_i = aBC;\n                        if (IR[3] == 1'b0 )\n                          begin\n                            IncDec_16_i = 4'b0110;\n                          end\n                        else\n                          begin\n                            IncDec_16_i = 4'b1110;\n                          end\n                      end\n\n                    MCycle[2] :\n                      begin\n                        if (IR[3] == 1'b0 )\n                          begin\n                            IncDec_16_i = 4'b0010;\n                          end\n                        else\n                          begin\n                            IncDec_16_i = 4'b1010;\n                          end\n                        IORQ_i = 1'b1;\n                        Write_i= 1'b1;\n                        I_BTR_i= 1'b1;\n                      end // case: 3\n\n                    MCycle[3] :\n                      begin\n                        NoRead_i= 1'b1;\n                        TStates_i = 3'b101;\n                      end\n\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b10100011 , 8'b10101011 , 8'b10110011 , 8'b10111011\n\n              default : ;\n\n            endcase // case(IR)\n          end // block: default_ed_block\n      endcase // case(ISet)\n\n      if (Mode == 1 )\n        begin\n          if (MCycle[0] )\n            begin\n              //TStates_i = 3'b100;\n            end\n          else\n            begin\n              TStates_i = 3'b011;\n            end\n        end\n\n      if (Mode == 3 )\n        begin\n          if (MCycle[0] )\n            begin\n              //TStates_i = 3'b100;\n            end\n          else\n            begin\n              TStates_i = 3'b100;\n            end\n        end\n\n      if (Mode < 2 )\n        begin\n          if (MCycle[5] )\n            begin\n              Inc_PC_i = 1'b1;\n              if (Mode == 1 )\n                begin\n                  Set_Addr_To_i = aXY;\n                  TStates_i = 3'b100;\n                  Set_BusB_To_i[2:0] = SSS;\n                  Set_BusB_To_i[3] = 1'b0;\n                end\n              if (IR == 8'b00110110 || IR == 8'b11001011 )\n                begin\n                  Set_Addr_To_i = aNone;\n                end\n            end\n          if (MCycle[6] )\n            begin\n              if (Mode == 0 )\n                begin\n                  TStates_i = 3'b101;\n                end\n              if (ISet != 2'b01 )\n                begin\n                  Set_Addr_To_i = aXY;\n                end\n              Set_BusB_To_i[2:0] = SSS;\n              Set_BusB_To_i[3] = 1'b0;\n              if (IR == 8'b00110110 || ISet == 2'b01 )\n                begin\n                  // LD (HL),n\n                  Inc_PC_i = 1'b1;\n                end\n              else\n                begin\n                  NoRead_i= 1'b1;\n                end\n            end\n        end // if (Mode < 2 )\n\n    end // always @ (IR, ISet, MCycle, F, NMICycle, IntCycle)\n",
+                "code": "localparam Mode = 0;   // 0 => Z80, 1 => Fast Z80, 2 => 8080, 3 => GB\nlocalparam Flag_C = 0;\nlocalparam Flag_N = 1;\nlocalparam Flag_P = 2;\nlocalparam Flag_X = 3;\nlocalparam Flag_H = 4;\nlocalparam Flag_Y = 5;\nlocalparam Flag_Z = 6;\nlocalparam Flag_S = 7;\n\n// regs\n  reg [2:0]             MCycles_i                ;\n  assign MCycles = MCycles_i;\n  reg [2:0]             TStates_i                ;\n  assign TStates = TStates_i;\n  reg [1:0]             Prefix_i                 ; // None,BC,ED,DD/FD\n  assign Prefix = Prefix_i;\n  reg                   Inc_PC_i                 ;\n  assign Inc_PC = Inc_PC_i;\n  reg                   Inc_WZ_i                 ;\n  assign Inc_WZ = Inc_WZ_i;\n\n  reg [3:0]             IncDec_16_i               ; // BC,DE,HL,SP   0 is inc\n  assign IncDec_16 = IncDec_16_i;\n\n  reg                   Read_To_Reg_i             ;\n  assign Read_To_Reg = Read_To_Reg_i;\n  reg                   Read_To_Acc_i             ;\n  assign Read_To_Acc = Read_To_Acc_i;\n\n  reg [3:0]             Set_BusA_To_i     ; // B,C,D,E,H,L,DI/DB,A,SP(L),SP(M),0,F\n  assign Set_BusA_To = Set_BusA_To_i;\n  reg [3:0]             Set_BusB_To_i     ; // B,C,D,E,H,L,DI,A,SP(L),SP(M),1,F,PC(L),PC(M),0\n  assign Set_BusB_To = Set_BusB_To_i;\n\n\n  reg [3:0]             ALU_Op_i                  ;\n  assign ALU_Op = ALU_Op_i;\n  reg                   Save_ALU_i                ;\n  assign Save_ALU = Save_ALU_i;\n\n\n  reg                   PreserveC_i              ;\n  assign PreserveC = PreserveC_i;\n  reg                   Arith16_i                ;\n  assign Arith16 = Arith16_i;\n  reg [2:0]             Set_Addr_To_i            ; // aNone,aXY,aIOA,aSP,aBC,aDE,aZI\n  assign Set_Addr_To = Set_Addr_To_i;\n\n\n  reg                   IORQ_i                   ;\n  assign IORQ = IORQ_i;\n  reg                   Jump_i                   ;\n  assign Jump = Jump_i;\n  reg                   JumpE_i                  ;\n  assign JumpE = JumpE_i;\n  reg                   JumpXY_i                 ;\n  assign JumpXY = JumpXY_i;\n\n  reg                   Call_i                    ;\n  assign Call = Call_i;\n  reg                   RstP_i                    ;\n  assign RstP = RstP_i;\n  reg                   LDZ_i                    ;\n  assign LDZ = LDZ_i;\n  reg                   LDW_i                    ;\n  assign LDW = LDW_i;\n  reg                   LDSPHL_i                 ;\n  assign LDSPHL = LDSPHL_i;\n\n  reg [2:0]             Special_LD_i             ; // A,I;A,R;I,A;R,A;None\n  assign Special_LD = Special_LD_i;\n  reg                   ExchangeDH_i              ;\n  assign ExchangeDH = ExchangeDH_i;\n  reg                   ExchangeRp_i             ;\n  assign ExchangeRp = ExchangeRp_i;\n  reg                   ExchangeAF_i             ;\n  assign ExchangeAF = ExchangeAF_i;\n  reg                   ExchangeRS_i             ;\n  assign ExchangeRS = ExchangeRS_i;\n\n\n  reg                   I_DJNZ_i                 ;\n  assign I_DJNZ = I_DJNZ_i;\n  reg                   I_CPL_i                  ;\n  assign I_CPL = I_CPL_i;\n  reg                   I_CCF_i                  ;\n  assign I_CCF = I_CCF_i;\n  reg                   I_SCF_i                  ;\n  assign I_SCF = I_SCF_i;\n  reg                   I_RETN_i                 ;\n  assign I_RETN = I_RETN_i;\n\n  reg                   I_BT_i                   ;\n  reg                   I_BC_i                   ;\n  reg                   I_BTR_i                  ;\n  reg                   I_RLD_i                  ;\n  reg                   I_RRD_i                  ;\n  reg                   I_INRC_i                 ;\n\n\n  reg                   SetDI_i                  ;\n  assign SetDI = SetDI_i;\n  reg                   SetEI_i                  ;\n  assign SetEI = SetEI_i;\n  reg [1:0]             IMode_i                  ;\n  assign IMode = IMode_i;\n\n\n  reg                   Halt_i                   ;\n  assign Halt = Halt_i;\n  reg                   NoRead_i                 ;\n  assign NoRead = NoRead_i;\n  reg                   Write_i  ;\n  assign Write = Write_i;\n\n  parameter             aNone   = 3'b111;\n  parameter             aBC     = 3'b000;\n  parameter             aDE     = 3'b001;\n  parameter             aXY     = 3'b010;\n  parameter             aIOA    = 3'b100;\n  parameter             aSP     = 3'b101;\n  parameter             aZI     = 3'b110;\n  //    constant aNone  : std_logic_vector[2:0] = 3'b000;\n  //    constant aXY    : std_logic_vector[2:0] = 3'b001;\n  //    constant aIOA   : std_logic_vector[2:0] = 3'b010;\n  //    constant aSP    : std_logic_vector[2:0] = 3'b011;\n  //    constant aBC    : std_logic_vector[2:0] = 3'b100;\n  //    constant aDE    : std_logic_vector[2:0] = 3'b101;\n  //    constant aZI    : std_logic_vector[2:0] = 3'b110;\n\n  function is_cc_true;\n    input [7:0] FF;\n    input [2:0] cc;\n    begin\n      if (Mode == 3 )\n        begin\n          case (cc)\n            3'b000  : is_cc_true = FF[7] == 1'b0; // NZ\n            3'b001  : is_cc_true = FF[7] == 1'b1; // Z\n            3'b010  : is_cc_true = FF[4] == 1'b0; // NC\n            3'b011  : is_cc_true = FF[4] == 1'b1; // C\n            3'b100  : is_cc_true = 0;\n            3'b101  : is_cc_true = 0;\n            3'b110  : is_cc_true = 0;\n            3'b111  : is_cc_true = 0;\n          endcase\n        end\n      else\n        begin\n          case (cc)\n            3'b000  : is_cc_true = FF[6] == 1'b0; // NZ\n            3'b001  : is_cc_true = FF[6] == 1'b1; // Z\n            3'b010  : is_cc_true = FF[0] == 1'b0; // NC\n            3'b011  : is_cc_true = FF[0] == 1'b1; // C\n            3'b100  : is_cc_true = FF[2] == 1'b0; // PO\n            3'b101  : is_cc_true = FF[2] == 1'b1; // PE\n            3'b110  : is_cc_true = FF[7] == 1'b0; // P\n            3'b111  : is_cc_true = FF[7] == 1'b1; // M\n          endcase\n        end\n    end\n  endfunction // is_cc_true\n\n\n  reg [2:0] DDD;\n  reg [2:0] SSS;\n  reg [1:0] DPAIR;\n\n  always @ (/*AUTOSENSE*/F or IR or ISet or IntCycle or MCycle\n            or NMICycle)\n    begin\n      DDD = IR[5:3];\n      SSS = IR[2:0];\n      DPAIR = IR[5:4];\n\n      MCycles_i= 3'b001;\n      if (MCycle[0] )\n        begin\n          TStates_i= 3'b100;\n        end\n      else\n        begin\n          TStates_i= 3'b011;\n        end\n      Prefix_i= 2'b00;\n      Inc_PC_i= 1'b0;\n      Inc_WZ_i= 1'b0;\n      IncDec_16_i = 4'b0000;\n      Read_To_Acc_i = 1'b0;\n      Read_To_Reg_i = 1'b0;\n      Set_BusB_To_i = 4'b0000;\n      Set_BusA_To_i = 4'b0000;\n      ALU_Op_i = { 1'b0, IR[5:3] };\n      Save_ALU_i = 1'b0;\n      PreserveC_i= 1'b0;\n      Arith16_i= 1'b0;\n      IORQ_i= 1'b0;\n      Set_Addr_To_i= aNone;\n      Jump_i= 1'b0;\n      JumpE_i= 1'b0;\n      JumpXY_i= 1'b0;\n      Call_i = 1'b0;\n      RstP_i = 1'b0;\n      LDZ_i= 1'b0;\n      LDW_i= 1'b0;\n      LDSPHL_i= 1'b0;\n      Special_LD_i= 3'b000;\n      ExchangeDH_i = 1'b0;\n      ExchangeRp_i= 1'b0;\n      ExchangeAF_i= 1'b0;\n      ExchangeRS_i= 1'b0;\n      I_DJNZ_i= 1'b0;\n      I_CPL_i= 1'b0;\n      I_CCF_i= 1'b0;\n      I_SCF_i= 1'b0;\n      I_RETN_i= 1'b0;\n      I_BT_i= 1'b0;\n      I_BC_i= 1'b0;\n      I_BTR_i= 1'b0;\n      I_RLD_i= 1'b0;\n      I_RRD_i= 1'b0;\n      I_INRC_i= 1'b0;\n      SetDI_i= 1'b0;\n      SetEI_i= 1'b0;\n      IMode_i= 2'b11;\n      Halt_i= 1'b0;\n      NoRead_i= 1'b0;\n      Write_i= 1'b0;\n\n      case (ISet)\n        2'b00  :\n          begin\n\n            //----------------------------------------------------------------------------\n            //\n            //  Unprefixed instructions\n            //\n            //----------------------------------------------------------------------------\n\n            casez (IR)\n              // 8 BIT LOAD GROUP\n              8'b01zzzzzz :\n                begin\n                  if (IR[5:0] == 6'b110110)\n                    Halt_i= 1'b1;\n                  else if (IR[2:0] == 3'b110)\n                    begin\n                      // LD r,(HL)\n                      MCycles_i= 3'b010;\n                      if (MCycle[0])\n                        Set_Addr_To_i= aXY;\n                      if (MCycle[1])\n                        begin\n                          Set_BusA_To_i[2:0] = DDD;\n                          Read_To_Reg_i = 1'b1;\n                        end\n                    end // if (IR[2:0] == 3'b110)\n                  else if (IR[5:3] == 3'b110)\n                    begin\n                      // LD (HL),r\n                      MCycles_i= 3'b010;\n                      if (MCycle[0])\n                        begin\n                          Set_Addr_To_i= aXY;\n                          Set_BusB_To_i[2:0] = SSS;\n                          Set_BusB_To_i[3] = 1'b0;\n                        end\n                      if (MCycle[1])\n                        Write_i= 1'b1;\n                    end // if (IR[5:3] == 3'b110)\n                  else\n                    begin\n                      Set_BusB_To_i[2:0] = SSS;\n                      ExchangeRp_i= 1'b1;\n                      Set_BusA_To_i[2:0] = DDD;\n                      Read_To_Reg_i = 1'b1;\n                    end // else: !if(IR[5:3] == 3'b110)\n                end // case: 8'b01zzzzzz\n\n              8'b00zzz110 :\n                begin\n                  if (IR[5:3] == 3'b110)\n                    begin\n                      // LD (HL),n\n                      MCycles_i= 3'b011;\n                      if (MCycle[1])\n                        begin\n                          Inc_PC_i= 1'b1;\n                          Set_Addr_To_i= aXY;\n                          Set_BusB_To_i[2:0] = SSS;\n                          Set_BusB_To_i[3] = 1'b0;\n                        end\n                      if (MCycle[2])\n                        Write_i= 1'b1;\n                    end // if (IR[5:3] == 3'b110)\n                  else\n                    begin\n                      // LD r,n\n                      MCycles_i= 3'b010;\n                      if (MCycle[1])\n                        begin\n                          Inc_PC_i= 1'b1;\n                          Set_BusA_To_i[2:0] = DDD;\n                          Read_To_Reg_i = 1'b1;\n                        end\n                    end\n                end\n\n              8'b00001010  :\n                begin\n                  // LD A,(BC)\n                  MCycles_i= 3'b010;\n                  if (MCycle[0])\n                    Set_Addr_To_i= aBC;\n                  if (MCycle[1])\n                    Read_To_Acc_i = 1'b1;\n                end // case: 8'b00001010\n\n              8'b00011010  :\n                begin\n                  // LD A,(DE)\n                  MCycles_i= 3'b010;\n                  if (MCycle[0])\n                    Set_Addr_To_i= aDE;\n                  if (MCycle[1])\n                    Read_To_Acc_i = 1'b1;\n                end // case: 8'b00011010\n\n              8'b00111010  :\n                begin\n                  if (Mode == 3 )\n                    begin\n                      // LDD A,(HL)\n                      MCycles_i= 3'b010;\n                      if (MCycle[0])\n                        Set_Addr_To_i= aXY;\n                      if (MCycle[1])\n                        begin\n                          Read_To_Acc_i = 1'b1;\n                          IncDec_16_i = 4'b1110;\n                        end\n                    end\n                  else\n                    begin\n                      // LD A,(nn)\n                      MCycles_i= 3'b100;\n                      if (MCycle[1])\n                        begin\n                          Inc_PC_i= 1'b1;\n                          LDZ_i= 1'b1;\n                        end\n                      if (MCycle[2])\n                        begin\n                          Set_Addr_To_i= aZI;\n                          Inc_PC_i= 1'b1;\n                        end\n                      if (MCycle[3])\n                        begin\n                          Read_To_Acc_i = 1'b1;\n                        end\n                    end // else: !if(Mode == 3 )\n                end // case: 8'b00111010\n\n              8'b00000010  :\n                begin\n                  // LD (BC),A\n                  MCycles_i= 3'b010;\n                  if (MCycle[0])\n                    begin\n                      Set_Addr_To_i= aBC;\n                      Set_BusB_To_i = 4'b0111;\n                    end\n                  if (MCycle[1])\n                    begin\n                      Write_i= 1'b1;\n                    end\n                end // case: 8'b00000010\n\n              8'b00010010  :\n                begin\n                  // LD (DE),A\n                  MCycles_i= 3'b010;\n                  case (1'b1) // MCycle\n                    MCycle[0] :\n                      begin\n                        Set_Addr_To_i= aDE;\n                        Set_BusB_To_i = 4'b0111;\n                      end\n                    MCycle[1] :\n                      Write_i= 1'b1;\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b00010010\n\n              8'b00110010  :\n                begin\n                  if (Mode == 3 )\n                    begin\n                      // LDD (HL),A\n                      MCycles_i= 3'b010;\n                      case (1'b1) // MCycle\n                        MCycle[0] :\n                          begin\n                            Set_Addr_To_i= aXY;\n                            Set_BusB_To_i = 4'b0111;\n                          end\n                        MCycle[1] :\n                          begin\n                            Write_i= 1'b1;\n                            IncDec_16_i = 4'b1110;\n                          end\n                        default :;\n                      endcase // case(MCycle)\n\n                    end\n                  else\n                    begin\n                      // LD (nn),A\n                      MCycles_i= 3'b100;\n                      case (1'b1) // MCycle\n                        MCycle[1] :\n                          begin\n                            Inc_PC_i= 1'b1;\n                            LDZ_i= 1'b1;\n                          end\n                        MCycle[2] :\n                          begin\n                            Set_Addr_To_i= aZI;\n                            Inc_PC_i= 1'b1;\n                            Set_BusB_To_i = 4'b0111;\n                          end\n                        MCycle[3] :\n                          begin\n                            Write_i= 1'b1;\n                          end\n                        default :;\n                      endcase\n                    end // else: !if(Mode == 3 )\n                end // case: 8'b00110010\n\n\n              // 16 BIT LOAD GROUP\n              8'b00000001,8'b00010001,8'b00100001,8'b00110001  :\n                begin\n                  // LD dd,nn\n                  MCycles_i= 3'b011;\n                  case (1'b1) // MCycle\n                    MCycle[1] :\n                      begin\n                        Inc_PC_i= 1'b1;\n                        Read_To_Reg_i = 1'b1;\n                        if (DPAIR == 2'b11 )\n                          begin\n                            Set_BusA_To_i[3:0] = 4'b1000;\n                          end\n                        else\n                          begin\n                            Set_BusA_To_i[2:1] = DPAIR;\n                            Set_BusA_To_i[0] = 1'b1;\n                          end\n                      end // case: 2\n\n                    MCycle[2] :\n                      begin\n                        Inc_PC_i= 1'b1;\n                        Read_To_Reg_i = 1'b1;\n                        if (DPAIR == 2'b11 )\n                          begin\n                            Set_BusA_To_i[3:0] = 4'b1001;\n                          end\n                        else\n                          begin\n                            Set_BusA_To_i[2:1] = DPAIR;\n                            Set_BusA_To_i[0] = 1'b0;\n                          end\n                      end // case: 3\n\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b00000001,8'b00010001,8'b00100001,8'b00110001\n\n              8'b00101010  :\n                begin\n                  if (Mode == 3 )\n                    begin\n                      // LDI A,(HL)\n                      MCycles_i= 3'b010;\n                      case (1'b1) // MCycle\n                        MCycle[0] :\n                          Set_Addr_To_i= aXY;\n                        MCycle[1] :\n                          begin\n                            Read_To_Acc_i = 1'b1;\n                            IncDec_16_i = 4'b0110;\n                          end\n\n                        default :;\n                      endcase\n                    end\n                  else\n                    begin\n                      // LD HL,(nn)\n                      MCycles_i= 3'b101;\n                      case (1'b1) // MCycle\n                        MCycle[1] :\n                          begin\n                            Inc_PC_i= 1'b1;\n                            LDZ_i= 1'b1;\n                          end\n                        MCycle[2] :\n                          begin\n                            Set_Addr_To_i= aZI;\n                            Inc_PC_i= 1'b1;\n                            LDW_i= 1'b1;\n                          end\n                        MCycle[3] :\n                          begin\n                            Set_BusA_To_i[2:0] = 3'b101; // L\n                            Read_To_Reg_i = 1'b1;\n                            Inc_WZ_i= 1'b1;\n                            Set_Addr_To_i= aZI;\n                          end\n                        MCycle[4] :\n                          begin\n                            Set_BusA_To_i[2:0] = 3'b100; // H\n                            Read_To_Reg_i = 1'b1;\n                          end\n                        default :;\n                      endcase\n                    end // else: !if(Mode == 3 )\n                end // case: 8'b00101010\n\n              8'b00100010  :\n                begin\n                  if (Mode == 3 )\n                    begin\n                      // LDI (HL),A\n                      MCycles_i= 3'b010;\n                      case (1'b1) // MCycle\n                        MCycle[0] :\n                          begin\n                            Set_Addr_To_i= aXY;\n                            Set_BusB_To_i = 4'b0111;\n                          end\n                        MCycle[1] :\n                          begin\n                            Write_i= 1'b1;\n                            IncDec_16_i = 4'b0110;\n                          end\n                        default :;\n                      endcase\n                    end\n                  else\n                    begin\n                      // LD (nn),HL\n                      MCycles_i= 3'b101;\n                      case (1'b1) // MCycle\n                        MCycle[1] :\n                          begin\n                            Inc_PC_i= 1'b1;\n                            LDZ_i= 1'b1;\n                          end\n\n                        MCycle[2] :\n                          begin\n                            Set_Addr_To_i= aZI;\n                            Inc_PC_i= 1'b1;\n                            LDW_i= 1'b1;\n                            Set_BusB_To_i = 4'b0101; // L\n                          end\n\n                        MCycle[3] :\n                          begin\n                            Inc_WZ_i= 1'b1;\n                            Set_Addr_To_i= aZI;\n                            Write_i= 1'b1;\n                            Set_BusB_To_i = 4'b0100; // H\n                          end\n                        MCycle[4] :\n                          Write_i= 1'b1;\n                        default :;\n                      endcase\n                    end // else: !if(Mode == 3 )\n                end // case: 8'b00100010\n\n              8'b11111001  :\n                begin\n                  // LD SP,HL\n                  TStates_i= 3'b110;\n                  LDSPHL_i= 1'b1;\n                end\n\n              8'b11zz0101 :\n                begin\n                  // PUSH qq\n                  MCycles_i= 3'b011;\n                  case (1'b1) // MCycle\n                    MCycle[0] :\n                      begin\n                        TStates_i= 3'b101;\n                        IncDec_16_i = 4'b1111;\n                        Set_Addr_To_i= aSP;\n                        if (DPAIR == 2'b11 )\n                          begin\n                            Set_BusB_To_i = 4'b0111;\n                          end\n                        else\n                          begin\n                            Set_BusB_To_i[2:1] = DPAIR;\n                            Set_BusB_To_i[0] = 1'b0;\n                            Set_BusB_To_i[3] = 1'b0;\n                          end\n                      end // case: 1\n\n                    MCycle[1] :\n                      begin\n                        IncDec_16_i = 4'b1111;\n                        Set_Addr_To_i= aSP;\n                        if (DPAIR == 2'b11 )\n                          begin\n                            Set_BusB_To_i = 4'b1011;\n                          end\n                        else\n                          begin\n                            Set_BusB_To_i[2:1] = DPAIR;\n                            Set_BusB_To_i[0] = 1'b1;\n                            Set_BusB_To_i[3] = 1'b0;\n                          end\n                        Write_i= 1'b1;\n                      end // case: 2\n\n                    MCycle[2] :\n                      Write_i= 1'b1;\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b11000101,8'b11010101,8'b11100101,8'b11110101\n\n              8'b11zz0001 :\n                begin\n                  // POP qq\n                  MCycles_i= 3'b011;\n                  case (1'b1) // MCycle\n                    MCycle[0] :\n                      Set_Addr_To_i= aSP;\n                    MCycle[1] :\n                      begin\n                        IncDec_16_i = 4'b0111;\n                        Set_Addr_To_i= aSP;\n                        Read_To_Reg_i = 1'b1;\n                        if (DPAIR == 2'b11 )\n                          begin\n                            Set_BusA_To_i[3:0] = 4'b1011;\n                          end\n                        else\n                          begin\n                            Set_BusA_To_i[2:1] = DPAIR;\n                            Set_BusA_To_i[0] = 1'b1;\n                          end\n                      end // case: 2\n\n                    MCycle[2] :\n                      begin\n                        IncDec_16_i = 4'b0111;\n                        Read_To_Reg_i = 1'b1;\n                        if (DPAIR == 2'b11 )\n                          begin\n                            Set_BusA_To_i[3:0] = 4'b0111;\n                          end\n                        else\n                          begin\n                            Set_BusA_To_i[2:1] = DPAIR;\n                            Set_BusA_To_i[0] = 1'b0;\n                          end\n                      end // case: 3\n\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b11000001,8'b11010001,8'b11100001,8'b11110001\n\n\n              // EXCHANGE, BLOCK TRANSFER AND SEARCH GROUP\n              8'b11101011  :\n                begin\n                  if (Mode != 3 )\n                    begin\n                      // EX DE,HL\n                      ExchangeDH_i = 1'b1;\n                    end\n                end\n\n              8'b00001000  :\n                begin\n                  if (Mode == 3 )\n                    begin\n                      // LD (nn),SP\n                      MCycles_i= 3'b101;\n                      case (1'b1) // MCycle\n                        MCycle[1] :\n                          begin\n                            Inc_PC_i= 1'b1;\n                            LDZ_i= 1'b1;\n                          end\n\n                        MCycle[2] :\n                          begin\n                            Set_Addr_To_i= aZI;\n                            Inc_PC_i= 1'b1;\n                            LDW_i= 1'b1;\n                            Set_BusB_To_i = 4'b1000;\n                          end\n\n                        MCycle[3] :\n                          begin\n                            Inc_WZ_i= 1'b1;\n                            Set_Addr_To_i= aZI;\n                            Write_i= 1'b1;\n                            Set_BusB_To_i = 4'b1001;\n                          end\n\n                        MCycle[4] :\n                          Write_i= 1'b1;\n                        default :;\n                      endcase\n                    end\n                  else if (Mode < 2 )\n                    begin\n                      // EX AF,AF'\n                      ExchangeAF_i= 1'b1;\n                    end\n                end // case: 8'b00001000\n\n              8'b11011001  :\n                begin\n                  if (Mode == 3 )\n                    begin\n                      // RETI\n                      MCycles_i= 3'b011;\n                      case (1'b1) // MCycle\n                        MCycle[0] :\n                          Set_Addr_To_i= aSP;\n                        MCycle[1] :\n                          begin\n                            IncDec_16_i = 4'b0111;\n                            Set_Addr_To_i= aSP;\n                            LDZ_i= 1'b1;\n                          end\n\n                        MCycle[2] :\n                          begin\n                            Jump_i= 1'b1;\n                            IncDec_16_i = 4'b0111;\n                            I_RETN_i= 1'b1;\n                            SetEI_i= 1'b1;\n                          end\n                        default :;\n                      endcase\n                    end\n                  else if (Mode < 2 )\n                    begin\n                      // EXX\n                      ExchangeRS_i= 1'b1;\n                    end\n                end // case: 8'b11011001\n\n              8'b11100011  :\n                begin\n                  if (Mode != 3 )\n                    begin\n                      // EX (SP),HL\n                      MCycles_i= 3'b101;\n                      case (1'b1) // MCycle\n                        MCycle[0] :\n                          Set_Addr_To_i= aSP;\n                        MCycle[1] :\n                          begin\n                            Read_To_Reg_i = 1'b1;\n                            Set_BusA_To_i = 4'b0101;\n                            Set_BusB_To_i = 4'b0101;\n                            Set_Addr_To_i= aSP;\n                          end\n                        MCycle[2] :\n                          begin\n                            IncDec_16_i = 4'b0111;\n                            Set_Addr_To_i= aSP;\n                            TStates_i= 3'b100;\n                            Write_i= 1'b1;\n                          end\n                        MCycle[3] :\n                          begin\n                            Read_To_Reg_i = 1'b1;\n                            Set_BusA_To_i = 4'b0100;\n                            Set_BusB_To_i = 4'b0100;\n                            Set_Addr_To_i= aSP;\n                          end\n                        MCycle[4] :\n                          begin\n                            IncDec_16_i = 4'b1111;\n                            TStates_i= 3'b101;\n                            Write_i= 1'b1;\n                          end\n\n                        default :;\n                      endcase\n                    end // if (Mode != 3 )\n                end // case: 8'b11100011\n\n\n              // 8 BIT ARITHMETIC AND LOGICAL GROUP\n              8'b10zzzzzz :\n                begin\n                  if (IR[2:0] == 3'b110)\n                    begin\n                      // ADD A,(HL)\n                      // ADC A,(HL)\n                      // SUB A,(HL)\n                      // SBC A,(HL)\n                      // AND A,(HL)\n                      // OR A,(HL)\n                      // XOR A,(HL)\n                      // CP A,(HL)\n                      MCycles_i= 3'b010;\n                      case (1'b1) // MCycle\n                        MCycle[0] :\n                          Set_Addr_To_i= aXY;\n                        MCycle[1] :\n                          begin\n                            Read_To_Reg_i = 1'b1;\n                            Save_ALU_i = 1'b1;\n                            Set_BusB_To_i[2:0] = SSS;\n                            Set_BusA_To_i[2:0] = 3'b111;\n                          end\n\n                        default :;\n                      endcase // case(MCycle)\n                    end // if (IR[2:0] == 3'b110)\n                  else\n                    begin\n                      // ADD A,r\n                      // ADC A,r\n                      // SUB A,r\n                      // SBC A,r\n                      // AND A,r\n                      // OR A,r\n                      // XOR A,r\n                      // CP A,r\n                      Set_BusB_To_i[2:0] = SSS;\n                      Set_BusA_To_i[2:0] = 3'b111;\n                      Read_To_Reg_i = 1'b1;\n                      Save_ALU_i = 1'b1;\n                    end // else: !if(IR[2:0] == 3'b110)\n                end // case: 8'b10000000,8'b10000001,8'b10000010,8'b10000011,8'b10000100,8'b10000101,8'b10000111,...\n\n              8'b11zzz110 :\n                begin\n                  // ADD A,n\n                  // ADC A,n\n                  // SUB A,n\n                  // SBC A,n\n                  // AND A,n\n                  // OR A,n\n                  // XOR A,n\n                  // CP A,n\n                  MCycles_i= 3'b010;\n                  if (MCycle[1] )\n                    begin\n                      Inc_PC_i= 1'b1;\n                      Read_To_Reg_i = 1'b1;\n                      Save_ALU_i = 1'b1;\n                      Set_BusB_To_i[2:0] = SSS;\n                      Set_BusA_To_i[2:0] = 3'b111;\n                    end\n                end\n\n              8'b00zzz100 :\n                begin\n                  if (IR[5:3] == 3'b110)\n                    begin\n                      // INC (HL)\n                      MCycles_i= 3'b011;\n                      case (1'b1) // MCycle\n                        MCycle[0] :\n                          Set_Addr_To_i= aXY;\n                        MCycle[1] :\n                          begin\n                            TStates_i= 3'b100;\n                            Set_Addr_To_i= aXY;\n                            Read_To_Reg_i = 1'b1;\n                            Save_ALU_i = 1'b1;\n                            PreserveC_i= 1'b1;\n                            ALU_Op_i = 4'b0000;\n                            Set_BusB_To_i = 4'b1010;\n                            Set_BusA_To_i[2:0] = DDD;\n                          end // case: 2\n\n                        MCycle[2] :\n                          Write_i= 1'b1;\n                        default :;\n                      endcase // case(MCycle)\n                    end // case: 8'b00110100\n                  else\n                    begin\n                      // INC r\n                      Set_BusB_To_i = 4'b1010;\n                      Set_BusA_To_i[2:0] = DDD;\n                      Read_To_Reg_i = 1'b1;\n                      Save_ALU_i = 1'b1;\n                      PreserveC_i= 1'b1;\n                      ALU_Op_i = 4'b0000;\n                    end\n                end\n\n              8'b00zzz101 :\n                begin\n                  if (IR[5:3] == 3'b110)\n                    begin\n                      // DEC (HL)\n                      MCycles_i= 3'b011;\n                      case (1'b1) // MCycle\n                        MCycle[0] :\n                          Set_Addr_To_i= aXY;\n                        MCycle[1] :\n                          begin\n                            TStates_i= 3'b100;\n                            Set_Addr_To_i= aXY;\n                            ALU_Op_i = 4'b0010;\n                            Read_To_Reg_i = 1'b1;\n                            Save_ALU_i = 1'b1;\n                            PreserveC_i= 1'b1;\n                            Set_BusB_To_i = 4'b1010;\n                            Set_BusA_To_i[2:0] = DDD;\n                          end // case: 2\n\n                        MCycle[2] :\n                          Write_i= 1'b1;\n                        default :;\n                      endcase // case(MCycle)\n                    end\n                  else\n                    begin\n                      // DEC r\n                      Set_BusB_To_i = 4'b1010;\n                      Set_BusA_To_i[2:0] = DDD;\n                      Read_To_Reg_i = 1'b1;\n                      Save_ALU_i = 1'b1;\n                      PreserveC_i= 1'b1;\n                      ALU_Op_i = 4'b0010;\n                    end\n                end\n\n              // GENERAL PURPOSE ARITHMETIC AND CPU CONTROL GROUPS\n              8'b00100111  :\n                begin\n                  // DAA\n                  Set_BusA_To_i[2:0] = 3'b111;\n                  Read_To_Reg_i = 1'b1;\n                  ALU_Op_i = 4'b1100;\n                  Save_ALU_i = 1'b1;\n                end\n\n              8'b00101111  :\n                // CPL\n                I_CPL_i= 1'b1;\n\n              8'b00111111  :\n                // CCF\n                I_CCF_i= 1'b1;\n\n              8'b00110111  :\n                // SCF\n                I_SCF_i= 1'b1;\n\n              8'b00000000  :\n                begin\n                  if (NMICycle == 1'b1 )\n                    begin\n                      // NMI\n                      MCycles_i= 3'b011;\n                      case (1'b1) // MCycle\n                        MCycle[0] :\n                          begin\n                            TStates_i= 3'b101;\n                            IncDec_16_i = 4'b1111;\n                            Set_Addr_To_i= aSP;\n                            Set_BusB_To_i = 4'b1101;\n                          end\n\n                        MCycle[1] :\n                          begin\n                            TStates_i= 3'b100;\n                            Write_i= 1'b1;\n                            IncDec_16_i = 4'b1111;\n                            Set_Addr_To_i= aSP;\n                            Set_BusB_To_i = 4'b1100;\n                          end\n\n                        MCycle[2] :\n                          begin\n                            TStates_i= 3'b100;\n                            Write_i= 1'b1;\n                          end\n\n                        default :;\n                      endcase // case(MCycle)\n\n                    end\n                  else if (IntCycle == 1'b1 )\n                    begin\n                      // INT (IM 2)\n                      MCycles_i= 3'b101;\n                      case (1'b1) // MCycle\n                        MCycle[0] :\n                          begin\n                            LDZ_i= 1'b1;\n                            TStates_i= 3'b101;\n                            IncDec_16_i = 4'b1111;\n                            Set_Addr_To_i= aSP;\n                            Set_BusB_To_i = 4'b1101;\n                          end\n\n                        MCycle[1] :\n                          begin\n                            TStates_i= 3'b100;\n                            Write_i= 1'b1;\n                            IncDec_16_i = 4'b1111;\n                            Set_Addr_To_i= aSP;\n                            Set_BusB_To_i = 4'b1100;\n                          end\n\n                        MCycle[2] :\n                          begin\n                            TStates_i= 3'b100;\n                            Write_i= 1'b1;\n                          end\n\n                        MCycle[3] :\n                          begin\n                            Inc_PC_i= 1'b1;\n                            LDZ_i= 1'b1;\n                          end\n\n                        MCycle[4] :\n                          Jump_i= 1'b1;\n                        default :;\n                      endcase\n                    end\n                end // case: 8'b00000000\n\n              8'b11110011  :\n                // DI\n                SetDI_i= 1'b1;\n\n              8'b11111011  :\n                // EI\n                SetEI_i= 1'b1;\n\n              // 16 BIT ARITHMETIC GROUP\n              8'b00zz1001  :\n                begin\n                  // ADD HL,ss\n                  MCycles_i= 3'b011;\n                  case (1'b1) // MCycle\n                    MCycle[1] :\n                      begin\n                        NoRead_i= 1'b1;\n                        ALU_Op_i = 4'b0000;\n                        Read_To_Reg_i = 1'b1;\n                        Save_ALU_i = 1'b1;\n                        Set_BusA_To_i[2:0] = 3'b101;\n                        case (IR[5:4])\n                          0,1,2  :\n                            begin\n                              Set_BusB_To_i[2:1] = IR[5:4];\n                              Set_BusB_To_i[0] = 1'b1;\n                            end\n\n                          default :\n                            Set_BusB_To_i = 4'b1000;\n                        endcase // case(IR[5:4])\n\n                        TStates_i= 3'b100;\n                        Arith16_i= 1'b1;\n                      end // case: 2\n\n                    MCycle[2] :\n                      begin\n                        NoRead_i= 1'b1;\n                        Read_To_Reg_i = 1'b1;\n                        Save_ALU_i = 1'b1;\n                        ALU_Op_i = 4'b0001;\n                        Set_BusA_To_i[2:0] = 3'b100;\n                        case (IR[5:4])\n                          0,1,2  :\n                            Set_BusB_To_i[2:1] = IR[5:4];\n                          default :\n                            Set_BusB_To_i = 4'b1001;\n                        endcase\n                        Arith16_i= 1'b1;\n                      end // case: 3\n\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b00001001,8'b00011001,8'b00101001,8'b00111001\n\n              8'b00zz0011 :\n                begin\n                  // INC ss\n                  TStates_i= 3'b110;\n                  IncDec_16_i[3:2] = 2'b01;\n                  IncDec_16_i[1:0] = DPAIR;\n                end\n\n              8'b00zz1011 :\n                begin\n                  // DEC ss\n                  TStates_i= 3'b110;\n                  IncDec_16_i[3:2] = 2'b11;\n                  IncDec_16_i[1:0] = DPAIR;\n                end\n\n              // ROTATE AND SHIFT GROUP\n              8'b00000111,\n                  // RLCA\n                  8'b00010111,\n                  // RLA\n                  8'b00001111,\n                  // RRCA\n                  8'b00011111 :\n                    // RRA\n                    begin\n                      Set_BusA_To_i[2:0] = 3'b111;\n                      ALU_Op_i = 4'b1000;\n                      Read_To_Reg_i = 1'b1;\n                      Save_ALU_i = 1'b1;\n                    end // case: 8'b00000111,...\n\n\n              // Jump GROUP\n              8'b11000011  :\n                begin\n                  // JP nn\n                  MCycles_i= 3'b011;\n                  if (MCycle[1])\n                    begin\n                      Inc_PC_i= 1'b1;\n                      LDZ_i= 1'b1;\n                    end\n\n                  if (MCycle[2])\n                    begin\n                      Inc_PC_i= 1'b1;\n                      Jump_i= 1'b1;\n                    end\n\n                end // case: 8'b11000011\n\n              8'b11zzz010  :\n                begin\n                  if (IR[5] == 1'b1 && Mode == 3 )\n                    begin\n                      case (IR[4:3])\n                        2'b00  :\n                          begin\n                            // LD ($FF00+C),A\n                            MCycles_i= 3'b010;\n                            case (1'b1) // MCycle\n                              MCycle[0] :\n                                begin\n                                  Set_Addr_To_i= aBC;\n                                  Set_BusB_To_i   = 4'b0111;\n                                end\n                              MCycle[1] :\n                                begin\n                                  Write_i= 1'b1;\n                                  IORQ_i= 1'b1;\n                                end\n\n                              default :;\n                            endcase // case(MCycle)\n                          end // case: 2'b00\n\n                        2'b01  :\n                          begin\n                            // LD (nn),A\n                            MCycles_i= 3'b100;\n                            case (1'b1) // MCycle\n                              MCycle[1] :\n                                begin\n                                  Inc_PC_i= 1'b1;\n                                  LDZ_i= 1'b1;\n                                end\n\n                              MCycle[2] :\n                                begin\n                                  Set_Addr_To_i= aZI;\n                                  Inc_PC_i= 1'b1;\n                                  Set_BusB_To_i = 4'b0111;\n                                end\n\n                              MCycle[3] :\n                                Write_i= 1'b1;\n                              default :;\n                            endcase // case(MCycle)\n                          end // case: default :...\n\n                        2'b10  :\n                          begin\n                            // LD A,($FF00+C)\n                            MCycles_i= 3'b010;\n                            case (1'b1) // MCycle\n                              MCycle[0] :\n                                Set_Addr_To_i= aBC;\n                              MCycle[1] :\n                                begin\n                                  Read_To_Acc_i = 1'b1;\n                                  IORQ_i= 1'b1;\n                                end\n                              default :;\n                            endcase // case(MCycle)\n                          end // case: 2'b10\n\n                        2'b11  :\n                          begin\n                            // LD A,(nn)\n                            MCycles_i= 3'b100;\n                            case (1'b1) // MCycle\n                              MCycle[1] :\n                                begin\n                                  Inc_PC_i= 1'b1;\n                                  LDZ_i= 1'b1;\n                                end\n                              MCycle[2] :\n                                begin\n                                  Set_Addr_To_i= aZI;\n                                  Inc_PC_i= 1'b1;\n                                end\n                              MCycle[3] :\n                                Read_To_Acc_i = 1'b1;\n                              default :;\n                            endcase // case(MCycle)\n                          end\n                      endcase\n                    end\n                  else\n                    begin\n                      // JP cc,nn\n                      MCycles_i= 3'b011;\n                      case (1'b1) // MCycle\n                        MCycle[1] :\n                          begin\n                            Inc_PC_i= 1'b1;\n                            LDZ_i= 1'b1;\n                          end\n                        MCycle[2] :\n                          begin\n                            Inc_PC_i= 1'b1;\n                            if (is_cc_true(F, IR[5:3]) )\n                              begin\n                                Jump_i= 1'b1;\n                              end\n                          end\n\n                        default :;\n                      endcase\n                    end // else: !if(DPAIR == 2'b11 )\n                end // case: 8'b11000010,8'b11001010,8'b11010010,8'b11011010,8'b11100010,8'b11101010,8'b11110010,8'b11111010\n\n              8'b00011000  :\n                begin\n                  if (Mode != 2 )\n                    begin\n                      // JR e\n                      MCycles_i= 3'b011;\n                      case (1'b1) // MCycle\n                        MCycle[1] :\n                          Inc_PC_i= 1'b1;\n                        MCycle[2] :\n                          begin\n                            NoRead_i= 1'b1;\n                            JumpE_i= 1'b1;\n                            TStates_i= 3'b101;\n                          end\n                        default :;\n                      endcase\n                    end // if (Mode != 2 )\n                end // case: 8'b00011000\n\n              // Conditional relative jumps (JR [C/NC/Z/NZ], e)\n              8'b001zz000  :\n                begin\n                  if (Mode != 2 )\n                    begin\n                      MCycles_i= 3'd3;\n                      case (1'b1) // MCycle\n                        MCycle[1] :\n                          begin\n                            Inc_PC_i= 1'b1;\n\n                            case (IR[4:3])\n                              0 : MCycles_i= (F[Flag_Z]) ? 3'd2 : 3'd3;\n                              1 : MCycles_i= (!F[Flag_Z]) ? 3'd2 : 3'd3;\n                              2 : MCycles_i= (F[Flag_C]) ? 3'd2 : 3'd3;\n                              3 : MCycles_i= (!F[Flag_C]) ? 3'd2 : 3'd3;\n                            endcase\n                          end\n\n                        MCycle[2] :\n                          begin\n                            NoRead_i= 1'b1;\n                            JumpE_i= 1'b1;\n                            TStates_i= 3'd5;\n                          end\n                        default :;\n                      endcase\n                    end // if (Mode != 2 )\n                end // case: 8'b00111000\n\n              8'b11101001  :\n                // JP (HL)\n                JumpXY_i= 1'b1;\n\n              8'b00010000  :\n                begin\n                  if (Mode == 3 )\n                    begin\n                      I_DJNZ_i= 1'b1;\n                    end\n                  else if (Mode < 2 )\n                    begin\n                      // DJNZ,e\n                      MCycles_i= 3'b011;\n                      case (1'b1) // MCycle\n                        MCycle[0] :\n                          begin\n                            TStates_i= 3'b101;\n                            I_DJNZ_i= 1'b1;\n                            Set_BusB_To_i = 4'b1010;\n                            Set_BusA_To_i[2:0] = 3'b000;\n                            Read_To_Reg_i = 1'b1;\n                            Save_ALU_i = 1'b1;\n                            ALU_Op_i = 4'b0010;\n                          end\n                        MCycle[1] :\n                          begin\n                            I_DJNZ_i= 1'b1;\n                            Inc_PC_i= 1'b1;\n                          end\n                        MCycle[2] :\n                          begin\n                            NoRead_i= 1'b1;\n                            JumpE_i= 1'b1;\n                            TStates_i= 3'b101;\n                          end\n                        default :;\n                      endcase\n                    end // if (Mode < 2 )\n                end // case: 8'b00010000\n\n\n              // Call_i AND RETURN GROUP\n              8'b11001101  :\n                begin\n                  // Call_i nn\n                  MCycles_i= 3'b101;\n                  case (1'b1) // MCycle\n                    MCycle[1] :\n                      begin\n                        Inc_PC_i= 1'b1;\n                        LDZ_i= 1'b1;\n                      end\n                    MCycle[2] :\n                      begin\n                        IncDec_16_i = 4'b1111;\n                        Inc_PC_i= 1'b1;\n                        TStates_i= 3'b100;\n                        Set_Addr_To_i= aSP;\n                        LDW_i= 1'b1;\n                        Set_BusB_To_i = 4'b1101;\n                      end\n                    MCycle[3] :\n                      begin\n                        Write_i= 1'b1;\n                        IncDec_16_i = 4'b1111;\n                        Set_Addr_To_i= aSP;\n                        Set_BusB_To_i = 4'b1100;\n                      end\n                    MCycle[4] :\n                      begin\n                        Write_i= 1'b1;\n                        Call_i = 1'b1;\n                      end\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b11001101\n\n              8'b11zzz100  :\n                begin\n                  if (IR[5] == 1'b0 || Mode != 3 )\n                    begin\n                      // Call_i cc,nn\n                      MCycles_i= 3'b101;\n                      case (1'b1) // MCycle\n                        MCycle[1] :\n                          begin\n                            Inc_PC_i= 1'b1;\n                            LDZ_i= 1'b1;\n                          end\n                        MCycle[2] :\n                          begin\n                            Inc_PC_i= 1'b1;\n                            LDW_i= 1'b1;\n                            if (is_cc_true(F, IR[5:3]) )\n                              begin\n                                IncDec_16_i = 4'b1111;\n                                Set_Addr_To_i= aSP;\n                                TStates_i= 3'b100;\n                                Set_BusB_To_i = 4'b1101;\n                              end\n                            else\n                              begin\n                                MCycles_i= 3'b011;\n                              end // else: !if(is_cc_true(F, IR[5:3]) )\n                          end // case: 3\n\n                        MCycle[3] :\n                          begin\n                            Write_i= 1'b1;\n                            IncDec_16_i = 4'b1111;\n                            Set_Addr_To_i= aSP;\n                            Set_BusB_To_i = 4'b1100;\n                          end\n\n                        MCycle[4] :\n                          begin\n                            Write_i= 1'b1;\n                            Call_i = 1'b1;\n                          end\n\n                        default :;\n                      endcase\n                    end // if (IR[5] == 1'b0 || Mode != 3 )\n                end // case: 8'b11000100,8'b11001100,8'b11010100,8'b11011100,8'b11100100,8'b11101100,8'b11110100,8'b11111100\n\n              8'b11001001  :\n                begin\n                  // RET\n                  MCycles_i= 3'b011;\n                  case (1'b1) // MCycle\n                    MCycle[0] :\n                      begin\n                        TStates_i= 3'b101;\n                        Set_Addr_To_i= aSP;\n                      end\n\n                    MCycle[1] :\n                      begin\n                        IncDec_16_i = 4'b0111;\n                        Set_Addr_To_i= aSP;\n                        LDZ_i= 1'b1;\n                      end\n\n                    MCycle[2] :\n                      begin\n                        Jump_i= 1'b1;\n                        IncDec_16_i = 4'b0111;\n                      end\n\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b11001001\n\n              8'b11000000,8'b11001000,8'b11010000,8'b11011000,8'b11100000,8'b11101000,8'b11110000,8'b11111000  :\n                begin\n                  if (IR[5] == 1'b1 && Mode == 3 )\n                    begin\n                      case (IR[4:3])\n                        2'b00  :\n                          begin\n                            // LD ($FF00+nn),A\n                            MCycles_i= 3'b011;\n                            case (1'b1) // MCycle\n                              MCycle[1] :\n                                begin\n                                  Inc_PC_i= 1'b1;\n                                  Set_Addr_To_i= aIOA;\n                                  Set_BusB_To_i   = 4'b0111;\n                                end\n\n                              MCycle[2] :\n                                Write_i= 1'b1;\n                              default :;\n                            endcase // case(MCycle)\n                          end // case: 2'b00\n\n                        2'b01  :\n                          begin\n                            // ADD SP,n\n                            MCycles_i= 3'b011;\n                            case (1'b1) // MCycle\n                              MCycle[1] :\n                                begin\n                                  ALU_Op_i = 4'b0000;\n                                  Inc_PC_i= 1'b1;\n                                  Read_To_Reg_i = 1'b1;\n                                  Save_ALU_i = 1'b1;\n                                  Set_BusA_To_i = 4'b1000;\n                                  Set_BusB_To_i = 4'b0110;\n                                end\n\n                              MCycle[2] :\n                                begin\n                                  NoRead_i= 1'b1;\n                                  Read_To_Reg_i = 1'b1;\n                                  Save_ALU_i = 1'b1;\n                                  ALU_Op_i = 4'b0001;\n                                  Set_BusA_To_i = 4'b1001;\n                                  Set_BusB_To_i = 4'b1110;        // Incorrect unsigned !!!!!!!!!!!!!!!!!!!!!\n                                end\n\n                              default :;\n                            endcase // case(MCycle)\n                          end // case: 2'b01\n\n                        2'b10  :\n                          begin\n                            // LD A,($FF00+nn)\n                            MCycles_i= 3'b011;\n                            case (1'b1) // MCycle\n                              MCycle[1] :\n                                begin\n                                  Inc_PC_i= 1'b1;\n                                  Set_Addr_To_i= aIOA;\n                                end\n\n                              MCycle[2] :\n                                Read_To_Acc_i = 1'b1;\n                              default :;\n                            endcase // case(MCycle)\n                          end // case: 2'b10\n\n                        2'b11  :\n                          begin\n                            // LD HL,SP+n       -- Not correct !!!!!!!!!!!!!!!!!!!\n                            MCycles_i= 3'b101;\n                            case (1'b1) // MCycle\n                              MCycle[1] :\n                                begin\n                                  Inc_PC_i= 1'b1;\n                                  LDZ_i= 1'b1;\n                                end\n\n                              MCycle[2] :\n                                begin\n                                  Set_Addr_To_i= aZI;\n                                  Inc_PC_i= 1'b1;\n                                  LDW_i= 1'b1;\n                                end\n\n                              MCycle[3] :\n                                begin\n                                  Set_BusA_To_i[2:0] = 3'b101; // L\n                                  Read_To_Reg_i = 1'b1;\n                                  Inc_WZ_i= 1'b1;\n                                  Set_Addr_To_i= aZI;\n                                end\n\n                              MCycle[4] :\n                                begin\n                                  Set_BusA_To_i[2:0] = 3'b100; // H\n                                  Read_To_Reg_i = 1'b1;\n                                end\n\n                              default :;\n                            endcase // case(MCycle)\n                          end // case: 2'b11\n\n                      endcase // case(IR[4:3])\n\n                    end\n                  else\n                    begin\n                      // RET cc\n                      MCycles_i= 3'b011;\n                      case (1'b1) // MCycle\n                        MCycle[0] :\n                          begin\n                            if (is_cc_true(F, IR[5:3]) )\n                              begin\n                                Set_Addr_To_i= aSP;\n                              end\n                            else\n                              begin\n                                MCycles_i= 3'b001;\n                              end\n                            TStates_i= 3'b101;\n                          end // case: 1\n\n                        MCycle[1] :\n                          begin\n                            IncDec_16_i = 4'b0111;\n                            Set_Addr_To_i= aSP;\n                            LDZ_i= 1'b1;\n                          end\n                        MCycle[2] :\n                          begin\n                            Jump_i= 1'b1;\n                            IncDec_16_i = 4'b0111;\n                          end\n                        default :;\n                      endcase\n                    end // else: !if(IR[5] == 1'b1 && Mode == 3 )\n                end // case: 8'b11000000,8'b11001000,8'b11010000,8'b11011000,8'b11100000,8'b11101000,8'b11110000,8'b11111000\n\n              8'b11000111,8'b11001111,8'b11010111,8'b11011111,8'b11100111,8'b11101111,8'b11110111,8'b11111111  :\n                begin\n                  // RST p\n                  MCycles_i= 3'b011;\n                  case (1'b1) // MCycle\n                    MCycle[0] :\n                      begin\n                        TStates_i= 3'b101;\n                        IncDec_16_i = 4'b1111;\n                        Set_Addr_To_i= aSP;\n                        Set_BusB_To_i = 4'b1101;\n                      end\n\n                    MCycle[1] :\n                      begin\n                        Write_i= 1'b1;\n                        IncDec_16_i = 4'b1111;\n                        Set_Addr_To_i= aSP;\n                        Set_BusB_To_i = 4'b1100;\n                      end\n\n                    MCycle[2] :\n                      begin\n                        Write_i= 1'b1;\n                        RstP_i = 1'b1;\n                      end\n\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b11000111,8'b11001111,8'b11010111,8'b11011111,8'b11100111,8'b11101111,8'b11110111,8'b11111111\n\n              // INPUT AND OUTPUT GROUP\n              8'b11011011  :\n                begin\n                  if (Mode != 3 )\n                    begin\n                      // IN A,(n)\n                      MCycles_i= 3'b011;\n                      case (1'b1) // MCycle\n                        MCycle[1] :\n                          begin\n                            Inc_PC_i= 1'b1;\n                            Set_Addr_To_i= aIOA;\n                          end\n\n                        MCycle[2] :\n                          begin\n                            Read_To_Acc_i = 1'b1;\n                            IORQ_i= 1'b1;\n                          end\n\n                        default :;\n                      endcase\n                    end // if (Mode != 3 )\n                end // case: 8'b11011011\n\n              8'b11010011  :\n                begin\n                  if (Mode != 3 )\n                    begin\n                      // OUT (n),A\n                      MCycles_i= 3'b011;\n                      case (1'b1) // MCycle\n                        MCycle[1] :\n                          begin\n                            Inc_PC_i= 1'b1;\n                            Set_Addr_To_i= aIOA;\n                            Set_BusB_To_i = 4'b0111;\n                          end\n\n                        MCycle[2] :\n                          begin\n                            Write_i= 1'b1;\n                            IORQ_i= 1'b1;\n                          end\n\n                        default :;\n                      endcase\n                    end // if (Mode != 3 )\n                end // case: 8'b11010011\n\n\n              //----------------------------------------------------------------------------\n              //----------------------------------------------------------------------------\n              // MULTIBYTE INSTRUCTIONS\n              //----------------------------------------------------------------------------\n              //----------------------------------------------------------------------------\n\n              8'b11001011  :\n                begin\n                  if (Mode != 2 )\n                    begin\n                      Prefix_i= 2'b01;\n                    end\n                end\n\n              8'b11101101  :\n                begin\n                  if (Mode < 2 )\n                    begin\n                      Prefix_i= 2'b10;\n                    end\n                end\n\n              8'b11011101,8'b11111101  :\n                begin\n                  if (Mode < 2 )\n                    begin\n                      Prefix_i= 2'b11;\n                    end\n                end\n\n            endcase // case(IR)\n          end // case: 2'b00\n\n\n        2'b01  :\n          begin\n\n\n            //----------------------------------------------------------------------------\n            //\n            //  CB prefixed instructions\n            //\n            //----------------------------------------------------------------------------\n\n            Set_BusA_To_i[2:0] = IR[2:0];\n            Set_BusB_To_i[2:0] = IR[2:0];\n\n            casez (IR)\n              8'b00000000,8'b00000001,8'b00000010,8'b00000011,8'b00000100,8'b00000101,8'b00000111,\n              8'b00010000,8'b00010001,8'b00010010,8'b00010011,8'b00010100,8'b00010101,8'b00010111,\n              8'b00001000,8'b00001001,8'b00001010,8'b00001011,8'b00001100,8'b00001101,8'b00001111,\n              8'b00011000,8'b00011001,8'b00011010,8'b00011011,8'b00011100,8'b00011101,8'b00011111,\n              8'b00100000,8'b00100001,8'b00100010,8'b00100011,8'b00100100,8'b00100101,8'b00100111,\n              8'b00101000,8'b00101001,8'b00101010,8'b00101011,8'b00101100,8'b00101101,8'b00101111,\n              8'b00110000,8'b00110001,8'b00110010,8'b00110011,8'b00110100,8'b00110101,8'b00110111,\n              8'b00111000,8'b00111001,8'b00111010,8'b00111011,8'b00111100,8'b00111101,8'b00111111 :\n                begin\n                  // RLC r\n                  // RL r\n                  // RRC r\n                  // RR r\n                  // SLA r\n                  // SRA r\n                  // SRL r\n                  // SLL r (Undocumented) / SWAP r\n                  if (MCycle[0] ) begin\n                    ALU_Op_i = 4'b1000;\n                    Read_To_Reg_i = 1'b1;\n                    Save_ALU_i = 1'b1;\n                  end\n                end // case: 8'b00000000,8'b00000001,8'b00000010,8'b00000011,8'b00000100,8'b00000101,8'b00000111,...\n\n              8'b00zzz110  :\n                begin\n                  // RLC (HL)\n                  // RL (HL)\n                  // RRC (HL)\n                  // RR (HL)\n                  // SRA (HL)\n                  // SRL (HL)\n                  // SLA (HL)\n                  // SLL (HL) (Undocumented) / SWAP (HL)\n                  MCycles_i= 3'b011;\n                  case (1'b1) // MCycle\n                    MCycle[0], MCycle[6] :\n                      Set_Addr_To_i= aXY;\n                    MCycle[1] :\n                      begin\n                        ALU_Op_i = 4'b1000;\n                        Read_To_Reg_i = 1'b1;\n                        Save_ALU_i = 1'b1;\n                        Set_Addr_To_i= aXY;\n                        TStates_i= 3'b100;\n                      end\n\n                    MCycle[2] :\n                      Write_i= 1'b1;\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b00000110,8'b00010110,8'b00001110,8'b00011110,8'b00101110,8'b00111110,8'b00100110,8'b00110110\n\n              8'b01000000,8'b01000001,8'b01000010,8'b01000011,8'b01000100,8'b01000101,8'b01000111,\n                  8'b01001000,8'b01001001,8'b01001010,8'b01001011,8'b01001100,8'b01001101,8'b01001111,\n                  8'b01010000,8'b01010001,8'b01010010,8'b01010011,8'b01010100,8'b01010101,8'b01010111,\n                  8'b01011000,8'b01011001,8'b01011010,8'b01011011,8'b01011100,8'b01011101,8'b01011111,\n                  8'b01100000,8'b01100001,8'b01100010,8'b01100011,8'b01100100,8'b01100101,8'b01100111,\n                  8'b01101000,8'b01101001,8'b01101010,8'b01101011,8'b01101100,8'b01101101,8'b01101111,\n                  8'b01110000,8'b01110001,8'b01110010,8'b01110011,8'b01110100,8'b01110101,8'b01110111,\n                  8'b01111000,8'b01111001,8'b01111010,8'b01111011,8'b01111100,8'b01111101,8'b01111111 :\n                    begin\n                      // BIT b,r\n                      if (MCycle[0] )\n                        begin\n                          Set_BusB_To_i[2:0] = IR[2:0];\n                          ALU_Op_i = 4'b1001;\n                        end\n                    end // case: 8'b01000000,8'b01000001,8'b01000010,8'b01000011,8'b01000100,8'b01000101,8'b01000111,...\n\n              8'b01000110,8'b01001110,8'b01010110,8'b01011110,8'b01100110,8'b01101110,8'b01110110,8'b01111110  :\n                begin\n                  // BIT b,(HL)\n                  MCycles_i= 3'b010;\n                  case (1'b1) // MCycle\n                    MCycle[0], MCycle[6] :\n                      Set_Addr_To_i= aXY;\n                    MCycle[1] :\n                      begin\n                        ALU_Op_i = 4'b1001;\n                        TStates_i= 3'b100;\n                      end\n\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b01000110,8'b01001110,8'b01010110,8'b01011110,8'b01100110,8'b01101110,8'b01110110,8'b01111110\n\n              8'b11000000,8'b11000001,8'b11000010,8'b11000011,8'b11000100,8'b11000101,8'b11000111,\n                  8'b11001000,8'b11001001,8'b11001010,8'b11001011,8'b11001100,8'b11001101,8'b11001111,\n                  8'b11010000,8'b11010001,8'b11010010,8'b11010011,8'b11010100,8'b11010101,8'b11010111,\n                  8'b11011000,8'b11011001,8'b11011010,8'b11011011,8'b11011100,8'b11011101,8'b11011111,\n                  8'b11100000,8'b11100001,8'b11100010,8'b11100011,8'b11100100,8'b11100101,8'b11100111,\n                  8'b11101000,8'b11101001,8'b11101010,8'b11101011,8'b11101100,8'b11101101,8'b11101111,\n                  8'b11110000,8'b11110001,8'b11110010,8'b11110011,8'b11110100,8'b11110101,8'b11110111,\n                  8'b11111000,8'b11111001,8'b11111010,8'b11111011,8'b11111100,8'b11111101,8'b11111111 :\n                    begin\n                      // SET b,r\n                      if (MCycle[0] )\n                        begin\n                          ALU_Op_i = 4'b1010;\n                          Read_To_Reg_i = 1'b1;\n                          Save_ALU_i = 1'b1;\n                        end\n                    end // case: 8'b11000000,8'b11000001,8'b11000010,8'b11000011,8'b11000100,8'b11000101,8'b11000111,...\n\n              8'b11000110,8'b11001110,8'b11010110,8'b11011110,8'b11100110,8'b11101110,8'b11110110,8'b11111110  :\n                begin\n                  // SET b,(HL)\n                  MCycles_i= 3'b011;\n                  case (1'b1) // MCycle\n                    MCycle[0], MCycle[6] :\n                      Set_Addr_To_i= aXY;\n                    MCycle[1] :\n                      begin\n                        ALU_Op_i = 4'b1010;\n                        Read_To_Reg_i = 1'b1;\n                        Save_ALU_i = 1'b1;\n                        Set_Addr_To_i= aXY;\n                        TStates_i= 3'b100;\n                      end\n                    MCycle[2] :\n                      Write_i= 1'b1;\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b11000110,8'b11001110,8'b11010110,8'b11011110,8'b11100110,8'b11101110,8'b11110110,8'b11111110\n\n              8'b10000000,8'b10000001,8'b10000010,8'b10000011,8'b10000100,8'b10000101,8'b10000111,\n                  8'b10001000,8'b10001001,8'b10001010,8'b10001011,8'b10001100,8'b10001101,8'b10001111,\n                  8'b10010000,8'b10010001,8'b10010010,8'b10010011,8'b10010100,8'b10010101,8'b10010111,\n                  8'b10011000,8'b10011001,8'b10011010,8'b10011011,8'b10011100,8'b10011101,8'b10011111,\n                  8'b10100000,8'b10100001,8'b10100010,8'b10100011,8'b10100100,8'b10100101,8'b10100111,\n                  8'b10101000,8'b10101001,8'b10101010,8'b10101011,8'b10101100,8'b10101101,8'b10101111,\n                  8'b10110000,8'b10110001,8'b10110010,8'b10110011,8'b10110100,8'b10110101,8'b10110111,\n                  8'b10111000,8'b10111001,8'b10111010,8'b10111011,8'b10111100,8'b10111101,8'b10111111 :\n                    begin\n                      // RES b,r\n                      if (MCycle[0] )\n                        begin\n                          ALU_Op_i = 4'b1011;\n                          Read_To_Reg_i = 1'b1;\n                          Save_ALU_i = 1'b1;\n                        end\n                    end // case: 8'b10000000,8'b10000001,8'b10000010,8'b10000011,8'b10000100,8'b10000101,8'b10000111,...\n\n              8'b10000110,8'b10001110,8'b10010110,8'b10011110,8'b10100110,8'b10101110,8'b10110110,8'b10111110  :\n                begin\n                  // RES b,(HL)\n                  MCycles_i= 3'b011;\n                  case (1'b1) // MCycle\n                    MCycle[0], MCycle[6] :\n                      Set_Addr_To_i= aXY;\n                    MCycle[1] :\n                      begin\n                        ALU_Op_i = 4'b1011;\n                        Read_To_Reg_i = 1'b1;\n                        Save_ALU_i = 1'b1;\n                        Set_Addr_To_i= aXY;\n                        TStates_i= 3'b100;\n                      end\n\n                    MCycle[2] :\n                      Write_i= 1'b1;\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b10000110,8'b10001110,8'b10010110,8'b10011110,8'b10100110,8'b10101110,8'b10110110,8'b10111110\n\n            endcase // case(IR)\n          end // case: 2'b01\n\n\n        default :\n          begin : default_ed_block\n\n            //----------------------------------------------------------------------------\n            //\n            //  ED prefixed instructions\n            //\n            //----------------------------------------------------------------------------\n\n            casez (IR)\n\t      /*\n\t       * Undocumented NOP instructions commented out to reduce size of mcode\n\t       *\n              8'b00000000,8'b00000001,8'b00000010,8'b00000011,8'b00000100,8'b00000101,8'b00000110,8'b00000111\n                ,8'b00001000,8'b00001001,8'b00001010,8'b00001011,8'b00001100,8'b00001101,8'b00001110,8'b00001111\n                  ,8'b00010000,8'b00010001,8'b00010010,8'b00010011,8'b00010100,8'b00010101,8'b00010110,8'b00010111\n                    ,8'b00011000,8'b00011001,8'b00011010,8'b00011011,8'b00011100,8'b00011101,8'b00011110,8'b00011111\n                      ,8'b00100000,8'b00100001,8'b00100010,8'b00100011,8'b00100100,8'b00100101,8'b00100110,8'b00100111\n                        ,8'b00101000,8'b00101001,8'b00101010,8'b00101011,8'b00101100,8'b00101101,8'b00101110,8'b00101111\n                          ,8'b00110000,8'b00110001,8'b00110010,8'b00110011,8'b00110100,8'b00110101,8'b00110110,8'b00110111\n                            ,8'b00111000,8'b00111001,8'b00111010,8'b00111011,8'b00111100,8'b00111101,8'b00111110,8'b00111111\n\n\n                              ,8'b10000000,8'b10000001,8'b10000010,8'b10000011,8'b10000100,8'b10000101,8'b10000110,8'b10000111\n                                ,8'b10001000,8'b10001001,8'b10001010,8'b10001011,8'b10001100,8'b10001101,8'b10001110,8'b10001111\n                                  ,8'b10010000,8'b10010001,8'b10010010,8'b10010011,8'b10010100,8'b10010101,8'b10010110,8'b10010111\n                                    ,8'b10011000,8'b10011001,8'b10011010,8'b10011011,8'b10011100,8'b10011101,8'b10011110,8'b10011111\n                                      ,                                            8'b10100100,8'b10100101,8'b10100110,8'b10100111\n                                        ,                                            8'b10101100,8'b10101101,8'b10101110,8'b10101111\n                                          ,                                            8'b10110100,8'b10110101,8'b10110110,8'b10110111\n                                            ,                                            8'b10111100,8'b10111101,8'b10111110,8'b10111111\n                                              ,8'b11000000,8'b11000001,8'b11000010,8'b11000011,8'b11000100,8'b11000101,8'b11000110,8'b11000111\n                                                ,8'b11001000,8'b11001001,8'b11001010,8'b11001011,8'b11001100,8'b11001101,8'b11001110,8'b11001111\n                                                  ,8'b11010000,8'b11010001,8'b11010010,8'b11010011,8'b11010100,8'b11010101,8'b11010110,8'b11010111\n                                                    ,8'b11011000,8'b11011001,8'b11011010,8'b11011011,8'b11011100,8'b11011101,8'b11011110,8'b11011111\n                                                      ,8'b11100000,8'b11100001,8'b11100010,8'b11100011,8'b11100100,8'b11100101,8'b11100110,8'b11100111\n                                                        ,8'b11101000,8'b11101001,8'b11101010,8'b11101011,8'b11101100,8'b11101101,8'b11101110,8'b11101111\n                                                          ,8'b11110000,8'b11110001,8'b11110010,8'b11110011,8'b11110100,8'b11110101,8'b11110110,8'b11110111\n                                                            ,8'b11111000,8'b11111001,8'b11111010,8'b11111011,8'b11111100,8'b11111101,8'b11111110,8'b11111111 :\n                                                              ; // NOP, undocumented\n\n              8'b01111110,8'b01111111  :\n                // NOP, undocumented\n                ;\n\t       */\n\n              // 8 BIT LOAD GROUP\n              8'b01010111  :\n                begin\n                  // LD A,I\n                  Special_LD_i= 3'b100;\n                  TStates_i= 3'b101;\n                end\n\n              8'b01011111  :\n                begin\n                  // LD A,R\n                  Special_LD_i= 3'b101;\n                  TStates_i= 3'b101;\n                end\n\n              8'b01000111  :\n                begin\n                  // LD I,A\n                  Special_LD_i= 3'b110;\n                  TStates_i= 3'b101;\n                end\n\n              8'b01001111  :\n                begin\n                  // LD R,A\n                  Special_LD_i= 3'b111;\n                  TStates_i= 3'b101;\n                end\n\n              // 16 BIT LOAD GROUP\n              8'b01001011,8'b01011011,8'b01101011,8'b01111011  :\n                begin\n                  // LD dd,(nn)\n                  MCycles_i= 3'b101;\n                  case (1'b1) // MCycle\n                    MCycle[1] :\n                      begin\n                        Inc_PC_i= 1'b1;\n                        LDZ_i= 1'b1;\n                      end\n\n                    MCycle[2] :\n                      begin\n                        Set_Addr_To_i= aZI;\n                        Inc_PC_i= 1'b1;\n                        LDW_i= 1'b1;\n                      end\n\n                    MCycle[3] :\n                      begin\n                        Read_To_Reg_i = 1'b1;\n                        if (IR[5:4] == 2'b11 )\n                          begin\n                            Set_BusA_To_i = 4'b1000;\n                          end\n                        else\n                          begin\n                            Set_BusA_To_i[2:1] = IR[5:4];\n                            Set_BusA_To_i[0] = 1'b1;\n                          end\n                        Inc_WZ_i= 1'b1;\n                        Set_Addr_To_i= aZI;\n                      end // case: 4\n\n                    MCycle[4] :\n                      begin\n                        Read_To_Reg_i = 1'b1;\n                        if (IR[5:4] == 2'b11 )\n                          begin\n                            Set_BusA_To_i = 4'b1001;\n                          end\n                        else\n                          begin\n                            Set_BusA_To_i[2:1] = IR[5:4];\n                            Set_BusA_To_i[0] = 1'b0;\n                          end\n                      end // case: 5\n\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b01001011,8'b01011011,8'b01101011,8'b01111011\n\n\n              8'b01000011,8'b01010011,8'b01100011,8'b01110011  :\n                begin\n                  // LD (nn),dd\n                  MCycles_i= 3'b101;\n                  case (1'b1) // MCycle\n                    MCycle[1] :\n                      begin\n                        Inc_PC_i= 1'b1;\n                        LDZ_i= 1'b1;\n                      end\n\n                    MCycle[2] :\n                      begin\n                        Set_Addr_To_i= aZI;\n                        Inc_PC_i= 1'b1;\n                        LDW_i= 1'b1;\n                        if (IR[5:4] == 2'b11 )\n                          begin\n                            Set_BusB_To_i = 4'b1000;\n                          end\n                        else\n                          begin\n                            Set_BusB_To_i[2:1] = IR[5:4];\n                            Set_BusB_To_i[0] = 1'b1;\n                            Set_BusB_To_i[3] = 1'b0;\n                          end\n                      end // case: 3\n\n                    MCycle[3] :\n                      begin\n                        Inc_WZ_i= 1'b1;\n                        Set_Addr_To_i= aZI;\n                        Write_i= 1'b1;\n                        if (IR[5:4] == 2'b11 )\n                          begin\n                            Set_BusB_To_i = 4'b1001;\n                          end\n                        else\n                          begin\n                            Set_BusB_To_i[2:1] = IR[5:4];\n                            Set_BusB_To_i[0] = 1'b0;\n                            Set_BusB_To_i[3] = 1'b0;\n                          end\n                      end // case: 4\n\n                    MCycle[4] :\n                      begin\n                        Write_i= 1'b1;\n                      end\n\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b01000011,8'b01010011,8'b01100011,8'b01110011\n\n              8'b10100000 , 8'b10101000 , 8'b10110000 , 8'b10111000  :\n                begin\n                  // LDI, LDD, LDIR, LDDR\n                  MCycles_i= 3'b100;\n                  case (1'b1) // MCycle\n                    MCycle[0] :\n                      begin\n                        Set_Addr_To_i= aXY;\n                        IncDec_16_i = 4'b1100; // BC\n                      end\n\n                    MCycle[1] :\n                      begin\n                        Set_BusB_To_i = 4'b0110;\n                        Set_BusA_To_i[2:0] = 3'b111;\n                        ALU_Op_i = 4'b0000;\n                        Set_Addr_To_i= aDE;\n                        if (IR[3] == 1'b0 )\n                          begin\n                            IncDec_16_i = 4'b0110; // IX\n                          end\n                        else\n                          begin\n                            IncDec_16_i = 4'b1110;\n                          end\n                      end // case: 2\n\n                    MCycle[2] :\n                      begin\n                        I_BT_i= 1'b1;\n                        TStates_i= 3'b101;\n                        Write_i= 1'b1;\n                        if (IR[3] == 1'b0 )\n                          begin\n                            IncDec_16_i = 4'b0101; // DE\n                          end\n                        else\n                          begin\n                            IncDec_16_i = 4'b1101;\n                          end\n                      end // case: 3\n\n                    MCycle[3] :\n                      begin\n                        NoRead_i= 1'b1;\n                        TStates_i= 3'b101;\n                      end\n\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b10100000 , 8'b10101000 , 8'b10110000 , 8'b10111000\n\n              8'b10100001 , 8'b10101001 , 8'b10110001 , 8'b10111001  :\n                begin\n                  // CPI, CPD, CPIR, CPDR\n                  MCycles_i= 3'b100;\n                  case (1'b1) // MCycle\n                    MCycle[0] :\n                      begin\n                        Set_Addr_To_i= aXY;\n                        IncDec_16_i = 4'b1100; // BC\n                      end\n\n                    MCycle[1] :\n                      begin\n                        Set_BusB_To_i = 4'b0110;\n                        Set_BusA_To_i[2:0] = 3'b111;\n                        ALU_Op_i = 4'b0111;\n                        Save_ALU_i = 1'b1;\n                        PreserveC_i= 1'b1;\n                        if (IR[3] == 1'b0 )\n                          begin\n                            IncDec_16_i = 4'b0110;\n                          end\n                        else\n                          begin\n                            IncDec_16_i = 4'b1110;\n                          end\n                      end // case: 2\n\n                    MCycle[2] :\n                      begin\n                        NoRead_i= 1'b1;\n                        I_BC_i= 1'b1;\n                        TStates_i= 3'b101;\n                      end\n\n                    MCycle[3] :\n                      begin\n                        NoRead_i= 1'b1;\n                        TStates_i= 3'b101;\n                      end\n\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b10100001 , 8'b10101001 , 8'b10110001 , 8'b10111001\n\n              8'b01000100,8'b01001100,8'b01010100,8'b01011100,8'b01100100,8'b01101100,8'b01110100,8'b01111100  :\n                begin\n                  // NEG\n                  ALU_Op_i = 4'b0010;\n                  Set_BusB_To_i = 4'b0111;\n                  Set_BusA_To_i = 4'b1010;\n                  Read_To_Acc_i = 1'b1;\n                  Save_ALU_i = 1'b1;\n                end\n\n              8'b01000110,8'b01001110,8'b01100110,8'b01101110  :\n                begin\n                  // IM 0\n                  IMode_i= 2'b00;\n                end\n\n              8'b01010110,8'b01110110  :\n                // IM 1\n                IMode_i= 2'b01;\n\n              8'b01011110,8'b01110111  :\n                // IM 2\n                IMode_i= 2'b10;\n\n              // 16 bit arithmetic\n              8'b01001010,8'b01011010,8'b01101010,8'b01111010  :\n                begin\n                  // ADC HL,ss\n                  MCycles_i= 3'b011;\n                  case (1'b1) // MCycle\n                    MCycle[1] :\n                      begin\n                        NoRead_i= 1'b1;\n                        ALU_Op_i = 4'b0001;\n                        Read_To_Reg_i = 1'b1;\n                        Save_ALU_i = 1'b1;\n                        Set_BusA_To_i[2:0] = 3'b101;\n                        case (IR[5:4])\n                          0,1,2  :\n                            begin\n                              Set_BusB_To_i[2:1] = IR[5:4];\n                              Set_BusB_To_i[0] = 1'b1;\n                            end\n                          default :\n                            Set_BusB_To_i = 4'b1000;\n                        endcase\n                        TStates_i= 3'b100;\n                      end // case: 2\n\n                    MCycle[2] :\n                      begin\n                        NoRead_i= 1'b1;\n                        Read_To_Reg_i = 1'b1;\n                        Save_ALU_i = 1'b1;\n                        ALU_Op_i = 4'b0001;\n                        Set_BusA_To_i[2:0] = 3'b100;\n                        case (IR[5:4])\n                          0,1,2  :\n                            begin\n                              Set_BusB_To_i[2:1] = IR[5:4];\n                              Set_BusB_To_i[0] = 1'b0;\n                            end\n                          default :\n                            Set_BusB_To_i = 4'b1001;\n                        endcase // case(IR[5:4])\n                      end // case: 3\n\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b01001010,8'b01011010,8'b01101010,8'b01111010\n\n              8'b01000010,8'b01010010,8'b01100010,8'b01110010  :\n                begin\n                  // SBC HL,ss\n                  MCycles_i= 3'b011;\n                  case (1'b1) // MCycle\n                    MCycle[1] :\n                      begin\n                        NoRead_i= 1'b1;\n                        ALU_Op_i = 4'b0011;\n                        Read_To_Reg_i = 1'b1;\n                        Save_ALU_i = 1'b1;\n                        Set_BusA_To_i[2:0] = 3'b101;\n                        case (IR[5:4])\n                          0,1,2  :\n                            begin\n                              Set_BusB_To_i[2:1] = IR[5:4];\n                              Set_BusB_To_i[0] = 1'b1;\n                            end\n                          default :\n                            Set_BusB_To_i = 4'b1000;\n                        endcase\n                        TStates_i= 3'b100;\n                      end // case: 2\n\n                    MCycle[2] :\n                      begin\n                        NoRead_i= 1'b1;\n                        ALU_Op_i = 4'b0011;\n                        Read_To_Reg_i = 1'b1;\n                        Save_ALU_i = 1'b1;\n                        Set_BusA_To_i[2:0] = 3'b100;\n                        case (IR[5:4])\n                          0,1,2  :\n                            Set_BusB_To_i[2:1] = IR[5:4];\n                          default :\n                            Set_BusB_To_i = 4'b1001;\n                        endcase\n                      end // case: 3\n\n                    default :;\n\n                  endcase // case(MCycle)\n                end // case: 8'b01000010,8'b01010010,8'b01100010,8'b01110010\n\n              8'b01101111  :\n                begin\n                  // RLD\n                  MCycles_i= 3'b100;\n                  case (1'b1) // MCycle\n                    MCycle[1] :\n                      begin\n                        NoRead_i= 1'b1;\n                        Set_Addr_To_i= aXY;\n                      end\n\n                    MCycle[2] :\n                      begin\n                        Read_To_Reg_i = 1'b1;\n                        Set_BusB_To_i[2:0] = 3'b110;\n                        Set_BusA_To_i[2:0] = 3'b111;\n                        ALU_Op_i = 4'b1101;\n                        TStates_i= 3'b100;\n                        Set_Addr_To_i= aXY;\n                        Save_ALU_i = 1'b1;\n                      end\n\n                    MCycle[3] :\n                      begin\n                        I_RLD_i= 1'b1;\n                        Write_i= 1'b1;\n                      end\n\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b01101111\n\n              8'b01100111  :\n                begin\n                  // RRD\n                  MCycles_i= 3'b100;\n                  case (1'b1) // MCycle\n                    MCycle[1] :\n                      Set_Addr_To_i= aXY;\n                    MCycle[2] :\n                      begin\n                        Read_To_Reg_i = 1'b1;\n                        Set_BusB_To_i[2:0] = 3'b110;\n                        Set_BusA_To_i[2:0] = 3'b111;\n                        ALU_Op_i = 4'b1110;\n                        TStates_i= 3'b100;\n                        Set_Addr_To_i= aXY;\n                        Save_ALU_i = 1'b1;\n                      end\n\n                    MCycle[3] :\n                      begin\n                        I_RRD_i= 1'b1;\n                        Write_i= 1'b1;\n                      end\n\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b01100111\n\n              8'b01000101,8'b01001101,8'b01010101,8'b01011101,8'b01100101,8'b01101101,8'b01110101,8'b01111101  :\n                begin\n                  // RETI, RETN\n                  MCycles_i= 3'b011;\n                  case (1'b1) // MCycle\n                    MCycle[0] :\n                      Set_Addr_To_i= aSP;\n\n                    MCycle[1] :\n                      begin\n                        IncDec_16_i = 4'b0111;\n                        Set_Addr_To_i= aSP;\n                        LDZ_i= 1'b1;\n                      end\n\n                    MCycle[2] :\n                      begin\n                        Jump_i= 1'b1;\n                        IncDec_16_i = 4'b0111;\n                        I_RETN_i= 1'b1;\n                      end\n\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b01000101,8'b01001101,8'b01010101,8'b01011101,8'b01100101,8'b01101101,8'b01110101,8'b01111101\n\n              8'b01000000,8'b01001000,8'b01010000,8'b01011000,8'b01100000,8'b01101000,8'b01110000,8'b01111000  :\n                begin\n                  // IN r,(C)\n                  MCycles_i= 3'b010;\n                  case (1'b1) // MCycle\n                    MCycle[0] :\n                      Set_Addr_To_i= aBC;\n\n                    MCycle[1] :\n                      begin\n                        IORQ_i= 1'b1;\n                        if (IR[5:3] != 3'b110 )\n                          begin\n                            Read_To_Reg_i = 1'b1;\n                            Set_BusA_To_i[2:0] = IR[5:3];\n                          end\n                        I_INRC_i= 1'b1;\n                      end\n\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b01000000,8'b01001000,8'b01010000,8'b01011000,8'b01100000,8'b01101000,8'b01110000,8'b01111000\n\n              8'b01000001,8'b01001001,8'b01010001,8'b01011001,8'b01100001,8'b01101001,8'b01110001,8'b01111001  :\n                begin\n                  // OUT (C),r\n                  // OUT (C),0\n                  MCycles_i= 3'b010;\n                  case (1'b1) // MCycle\n                    MCycle[0] :\n                      begin\n                        Set_Addr_To_i= aBC;\n                        Set_BusB_To_i[2:0]        = IR[5:3];\n                        if (IR[5:3] == 3'b110 )\n                          begin\n                            Set_BusB_To_i[3] = 1'b1;\n                          end\n                      end\n\n                    MCycle[1] :\n                      begin\n                        Write_i= 1'b1;\n                        IORQ_i= 1'b1;\n                      end\n\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b01000001,8'b01001001,8'b01010001,8'b01011001,8'b01100001,8'b01101001,8'b01110001,8'b01111001\n\n              8'b10100010 , 8'b10101010 , 8'b10110010 , 8'b10111010  :\n                begin\n                  // INI, IND, INIR, INDR\n                  MCycles_i= 3'b100;\n                  case (1'b1) // MCycle\n                    MCycle[0] :\n                      begin\n                        Set_Addr_To_i= aBC;\n                        Set_BusB_To_i = 4'b1010;\n                        Set_BusA_To_i = 4'b0000;\n                        Read_To_Reg_i = 1'b1;\n                        Save_ALU_i = 1'b1;\n                        ALU_Op_i = 4'b0010;\n                      end\n\n                    MCycle[1] :\n                      begin\n                        IORQ_i= 1'b1;\n                        Set_BusB_To_i = 4'b0110;\n                        Set_Addr_To_i= aXY;\n                      end\n\n                    MCycle[2] :\n                      begin\n                        if (IR[3] == 1'b0 )\n                          begin\n\t\t\t    IncDec_16_i = 4'b0110;\n                          end\n                        else\n                          begin\n\t\t\t    IncDec_16_i = 4'b1110;\n                          end\n                        TStates_i= 3'b100;\n                        Write_i= 1'b1;\n                        I_BTR_i= 1'b1;\n                      end // case: 3\n\n                    MCycle[3] :\n                      begin\n                        NoRead_i= 1'b1;\n                        TStates_i= 3'b101;\n                      end\n\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b10100010 , 8'b10101010 , 8'b10110010 , 8'b10111010\n\n              8'b10100011 , 8'b10101011 , 8'b10110011 , 8'b10111011  :\n                begin\n                  // OUTI, OUTD, OTIR, OTDR\n                  MCycles_i= 3'b100;\n                  case (1'b1) // MCycle\n                    MCycle[0] :\n                      begin\n                        TStates_i= 3'b101;\n                        Set_Addr_To_i= aXY;\n                        Set_BusB_To_i = 4'b1010;\n                        Set_BusA_To_i = 4'b0000;\n                        Read_To_Reg_i = 1'b1;\n                        Save_ALU_i = 1'b1;\n                        ALU_Op_i = 4'b0010;\n                      end\n\n                    MCycle[1] :\n                      begin\n                        Set_BusB_To_i = 4'b0110;\n                        Set_Addr_To_i= aBC;\n                        if (IR[3] == 1'b0 )\n                          begin\n                            IncDec_16_i = 4'b0110;\n                          end\n                        else\n                          begin\n                            IncDec_16_i = 4'b1110;\n                          end\n                      end\n\n                    MCycle[2] :\n                      begin\n                        if (IR[3] == 1'b0 )\n                          begin\n                            IncDec_16_i = 4'b0010;\n                          end\n                        else\n                          begin\n                            IncDec_16_i = 4'b1010;\n                          end\n                        IORQ_i= 1'b1;\n                        Write_i= 1'b1;\n                        I_BTR_i= 1'b1;\n                      end // case: 3\n\n                    MCycle[3] :\n                      begin\n                        NoRead_i= 1'b1;\n                        TStates_i= 3'b101;\n                      end\n\n                    default :;\n                  endcase // case(MCycle)\n                end // case: 8'b10100011 , 8'b10101011 , 8'b10110011 , 8'b10111011\n\n              default : ;\n\n            endcase // case(IR)\n          end // block: default_ed_block\n      endcase // case(ISet)\n\n      if (Mode == 1 )\n        begin\n          if (MCycle[0] )\n            begin\n              //TStates_i= 3'b100;\n            end\n          else\n            begin\n              TStates_i= 3'b011;\n            end\n        end\n\n      if (Mode == 3 )\n        begin\n          if (MCycle[0] )\n            begin\n              //TStates_i= 3'b100;\n            end\n          else\n            begin\n              TStates_i= 3'b100;\n            end\n        end\n\n      if (Mode < 2 )\n        begin\n          if (MCycle[5] )\n            begin\n              Inc_PC_i= 1'b1;\n              if (Mode == 1 )\n                begin\n                  Set_Addr_To_i= aXY;\n                  TStates_i= 3'b100;\n                  Set_BusB_To_i[2:0] = SSS;\n                  Set_BusB_To_i[3] = 1'b0;\n                end\n              if (IR == 8'b00110110 || IR == 8'b11001011 )\n                begin\n                  Set_Addr_To_i= aNone;\n                end\n            end\n          if (MCycle[6] )\n            begin\n              if (Mode == 0 )\n                begin\n                  TStates_i= 3'b101;\n                end\n              if (ISet != 2'b01 )\n                begin\n                  Set_Addr_To_i= aXY;\n                end\n              Set_BusB_To_i[2:0] = SSS;\n              Set_BusB_To_i[3] = 1'b0;\n              if (IR == 8'b00110110 || ISet == 2'b01 )\n                begin\n                  // LD (HL),n\n                  Inc_PC_i= 1'b1;\n                end\n              else\n                begin\n                  NoRead_i= 1'b1;\n                end\n            end\n        end // if (Mode < 2 )\n\n    end // always @ (IR, ISet, MCycle, F, NMICycle, IntCycle)\n    ",
                 "params": [],
                 "ports": {
                   "in": [
@@ -26428,7 +26565,7 @@
           "wires": [
             {
               "source": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "iorq"
               },
               "target": {
@@ -26442,7 +26579,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "6ccfdf51-b885-49b3-b68a-7f5442cf58f7",
+                "block": "74d20c79-4e87-44ad-98ba-c2b1225410e7",
                 "port": "iorq"
               }
             },
@@ -26462,7 +26599,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "clk"
               }
             },
@@ -26472,7 +26609,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "6ccfdf51-b885-49b3-b68a-7f5442cf58f7",
+                "block": "74d20c79-4e87-44ad-98ba-c2b1225410e7",
                 "port": "clk"
               }
             },
@@ -26492,7 +26629,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "reset_n"
               }
             },
@@ -26502,7 +26639,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "6ccfdf51-b885-49b3-b68a-7f5442cf58f7",
+                "block": "74d20c79-4e87-44ad-98ba-c2b1225410e7",
                 "port": "reset_n"
               }
             },
@@ -26512,7 +26649,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "6ccfdf51-b885-49b3-b68a-7f5442cf58f7",
+                "block": "74d20c79-4e87-44ad-98ba-c2b1225410e7",
                 "port": "no_read"
               }
             },
@@ -26532,7 +26669,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "cen"
               }
             },
@@ -26542,7 +26679,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "6ccfdf51-b885-49b3-b68a-7f5442cf58f7",
+                "block": "74d20c79-4e87-44ad-98ba-c2b1225410e7",
                 "port": "cen"
               }
             },
@@ -26552,14 +26689,15 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "6ccfdf51-b885-49b3-b68a-7f5442cf58f7",
+                "block": "74d20c79-4e87-44ad-98ba-c2b1225410e7",
                 "port": "write"
               }
             },
             {
               "source": {
                 "block": "9009c653-d4d5-488d-b74f-9001f1f007d9",
-                "port": "out"
+                "port": "out",
+                "size": 8
               },
               "target": {
                 "block": "94d4bceb-97ef-42b1-84ee-df8c7fff17cf",
@@ -26573,8 +26711,9 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "6ccfdf51-b885-49b3-b68a-7f5442cf58f7",
-                "port": "di"
+                "block": "74d20c79-4e87-44ad-98ba-c2b1225410e7",
+                "port": "di",
+                "size": 8
               },
               "size": 8
             },
@@ -26584,8 +26723,9 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
-                "port": "dinst"
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
+                "port": "dinst",
+                "size": 8
               },
               "size": 8
             },
@@ -26595,15 +26735,17 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
-                "port": "di"
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
+                "port": "di",
+                "size": 8
               },
               "size": 8
             },
             {
               "source": {
-                "block": "6ccfdf51-b885-49b3-b68a-7f5442cf58f7",
-                "port": "di_reg"
+                "block": "74d20c79-4e87-44ad-98ba-c2b1225410e7",
+                "port": "di_reg",
+                "size": 8
               },
               "target": {
                 "block": "6bc26324-c003-4219-998b-69daec52a430",
@@ -26613,8 +26755,9 @@
             },
             {
               "source": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
-                "port": "mc"
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
+                "port": "mc",
+                "size": 7
               },
               "target": {
                 "block": "bd5f96f6-7472-4bb5-b171-361a29fc56b5",
@@ -26628,15 +26771,17 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "6ccfdf51-b885-49b3-b68a-7f5442cf58f7",
-                "port": "mcycle"
+                "block": "74d20c79-4e87-44ad-98ba-c2b1225410e7",
+                "port": "mcycle",
+                "size": 7
               },
               "size": 7
             },
             {
               "source": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
-                "port": "ts"
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
+                "port": "ts",
+                "size": 7
               },
               "target": {
                 "block": "6302d182-8dc2-436f-a59d-2a81e17c8dad",
@@ -26650,14 +26795,15 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "6ccfdf51-b885-49b3-b68a-7f5442cf58f7",
-                "port": "tstate"
+                "block": "74d20c79-4e87-44ad-98ba-c2b1225410e7",
+                "port": "tstate",
+                "size": 7
               },
               "size": 7
             },
             {
               "source": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "intcycle_n"
               },
               "target": {
@@ -26671,7 +26817,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "6ccfdf51-b885-49b3-b68a-7f5442cf58f7",
+                "block": "74d20c79-4e87-44ad-98ba-c2b1225410e7",
                 "port": "intcycle_n"
               }
             },
@@ -26691,7 +26837,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "wait_n"
               }
             },
@@ -26701,7 +26847,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "6ccfdf51-b885-49b3-b68a-7f5442cf58f7",
+                "block": "74d20c79-4e87-44ad-98ba-c2b1225410e7",
                 "port": "wait_n"
               }
             },
@@ -26721,7 +26867,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "int_n"
               }
             },
@@ -26741,7 +26887,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "nmi_n"
               }
             },
@@ -26761,13 +26907,13 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "busrq_n"
               }
             },
             {
               "source": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "m1_n"
               },
               "target": {
@@ -26787,7 +26933,7 @@
             },
             {
               "source": {
-                "block": "6ccfdf51-b885-49b3-b68a-7f5442cf58f7",
+                "block": "74d20c79-4e87-44ad-98ba-c2b1225410e7",
                 "port": "mreq_n"
               },
               "target": {
@@ -26807,7 +26953,7 @@
             },
             {
               "source": {
-                "block": "6ccfdf51-b885-49b3-b68a-7f5442cf58f7",
+                "block": "74d20c79-4e87-44ad-98ba-c2b1225410e7",
                 "port": "iorq_n"
               },
               "target": {
@@ -26827,7 +26973,7 @@
             },
             {
               "source": {
-                "block": "6ccfdf51-b885-49b3-b68a-7f5442cf58f7",
+                "block": "74d20c79-4e87-44ad-98ba-c2b1225410e7",
                 "port": "wr_n"
               },
               "target": {
@@ -26847,7 +26993,7 @@
             },
             {
               "source": {
-                "block": "6ccfdf51-b885-49b3-b68a-7f5442cf58f7",
+                "block": "74d20c79-4e87-44ad-98ba-c2b1225410e7",
                 "port": "rd_n"
               },
               "target": {
@@ -26867,7 +27013,7 @@
             },
             {
               "source": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "rfsh_n"
               },
               "target": {
@@ -26897,7 +27043,7 @@
             },
             {
               "source": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "halt_n"
               },
               "target": {
@@ -26917,7 +27063,7 @@
             },
             {
               "source": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "busak_n"
               },
               "target": {
@@ -26932,14 +27078,16 @@
               },
               "target": {
                 "block": "d8afee16-1b38-4907-875a-60e69eccac4e",
-                "port": "in"
+                "port": "in",
+                "size": 16
               },
               "size": 16
             },
             {
               "source": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
-                "port": "A"
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
+                "port": "A",
+                "size": 16
               },
               "target": {
                 "block": "80e5f837-ae41-40e1-a105-f72a9013c12f",
@@ -26949,8 +27097,9 @@
             },
             {
               "source": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
-                "port": "dout"
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
+                "port": "dout",
+                "size": 8
               },
               "target": {
                 "block": "be78c7d4-1df4-4ffa-8f2a-953789286fb4",
@@ -26965,13 +27114,14 @@
               },
               "target": {
                 "block": "2ae0b1f2-c68b-406a-866a-e9947c2423ce",
-                "port": "in"
+                "port": "in",
+                "size": 8
               },
               "size": 8
             },
             {
               "source": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "Arith16_r"
               },
               "target": {
@@ -26985,7 +27135,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "b02f8201-4d27-4ad2-b076-acdb5c95534e",
+                "block": "e65c354c-1e8c-4ef3-bda2-057af507e441",
                 "port": "Arith16"
               }
             },
@@ -26995,13 +27145,13 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "b02f8201-4d27-4ad2-b076-acdb5c95534e",
+                "block": "e65c354c-1e8c-4ef3-bda2-057af507e441",
                 "port": "Z16"
               }
             },
             {
               "source": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "Z16_r"
               },
               "target": {
@@ -27015,15 +27165,17 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "b02f8201-4d27-4ad2-b076-acdb5c95534e",
-                "port": "ALU_Op"
+                "block": "e65c354c-1e8c-4ef3-bda2-057af507e441",
+                "port": "ALU_Op",
+                "size": 4
               },
               "size": 4
             },
             {
               "source": {
                 "block": "d5d52d08-9c48-4fa4-ba67-1c820d026a17",
-                "port": "7703d474-9708-4706-a961-8807a4be9699"
+                "port": "7703d474-9708-4706-a961-8807a4be9699",
+                "size": 6
               },
               "target": {
                 "block": "f8f12e97-d25b-4e3d-b0ce-2a4997f78dfb",
@@ -27037,15 +27189,17 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "b02f8201-4d27-4ad2-b076-acdb5c95534e",
-                "port": "IR"
+                "block": "e65c354c-1e8c-4ef3-bda2-057af507e441",
+                "port": "IR",
+                "size": 6
               },
               "size": 6
             },
             {
               "source": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
-                "port": "ISet"
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
+                "port": "ISet",
+                "size": 2
               },
               "target": {
                 "block": "89c6b511-6253-4245-9293-bae8e88f918e",
@@ -27059,15 +27213,17 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "b02f8201-4d27-4ad2-b076-acdb5c95534e",
-                "port": "ISet"
+                "block": "e65c354c-1e8c-4ef3-bda2-057af507e441",
+                "port": "ISet",
+                "size": 2
               },
               "size": 2
             },
             {
               "source": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
-                "port": "BusA"
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
+                "port": "BusA",
+                "size": 8
               },
               "target": {
                 "block": "cac817c0-1817-4a08-a1f1-faf0874d4789",
@@ -27081,8 +27237,9 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "b02f8201-4d27-4ad2-b076-acdb5c95534e",
-                "port": "BusA"
+                "block": "e65c354c-1e8c-4ef3-bda2-057af507e441",
+                "port": "BusA",
+                "size": 8
               },
               "size": 8
             },
@@ -27092,15 +27249,17 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "b02f8201-4d27-4ad2-b076-acdb5c95534e",
-                "port": "BusB"
+                "block": "e65c354c-1e8c-4ef3-bda2-057af507e441",
+                "port": "BusB",
+                "size": 8
               },
               "size": 8
             },
             {
               "source": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
-                "port": "BusB"
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
+                "port": "BusB",
+                "size": 8
               },
               "target": {
                 "block": "a94558d8-450c-41af-b036-a6ece91f9741",
@@ -27114,15 +27273,17 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "b02f8201-4d27-4ad2-b076-acdb5c95534e",
-                "port": "F_In"
+                "block": "e65c354c-1e8c-4ef3-bda2-057af507e441",
+                "port": "F_In",
+                "size": 8
               },
               "size": 8
             },
             {
               "source": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
-                "port": "F"
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
+                "port": "F",
+                "size": 8
               },
               "target": {
                 "block": "eb374ede-a8bd-45e3-b7f6-d62b4e107435",
@@ -27132,8 +27293,9 @@
             },
             {
               "source": {
-                "block": "b02f8201-4d27-4ad2-b076-acdb5c95534e",
-                "port": "Q"
+                "block": "e65c354c-1e8c-4ef3-bda2-057af507e441",
+                "port": "Q",
+                "size": 8
               },
               "target": {
                 "block": "cb8fa1aa-5a8d-4171-a15f-a68f881796d2",
@@ -27147,15 +27309,17 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
-                "port": "ALU_Q"
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
+                "port": "ALU_Q",
+                "size": 8
               },
               "size": 8
             },
             {
               "source": {
-                "block": "b02f8201-4d27-4ad2-b076-acdb5c95534e",
-                "port": "F_Out"
+                "block": "e65c354c-1e8c-4ef3-bda2-057af507e441",
+                "port": "F_Out",
+                "size": 8
               },
               "target": {
                 "block": "10d9a312-7054-4293-a55b-8e1275741d8a",
@@ -27169,15 +27333,17 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
-                "port": "F_Out"
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
+                "port": "F_Out",
+                "size": 8
               },
               "size": 8
             },
             {
               "source": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
-                "port": "ALU_Op_r"
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
+                "port": "ALU_Op_r",
+                "size": 4
               },
               "target": {
                 "block": "651b9daa-b245-4d86-9207-786ac75a4e49",
@@ -27207,7 +27373,7 @@
             },
             {
               "source": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "ClkEn"
               },
               "target": {
@@ -27227,7 +27393,7 @@
             },
             {
               "source": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "RegWEH"
               },
               "target": {
@@ -27247,7 +27413,7 @@
             },
             {
               "source": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "RegWEL"
               },
               "target": {
@@ -27257,8 +27423,9 @@
             },
             {
               "source": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
-                "port": "RegAddrA"
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
+                "port": "RegAddrA",
+                "size": 3
               },
               "target": {
                 "block": "aa574585-41c3-4781-bb80-2ab22757bc6e",
@@ -27273,7 +27440,8 @@
               },
               "target": {
                 "block": "187156d8-8481-45c6-b34a-550ad9714dca",
-                "port": "AddrA"
+                "port": "AddrA",
+                "size": 3
               },
               "size": 3
             },
@@ -27284,14 +27452,16 @@
               },
               "target": {
                 "block": "187156d8-8481-45c6-b34a-550ad9714dca",
-                "port": "AddrB"
+                "port": "AddrB",
+                "size": 3
               },
               "size": 3
             },
             {
               "source": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
-                "port": "RegAddrB"
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
+                "port": "RegAddrB",
+                "size": 3
               },
               "target": {
                 "block": "c5a5272a-450b-42f3-b7ba-fdeef8a59090",
@@ -27306,14 +27476,16 @@
               },
               "target": {
                 "block": "187156d8-8481-45c6-b34a-550ad9714dca",
-                "port": "AddrC"
+                "port": "AddrC",
+                "size": 3
               },
               "size": 3
             },
             {
               "source": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
-                "port": "RegAddrC"
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
+                "port": "RegAddrC",
+                "size": 3
               },
               "target": {
                 "block": "1d269ff0-d0ed-4b7a-835d-512706b555af",
@@ -27328,14 +27500,16 @@
               },
               "target": {
                 "block": "187156d8-8481-45c6-b34a-550ad9714dca",
-                "port": "DIH"
+                "port": "DIH",
+                "size": 8
               },
               "size": 8
             },
             {
               "source": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
-                "port": "RegDIH"
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
+                "port": "RegDIH",
+                "size": 8
               },
               "target": {
                 "block": "0dc901aa-286d-4d6e-b145-8a6ea2f4aaff",
@@ -27350,14 +27524,16 @@
               },
               "target": {
                 "block": "187156d8-8481-45c6-b34a-550ad9714dca",
-                "port": "DIL"
+                "port": "DIL",
+                "size": 8
               },
               "size": 8
             },
             {
               "source": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
-                "port": "RegDIL"
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
+                "port": "RegDIL",
+                "size": 8
               },
               "target": {
                 "block": "98c605c1-e1f7-43f1-9e39-3fe9a7397f5f",
@@ -27368,7 +27544,8 @@
             {
               "source": {
                 "block": "1c62e369-8341-467a-816a-86138ca3fc93",
-                "port": "84292ebb-60eb-48e2-bdac-43cdd0d604af"
+                "port": "84292ebb-60eb-48e2-bdac-43cdd0d604af",
+                "size": 16
               },
               "target": {
                 "block": "34f03b2a-b05f-49c5-ae62-fd0ac54db4a8",
@@ -27382,8 +27559,9 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
-                "port": "RegBusA"
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
+                "port": "RegBusA",
+                "size": 16
               },
               "size": 16
             },
@@ -27393,8 +27571,9 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
-                "port": "RegBusB"
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
+                "port": "RegBusB",
+                "size": 16
               },
               "size": 16
             },
@@ -27404,15 +27583,17 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
-                "port": "RegBusC"
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
+                "port": "RegBusC",
+                "size": 16
               },
               "size": 16
             },
             {
               "source": {
                 "block": "ef2948b4-9103-48e5-b5df-fa5d5b12c48e",
-                "port": "84292ebb-60eb-48e2-bdac-43cdd0d604af"
+                "port": "84292ebb-60eb-48e2-bdac-43cdd0d604af",
+                "size": 16
               },
               "target": {
                 "block": "cb1a2cb2-bdd9-4319-a84a-1b7978a8834f",
@@ -27423,7 +27604,8 @@
             {
               "source": {
                 "block": "b1474a5c-4150-44e4-a31b-2931a5fddcd6",
-                "port": "84292ebb-60eb-48e2-bdac-43cdd0d604af"
+                "port": "84292ebb-60eb-48e2-bdac-43cdd0d604af",
+                "size": 16
               },
               "target": {
                 "block": "75110e7b-f502-4cd7-9c02-ad43eeff9a49",
@@ -27433,8 +27615,9 @@
             },
             {
               "source": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
-                "port": "IR"
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
+                "port": "IR",
+                "size": 8
               },
               "target": {
                 "block": "94da4a28-96ce-418f-b422-cedf42eaf6a9",
@@ -27448,8 +27631,9 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
-                "port": "IR"
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
+                "port": "IR",
+                "size": 8
               },
               "size": 8
             },
@@ -27459,15 +27643,17 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
-                "port": "ISet"
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
+                "port": "ISet",
+                "size": 2
               },
               "size": 2
             },
             {
               "source": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
-                "port": "mcycle"
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
+                "port": "mcycle",
+                "size": 7
               },
               "target": {
                 "block": "077b0468-da58-49d2-8c06-1679d241f730",
@@ -27481,14 +27667,15 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
-                "port": "F"
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
+                "port": "F",
+                "size": 8
               },
               "size": 8
             },
             {
               "source": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "NMICycle"
               },
               "target": {
@@ -27502,13 +27689,13 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
                 "port": "NMICycle"
               }
             },
             {
               "source": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "IntCycle"
               },
               "target": {
@@ -27522,7 +27709,7 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
                 "port": "IntCycle"
               }
             },
@@ -27532,15 +27719,17 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
-                "port": "mcycles_d"
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
+                "port": "mcycles_d",
+                "size": 3
               },
               "size": 3
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
-                "port": "MCycles"
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
+                "port": "MCycles",
+                "size": 3
               },
               "target": {
                 "block": "c38ad879-1f74-4f22-b760-893eb0844753",
@@ -27550,8 +27739,9 @@
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
-                "port": "TStates"
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
+                "port": "TStates",
+                "size": 3
               },
               "target": {
                 "block": "3fc5243b-4a21-4041-a1e9-fb0f10472c44",
@@ -27565,15 +27755,17 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
-                "port": "tstates"
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
+                "port": "tstates",
+                "size": 3
               },
               "size": 3
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
-                "port": "Prefix"
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
+                "port": "Prefix",
+                "size": 2
               },
               "target": {
                 "block": "78c38954-300d-4bad-abaf-8ee4d94e6ba6",
@@ -27587,8 +27779,9 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
-                "port": "Prefix"
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
+                "port": "Prefix",
+                "size": 2
               },
               "size": 2
             },
@@ -27598,13 +27791,13 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "Inc_PC"
               }
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
                 "port": "Inc_PC"
               },
               "target": {
@@ -27614,7 +27807,7 @@
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
                 "port": "Inc_WZ"
               },
               "target": {
@@ -27624,8 +27817,9 @@
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
-                "port": "IncDec_16"
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
+                "port": "IncDec_16",
+                "size": 4
               },
               "target": {
                 "block": "e54b4f40-56b3-4366-915a-84a67650dac9",
@@ -27639,13 +27833,13 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "Inc_WZ"
               }
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
                 "port": "Read_To_Reg"
               },
               "target": {
@@ -27659,8 +27853,9 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
-                "port": "IncDec_16"
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
+                "port": "IncDec_16",
+                "size": 4
               },
               "size": 4
             },
@@ -27670,13 +27865,13 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "Read_To_Reg"
               }
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
                 "port": "Read_To_Acc"
               },
               "target": {
@@ -27690,14 +27885,15 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "Read_To_Acc"
               }
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
-                "port": "Set_BusA_To"
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
+                "port": "Set_BusA_To",
+                "size": 4
               },
               "target": {
                 "block": "cc677f84-d555-4404-839f-19c76092ef59",
@@ -27711,15 +27907,17 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
-                "port": "Set_BusA_To"
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
+                "port": "Set_BusA_To",
+                "size": 4
               },
               "size": 4
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
-                "port": "Set_BusB_To"
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
+                "port": "Set_BusB_To",
+                "size": 4
               },
               "target": {
                 "block": "41af9fd7-6c41-4cc3-8377-0cc5e193d738",
@@ -27733,15 +27931,17 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
-                "port": "Set_BusB_To"
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
+                "port": "Set_BusB_To",
+                "size": 4
               },
               "size": 4
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
-                "port": "ALU_Op"
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
+                "port": "ALU_Op",
+                "size": 4
               },
               "target": {
                 "block": "e7d8dcf3-a111-4d38-8bc0-eedc282498f8",
@@ -27755,15 +27955,17 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
-                "port": "ALU_Op"
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
+                "port": "ALU_Op",
+                "size": 4
               },
               "size": 4
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
-                "port": "Set_Addr_To"
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
+                "port": "Set_Addr_To",
+                "size": 3
               },
               "target": {
                 "block": "7be70359-76b5-4fb8-bf84-b23e970ec3b6",
@@ -27777,15 +27979,17 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
-                "port": "Set_Addr_To"
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
+                "port": "Set_Addr_To",
+                "size": 3
               },
               "size": 3
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
-                "port": "Special_LD"
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
+                "port": "Special_LD",
+                "size": 3
               },
               "target": {
                 "block": "243eb97f-3482-44ab-88da-2f47558d6730",
@@ -27799,15 +28003,17 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
-                "port": "Special_LD"
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
+                "port": "Special_LD",
+                "size": 3
               },
               "size": 3
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
-                "port": "IMode"
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
+                "port": "IMode",
+                "size": 2
               },
               "target": {
                 "block": "2ac94730-f9ad-4b83-959d-a65e392f9c79",
@@ -27821,14 +28027,15 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
-                "port": "IMode"
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
+                "port": "IMode",
+                "size": 2
               },
               "size": 2
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
                 "port": "Save_ALU"
               },
               "target": {
@@ -27842,13 +28049,13 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "Save_ALU"
               }
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
                 "port": "PreserveC"
               },
               "target": {
@@ -27862,13 +28069,13 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "PreserveC"
               }
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
                 "port": "Arith16"
               },
               "target": {
@@ -27882,13 +28089,13 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "Arith16"
               }
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
                 "port": "IORQ"
               },
               "target": {
@@ -27902,13 +28109,13 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "iorq_i"
               }
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
                 "port": "Jump"
               },
               "target": {
@@ -27922,13 +28129,13 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "Jump"
               }
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
                 "port": "JumpE"
               },
               "target": {
@@ -27942,13 +28149,13 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "JumpE"
               }
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
                 "port": "JumpXY"
               },
               "target": {
@@ -27962,13 +28169,13 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "JumpXY"
               }
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
                 "port": "Call"
               },
               "target": {
@@ -27982,13 +28189,13 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "Call"
               }
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
                 "port": "RstP"
               },
               "target": {
@@ -28002,13 +28209,13 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "RstP"
               }
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
                 "port": "LDZ"
               },
               "target": {
@@ -28022,13 +28229,13 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "LDZ"
               }
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
                 "port": "LDW"
               },
               "target": {
@@ -28042,13 +28249,13 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "LDW"
               }
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
                 "port": "LDSPHL"
               },
               "target": {
@@ -28062,13 +28269,13 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "LDSPHL"
               }
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
                 "port": "ExchangeDH"
               },
               "target": {
@@ -28082,13 +28289,13 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "ExchangeDH"
               }
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
                 "port": "ExchangeRp"
               },
               "target": {
@@ -28102,13 +28309,13 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "ExchangeRp"
               }
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
                 "port": "ExchangeAF"
               },
               "target": {
@@ -28122,13 +28329,13 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "ExchangeAF"
               }
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
                 "port": "ExchangeRS"
               },
               "target": {
@@ -28142,13 +28349,13 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "ExchangeRS"
               }
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
                 "port": "I_DJNZ"
               },
               "target": {
@@ -28162,13 +28369,13 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "I_DJNZ"
               }
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
                 "port": "I_CPL"
               },
               "target": {
@@ -28182,13 +28389,13 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "I_CPL"
               }
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
                 "port": "I_CCF"
               },
               "target": {
@@ -28202,13 +28409,13 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "I_CCF"
               }
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
                 "port": "I_SCF"
               },
               "target": {
@@ -28222,13 +28429,13 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "I_SCF"
               }
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
                 "port": "I_RETN"
               },
               "target": {
@@ -28242,13 +28449,13 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "I_RETN"
               }
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
                 "port": "I_BT"
               },
               "target": {
@@ -28262,13 +28469,13 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "I_BT"
               }
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
                 "port": "I_BC"
               },
               "target": {
@@ -28282,13 +28489,13 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "I_BC"
               }
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
                 "port": "I_BTR"
               },
               "target": {
@@ -28302,13 +28509,13 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "I_BTR"
               }
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
                 "port": "I_RLD"
               },
               "target": {
@@ -28322,13 +28529,13 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "I_RLD"
               }
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
                 "port": "I_RRD"
               },
               "target": {
@@ -28342,13 +28549,13 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "I_RRD"
               }
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
                 "port": "I_INRC"
               },
               "target": {
@@ -28362,13 +28569,13 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "I_INRC"
               }
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
                 "port": "SetDI"
               },
               "target": {
@@ -28382,13 +28589,13 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "SetDI"
               }
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
                 "port": "SetEI"
               },
               "target": {
@@ -28402,13 +28609,13 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "SetEI"
               }
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
                 "port": "Halt"
               },
               "target": {
@@ -28422,13 +28629,13 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "Halt"
               }
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
                 "port": "NoRead"
               },
               "target": {
@@ -28438,7 +28645,7 @@
             },
             {
               "source": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
                 "port": "Write"
               },
               "target": {
@@ -28452,14 +28659,15 @@
                 "port": "outlabel"
               },
               "target": {
-                "block": "a4967663-7198-4299-b22e-02061852c217",
-                "port": "MCycle"
+                "block": "31656c85-c3e1-4997-8799-0ffb1c9727c6",
+                "port": "MCycle",
+                "size": 7
               },
               "size": 7
             },
             {
               "source": {
-                "block": "f797bce4-a6f9-4fba-9ee3-39ae05737d05",
+                "block": "36e6b72a-8a26-4307-805a-c445138afe59",
                 "port": "IR"
               },
               "target": {
@@ -28788,142 +28996,6 @@
                 "port": "in"
               },
               "size": 16
-            }
-          ]
-        }
-      }
-    },
-    "45b46121e920e3d12d72c978c700771c89ce64f0": {
-      "package": {
-        "name": "encoder-2-1",
-        "version": "0.1",
-        "description": "A standard 2-to-1 encoder with nz (not-zero) output",
-        "author": "Juan González-Gómez (Obijuan)",
-        "image": "%3Csvg%20width=%22151.747%22%20height=%2274.119%22%20viewBox=%220%200%20142.2633%2069.487129%22%20xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cpath%20fill=%22#00f%22%20fill-rule=%22evenodd%22%20d=%22M0%200h28.125v28.125H0zM0%2041.362h28.125v28.125H0zM114.138%2021.959h28.125v28.125h-28.125z%22/%3E%3Cpath%20d=%22M40.94%2027.932h37.25V14.895l24.832%2021.729L78.19%2058.353V45.316H40.94v-8.692z%22%20stroke=%22#000%22%20stroke-miterlimit=%2210%22%20pointer-events=%22all%22%20stroke-width=%22.938%22/%3E%3C/svg%3E",
-        "otid": 1652447581615
-      },
-      "design": {
-        "graph": {
-          "blocks": [
-            {
-              "id": "b97337fb-2814-484d-b9d7-ff9aebe4de2b",
-              "type": "basic.output",
-              "data": {
-                "name": "out"
-              },
-              "position": {
-                "x": 1136,
-                "y": -192
-              }
-            },
-            {
-              "id": "bccf523e-a4b1-42f4-a396-796a3fde9129",
-              "type": "basic.input",
-              "data": {
-                "name": "1",
-                "clock": false
-              },
-              "position": {
-                "x": 640,
-                "y": -192
-              }
-            },
-            {
-              "id": "1492dc34-4c69-48c3-87fd-2da6f77b0e3f",
-              "type": "basic.output",
-              "data": {
-                "name": "nz"
-              },
-              "position": {
-                "x": 1136,
-                "y": -16
-              }
-            },
-            {
-              "id": "d9293102-2bf9-49d6-90a2-52cca5ea8023",
-              "type": "basic.input",
-              "data": {
-                "name": "0",
-                "clock": false
-              },
-              "position": {
-                "x": 640,
-                "y": 0
-              }
-            },
-            {
-              "id": "a95aa969-52fa-4cf1-bc2b-821cc4c42584",
-              "type": "873425949b2a80f1a7f66f320796bcd068a59889",
-              "position": {
-                "x": 960,
-                "y": -16
-              },
-              "size": {
-                "width": 96,
-                "height": 64
-              }
-            },
-            {
-              "id": "c94ea917-7e1b-4f41-b8d1-94d65fdfbef1",
-              "type": "basic.info",
-              "data": {
-                "info": "## Truth table\n\n| i1 | i0 | out | nz |\n|----|----|-----|----|\n| 0  | 0  |  0  | 0  |\n| 0  | 1  |  0  | 1  |\n| 1  | 0  |  1  | 1  |\n| 1  | 1  |  1  | 1  |",
-                "readonly": true
-              },
-              "position": {
-                "x": 1336,
-                "y": -184
-              },
-              "size": {
-                "width": 216,
-                "height": 152
-              }
-            }
-          ],
-          "wires": [
-            {
-              "source": {
-                "block": "d9293102-2bf9-49d6-90a2-52cca5ea8023",
-                "port": "out"
-              },
-              "target": {
-                "block": "a95aa969-52fa-4cf1-bc2b-821cc4c42584",
-                "port": "97b51945-d716-4b6c-9db9-970d08541249"
-              },
-              "vertices": []
-            },
-            {
-              "source": {
-                "block": "a95aa969-52fa-4cf1-bc2b-821cc4c42584",
-                "port": "664caf9e-5f40-4df4-800a-b626af702e62"
-              },
-              "target": {
-                "block": "1492dc34-4c69-48c3-87fd-2da6f77b0e3f",
-                "port": "in"
-              },
-              "vertices": []
-            },
-            {
-              "source": {
-                "block": "bccf523e-a4b1-42f4-a396-796a3fde9129",
-                "port": "out"
-              },
-              "target": {
-                "block": "a95aa969-52fa-4cf1-bc2b-821cc4c42584",
-                "port": "18c2ebc7-5152-439c-9b3f-851c59bac834"
-              },
-              "vertices": []
-            },
-            {
-              "source": {
-                "block": "bccf523e-a4b1-42f4-a396-796a3fde9129",
-                "port": "out"
-              },
-              "target": {
-                "block": "b97337fb-2814-484d-b9d7-ff9aebe4de2b",
-                "port": "in"
-              },
-              "vertices": []
             }
           ]
         }
